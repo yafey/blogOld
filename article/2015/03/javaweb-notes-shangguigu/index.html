@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="zh"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2) - YaFey 的博客</title>
+  <meta name="author" content="<a href='https://github.com/yafey'>YaFey</a>">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="OpooPressSiteRoot" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Generator" content="OpooPress-1.1.1"/>
+  <meta name="Generated" content="2015-03-09T18:13:45+08:00"/>
+  <link rel="canonical" href="/article/2015/03/javaweb-notes-shangguigu/">
+  
+  
+  <link href="/favicon.ico" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="YaFey 的博客" type="application/atom+xml">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic|PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="/plugins/syntax-highlighter/styles/shCoreDefault.css"/>
+  <!--[if lt IE 9]><script src="/javascripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+  <!--[if lt IE 9]><script src="/javascripts/unsupported-browser.js"></script><![endif]-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">YaFey 的博客</a></h1>
+    <h2>记录点点滴滴</h2>
+</hgroup>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:http://yoursite.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="搜索"/>
+  </fieldset>
+</form>
+<fieldset class="mobile-nav">
+  <select onchange="if (this.value) { window.location.href = this.value;}">
+    <option value="">导航&hellip;</option>
+    <option value="/">&raquo; 文章</option>
+    <option value="/archives/">&raquo; 归档</option>
+    <option value="/category/">&raquo; 分类</option>
+    <option value="/sample-page.html">&raquo; 示例页面</option>
+    <option value="/about/">&raquo; 关于</option>
+  </select>
+</fieldset>
+
+<ul class="main-navigation">
+<li><a href="/">文章</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/category/">分类</a></li>
+<li><a href="/sample-page.html">示例页面</a></li>
+<li><a href="/about/">关于</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+<div>
+<article class="hentry" role="article">
+  <header>
+      <h1 class="entry-title">JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)</h1>
+
+      <p class="meta">
+		
+
+
+<time datetime="2015-03-07T13:54:00+08:00" pubdate>2015年03月07日 13:54:00</time>
+      </p>
+  </header>
+
+  <div class="entry-content"><blockquote><h1>内容概要</h1>
+<ul>
+<li><a href="#0.javaweb-what">0. JavaWEB 概述</a><ul>
+<li>Servelt 与 Servlet 容器</li>
+<li>Servlet容器的概念</li>
+</ul>
+</li>
+<li><a href="#1.eclipse-build-web-dev-environment"><strong>1. 利用 Eclipse 搭建 JavaWEB 运行环境</strong></a></li>
+<li>Servlet 接口</li>
+<li>在 web.xml 描述文件中配置 Servlet</li>
+<li>Servlet 生命周期</li>
+<li>ServletConfig 接口</li>
+<li>ServletContext 接口</li>
+<li>配置并获取当前 Servlet 的初始化参数</li>
+<li>配置并获取当前 WEB 应用的初始化参数</li>
+<li>GET、POST 请求</li>
+<li>ServletRequest、HttpServletRequest 接口</li>
+<li>ServletResponse、HttpServletResponse 接口</li>
+<li>GenericServlet 接口</li>
+<li>HttpServlet 接口</li>
+<li>请求转发</li>
+<li>请求的重定向</li>
+</ul>
+</blockquote>
+<h1><span id="0.javaweb-what">0. JavaWeb应用的概念</span></h1>
+<ul>
+<li><strong>在Sun的Java Servlet规范中</strong>，对<strong><code>Java Web应用</code></strong>作了这样定义：<strong>“Java Web应用由一组Servlet、HTML页、类、以及其它可以被绑定的资源构成。它可以在各种供应商提供的实现Servlet规范的 Servlet容器 中运行。”</strong></li>
+<li>Java Web应用中可以包含如下内容:<ul>
+<li>Servlet</li>
+<li>JSP</li>
+<li>实用类</li>
+<li>静态文档如HTML、图片等</li>
+<li>描述Web应用的信息（web.xml）</li>
+</ul>
+</li>
+</ul>
+<h2>Servelt 与 Servlet 容器</h2>
+<p><img src="/blog_images/program/javaweb/0.servlet-and-servlet-contain.jpg" alt="Servelt 与 Servlet 容器" title="Servelt 与 Servlet 容器" /></p>
+<h2>Servlet容器的概念</h2>
+<ul>
+<li>Servlet容器为JavaWeb应用提供<span style="color:red"><strong>运行时环境</strong></span>，它负责<strong>管理Servlet和JSP的生命周期，以及管理它们的共享数据</strong>。</li>
+<li><strong>Servlet容器</strong>也称为<strong>JavaWeb应用容器</strong>，或者<strong>Servlet/JSP容器</strong>。</li>
+<li>目前最流行的Servlet容器软件括:<ul>
+<li><strong>Tomcat</strong></li>
+<li>Jetty</li>
+<li>Resin</li>
+<li>J2EE服务器（如Weblogic）中也提供了内置的Servlet容器</li>
+</ul>
+</li>
+</ul>
+<h1><span id="1.eclipse-build-web-dev-environment">1. 利用 Eclipse 搭建 JavaWEB 运行环境</span></h1>
+<ol>
+<li>Tomcat 配置 参见 另一个笔记 <a href="/article/2015/03/tomcat-notes-shangguigu/">Tomcat学习笔记@尚硅谷</a></li>
+<li>Eclipse 搭建 JavaWeb 运行环境 参见另一个笔记 <a href="/article/2015/03/eclipse-notes-shangguigu/#1.javaEE-version-develop-dynamic-web-project">Eclipse优化配置笔记@尚硅谷 # 1. 使用 JavaEE 版的 Eclipse 开发动态的 WEB 工程 </a></li>
+</ol>
+<h1><span id="2.servlet-interface">2. Servlet 接口</span></h1>
+<h2>Servlet 简介</h2>
+<ul>
+<li>Java Servlet是和平台无关的服务器端组件，它运行在Servlet容器中。<span style="color:red;"><strong>Servlet容器负责Servlet和客户的通信以及调用Servlet的方法</strong></span>，Servlet和客户的通信采用“请求/响应”的模式。</li>
+<li>Servlet可完成如下功能：<ul>
+<li>创建并返回基于客户请求的 <strong>动态HTML页面</strong>。</li>
+<li>创建可嵌入到现有HTML 页面中的部分HTML 页面（HTML 片段）。</li>
+<li>与其它服务器资源（如数据库或基于Java的应用程序）进行通信。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/blog_images/program/javaweb/2.servlet-interface.jpg" alt="Servelt 与 Servlet 容器" title="Servelt 与 Servlet 容器" /></p>
+<h2>创建一个 Servlet</h2>
+<ul>
+<li>接口 的实现类 ( implements Servlet)(参考 Evernote上)</li>
+<li>在 web.xml 描述文件中配置 Servlet (配置路径的注意点)<ul>
+<li>同一个Servlet可以被映射到多个URL上，即<strong>多个 <code>&lt;servlet-mapping&gt; 元素</code></strong>的<strong><code>&lt;servlet-name&gt;子元素</code>的设置值</strong>可以是<strong>同一个Servlet的注册名</strong>。</li>
+</ul>
+</li>
+</ul>
+<h2>Servlet 生命周期</h2>
+<p>以下方法都是由 Serlvet 容器负责调用.</p>
+<ol>
+<li>构造器: 只被调用一次. 只有第一次请求 Servlet 时, 创建 Servlet 的实例. 调用构造器.
+这说明 Serlvet 的单实例的!</li>
+<li>init 方法: 只被调用一次. 在创建好实例后立即被调用. 用于初始化当前 Servlet.</li>
+<li>service: 被多次调用. 每次请求都会调用 service 方法. 实际用于响应请求的.</li>
+<li>destroy: 只被调用一次. 在当前 Servlet 所在的 WEB 应用被卸载前调用. 用于释放当前 Servlet 所占用的资源.</li>
+</ol>
+<p>load-on-startup 参数: 值越小,优先级越高, 0为最高.</p>
+<h2>ServletConfig 接口</h2>
+<p>封装了 Serlvet 的配置信息, 并且可以获取 ServletContext 对象</p>
+<ol>
+<li>配置 Serlvet 的初始化参数<pre class='brush:xml'>&lt;servlet&gt;
+&lt;servlet-name&gt;helloServlet&lt;/servlet-name&gt;
+&lt;servlet-class&gt;com.atguigu.javaweb.HelloServlet&lt;/servlet-class&gt;
+&lt;!-- 配置 Serlvet 的初始化参数。 且节点必须在 load-on-startup 节点的前面 --&gt;
+&lt;init-param&gt;
+    &lt;!-- 参数名 --&gt;
+    &lt;param-name&gt;user&lt;/param-name&gt;
+    &lt;!-- 参数值 --&gt;
+    &lt;param-value&gt;root&lt;/param-value&gt;
+&lt;/init-param&gt;
+&lt;init-param&gt;
+    &lt;param-name&gt;password&lt;/param-name&gt;
+    &lt;param-value&gt;1230&lt;/param-value&gt;
+&lt;/init-param&gt;
+
+&lt;load-on-startup&gt;-1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+</pre></li>
+<li>获取初始化参数:<ul>
+<li><code>getInitParameter(String name): //获取指定参数名的初始化参数</code></li>
+<li><code>getInitParameterNames(): //获取参数名组成的 Enumeration 对象.</code><pre class='brush:java'>String user = servletConfig.getInitParameter("user");
+System.out.println("user： " + user);
+Enumeration&lt;String&gt; names = servletConfig.getInitParameterNames();
+while(names.hasMoreElements()){
+String name = names.nextElement();
+String value = servletConfig.getInitParameter(name);
+System.out.println("^^" + name + ": " + value);
+}
+</pre></li>
+</ul>
+</li>
+<li>获取 Serlvet 的配置名称(了解)<pre class='brush:java'>ServletConfig.getServletName() ; // Servlet的xml中配置的name
+</pre></li>
+</ol>
+<h2>ServletContext 接口</h2>
+<ol>
+<li>可以由  SerlvetConfig 获取:<pre class='brush:java'>ServletContext servletContext = servletConfig.getServletContext();
+</pre></li>
+<li>该对象代表<strong>当前 WEB 应用</strong>: 可以认为 SerlvetContext 是当前 WEB 应用的一个大管家. 可以从中获取到当前 WEB 应用的各个方面的信息.<br /><ol>
+<li>获取当前 WEB 应用的初始化参数
+设置初始化参数: 可以为所有的 Servlet 所获取, 而 Servlet 的初始化参数只用那个 Serlvet 可以获取.<pre class='brush:xml'>&lt;!-- 配置当前 WEB 应用的初始化参数 --&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;driver&lt;/param-name&gt;
+&lt;param-value&gt;com.mysql.jdbc.Driver&lt;/param-value&gt;
+&lt;/context-param&gt;
+</pre>方法:<pre class='brush:java'>getInitParameter
+getInitParameterNames   
+</pre>代码:<pre class='brush:java'>ServletContext servletContext = servletConfig.getServletContext();
+String driver = servletContext.getInitParameter("driver");
+System.out.println("driver:" + driver);
+Enumeration&lt;String&gt; names2 = servletContext.getInitParameterNames();
+while(names2.hasMoreElements()){
+String name = names2.nextElement();
+System.out.println("--&gt;" + name); 
+}
+</pre></li>
+<li>获取当前 WEB 应用的某一个文件在服务器上的绝对路径, 而不是部署前的路径<pre class='brush:java'>getRealPath(String path);
+</pre>代码:<pre class='brush:java'>String realPath = servletContext.getRealPath("/note.txt");
+System.out.println(realPath);
+</pre></li>
+<li>获取当前 WEB 应用的名称:<pre class='brush:java'>getContextPath()
+</pre>代码:<pre class='brush:java'>String contextPath = servletContext.getContextPath();
+System.out.println(contextPath); 
+</pre></li>
+<li>获取当前 WEB 应用的某一个文件对应的输入流.<pre class='brush:java'>getResourceAsStream(String path): path 的 / 为当前 WEB 应用的根目录. 
+</pre>代码:<pre class='brush:java'>InputStream is2 = servletContext.getResourceAsStream("/WEB-INF/classes/jdbc.properties");  // 根路径为 Web应用的根目录.
+</pre><blockquote><p>另一种 获得文件的方式:</p>
+<pre class='brush:java'>ClassLoader classLoader = this.getClass().getClassLoader();
+InputStream is = classLoader.getResourceAsStream("jdbc.properties");  // 根路径为 src 下.
+</pre></blockquote>
+</li>
+<li>和 attribute 相关的几个方法: 可以用于绑定全局属性</li>
+</ol>
+</li>
+</ol>
+<h2>ServletRequest、HttpServletRequest 接口</h2>
+<ul>
+<li>Servlet API 中定义的 ServletRequest 接口类用于封装请求消息。</li>
+<li>HttpServletRequest 是专用于<strong>HTTP协议的</strong>ServletRequest 子接口，它用于封装 HTTP 请求消息。</li>
+<li>在 service() 方法内部调用 HttpServletRequest 对象的各种方法来获取请求消息。</li>
+</ul>
+<h3>获取请求参数</h3>
+<ul>
+<li>getParameter方法</li>
+<li>getParameterValues方法</li>
+<li>getParameterNames方法</li>
+<li>getParameterMap方法</li>
+</ul>
+<h3>请求域属性</h3>
+<ul>
+<li>存储在ServletRequest对象中的对象称之为请求域属性，属于同一个请求的多个处理模块之间可以通过请求域属性来传递对象数据。</li>
+<li>与请求域属性相关的方法：<ul>
+<li>setAttribute方法</li>
+<li>getAttribute方法<br  /></li>
+<li>removeAttribute方法</li>
+<li>getAttributeNames方法</li>
+</ul>
+</li>
+</ul>
+<h3>获取请求行的相关信息</h3>
+<p>HTTP请求消息的请求行包括请求方式、资源路径和HTTP协议版本：
+<code>GET /lampbrother/servlet/RequestURI?param1=a&amp;param2=b HTTP/1.1</code></p>
+<ul>
+<li>getMethod：返回HTTP请求消息中的请求方式。</li>
+<li>getRequestURI：返回请求行中的资源名部分。</li>
+<li>getQueryString ：返回请求行中的参数部分。</li>
+<li>getProtocol：返回请求行中的协议名和版本。</li>
+<li>getContextPath：返回请求资源所属于的WEB应用程序的路径。</li>
+<li>getPathInfo：返回请求URL中的额外路径信息。额外路径信息是请求URL中的位于Servlet的路径之后和查询参数之前的内容，它以“/”开头。</li>
+<li>getPathTranslated：返回URL中的额外路径信息所对应的资源的真实路径。</li>
+<li>getServletPath方法：Servlet的名称或Servlet所映射的路径。<br  /></li>
+</ul>
+<h3>获取网络连接信息</h3>
+<ul>
+<li><strong><code>getRemoteAddr方法</code></strong>返回发出请求的客户机的IP地址，其格式为“192.168.0.3”这种形式的字符文本。</li>
+<li>getRemoteHost方法返回发出请求的客户机的完整主机名，即“pc1.atguigu.com”这种格式。</li>
+<li>getRemotePort方法返回发出请求的客户机所使用的网络接口的端口号。</li>
+<li>getLocalAddr方法返回WEB服务器上接收当前请求的网络接口的IP地址。</li>
+<li>getLocalName方法返回WEB服务器上接收当前请求的网络接口的IP地址所对应的主机名。</li>
+<li>getLocalPort方法返回WEB服务器上接收当前请求的网络接口的端口号。</li>
+<li>getServerName方法返回当前请求所指向的主机名。</li>
+<li>getServerPort方法返回当前请求所连接的服务器端口号。</li>
+<li>getScheme方法返回请求的协议名，例如http、https或ftp。</li>
+<li>getRequestURL方法返回客户端发出请求时的完整URL。<br  /></li>
+</ul>
+<h3>获取请求头信息</h3>
+<ul>
+<li>getHeader方法</li>
+<li>getHeaders方法</li>
+<li>getHeaderNames方法</li>
+<li>getIntHeader方法</li>
+<li>getDateHeader方法</li>
+<li>getContentType方法</li>
+<li>getContentLength方法</li>
+<li>getCharacterEncoding方法</li>
+</ul>
+<h3>获取请求参数的编程实例</h3>
+<pre class='brush:java'>Enumeration paramNames = request.getParameterNames();
+while(paramNames.hasMoreElements())
+{
+    String paramName = (String)paramNames.nextElement();
+    out.print(paramName + " : " + request.getParameter(paramName) + "&lt;br&gt;");
+    /*如果要考虑同一个请求头名可能出现多次，那么应该用下面的代码段代替上面一行程序代码*/
+    /*String [] paramValues = request.getParameterValues(paramName);
+    //良好的编程习惯，在使用对象和数组之前先判断其是否为null
+    if(paramValues != null)
+    {
+        for(int i=0;i&lt;paramValues.length;i++)
+        {
+            out.print(paramName + " : " + (String)paramValues[i] + "&lt;br&gt;");
+        }
+    }*/
+}
+</pre><h2>ServletResponse、HttpServletResponse 接口</h2>
+<ul>
+<li>Servlet API中定义的ServletResponse接口类用于创建响应消息。</li>
+<li>HttpServletResponse是专用于HTTP协议的ServletResponse子接口，它用于封装<strong>HTTP响应消息</strong>。</li>
+</ul>
+<p>常用方法:</p>
+<ol>
+<li><p><strong>getWriter()</strong>: 返回 PrintWriter 对象. 调用该对象的 print() 方法, 将把 print() 中的参数直接打印
+到客户的浏览器上.</p>
+</li>
+<li><p>设置响应的内容类型: <code>response.setContentType("application/msword");</code></p>
+</li>
+<li><p><code>void sendRedirect(String location)</code>: 请求的重定向. (此方法为 HttpServletResponse 中定义.)</p>
+</li>
+<li><p>请求转发</p>
+</li>
+<li><p>请求的重定向</p>
+</li>
+</ol>
+</div>
+  <footer>
+    <p class="meta">
+<span class="byline author vcard">作者 <span class="fn"><a href='https://github.com/yafey'>YaFey</a></span></span>      
+
+
+<time datetime="2015-03-07T13:54:00+08:00" pubdate>2015年03月07日 13:54:00</time>
+
+<span class="categories">属于 <a class="category" href="/category/tech/java/">Java</a>, <a class="category" href="/category/tech/java/javaweb/">JavaWeb</a>
+ 分类</span>
+
+
+<span class="categories">被贴了 <a class="tag" href="/tag/javaweb/">JavaWeb</a>, <a class="tag" href="/tag/shang-gui-gu/">尚硅谷</a>
+ 标签</span>
+    </p>
+<div class="sharing">
+  </div>
+<p>
+  <h2>相关文章</h2>
+  <ul id="related-posts-list">
+      <li class="post">
+        <a href="/article/2015/03/tomcat-notes-shangguigu/">Tomcat学习笔记@尚硅谷</a>
+        <div class="source right"><time datetime="2015-03-07T14:22:00">2015-03-07</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/struts2-notes-shangguigu/">Struts2学习笔记@尚硅谷</a>
+        <div class="source right"><time datetime="2015-03-05T22:58:00">2015-03-05</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/02/spring4.0-notes-shangguigu-jdbc-transaction/">Spring4.0学习笔记@尚硅谷 之 JDBC部分(含事务管理) (3/n)</a>
+        <div class="source right"><time datetime="2015-02-28T01:16:00">2015-02-28</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/02/spring4.0-notes-shangguigu-aop/">Spring4.0学习笔记@尚硅谷 之 AOP部分 (2/n)</a>
+        <div class="source right"><time datetime="2015-02-25T00:39:00">2015-02-25</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/02/spring4.0-notes-shangguigu-IOC/">Spring4.0学习笔记@尚硅谷 之 IOC部分 (1/n)</a>
+        <div class="source right"><time datetime="2015-02-07T00:06:00">2015-02-07</time></div>
+      </li>
+  </ul>
+</p>    <p class="meta">
+        <a class="basic-alignment left" href="/article/2015/03/struts2-notes-shangguigu/" title="上一篇: Struts2学习笔记@尚硅谷">&laquo; Struts2学习笔记@尚硅谷</a>
+        <a class="basic-alignment right" href="/article/2015/03/tomcat-notes-shangguigu/" title="下一篇: Tomcat学习笔记@尚硅谷">Tomcat学习笔记@尚硅谷 &raquo;</a>
+    </p>
+  </footer>
+</article>
+</div>
+<aside class="sidebar">
+<section>
+  <h1>近期文章</h1>
+  <ul id="recent_posts">
+  
+  
+      <li class="post">
+        <a href="/article/2015/03/eclipse-notes-shangguigu/">Eclipse优化配置笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/tomcat-notes-shangguigu/">Tomcat学习笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/javaweb-notes-shangguigu/">JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/struts2-notes-shangguigu/">Struts2学习笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/02/spring4.0-notes-shangguigu-jdbc-transaction/">Spring4.0学习笔记@尚硅谷 之 JDBC部分(含事务管理) (3/n)</a>
+      </li>
+  </ul>
+</section>
+
+<section>
+  <h1>分类</h1>
+  <ul id="categories">
+	<li class="category"><a href="/category/software/">软件应用</a><span class="count right">4</span>
+	    <ul class="children1">
+	<li class="category"><a href="/category/software/dev/">开发用的软件</a><span class="count right">2</span>
+	</li>
+	<li class="category"><a href="/category/software/software_with_sn/">破解版软件</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/software/windows/">Windows应用技巧</a><span class="count right">1</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/">编程开发</a><span class="count right">5</span>
+	    <ul class="children1">
+	<li class="category"><a href="/category/tech/java/">Java</a><span class="count right">5</span>
+	    <ul class="children2">
+	<li class="category"><a href="/category/tech/java/framework/">Java框架</a><span class="count right">4</span>
+	    <ul class="children3">
+	<li class="category"><a href="/category/tech/java/framework/spring/">Java框架-Spring</a><span class="count right">3</span>
+	</li>
+	<li class="category"><a href="/category/tech/java/framework/struts2/">Java框架-Struts2</a><span class="count right">1</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/java/javaweb/">JavaWeb</a><span class="count right">2</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/webFront/">web前端</a><span class="count right">2</span>
+	    <ul class="children2">
+	<li class="category"><a href="/category/tech/webFront/javascript/">JavaScript</a><span class="count right">4</span>
+	</li>
+    </ul>
+</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/opoopress/">opoopress</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/blog/">blog</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/you-xiu-bo-ke/">优秀博客</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/bo-ke/">博客</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/lu-xian-tu/">路线图</a><span class="count right">1</span>
+	</li>
+  </ul>
+</section>
+</aside>
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  版权所有 &copy; 2015 - <a href='https://github.com/yafey'>YaFey</a> -
+  <span class="credit">Powered by <a href="http://www.opoopress.com/">OpooPress</a></span>
+</p></footer>
+<script type="text/javascript" src="/javascripts/opoopress.min.js"></script>
+<script language="JavaScript">
+<!--
+    window.OpooPress = new OpooPressApp({siteUrl:'http://yoursite.com',rootUrl:'',pageUrl:'/article/2015/03/javaweb-notes-shangguigu/',title:'JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)',refreshRelativeTimes:true,verbose:true},{});
+    OpooPress.init();
+
+//-->
+</script>
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'applescript			/plugins/syntax-highlighter/scripts/shBrushAppleScript.js',
+        'actionscript3 as3		/plugins/syntax-highlighter/scripts/shBrushAS3.js',
+        'bash shell				/plugins/syntax-highlighter/scripts/shBrushBash.js',
+        'coldfusion cf			/plugins/syntax-highlighter/scripts/shBrushColdFusion.js',
+        'cpp c					/plugins/syntax-highlighter/scripts/shBrushCpp.js',
+        'c# c-sharp csharp		/plugins/syntax-highlighter/scripts/shBrushCSharp.js',
+        'css					/plugins/syntax-highlighter/scripts/shBrushCss.js',
+        'delphi pascal pas		/plugins/syntax-highlighter/scripts/shBrushDelphi.js',
+        'diff patch			    /plugins/syntax-highlighter/scripts/shBrushDiff.js',
+        'erl erlang				/plugins/syntax-highlighter/scripts/shBrushErlang.js',
+        'groovy					/plugins/syntax-highlighter/scripts/shBrushGroovy.js',
+        'java					/plugins/syntax-highlighter/scripts/shBrushJava.js',
+        'jfx javafx				/plugins/syntax-highlighter/scripts/shBrushJavaFX.js',
+        'js jscript javascript	/plugins/syntax-highlighter/scripts/shBrushJScript.js',
+        'perl pl				/plugins/syntax-highlighter/scripts/shBrushPerl.js',
+        'php					/plugins/syntax-highlighter/scripts/shBrushPhp.js',
+        'text plain				/plugins/syntax-highlighter/scripts/shBrushPlain.js',
+        'powershell ps          /plugins/syntax-highlighter/scripts/shBrushPowerShell.js',
+        'py python				/plugins/syntax-highlighter/scripts/shBrushPython.js',
+        'ruby rails ror rb		/plugins/syntax-highlighter/scripts/shBrushRuby.js',
+        'sass scss              /plugins/syntax-highlighter/scripts/shBrushSass.js',
+        'scala					/plugins/syntax-highlighter/scripts/shBrushScala.js',
+        'sql					/plugins/syntax-highlighter/scripts/shBrushSql.js',
+        'vb vbnet				/plugins/syntax-highlighter/scripts/shBrushVb.js',
+        'xml xhtml xslt html	/plugins/syntax-highlighter/scripts/shBrushXml.js'
+    );
+    SyntaxHighlighter.defaults['auto-links'] = false;                 
+    SyntaxHighlighter.defaults['toolbar'] = false;     
+    SyntaxHighlighter.defaults['tab-size'] = 4;
+    SyntaxHighlighter.all();
+</script>
+<!-- END: Syntax Highlighter ComPress -->
+</body>
+</html>
+

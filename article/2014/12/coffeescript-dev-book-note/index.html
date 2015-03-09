@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="zh"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>《CoffeeScript应用开发》读书笔记 - YaFey 的博客</title>
+  <meta name="author" content="<a href='https://github.com/yafey'>YaFey</a>">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="OpooPressSiteRoot" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Generator" content="OpooPress-1.1.1"/>
+  <meta name="Generated" content="2015-03-09T18:13:45+08:00"/>
+  <link rel="canonical" href="/article/2014/12/coffeescript-dev-book-note/">
+  
+  
+  <link href="/favicon.ico" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="YaFey 的博客" type="application/atom+xml">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic|PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="/plugins/syntax-highlighter/styles/shCoreDefault.css"/>
+  <!--[if lt IE 9]><script src="/javascripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+  <!--[if lt IE 9]><script src="/javascripts/unsupported-browser.js"></script><![endif]-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">YaFey 的博客</a></h1>
+    <h2>记录点点滴滴</h2>
+</hgroup>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:http://yoursite.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="搜索"/>
+  </fieldset>
+</form>
+<fieldset class="mobile-nav">
+  <select onchange="if (this.value) { window.location.href = this.value;}">
+    <option value="">导航&hellip;</option>
+    <option value="/">&raquo; 文章</option>
+    <option value="/archives/">&raquo; 归档</option>
+    <option value="/category/">&raquo; 分类</option>
+    <option value="/sample-page.html">&raquo; 示例页面</option>
+    <option value="/about/">&raquo; 关于</option>
+  </select>
+</fieldset>
+
+<ul class="main-navigation">
+<li><a href="/">文章</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/category/">分类</a></li>
+<li><a href="/sample-page.html">示例页面</a></li>
+<li><a href="/about/">关于</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+<div>
+<article class="hentry" role="article">
+  <header>
+      <h1 class="entry-title">《CoffeeScript应用开发》读书笔记</h1>
+
+      <p class="meta">
+		
+
+
+<time datetime="2014-12-12T09:56:00+08:00" pubdate>2014年12月12日 09:56:00</time>
+      </p>
+  </header>
+
+  <div class="entry-content"><blockquote><h1>0. 说明</h1>
+<p>本阅读笔记 基于 zhunb 的 《CoffeeScript应用开发》<strong>纸质书</strong> <a href="http://book.douban.com/subject/25964605/" title="http://book.douban.com/subject/25964605/">豆瓣链接</a></p>
+<p>目录:</p>
+<ol>
+<li>基础</li>
+<li>语句换行 , 变量 , 注释 , 调用函数(小括号的合理使用)</li>
+<li>控制结构 ( if / else 语句 及 其相对的 unless 语句)</li>
+<li>比较运算符 及 自然语言的别名(<em>使表达比较判断的语句具有更好的可读性</em>)</li>
+<li>数组 的 声明 和 <strong>遍历</strong> ( <code>in</code>关键字 / 获得各元素对应结果的数组 / <code>when</code>关键字过滤结果 / 数组索引 <em><code>index</code></em> 及 <code>by</code>关键字步进增长 )</li>
+<li>对象 的 声明 和 遍历 ( <code>of</code>关键字 )</li>
+<li>运行 Coffee 应用程序</li>
+<li>操作 DOM , 及如何在时间响应中回调 Coffee 函数.</li>
+<li>定义函数, 命名函数 , 如何隐式返回值.</li>
+<li>使用 switch 语句.</li>
+</ol>
+</blockquote>
+<h1>1. CoffeeScript 基础</h1>
+<blockquote><p>对应 书本的 P16 ~ P33</p>
+</blockquote>
+<h2>1.1. 语句 （换行）</h2>
+<p>Coffee不用写分号， 语句由新的一行结束（语法解析器通常知道语句是否延续到下一行）。</p>
+<ol>
+<li>可以通过在<strong>行尾加上反斜杠</strong>明确告诉解析器 语句<strong>延续到下一行</strong>。<pre>x = 1 \
+  + 1
+</pre></li>
+<li>有时可以像在</li>
+<li></li>
+<li>的 <code>fluent</code>接口 中那样跨<strong>多行实现函数调用</strong>:<pre>"foo"
+  .concact("barbaz")
+  .replace("foobar","fubar")
+</pre></li>
+<li>偶尔也可以把几条语句写在同一行(纯粹为了文体风格) , 此时需要使用 分号. <em>(大多数时间,每行一条语句看起来更好.)</em><pre>x = 1; y=2
+</pre></li>
+</ol>
+<h2>1.2. 变量</h2>
+<ul>
+<li>CoffeeScript 所有的变量<strong>默认都是局部变量</strong>. 且不需要像 JS 的定义: ~~<code>var x</code>~~</li>
+<li>确实<strong>想声明全局变量</strong>, 通过将变量<strong>绑定到顶层的对象</strong>.<ul>
+<li>在 CoffeeScript 控制台 , 或者在 Node.js 程序中, <code>global</code>是一个全局对象:<pre>global.myGlobalVariable = "i'm so worldly"
+</pre></li>
+<li>在浏览器中, 用 <code>window</code> 对象代替:<pre>window.myGlobalVariable = "i'm so worldly"
+</pre></li>
+</ul>
+</li>
+</ul>
+<h2>1.3. 注释</h2>
+<ul>
+<li>单行注释 : <strong>不会包含到编译后的 JS 中</strong>
+所有以 <code>#</code> 开头的行是注释.
+行中间的 <code>#</code>之后的内容也是注释.<pre class='brush:javascript'># This is a comment.
+# This is an other comment.
+x = "hello" # This is also a comment.
+</pre></li>
+<li>多行注释 : <strong>注释块 包含 在编译后的 JS 中, 用<code>/*...*/</code>界定.</strong>
+也可以使用 <code>###</code>开头和结尾的注释块 (不过在 Coffee 中很少这样).<pre>###
+This is a block comment. You can get artistic[adj.  艺术的; 唯美的; ] in here.
+&lt;:）
+###
+</pre></li>
+</ul>
+<h2>1.4. 函数调用 : 合理使用 小括号</h2>
+<ul>
+<li>除了没有分号, 一般情况下,小括号也是可选的.<pre>console.info "hello"
+</pre></li>
+<li>如果调用没有参数的函数, <strong>小括号是必须的.</strong><pre>myFunc = Date.now
+#=&gt; myFunc holds a function object that hasn't been executed
+myDate = Date.now()
+#=&gt; myDate holds the result of the function's execution
+# CoffeScript 哲学的一部分 : 不能偏离 JavaScript 语言的基本原理.
+</pre>由此得出的一般性原则: <strong>小括号是可选的,除非有必要用来避免歧义.</strong></li>
+<li>另一种可能产生歧义的场景 : <strong>嵌套的函数调用</strong><pre># 歧义场景 , 下面两个等效
+Math.max 2, 3, Math.min 4, 5, 6     # 其实有个就近原则
+Math.max 2, 3, Math.min (4, 5, 6)
+# 如果希望 min 以 4,5 为参数, 6为 max的参数,添加小括号让其变得更清楚, These two calls are equivalent
+Math.max( 2, 3, Math.min (4, 5), 6 )
+Math.max 2, 3, Math.min (4, 5), 6
+</pre><blockquote><h3>优先权</h3>
+<p>这里有个 CoffeeScript 调用函数的优先级原则: <strong>参数由内向外分配给函数.</strong>(换一种说法是 : <strong>参数所属的函数遵循 <code>就近原则</code></strong>).
+如果想调用的方式不符合 CoffeeScript 的优先级 , 那么小括号是必需的.
+优先权在无限级的嵌套调用中也适用.
+<strong>在某些时候,消除小括号 不是能不能做 而是应不应该做 的问题</strong>.</p>
+</blockquote>
+</li>
+</ul>
+<h2>1.5. 控制结构</h2>
+<blockquote><p>详情参考 :</p>
+<ul>
+<li><a href="http://coffee-script.org/#overview" title="(http://coffee-script.org/#overview">【Coffee官网】if, else, unless 和条件赋值</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>if语句</li>
+<li>else&hellip;if 语句</li>
+<li>unless语句<ul>
+<li>unless 编译为 <code>if(!test)</code> , 比 <code>!</code>关键字要显眼的多,可以减少错误发生.</li>
+<li>也可以配合else/else&hellip;if使用, 但是,在这一点上,标准的 if 语句通常更加合理及易懂.</li>
+</ul>
+</li>
+<li>单行形式 : <strong>当条件成立时执行一行代码</strong>.<pre># coffee 的 单行形式 的写法.
+console.info "Truth achieved!" if true == true  #此处也可以使用 unless
+#上面的 CoffeeScript 将编译成 下面的 JavaScript 代码:
+if (true === true) {
+  console.info("Truth achieved!");
+}
+</pre></li>
+</ul>
+<h2>1.6 比较运算符</h2>
+<ul>
+<li><p>CoffeeScript 中的 <code>==</code> 和 <code>!=</code> 不会编译成 JavaScript 相对应的符号.</p>
+<pre># coffee 写法
+1 == 2
+3 != 4
+# 上面的代码 将编译成如下 JavaScript 代码:
+1 === 2
+3 !== 4
+</pre><blockquote><p>根据 CoffeeScript 文档, 编译器这样处理的理由是 , <strong><code>==</code>符号经常会引起非预期的错误, 它在判断等于时不做类型转换</strong>, 这一点和它在其他语言中的语义不太一样.<strong>大部分 JavaScript 的程序员建议全部使用 <code>===</code> 和 <code>!==</code> , 这简直被奉为最佳实践.</strong> 更多关于这个建议的信心, 访问 <a href="http://www.impressivewebs.com/why-use-triple-equals-javascipt/" title="http://www.impressivewebs.com/why-use-triple-equals-javascipt/">【JavaScript优秀站点】Why Use the Triple-Equals Operator in JavaScript?</a></p>
+</blockquote>
+</li>
+<li><p>CoffeeScript 提供的一些别名 用以增加代码可读性 ， 比如使用 is 和 isnt 判断是否相等。
+<img src="/blog_images/coffeescript-dev-book-note/coffee-alias.jpg" alt="coffeescript提供的一些别名" /></p>
+</li>
+</ul>
+<h2>1.7. 数组</h2>
+<p>普通数组, <strong>如果将每个数据成员单独在一行声明,则逗号可以省略.</strong></p>
+<pre>#coffee 语法
+languages = [
+  "english"
+  "chinese"
+  "spanish"
+]
+# 上述代码 将编译成如下的 JavaScript代码:
+var languages;
+languages = ["english","chinese","spanish"] 
+# 如果数组 结尾逗号 ,可以让改变数据或对象的内容变的非常容易, 但是在某一款特定的浏览器中会导致执行中断的错误.
+</pre><h3>1.7.1. 数列 (某个范围的数组)</h3>
+<p>有时候,声明数组需要简单的用某个范围内的值来初始化所有元素.</p>
+<ul>
+<li>使用顺序<pre>#coffee 语法
+singleDigits = [0..9]
+# 上述代码 将编译成如下的 JavaScript代码:
+var singleDigits;
+singleDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+</pre></li>
+<li>还可以使用倒序<pre>countdown = [10..1]
+</pre></li>
+<li><code>两个点</code>说明值域包含尾界(数学表示法:<code>[1,10]</code>); <code>三个点</code>说明值域不包含尾界(数学表示法:<code>[1,10)</code>).<pre>[1..5] === [1, 2, 3, 4, 5]
+[1...5] === [1, 2, 3, 4]
+</pre></li>
+<li>数列除了用数字, 还可以用变量来创建<pre>start = 0 
+end = 100
+bigNumbers = [start..end]
+</pre></li>
+</ul>
+<h3>1.7.2. 循环 (coffee 中 in 关键字的使用)</h3>
+<blockquote><p>JS 中 , 遍历数组 是个痛点.</p>
+<ol>
+<li><code>for循环</code> 可以做到, 但是要输入很多不必要的字符.</li>
+<li>还有 函数形式的 <code>Array.prototype.forEach</code> , 效果很好, 但是不是所有的浏览器都支持 (貌似 IE 不支持).</li>
+<li>某些函数库, 如 <code>jQuery.js</code> 和 <code>Underscore.js</code> , 提供了自己的循环实用工具, 但是, 这些仅仅在加载了函数库时才可用.</li>
+</ol>
+</blockquote>
+<ul>
+<li>coffeeScript 遍历数组语法<pre>#coffee 语法
+animals = ['dog','cat','bird']
+console.log animal for animal in animals  #循环体一条语句的简化写法
+# 上述代码 将编译成如下的 JavaScript代码:
+var animal, animals, _i, _len;
+animals = ['dog', 'cat', 'bird'];
+for (_i = 0, _len = animals.length; _i &lt; _len; _i++) {
+  animal = animals[_i];
+  console.log(animal);
+}
+</pre></li>
+<li>Coffee的循环有个非常有用的功能: <strong>获得执行后的结果数组</strong>.
+他们的返回值 &ndash; 由数组中每个元素在循环中 所有语句执行后 的结果组成的数组.
+相同功能的原生 JavaScript 的函数是 <code>Array.prototype.map</code> 变换数组.<pre>#coffee 语法
+animals = ['dog','cat','bird']
+pluralAnimals = for animal in animals
+  animal + "s"
+console.log pluralAnimals
+# 上述代码 将编译成如下的 JavaScript代码:
+# 编译生成的 JavaScript 代码, 依然使用 for 循环, 需要做的唯一工作就是在最后将结果保存到数组中, 然后返回这个数组.
+var animal, animals, pluralAnimals;
+animals = ['dog', 'cat', 'bird'];
+pluralAnimals = (function() {
+  var _i, _len, _results;
+  _results = [];  # 定义返回的数组
+  for (_i = 0, _len = animals.length; _i &lt; _len; _i++) {
+    animal = animals[_i];
+    _results.push(animal + "s");    # 在最后将结果保存到数组中, 然后返回这个数组.
+  }
+  return _results;  # 返回保存结果的数组
+})();
+console.log(pluralAnimals);
+# 输出结果:
+["dogs", "cats", "birds"]
+</pre><blockquote><p>我们还可以将操作缩短在单独一行内, 但要小心有个陷阱.注意下面的写法:</p>
+<pre>animals = ['dog','cat','bird']
+pluralAnimals = (animal + "s" for animal in animals)
+console.log pluralAnimals 
+</pre><p>*<em>这里的小括号 看起来很奇怪, 但是这里是必要的 . </em>* 想知道为什么, 就要先理解 CoffeeScript 怎样处理 循环 和 赋值之间的优先级的.</p>
+<blockquote><p>如果没有小括号, 写出来是这样的:</p>
+<pre>pluralAnimals = animal + "s" for animal in animals
+</pre><p><strong>赋值的优先级更高</strong>, 所以这个语句执行起来和下面的一样:</p>
+<pre>(pluralAnimals = animal + "s") for animal in animals
+</pre><p><strong>赋值操作在循环里执行,数组的每个元素都计算一次.</strong>所以查看 pluralAnimals 的值是最后一个元素值转换的来的<em>(这个例子中,值为 &ldquo;birds&rdquo;)</em> . 所以, 必须为 for 循环添加小括号,  以确保得到理想的结果.</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h4>1.7.2.1. 深入循环 ： 使用关键字 when 过滤结果</h4>
+<p>为了找到 遍历的数组中 那些符合一定条件的元素， 通过在循环里面添加 if 语句可以实现， 但是还有更好的方法。 CoffeeScript 中， 我们可以使用 <strong>带有关键字 when 的条件语句过滤循环的执行。</strong></p>
+<pre>#coffee 语法
+words = ["dogma","catastrophe","doggerel","hangdog"]
+selectedWord = ( word for word in words when word.indexOf("dog") isnt -1 )
+console.info selectedWord
+# 上述代码 将编译成如下的 JavaScript代码:
+var selectedWord, word, words;
+words = ["dogma", "catastrophe", "doggerel", "hangdog"];
+selectedWord = (function() {
+  var _i, _len, _results;
+  _results = [];
+  for (_i = 0, _len = words.length; _i &lt; _len; _i++) {
+    word = words[_i]; 
+    if (word.indexOf("dog") !== -1) {  # 循环里的 if 语句 是 when 关键字的实现
+      _results.push(word);  # 把 符合 when 条件的循环结果 赋值给变量，这样可以只存储那些 符合条件的值 组成的数组。
+    }
+  }
+  return _results;
+})();
+</pre><blockquote><p>数列 与 加条件的循环结合起来使用时非常实用：</p>
+<pre># 这一行代码做了很多事，
+# 首先创建了一个 100 个值分别为 0～100 的元素的数组，
+# 然后遍历数组，仅对能被 2 整除的数进行操作，将每个符合条件的数转换成字符串。
+# 最后， 将保持了所有字符串结果的数组赋值给变量 evenNumbers 。
+evenNumbers = ( n + " is even" for n in [1..100] when n%2 is 0 )
+</pre></blockquote>
+<h4>1.7.2.2. 更多 数组的技巧 : 获得当前元素的索引 index 及 <code>by关键字</code> 的使用</h4>
+<ul>
+<li>有时候, 遍历数组时, 需要访问当前元素的索引 . 在这种情况下, for 语句 可以保存当前索引 作为第二个参数.<pre>#coffee 语法
+words = ["dogma","catastrophe","doggerel","hangdog"]
+for word, wordIndex in words when word isnt "doggerel"
+  console.log "Word #"+(wordIndex+1) + "is" +word
+</pre></li>
+<li>有时候也会需要遍历数组的每第 n 个成员&ndash;每第 2 项,或者每第 5 项,或者任何要求的情况. CoffeeScript 用 by关键字让这个问题很简单.
+使用 by 重写刚才偶数的例子,而不用取模运算符.<pre># 我们需要从 2 开始 , 因为这是数组中 by开始计算的第一项.
+#coffee 语法
+evenNumbers = ( n for n in [2..100] by 2 )
+# 上述代码 将编译成如下的 JavaScript代码:
+var evenNumbers, n;
+evenNumbers = (function() {
+  var _i, _results;
+  _results = [];
+  for (n = _i = 2; _i &lt;= 100; n = _i += 2) {  # by 后面的作为 步进数
+    _results.push(n); 
+  }
+  return _results;
+})();
+</pre></li>
+</ul>
+<h3>1.7.3. 判断数组成员 : <code>in 关键字</code> 的使用</h3>
+<p>上面遍历数组时使用了 <code>in 关键字</code> , <strong>它有两个作用</strong>.</p>
+<ul>
+<li>可以用来判断是不是数组中的成员.<pre>#coffee 语法
+number = 3 
+if number in [2,3,5,7,11,13]
+  console.log number +"is prime!"
+# 上述代码 将编译成如下的 JavaScript代码 非常简单:
+# 因为 coffee 已经访问了数组,直接将值分别写到不同的判断条件里.
+var number;
+number = 3;
+if (number === 2 || number === 3 || number === 5 || number === 7 || number === 11 || number === 13) {
+  console.log(number(+"is prime!"));
+}
+</pre></li>
+<li>in 还可以用在更多高级的情况下, 比如数组是动态的.<pre>planets = ["Mercury","Venus","Earth","Mars","Jupiter",
+        "Saturn","Uranus","Neptune"]
+console.log "Hooray!" if "Pluto" in planets
+# 上述 CoffeeScript 代码 将编译成如下的 JavaScript代码 , 表现方式相同,
+# 但会稍微复杂一些:
+var planets,
+  __indexOf = [].indexOf || function(item) { 
+    for (var i = 0, l = this.length; i &lt; l; i++) { 
+      if (i in this &amp;&amp; this[i] === item) return i; 
+    } 
+    return -1;
+  };
+planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+if (__indexOf.call(planets, "Pluto") &gt;= 0) {
+  console.log("Hooray!");
+}
+</pre><blockquote><p>这个例子里 , Coffee 定义了一个名为 <code>_indexOf</code> 实用小函数(<em>这样的辅助函数接下来的一段时间内还会出现</em>) , 不依赖于任何外部库,兼容每一个 JavaScript 运行时环境. 而且, 每个文件只生成一次这样的 实用小函数.</p>
+</blockquote>
+</li>
+</ul>
+<h2>1.8. 简单对象</h2>
+<p>对象是 JavaScript 这门语言实用最多的数据结构 , JavaScript 鼓励多使用对象. CoffeeScript 在支持 所有对象 的同时, 增加了一些有用的功能来处理它们.</p>
+<blockquote><p>JavaScript的一些常见用法:</p>
+<pre># 对象声明 , 记录简历的一些细节:
+author = {name : "Ian" , age:26 }
+# 访问对象的属性
+author.name
+author["age"]
+# 设置对象的属性
+author.favoriteLanguage = "CoffeeScript"
+</pre></blockquote>
+<ul>
+<li>CoffeeScript 的对象的用法<pre># 就像 CoffeeScript 的数组 , 如果在不同行声明对象属性, 可以选择省略 逗号 及 大括号:
+# 如果在同一行声明对象 , 逗号 不能省略.
+authorBicycle = 
+  color:"black"
+  fenders : true
+  gears : 24
+# 在嵌套对象的声明中也可以这样做 . Coffee 通过缩进确定对象的结构.
+authorBicycle = 
+  color:"black"
+  brand : 
+    make : "Surly"
+    model : "Cross Check"
+  fenders : true
+  gears : 24
+# 上述 嵌套的对象声明　的CoffeeScript 代码 将编译成如下的 JavaScript代码 ：
+var authorBicycle;
+authorBicycle = {
+  color: "black",
+  brand: {
+    make: "Surly",
+    model: "Cross Check"
+  },
+  fenders: true,
+  gears: 24
+};
+</pre></li>
+<li>遍历对象
+Coffee 中遍历对象的所有属性变得容易. <strong>记住,遍历数组使用 <code>for item in array</code>.</strong>
+遍历对象的语法很相似 , <strong>但不是用 <code>in</code> , 而是用 <code>of</code> 关键字</strong> (注意不要和 Javascript 中的 <code>in</code> 关键字 混淆.) .
+(Coffee中的) <code>in</code> 和 <code>of</code> 的不同, 相同不同的描述 : 有一个元素在( in )数组中 , 有一个对象的 ( of ) 属性.<pre>#循环取 对象的属性的 key(属性关键字) 和 属性的值
+author = name : "Ian" , age : 26, favoriteLanguage : "CoffeeScript"
+for k , v of author
+  console.log "My " + k + " is " + v
+#上面的 CoffeeScript 编译生成的 JavaScript 代码 , 使用了 JavaScript 中的 in 关键字, 
+#实现也很简单(不用在这上面考虑太多,以免我们再次搞混.)
+for (k in author) {
+  v = author[k];
+  console.log("My " + k + " is " + v);
+}
+</pre></li>
+</ul>
+<h1>2. Coffee 应用</h1>
+<blockquote><p>对应 书本 P34 ~  (构建简单的应用程序) , 例子略 , 只选语法要点</p>
+</blockquote>
+<h2>2.1. 字符串插值</h2>
+<blockquote><p>Javascript 代码中 常见的创建字符串的方式:</p>
+<pre>var verb = "mash";
+var operators = "plus symbols";
+"You " + verb + " them together using " + operators + "."
+</pre><p>这种风格并不是很理想 .</p>
+<ol>
+<li>一个缺点是 , 它重载了 <code>+</code>运算符 , 当合并字符串和整数时会导致不易察觉的 bug .<ul>
+<li><code>1+2+"3"</code> 和 <code>"3"+2+1</code> 的运行结果不一样, 而且很容易忽略.</li>
+</ul>
+</li>
+<li>还有一个缺点是, 在 Javascript 中构建字符串很快变得难以阅读, 且花费大量时间处理空格和引号.<ul>
+<li>如 手动构建 HTML 字符串 , 并插入动态属性时,尤其让人痛苦.</li>
+<li>还可能混淆 <code>'</code>(单引号) 和 <code>"</code>(双引号) 字符!</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>CoffeeScript 提供了更好的 构建字符串 的解决方案. <strong>在双引号字符串中使用 <code>#{...}</code> 包含一个动态的值, 表示将动态值插入到字符串中 :</strong><pre>verb = "build"
+operators = "bracket emclosures"
+"You #{verb} strings using #{operators}."
+</pre><strong>大括号中可以包含任何代码 , 代码会被执行</strong> , 执行的结果被插入到字符串中:<pre>"#{ 1+1 }'s company , #{ 1+2 } is crowd"
+"A googol is a large number: #{ Math.pow 10,100 }"
+</pre><strong>还可以处理 嵌套的双引号字符串!</strong><pre>"No problem #{"here".toUpperCase() } !"
+</pre>上面的代码编译成 Javascript 的样子: <em>字符串操作被转换为 <code>+</code>(就像手写),同时,Coffee十分谨慎(保持正确的运算顺序,</em><em>确保所有内容转换成字符串</em>*) . *<pre>"" + (1 + 1) + "'s company , " + (1 + 2) + " is crowd";
+"A googol is a large number: " + (Math.pow(10, 100));
+"No problem " + ("here".toUpperCase()) + " !";
+</pre></li>
+</ul>
+<h2>2.2. 定义函数</h2>
+<p><strong>参数声明保持不变. Javascript 的 <code>function关键字</code> 和 <code>大括号{}</code> 被 <code>-&gt;</code> 取代.</strong>
+就像之前的 if 语句里看到的 , <strong>函数定义</strong> 使用 <strong>语义空白字符</strong>.函数体 是 <strong>缩进</strong>的(通常是<strong>两个空格</strong>) .
+<strong>函数在第一个没有比当前声明函数 缩进更深的 非空白行 处 结束</strong>.</p>
+<ol>
+<li><p>简单匿名函数的定义:</p>
+<pre># 简单的匿名函数 , 接受一个参数 name , 并返回一条 hello的信息
+(name) -&gt;
+    return "Hello , #{name}!"
+#上面的 CoffeeScript 编译生成如下的 JavaScript 代码 :
+(function(name) {
+    return "Hello , " + name + "!";
+});
+</pre></li>
+<li><p>函数的调用 : 需要一种方法来引用函数</p>
+<pre>#将函数绑定到变量 sayHello
+sayHello = (name) -&gt;
+    return "Hello, #{name}!"
+#需要时可以调用它
+sayHello "Ian"
+#上面的 CoffeeScript 编译生成如下的 JavaScript 代码 : 使用 Javascript中的 匿名函数
+var sayHello;
+sayHello = function(name) {
+  return "Hello, " + name + "!";
+};
+sayHello("Ian");
+</pre><ul>
+<li>函数可以有多个参数<pre>sayHelloFormally = (honorific,name) -&gt;
+return "Good day to you , #{honorific} #{name}"
+</pre></li>
+<li>函数也可以没有参数 : 可以省略小括号 , 仅使用函数声明的 <code>= -&gt;</code><pre>sayGoodBye = -&gt;
+return "Bye now!"
+</pre></li>
+</ul>
+</li>
+<li><p>函数命名</p>
+<blockquote><p>为什么要<strong>将函数绑定到一个变量</strong>? <strong>而不像 Javascript 里一样定义 命名函数呢</strong>?</p>
+<pre>function sayHello(name){ ... }
+</pre><ul>
+<li>大多数情况下, <strong>CoffeeScript 确实不支持命名函数</strong> , 主要原因是 <strong>IE 对 命名函数的支持非常弱.</strong></li>
+<li><a href="https://github.com/jashkenas/coffeescript/wiki/FAQ" title="https://github.com/jashkenas/coffeescript/wiki/FAQ">CoffeeScript FAQ</a> 中有更多关于 这个功能( <em>函数绑定到变量,而不是命名函数</em> ) 发展的历史信息.</li>
+<li>对于<strong>命名函数的问题</strong> , <a href="http://kangax.github.com/nfe/" title="http://kangax.github.com/nfe/">更详细的解释</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>*<em>函数绑定到变量的 缺点 : </em>*<ol>
+<li><strong>调试器在栈跟踪时提供的支持略差.</strong></li>
+<li>使用时的注意事项:<ul>
+<li>如果你习惯于在 Javascript 文件尾部声明函数, 将不再起作用 <em>(</em><em>根据语言规范</em><em> , </em><em>置顶声明的 命名函数</em><em> 首先执行, 但同样的规则对 </em><em>绑定到变量的函数</em><em> 并不适用 [ yafey注 : 必须调用前声明,且调用时执行])</em>, 解决办法有三种 : (下面的函数指的是 绑定到变量的函数)<ol>
+<li>将 函数声明 移动文件的开头</li>
+<li>将函数声明移到单独的文件里, 先执行这个文件.(不要忘了通过将函数绑定到 <code>window</code>对象,使得函数声明成为全局范围.)</li>
+<li>将其余代码写入函数体, 在脚本最后调用这个函数.<em>[ yafey注: 即构建一个匿名函数, 大致结构为 <code>var myfunc = (function(){ ..code.. })()</code>]</em></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>函数返回 :</p>
+<ul>
+<li><p>Coffee 默认显示返回 , 可以指定为无返回值 . (Coffee让人惊奇但非常有用的功能.)</p>
+<pre>shout = (phrase) -&gt;
+"#{phrase.toUpperCase()}!!!"
+#上面的 CoffeeScript 编译生成如下的 JavaScript 代码 :
+var shout;
+shout = function(phrase) {
+#尽管Coffee中没有 return 语句, 但是 编译后的 JavaScript函数 会返回字符串.
+return "" + (phrase.toUpperCase()) + "!!!"; 
+};
+</pre><blockquote><p>Coffee 使用<strong>隐式返回</strong> , 如果函数中<strong>没有显式给出返回值</strong> , 那么 Coffee<strong>将函数执行的最后一条语句的结果作为函数返回值</strong>(Coffee小心处理其中的工作).</p>
+</blockquote>
+</li>
+<li><p>含有控制结构语句(如 if 语句)的函数也这样处理.</p>
+</li>
+<li><p>包含循环的函数同样具有隐式返回:<strong><em>看看它是如何跟踪并返回运行结果列表的</em></strong>.</p>
+<pre>squareAll = (numbers) -&gt;
+for n in numbers 
+    n * n
+#上面的 CoffeeScript 编译生成如下的 JavaScript 代码 : 
+var squareAll;
+squareAll = function(numbers) {
+var n, _i, _len, _results;
+_results = [];
+for (_i = 0, _len = numbers.length; _i &lt; _len; _i++) {
+n = numbers[_i];
+_results.push(n * n); #返回数组的元素的结果组成的数组.
+}
+return _results;
+};
+</pre></li>
+<li><p>也可以继续使用显式的返回,但是使用 CoffeeScript 避免使用 return语句,除非它是必需的.</p>
+<ul>
+<li><p>通常使用 return 语句提前退出函数运行</p>
+<pre>middleElement = (list) -&gt;
+return if list.length is 0      # 遇到指定条件, 使用 return 语句提前退出函数运行.
+list [ Math.floor list.length / 2 ]
+</pre></li>
+<li><p>使用 return 来中止并跳出循环.</p>
+<pre>firstSubstring = (stringToMatch, snippets) -&gt;
+for substr in snippets
+    # 1. 如果找到匹配的值, 则使用return中止并跳出循环.
+    return substr unless stringToMatch.indexOf(substr) is -1
+#2. 如果循环中没找到匹配 , 函数隐式返回
+"No match :(" 
+</pre><blockquote><p>在函数中有一个提前使用 return 的退出, 并在函数结尾有第二个隐式的退出, <strong>这是 CoffeeScript 惯用的函数模式.</strong></p>
+</blockquote>
+</li>
+<li><p><strong>如果确定函数不会返回值 , 那么可以在函数末尾添加一个没有返回值的 return 语句.</strong></p>
+<pre>sideEffectsOnly = (myArray) -&gt;
+myArray.pop()
+return  # 确定函数不会返回值, 添加没有返回值的 return 语句.
+</pre><ul>
+<li>或者在函数尾添加 null , 它会被隐式返回.<pre>sideEffectsOnly = (myArray) -&gt;
+myArray.pop()
+null  # 隐式返回 , 将会编译成 return null
+</pre><blockquote><p>不过 , 使用 Coffee 不需要担心函数返回的问题,</p>
+<ul>
+<li>当需要返回值的时候使用隐式返回;</li>
+<li>当不需要返回的时候忽略它.</li>
+</ul>
+<p>一般来说, <strong>我们鼓励编写无副作用的代码</strong>, 这是个好习惯.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Switch 语句
+JavaScript 用 <code>switch/case</code>语句代替 重复的 <code>if/else-if</code>, 语法继承自 C , 遗憾的是, 也带来了 C 里面令人不满意的缺陷.(<em> </em><em>如果语句块分支的最后没有 <code>break</code>语句, 那么代码会继续执行下一个语句块.</em><em> [ 虽然有时能被聪明的程序员利用,将复杂的逻辑串起来, 但更多的情况是, 程序员忘了 <code>break</code>语句而给程序带来错误. ]</em>)</p>
+<blockquote><p>可能会给程序带来错误的 JavaScript 代码:</p>
+<pre>switch ( command){
+case "build":
+    compile();
+    break;
+case "deploy":
+    activate(REMOTE_SERVER);
+    start_ftp();
+    break;
+case "test":
+    check_files();
+    run_test_suite();   # 该分支没有 break , 如果 command 为 test , 可能引起错误.
+case "NUKE":
+    remove(ALL_THE_FILES);
+    break;
+default:
+    console.log("Unkown command");
+}
+</pre></blockquote>
+<ul>
+<li>CoffeeScript 提供了类似的结构, 但是<strong>使用 <code>switch 、when 和 else</code> 作为语句的关键字。(break 命令自动插入控制结构中)</strong><pre>switch iSpy
+when "sky"
+    console.log "blue"
+when "grass"
+    console.log "green"
+else
+    console.log "gray"
+# 上面的代码将编译成格式良好的 JavaScript 的 switch 语句 : 
+switch (iSpy) {
+case "sky":
+console.log("blue");
+break;
+case "grass":
+console.log("green");
+break;
+default:
+console.log("gray");
+}
+</pre><ul>
+<li>还可以<strong>使用 <code>then</code> 将语句块缩短至一行:</strong><pre>switch iSpy
+when "sky" then console.log "blue"
+when "grass" then console.log "green"
+else console.log "gray"
+</pre></li>
+<li>如果想对几个不同的值运行同样的语句块 <strong>(有意使用 JavaScript 中 常见的 (fall-through) 机制的情况 ), 将所有的值写在同一个 <code>when</code> 子句中, 用逗号分隔</strong> :<pre>switch iSpy
+when "sky","lake"
+    console.log "blue"
+when "grass","frog","stoplight"
+    console.log "green"
+else 
+    console.log "gray"
+# 生成的 JavaScript 依然会利用贯穿机制, 匹配到正确的地方:
+switch (iSpy) {
+  case "sky":
+  case "lake":
+    console.log("blue");
+    break;
+  case "grass":
+  case "frog":
+  case "stoplight":
+    console.log("green");
+    break;
+  default:
+    console.log("gray");
+}
+</pre></li>
+<li>CoffeeScript 中 <code>switch</code> 语句的另一个不错的功能是 <strong>它们能够直接作为表达式赋值 , 将 <code>switch</code> 语句的输出 赋值给一个变量</strong> :<pre>drivingAction = switch stoplightColor
+when "red" then "stop"
+when "yellow" then "slow down"
+else "go"
+var drivingAction;
+# CoffeeScript 通过将 switch 语句 包装成一个匿名函数来实现这个功能 : （很聪明）
+drivingAction = (function() {
+switch (stoplightColor) {
+case "red":
+  return "stop";
+case "yellow":
+  return "slow down";
+default:
+  return "go";
+}
+})();
+</pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1>3. Coffee 语法 改进应用</h1>
+<blockquote><ul>
+<li>使用存在运算符处理空值和未定义值</li>
+<li>使用解构赋值,一次对多个变量赋值</li>
+<li>给函数参数设置默认值</li>
+<li>使用 splat 为函数传入或接收多个参数, 并用数组管理.</li>
+</ul>
+</blockquote>
+<h2>3.1. 使用 存在运算符 处理空值 和 未定义值.</h2>
+<p>在 JavaScript 中, 有时候 , 需要判断 某个对象是否有某个属性, 或者 函数的可选参数/返回值 是否为空值.</p>
+<blockquote><p>在 JavaScript 中<strong>常用的解决方法是:</strong> (<strong>但是可能是 bug来源的 方式</strong>)</p>
+<pre>if (myVar) {
+    // Do sth only if myVar is defined.
+}
+</pre><p><strong>什么的方式, 是一个经常被讨论的 bug 来源, 因为对于 其他等价假值</strong> ( 如 <code>0</code> , <code>""(空字符串)</code> , <code>false</code> , <strong>这个方法无法使用.</strong> ) , 下面是更好的方法, 虽然笨拙, 但判断更安全:</p>
+<pre>if ( typeof myVar != 'undefined') {
+    // Do sth only if myVar is defined.
+}
+</pre></blockquote>
+<h3>3.1.1. 使用存在运算符 <code>?</code></h3>
+<p>Coffee 的 <code>存在运算符 ?</code>(existential operator) 用来判断 是否存在.</p>
+<pre>if yeti?    # 只有在 yeti 已定义的情况下执行.
+    "I want to believe"
+# 上面的代码将编译成格式良好的 JavaScript 语句 : 
+#先检查是否定义 , 如果变量未定义就进行比较, 系统将抛出异常 ; 如果变量已定义,再检查是否为空值.
+if (typeof yeti !== "undefined" &amp;&amp; yeti !== null) { 
+  "I want to believe";
+}
+</pre><p>更炫的应用:</p>
+<pre>animalStatus = (animal) -&gt;
+    creatures = { ocelot : true , dodo : false}
+    if creatures[animal]?  # 判断是否存在 , 即便其他 等价假植(如 false,"",0) , 存在运算也返回 true. 
+    # 这让代码可以区分 已经灭绝的动物(dodo,渡渡鸟,已定义) 和虚构的动物(unicorn,独角兽,未定义)
+        if creatures[animal]    # 判断 animal 的状态
+            "The #{animal} is alive."
+        else
+            "oh,no! the The #{animal} is extinct."
+    else
+        "The #{animal} isn't real."
+animalStatus("ocelot")      # alive
+animalStatus("dodo")    # extinct
+animalStatus("unicorn")     # isn't real
+</pre><p>Coffee 在必要的时候始终是安全的 , 不过它知道在其他情况下可以放松下: (既然是访问对象,就不会有抛出异常的风险, 所以这里只是简单判断值是否等于 null 或 undefined)</p>
+<pre>if (creatures[animal] !=null){
+    //...
+}else{
+    //...
+}
+</pre><p>也可以同时判断多个变量是否存在:</p>
+<pre>if hat? and mittens? and boots?
+    goOutside()
+</pre><h4>3.1.1.1. 空值在链式调用中 (<code>?</code> 结合数组/对象 使用)</h4>
+<p>在 访问对象属性 或 调用函数 时, 返回结果 ; 如果没有结果, 返回空值, 但是 , <strong>对空值结果的属性调用会产生错误</strong>, 因此必须用 if语句 检查是否存在.
+Coffee 对这种情况也提供了 在变量上使用存在运算符 的简写方式:</p>
+<pre>trees = 
+    pine : 
+        type : "evergreen"
+    crabapple : 
+        type : "deciduous"
+        fruit:
+            edible:false
+#通常, 我们像下面的这样访问会抛出异常, 因为 pine.fruit 未定义, fruit 也没有 edible属性.
+if trees.pine.fruit?.edible  # 如果不存在 , 结果为 undefined , if 判断为 false
+    console.log "Mm..pine fruit"
+# 上面的代码将编译成格式良好的 JavaScript 语句 : 
+var _ref;
+if ((_ref = trees.pine.fruit) != null ? _ref.edible : void 0) {
+  console.log("Mm..pine fruit");
+}
+</pre><ul>
+<li>如果在几个不同的层次不确定属性是否存在, 我们可以将访问链接在一起:<pre>if trees.truffula?.fruit?.edible # 对多个不确定的属性判断
+console.log "Mm..truffula fruit"
+</pre></li>
+<li>也可以在数组和对象的访问中, 组合使用 <code>?</code> 和 <code>[]</code><pre>alpha = 
+lowercase : ["a","b","c","d"]
+console.info alpha.lowercase?[2].toUpperCase() #判断对象中的数组是否存在
+console.info alpha.uppercase?[2].toLowerCase()
+#判断正则是否有匹配结果
+extractBugNum = (line) -&gt;
+line.match(/(issue|bug) #(\d+)/)?[2] #判断是否匹配正则 (隐式返回)
+console.info extractBugNum "This fixes bug #345."  # return ==&gt; 345
+console.info extractBugNum "no bug number mentioned."  # return ==&gt; undefined
+</pre></li>
+<li>还可以将 <code>?</code> 和函数调用组合使用<pre>oppositeMath = 
+min : Math.max
+#判断是否存在函数
+console.info oppositeMath.min?(3,2,5)    # return ==&gt; Math.max(3,2,5) ==&gt; 5
+console.info oppositeMath.max?(3,2,5)    # return ==&gt; undefined
+</pre></li>
+</ul>
+<h4>3.1.1.2. 以空值为条件,赋新值.</h4>
+<blockquote><p>另一个 JavaScript 中潜在空值的处理, 通常发生在 赋值.</p>
+<ul>
+<li><strong>如果原来值为 null , 则赋新值.</strong></li>
+<li><strong>如果没有给定的值, 一般使用默认值或者预设的故障值</strong>(fallback value). 在 JavaScript 中, 通常使用 <code>||</code> 和 <code>||=</code> 运算符.</li>
+</ul>
+<pre class='brush:javascript'>var briefcase = {};
+briefcase.combination ||= "1234" ;  # 存在 等价假值 的问题
+var payment = briefcase.contents || "credit" ;  # 存在 等价假值 的问题
+</pre><p>但是很容易发生 等价假值 的问题, 而且,如果想要使用 一个变量而不是对象属性(对变量赋值),也会有问题.</p>
+</blockquote>
+<ul>
+<li>CoffeeScript 实现只有当前值不存在的情况下赋新值: <code>?=</code><pre>briefcase =
+color : "silver"
+briefcase.combination ?= "1234" #正确判断不存在赋值
+briefcase.color ?= "black"
+console.log briefcase  # return --&gt; Object {color: "silver", combination: "1234"}
+# 上面的代码将编译成格式良好的 JavaScript 语句 : 
+var briefcase;
+briefcase = {
+color: "silver"
+};
+if (briefcase.combination == null) {
+briefcase.combination = "1234";
+}
+if (briefcase.color == null) {
+briefcase.color = "black";
+}
+console.log(briefcase);
+</pre><ul>
+<li>如果使用未声明的变量, Coffee 会拒绝编译,因为变量不是有效引用.<pre># Will not compile!!! 
+undefineVar ?= "coyote"
+</pre></li>
+</ul>
+</li>
+<li>当 mothMan 存在时返回它的值, 否则返回第二个值.
+这里的用法和 <code>?=</code> 相似, <strong>但是如果想传递值到某处,而不是重写潜在的空值</strong> , 这个更有用.<pre>sighting = mothMan ? "sandhill crane" # 如果存在,返回值 ; 否则,返回第二个值.
+console.info sighting
+</pre></li>
+<li>CoffeeScript 扩展的 别名 <code>or=</code>
+<strong>如果 真正想要进行的操作是 <code>||=</code> , 这个运算符还是可以用</strong>.就像 CoffeeScript 中的比较运算符, 那些运算符在这里也扩展了, 所以<strong>可以使用 <code>or=</code> 执行相同操作.</strong><pre>ufosExist ||= wasAbducted
+ufosExist or= saucerSpotted  # 使用别名
+</pre></li>
+</ul>
+<h2>3.2. 使用解构赋值,一次对多个变量赋值 : ( 变量用 <code>[ ... ]</code> , 对象用 <code>{ ... }</code>, 对象可以相互嵌套 , 对象里可以嵌套数组 , 数组里可以嵌套对象 )</h2>
+<p>CoffeeScript 中 一次给多个变量赋值的 方便又简短的方法 ——— 结构形式的变量赋值 ——— Coffee中 叫做 <strong>解构赋值</strong> ( destructuring assignment )的功能 . 意思是 : <strong>可以仅仅用一个表达式,实现给数组或者对象中的多个变量赋值.</strong></p>
+<ul>
+<li>只需要简单的在他们两边添加 中括号 .<pre>[ first , second ] = [ "horse","cat" ]
+console.log "Don;t put the #{second} before the #{first}."
+# 上面的代码将编译 的 JavaScript 语句 : 
+# 使用了一个临时变量作为引用,然后使用数组索引 , 每次给其中一个变量赋值.
+_ref = ["horse", "cat"], first = _ref[0], second = _ref[1]; 
+# 这个语法可以很方便的初始化一些值: CoffeeScript 语法
+[x,y]=[22,15]
+hypotenuse = Math.sqrt x*x + y*y
+</pre></li>
+<li>或者我们还可以在调用返回多个值的函数时使用它.
+如: 用正则表达式匹配以 Script 结尾的语言. 获得它的前缀.<pre>[languageName , prefix] = "CoffeeScript".match /(.*)Script/
+console.log "I love the smell of #{prefix} in the morning."  # result ==&gt; prefix = Coffee
+</pre></li>
+<li>解构赋值 甚至可以实现<strong>就地的 变量交换</strong>(不需要第三个参数).<pre>[first,second] = ["cow","milk"]
+#就地交换 变量的值 , 编译成 JavaScript 后 使用两个数组.
+[first,second] = [second, first] 
+</pre></li>
+<li>解构赋值也可以用在更复杂的结构里( 数组的嵌套 )<pre>[drink,[alcohol,mixer] ] = ["Screwdriver", [ "vodka","orange juice" ] ]
+console.info "A #{drink} consists of #{alcohol} and #{mixer} ."
+</pre></li>
+<li>它还可以用于对象 (使用 <code>{...}</code> )<ul>
+<li>我们可以给变量赋特定名字, 该名字作为从对象取值的~~关键字~~(属性名).<pre>blackbird = verb : "singing", time:"midnight"
+{time} = blackbird  # time 为 对象的属性, 同时也作为取值的变量名
+console.log "At #{time}"  # result ==&gt; time = midnight
+</pre></li>
+<li>或者, 先给出关键字(对象的属性名), 然后再给出 变量名.<pre>{verb : birdBehavior} # verb 为对象的属性名, birdBehavior 为后续要使用的变量名.
+console.log "It was #{birdBehavior}."
+# 上面的代码将编译 的 JavaScript 语句 : 
+time = blackbird.time;
+birdBehavior = blackbird.verb;
+</pre></li>
+</ul>
+</li>
+<li>可以<strong>互相嵌套对象</strong>, 只把我们感兴趣的关键字取出来.<pre>retroGames = 
+pacman:
+    villains:"ghosts"
+    objective:"eat dots"
+spaceInvaders:
+    villains:"aliens"
+    objective:"shoot aliens"
+{
+pacman : {villains , objective}, # villains是 pacman 的属性名, 同时也作为 后续使用的 变量名 , objective 同理.
+spaceInvaders : {villains : otherBadGuys} # 取出关键字,再给变量名.
+} = retroGames
+console.log "In Pacman the goal was to #{objective}." # result ==&gt; objective = "eat dots"
+console.log "The enemies were #{villains} . At least they weren't #{otherBadGuys}." # result ==&gt; villains = "ghosts" , otherBadGuys = "aliens"
+# 上面的 关键代码 将编译 的 JavaScript 语句 : 
+(_ref = retroGames.pacman, villains = _ref.villains, objective = _ref.objective),
+(_ref1 = retroGames.spaceInvaders, otherBadGuys = _ref1.villains);
+</pre></li>
+<li>还可以在 对象里嵌套数组 , 反之亦然.<pre># 对象里嵌套数组 
+boat = { directions:["port","starboard"]}
+{ directions:[left,right]} = boat
+console.info "Turn to #{right}" # result ==&gt; right = starboard
+# 数组里嵌套对象
+directionCommands = [
+{type:"boat",directions:["port","starboard"]},
+{type:"dogsled",directions:["haw","gee"]}
+]
+[boatInfo, {directions:[left,right]}] = directionCommands
+console.info "#{left}! Mush!"  # result ==&gt; left = haw
+# 上面的 关键代码 将编译 的 JavaScript 语句 :
+boatInfo = directionCommands[0], 
+(_ref1 = directionCommands[1], 
+(_ref2 = _ref1.directions, left = _ref2[0], right = _ref2[1])
+);
+</pre></li>
+</ul>
+<blockquote><p>嵌套赋值,适度使用非常方便 , 过度使用 , 代码将变得混乱(尤其是操作大的,深层嵌套的对象 , 可以重新考虑应用架构来简化代码 , 或者 通过将处理不同关注点的代码拆分成更小、更集中的函数).</p>
+</blockquote>
+<h2>3.3. 高级函数参数</h2>
+<p>函数的某些参数可能是可选的, 可以在特殊的函数调用时只传递那些相关信息.
+大部分现代编程语言实现了这一目标的方法, 不过 JavaScript 的实现机制有些晦涩.</p>
+<blockquote><p>JavaScript 羞涩的写法</p>
+<pre>/*
+ *formatTemperature(degress,scale="K")
+ */
+function formatTemperature(degress,scale){
+    if (typeof scale === "undefined"){
+        scale = "K";
+    }
+    var formatted = degress.toFixed(1);
+    formatted += (scale.toUpperCase() === 'K') ? " " : "°"
+    return formatted + scale.toUpperCase();
+}
+console.log(formatTemperature(22,"C"));
+console.log(formatTemperature(44.25));
+</pre><p>参数 scale 尽管在函数定义中被声明为常规参数, 但它其实是可选的. 由于 JavaScript 对执行是传递给调用函数的参数个数没有严格要求, 因此我们只需要检查 scale 的值是否为 undefined , 如果是的话设置为默认值.</p>
+<hr />
+<p>如果还想定义一个可以包含任意个参数的函数,可能会写像下面的代码:</p>
+<pre>function formatAverageTemperature(scale /*,temperature*/){
+    var sum = 0;
+    for (i=1;i&lt;arguments.length;i++){
+        sum += arguments[i];
+    }
+    return formatTemperature( sum/(arguments.length-1), scale);
+}
+console.log( formatAverageTemperature("F",98,10,32) );
+</pre><p>以注释的形式记录额外的参数,这两个例子也显示了 JavaScript 中的两种注释方式, 可以改善代码的阅读体验.</p>
+</blockquote>
+<h3>3.3.1. 默认参数值</h3>
+<p>Coffee中提供了更简单明确的声明定义默认参数值的方式.修改上面的返回格式化温度的 函数:</p>
+<pre>formatTemperature = (degress,scale="K") -&gt; # 默认值在这里显式的明确定义
+    formatted = degress.toFixed(1)
+    formatted += if scale.toUpperCase() is 'K'  then " " else "°"
+    formatted + scale.toUpperCase()
+}
+console.log(formatTemperature(22,"C"));
+console.log(formatTemperature(44.25));
+# 上面的 关键代码 将编译 的 JavaScript 语句 :
+var formatTemperature;
+formatTemperature = function(degress, scale) {
+  var formatted;
+  if (scale == null) { # 注意这里的区别
+    scale = "K";
+  }
+  formatted = degress.toFixed(1);
+  formatted += scale.toUpperCase() === 'K' ? " " : "°";
+  return formatted + scale.toUpperCase();
+};
+</pre><blockquote><p>Coffee 的代码比原来的JavaScript的版本更巧妙, <strong>前面使用 <code>if(typeof scale === "undefined")</code> 来检查参数是否存在, 而这里 Coffee 用 <code>if(scale==null)</code> 来代替.</strong>为什么可以这样做? 我们有检查变量类型的习惯(比较未声明的变量会引发错误) , 但是在这里的情况, <strong>变量总是在函数定义里声明了.</strong>因此<strong>认为 空值 的仅有两个值(经过强转),<code>null</code> 和 <code>undefined</code></strong>,所以 <code>0</code>,<code>""</code> 或者 <code>false</code> 都没问题.</p>
+<ul>
+<li>和 空值 比较还有一个优势,  即允许调用者显式传递一个空值,以确保默认值被使用.<pre>console.info formatTemperature(88.11265, null , 4) #第3个参数没用的, 第2个参数显式的 传递空值,确保默认值被使用.
+</pre></li>
+<li>也可以在一个函数里使用多个可选参数,多个可选参数从左到右赋值.<pre>formatTemperature = (degress,scale="K",decimalPlaces = 1 ) -&gt; # 默认值在这里显式的明确定义
+formatted = degress.toFixed(decimalPlaces)
+formatted += if scale.toUpperCase() is 'K'  then " " else "°"
+formatted + scale.toUpperCase()
+}
+console.log(formatTemperature(22));
+console.log(formatTemperature(44.25 ,"C"));
+console.log(formatTemperature(12.34 ,"F", 2 ));
+</pre></li>
+</ul>
+</blockquote>
+<h3>3.3.2. 接受可变个数参数 splat</h3>
+<p>通常, 我们将这些参数作为一个列表, 让调用者直接传递参数而不用创建数组 , 这便是 CoffeeScript 的 splat 功能.
+CoffeeScript 代码:</p>
+<pre>formatAverageTemperature = (scale ,temperatures... ) -&gt;     # 参数后的...告诉Coffee可以接受任意数目的参数.参数被赋值为一个数组,包含所有的传递的 temperatures 的值.
+    sum = 0;
+    sum += t for t in temperatures
+    return formatTemperature( sum/(temperatures.length), scale) #这里的长度Coffee会精心处理.
+console.log( formatAverageTemperature("F",98,10,32) )
+</pre><p>上面的 关键代码 将编译 的 JavaScript 语句 : 通过仔细处理 arguments 来做到这一点.</p>
+<pre>var formatAverageTemperature,
+  __slice = [].slice;   # 将 slice 从数组实例方法中抽取成 Coffee 的小助手 , 名为 __slice.
+
+formatAverageTemperature = function() {
+  var scale, sum, t, temperatures, _i, _len;
+  scale = arguments[0], temperatures = 2 &lt;= arguments.length ? __slice.call(arguments, 1) : [];     # 通过 __slice 为 tempeatures 提取正确的值.注意:如果 splat 没有收到任何参数, 将设置一个空数组.
+  sum = 0;
+  for (_i = 0, _len = temperatures.length; _i &lt; _len; _i++) {
+    t = temperatures[_i];
+    sum += t;
+  }
+  return formatTemperature(sum / temperatures.length, scale);
+};
+
+console.log(formatAverageTemperature("F", 98, 10, 32));
+</pre><ul>
+<li><p><strong>就算不是最后一个参数, splat也能正常工作.</strong>这一点使用异步库的时候非常有用, 因为异步库的函数需要一个回调函数的参数,并约定为最后一个参数.</p>
+<pre>fetchSearchResults = (url, searchItem..., callback) -&gt;      #即使 splat不是最后一个参数, CoffeeScript 也能正常处理.
+console.log "Searching #{url} for #{searchItem.join " "} now."
+asyncRequest url , buildQuery(searchItem) , callback
+</pre></li>
+<li><p>我们还可以使用 splat 作为 解构赋值 的一部分 (像在函数参数里所作的那样,提取数据结果的一部分作为数组.)</p>
+<pre>[race, [splits..., time]] = ["10k", ["13:08","13:09","26:17"]]
+console.log "The World record for #{race} is #{time}"   # result ==&gt; race = "10k" , time="26:17"
+console.log "The splits were #{splits.join " and "}."   # result ==&gt; splits = ["13:08","13:09"]
+</pre></li>
+<li><p>调用函数时 使用 splat
+我们不仅可以在定义函数是使用 splat , 可以在调用函数时使用它.</p>
+<ul>
+<li>调用 formatAverageTemperature 函数 , 以我们存储在变量里的一个数组为参数.<pre>temps = [-10,44,80]
+console.log formatAverageTemperature("F",temps...)  # 在参数后面加... , 启用 splat .
+</pre></li>
+<li>不仅可以对自己写的函数这样使用 , 还可以对库函数 或标准 JavaScript 函数 —— 任何包含多个参数的函数使用.<pre># 可以这样来调用 Math.min , 以不确定个数的值为参数.
+temps = [-10,44,80]
+minTemp = Math.min temps...     # 在参数后面加... , 启用 splat .
+console.info minTemp    # result ==&gt; minTemp = -10
+</pre></li>
+</ul>
+</li>
+</ul>
+<blockquote><p><strong>splat 用法 总结:</strong> 刚开始,每一种情况下 splat 的用法有点容易混淆.可以这样考虑:</p>
+<ul>
+<li><strong>splat 总是让你处理一个数组.</strong></li>
+<li>如果 splat 是你在处理的函数的参数,那么传入的数据作为分开的值,以数组的形式给你.</li>
+<li>如果 splat 要传给你要调用的函数 , 它以数组的形式给你, 然后以分开的值传递给函数.</li>
+</ul>
+</blockquote>
+<h2>异步操作</h2>
+<ul>
+<li><p>跨域请求 , 使用 <a href="https://niryariv.wordpress.com/2009/05/05/jsonp-quickly/" title="JSONP作者博客">JSONP</a> (<a href="http://www.cnblogs.com/yuzhongwusan/archive/2012/12/11/2812849.html" title="国人的 Jsonp详解">国人的Jsonp详解</a>) , 以避免被 <a href="https://developer.mozilla.org/zh-CN/docs/JavaScript%E7%9A%84%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5" title="JavaScript的同源策略">同源策略</a> 绊倒. (同源策略阻止从一个源加载的文档或脚本获取或设置另一个源加载的文档的属性)</p>
+</li>
+<li><p>另一个更新的替代标准 , <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS" title="火狐文档">CORS</a> , 更加强大,并可能最终取代 JSONP.</p>
+</li>
+</ul>
+<h2>循环请求</h2>
+<p>在 JavaScript <strong>循环</strong>中,变量是一个引用而不是一个值,它在循环的每一步被重新复制.任何时候,<strong>只要循环内的代码没有立即执行, 就会出问题</strong> :</p>
+<pre class='brush:javascript'>var sleepSort = function(n) {
+  var nn, _i, _len, _results;
+  _results = [];
+  for (_i = 0, _len = n.length; _i &lt; _len; _i++) {
+    nn = n[_i];
+    _results.push(setTimeout(function() {
+      return console.log(nn);
+    }, nn));
+  }
+  return _results;
+};
+
+sleepSOrt([4, 2, 6, 9, 3]);
+</pre><p><em>( 我们期望的输出是 <code>2 3 4 6 9</code> , 但实际的输出是 <code>3 3 3 3 3</code>(注意,3 是数组中最后一个数,因此是最后赋值给 n 的值.)  )</em></p>
+<blockquote><p>这个函数是 <code>SleepSort</code> 的实现 (一种极其愚蠢的排序算法,按照与列表成员的值成正比的睡眠时间对数字进行排序.大数字因为睡了较长的时间,所以将在后面输出). <a href="http://rosettacode.org/wiki/Sorting_algorithms/Sleep_sort" title="各语言版本的wiki">更多 SleepSort 的 消息</a></p>
+</blockquote>
+<p><strong>该问题的解决方式</strong>:
+<strong><code>CoffeeScript</code>: do 关键字 表示 立即调用函数</strong> , 这样, <strong>在调用范围内与变量同名的函数将被立即调用.</strong></p>
+<pre># CoffeeScript
+sleepSort = (number) -&gt;
+ for n in number
+  do(n) -&gt;
+   setTimeout(
+    -&gt; console.log n
+    n
+   )
+
+###  上面的 CoffeeScript 编译成的 JavaScript.
+var sleepSOrt;
+
+sleepSort = function(number) {
+  var n, _i, _len, _results;
+  _results = [];
+  for (_i = 0, _len = number.length; _i &lt; _len; _i++) {
+    n = number[_i];
+    _results.push((function(n) {
+      return setTimeout(function() {
+        return console.log(n);
+      }, n);
+    })(n));
+  }
+  return _results;
+};
+
+sleepSort([4, 2, 6, 9, 3]);
+</pre><p>编译成的 JavaScript , 它被封装在一个函数内, <strong>当我们在回调函数中引用 n 时, 我们不再引用由循环定义的 n , 而是引用封装函数中同名的参数</strong> , 调用取的是外部定义的 n 的值 (而不是引用 ) . 内部定义的 n 是一个普通参数 , 保留其值 (如同预期一样 ).</p>
+<h2>管理异步调用的替代方案 : 承诺.</h2>
+<p>有很多解决方案可帮助管理异步控制流, 这里列举其中的几个.</p>
+<p>承诺 (Promise) :</p>
+<blockquote><p><em>(是在大部分库中都有实现的一种流行的模式,客户端和服务器端都支持)</em>.</p>
+</blockquote>
+<p>(不是广泛使用回调函数,基于承诺的代码有一个同步的外观.<strong>函数调用立即返回结果,但结果不是所请求的值,而是一个在未来某个时刻返回所请求值的承诺.</strong>)</p>
+<p><a href="http://blog.parse.com/2013/01/29/whats-so-great-about-javascript-promises/">了解承诺的更多细节</a></p>
+<p>访问<code>承诺</code>对象最终值的关键是它的 then 方法, 这个方法有两个参数(都是可选的),一个成功的回调函数 和 一个失败的回调函数. then 的调用也可以链式使用,以方便操纵最终值. (有些承诺库还提供更多结合和创建 Promise 的选项 , 使这种模式更加强大).</p>
+<p>几个<code>承诺</code>库:</p>
+<ul>
+<li><a href="http://www.css88.com/jqapi-1.9/jQuery.when/" title="jQuery官方手册,添加的版本: 1.5">jQuery</a><ul>
+<li>jQuery 在它的异步调用中提供了可选的 <code>承诺</code> 支持, 并具有附加功能,如 <code>$.when()</code>(提供了 <code>RSVP.all</code> 类似的功能.)</li>
+</ul>
+</li>
+<li><a href="https://github.com/ded/Reqwest" title="github Reqwest">Reqwest</a> : 一个小型的,集中的库,专为辅助 AJAX 请求建立 . (<strong>在 HTTP 请求中提供了对 <code>承诺</code> 的支持.</strong>)
+使用 then.</li>
+<li><a href="https://github.com/tildeio/rsvp.js" title="github rsvp.js">RSVP</a> : 一个处理 <code>承诺</code> 的小型库.<ul>
+<li>RSVP 中提供的 <code>RSVP.all</code> 方法, 这个方法接收 <code>承诺</code> 数组, 并返回一个 <code>承诺</code> , 当数组中所有的 <code>承诺</code> 都解决时, 这个承诺解决.
+<code>RSVP.all(queries).then(...)</code></li>
+</ul>
+</li>
+</ul>
+<h2>更多的地方使用 CoffeeScript</h2>
+<ol>
+<li><p>直接在浏览器中运行 CoffeeScript (导入 Coffee的编译器, 就像官网一样 Try CoffeeScript 的交互式控制台.)</p>
+<pre class='brush:html'>&lt;!--  在 html 中 导入下面的 &lt;script&gt;  --&gt;
+&lt;script src="http://coffeescript.org/extras/coffee-script.js"&gt;&lt;/script&gt;
+&lt;script type="text/coffeescript"&gt;
+alert "Welcome!"
+&lt;/script&gt;
+</pre></li>
+<li><p>在浏览器控制台.</p>
+<ul>
+<li>Firefox 的 CoffeeScript 控制台 (插件 : 使用 Paul Rouget 的 <code>JSTerm</code> 附加组件)<ul>
+<li>需要 Firefox 20 或更高版本.</li>
+<li><a href="https://github.com/paulrouget/firefox-jsterm/blob/master/jsterm.xpi?raw=true" title="开发版插件下载链接 , 这个插件最近才开始支持 CoffeeScript,2014年12月12日15:52:36">开发版插件下载链接(下载后拖动到 FF)</a> (<a href="https://github.com/paulrouget/firefox-jsterm">项目介绍页</a>), <a href="https://addons.mozilla.org/en-US/firefox/addon/javascript-terminal" title="如果 3.0或者更高版本的 JSTerm 附加组件已经发布,从 Mozilla 附加组件网站安装.">从 Mozilla 附加组件网站安装</a></li>
+<li><img src="https://camo.githubusercontent.com/bc00dbc6c0b535622fe88756873b5bacd87fee2c/687474703a2f2f692e696d6775722e636f6d2f715562793470632e706e67" alt="JSTerm 中使用 coffee 示例" title="JSTerm 中使用 coffee 示例" /></li>
+</ul>
+</li>
+<li>Chrome 的 <code>CoffeeScript</code> 控制台 (插件 : 使用 Jonathan Snook 开发的扩展程序 <code>CoffeeConsole</code> )<ul>
+<li><a href="https://chrome.google.com/webstore/detail/amcoffee/eohnbihebhopoapemdbbodaiaagpogik" title="Chrome Web Store 安装地址">Chrome Web Store 安装地址</a></li>
+<li><a href="https://github.com/snookca/CoffeeConsole" title="`CoffeeConsole`项目托管地址(介绍)"><code>CoffeeConsole</code>项目托管地址(介绍)</a></li>
+<li><a href="http://snook.ca/archives/browsers/coffeeconsole" title="作者页">作者页</a></li>
+<li><img src="http://static.oschina.net/uploads/img/201305/18084343_1Seq.png" alt="在console里也能使用coffee script 示例" title="在console里也能使用coffee script 示例" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>js2Coffee : 将 js 转换成 coffee 的 简洁工具.</p>
+<ul>
+<li><a href="http://js2coffee.org" title="js2coffee网址">js2coffee网址</a> : 将代码粘贴到文本框, 并立刻看到转换后的代码,  <strong>可以进行 <code>js &lt;---&gt; coffeescript</code> 的转换 </strong>.</li>
+<li>可以作为 npm 的一个模块.<pre># 用下面的命令安装 npm 模块 (js2coffee 模块):
+npm install -g js2coffee
+# 使用下面的命令转换 .js 文件
+js2coffee app.js &gt; app.coffee  # 转换后注意删除 js 文件.
+</pre></li>
+<li><img src="/blog_images/coffeescript-dev-book-note/js2coffeeScript-compiler.jpg" alt="js2coffee示例" /></li>
+</ul>
+</li>
+</ol>
+</div>
+  <footer>
+    <p class="meta">
+<span class="byline author vcard">作者 <span class="fn"><a href='https://github.com/yafey'>YaFey</a></span></span>      
+
+
+<time datetime="2014-12-12T09:56:00+08:00" pubdate>2014年12月12日 09:56:00</time>
+
+<span class="categories">属于 <a class="category" href="/category/tech/">编程开发</a>, <a class="category" href="/category/tech/webFront/javascript/">JavaScript</a>
+ 分类</span>
+
+
+<span class="categories">被贴了 <a class="tag" href="/tag/book-note/">读书笔记</a>
+ 标签</span>
+    </p>
+<div class="sharing">
+  </div>
+<p>
+  <h2>相关文章</h2>
+  <ul id="related-posts-list">
+      <li class="post">
+        <a href="/article/2015/01/professional-js-web-dev-book-note/">《JavaScript高级程序设计(第2版)》读书笔记</a>
+        <div class="source right"><time datetime="2015-01-15T09:52:00">2015-01-15</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2014/12/javascript-best-practices/">JavaScript使用技巧</a>
+        <div class="source right"><time datetime="2014-12-18T17:03:00">2014-12-18</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2014/12/javascript-tutorial/">JavaScript学习笔记</a>
+        <div class="source right"><time datetime="2014-12-22T10:29:00">2014-12-22</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2014/12/class-reference-resource/">分类参考资源</a>
+        <div class="source right"><time datetime="2014-12-09T21:10:00">2014-12-09</time></div>
+      </li>
+  </ul>
+</p>    <p class="meta">
+        <a class="basic-alignment left" href="/article/2014/12/website-build/" title="上一篇: 网站建设资源">&laquo; 网站建设资源</a>
+        <a class="basic-alignment right" href="/article/2014/12/javascript-best-practices/" title="下一篇: JavaScript使用技巧">JavaScript使用技巧 &raquo;</a>
+    </p>
+  </footer>
+</article>
+</div>
+<aside class="sidebar">
+<section>
+  <h1>近期文章</h1>
+  <ul id="recent_posts">
+  
+  
+      <li class="post">
+        <a href="/article/2015/03/eclipse-notes-shangguigu/">Eclipse优化配置笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/tomcat-notes-shangguigu/">Tomcat学习笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/javaweb-notes-shangguigu/">JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/struts2-notes-shangguigu/">Struts2学习笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/02/spring4.0-notes-shangguigu-jdbc-transaction/">Spring4.0学习笔记@尚硅谷 之 JDBC部分(含事务管理) (3/n)</a>
+      </li>
+  </ul>
+</section>
+
+<section>
+  <h1>分类</h1>
+  <ul id="categories">
+	<li class="category"><a href="/category/software/">软件应用</a><span class="count right">4</span>
+	    <ul class="children1">
+	<li class="category"><a href="/category/software/dev/">开发用的软件</a><span class="count right">2</span>
+	</li>
+	<li class="category"><a href="/category/software/software_with_sn/">破解版软件</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/software/windows/">Windows应用技巧</a><span class="count right">1</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/">编程开发</a><span class="count right">5</span>
+	    <ul class="children1">
+	<li class="category"><a href="/category/tech/java/">Java</a><span class="count right">5</span>
+	    <ul class="children2">
+	<li class="category"><a href="/category/tech/java/framework/">Java框架</a><span class="count right">4</span>
+	    <ul class="children3">
+	<li class="category"><a href="/category/tech/java/framework/spring/">Java框架-Spring</a><span class="count right">3</span>
+	</li>
+	<li class="category"><a href="/category/tech/java/framework/struts2/">Java框架-Struts2</a><span class="count right">1</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/java/javaweb/">JavaWeb</a><span class="count right">2</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/webFront/">web前端</a><span class="count right">2</span>
+	    <ul class="children2">
+	<li class="category"><a href="/category/tech/webFront/javascript/">JavaScript</a><span class="count right">4</span>
+	</li>
+    </ul>
+</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/opoopress/">opoopress</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/blog/">blog</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/you-xiu-bo-ke/">优秀博客</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/bo-ke/">博客</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/lu-xian-tu/">路线图</a><span class="count right">1</span>
+	</li>
+  </ul>
+</section>
+</aside>
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  版权所有 &copy; 2015 - <a href='https://github.com/yafey'>YaFey</a> -
+  <span class="credit">Powered by <a href="http://www.opoopress.com/">OpooPress</a></span>
+</p></footer>
+<script type="text/javascript" src="/javascripts/opoopress.min.js"></script>
+<script language="JavaScript">
+<!--
+    window.OpooPress = new OpooPressApp({siteUrl:'http://yoursite.com',rootUrl:'',pageUrl:'/article/2014/12/coffeescript-dev-book-note/',title:'《CoffeeScript应用开发》读书笔记',refreshRelativeTimes:true,verbose:true},{});
+    OpooPress.init();
+
+//-->
+</script>
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'applescript			/plugins/syntax-highlighter/scripts/shBrushAppleScript.js',
+        'actionscript3 as3		/plugins/syntax-highlighter/scripts/shBrushAS3.js',
+        'bash shell				/plugins/syntax-highlighter/scripts/shBrushBash.js',
+        'coldfusion cf			/plugins/syntax-highlighter/scripts/shBrushColdFusion.js',
+        'cpp c					/plugins/syntax-highlighter/scripts/shBrushCpp.js',
+        'c# c-sharp csharp		/plugins/syntax-highlighter/scripts/shBrushCSharp.js',
+        'css					/plugins/syntax-highlighter/scripts/shBrushCss.js',
+        'delphi pascal pas		/plugins/syntax-highlighter/scripts/shBrushDelphi.js',
+        'diff patch			    /plugins/syntax-highlighter/scripts/shBrushDiff.js',
+        'erl erlang				/plugins/syntax-highlighter/scripts/shBrushErlang.js',
+        'groovy					/plugins/syntax-highlighter/scripts/shBrushGroovy.js',
+        'java					/plugins/syntax-highlighter/scripts/shBrushJava.js',
+        'jfx javafx				/plugins/syntax-highlighter/scripts/shBrushJavaFX.js',
+        'js jscript javascript	/plugins/syntax-highlighter/scripts/shBrushJScript.js',
+        'perl pl				/plugins/syntax-highlighter/scripts/shBrushPerl.js',
+        'php					/plugins/syntax-highlighter/scripts/shBrushPhp.js',
+        'text plain				/plugins/syntax-highlighter/scripts/shBrushPlain.js',
+        'powershell ps          /plugins/syntax-highlighter/scripts/shBrushPowerShell.js',
+        'py python				/plugins/syntax-highlighter/scripts/shBrushPython.js',
+        'ruby rails ror rb		/plugins/syntax-highlighter/scripts/shBrushRuby.js',
+        'sass scss              /plugins/syntax-highlighter/scripts/shBrushSass.js',
+        'scala					/plugins/syntax-highlighter/scripts/shBrushScala.js',
+        'sql					/plugins/syntax-highlighter/scripts/shBrushSql.js',
+        'vb vbnet				/plugins/syntax-highlighter/scripts/shBrushVb.js',
+        'xml xhtml xslt html	/plugins/syntax-highlighter/scripts/shBrushXml.js'
+    );
+    SyntaxHighlighter.defaults['auto-links'] = false;                 
+    SyntaxHighlighter.defaults['toolbar'] = false;     
+    SyntaxHighlighter.defaults['tab-size'] = 4;
+    SyntaxHighlighter.all();
+</script>
+<!-- END: Syntax Highlighter ComPress -->
+</body>
+</html>
+

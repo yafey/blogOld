@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="zh"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Tomcat学习笔记@尚硅谷 - YaFey 的博客</title>
+  <meta name="author" content="<a href='https://github.com/yafey'>YaFey</a>">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="OpooPressSiteRoot" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Generator" content="OpooPress-1.1.1"/>
+  <meta name="Generated" content="2015-03-09T18:13:45+08:00"/>
+  <link rel="canonical" href="/article/2015/03/tomcat-notes-shangguigu/">
+  
+  
+  <link href="/favicon.ico" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="YaFey 的博客" type="application/atom+xml">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic|PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="/plugins/syntax-highlighter/styles/shCoreDefault.css"/>
+  <!--[if lt IE 9]><script src="/javascripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+  <!--[if lt IE 9]><script src="/javascripts/unsupported-browser.js"></script><![endif]-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">YaFey 的博客</a></h1>
+    <h2>记录点点滴滴</h2>
+</hgroup>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:http://yoursite.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="搜索"/>
+  </fieldset>
+</form>
+<fieldset class="mobile-nav">
+  <select onchange="if (this.value) { window.location.href = this.value;}">
+    <option value="">导航&hellip;</option>
+    <option value="/">&raquo; 文章</option>
+    <option value="/archives/">&raquo; 归档</option>
+    <option value="/category/">&raquo; 分类</option>
+    <option value="/sample-page.html">&raquo; 示例页面</option>
+    <option value="/about/">&raquo; 关于</option>
+  </select>
+</fieldset>
+
+<ul class="main-navigation">
+<li><a href="/">文章</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/category/">分类</a></li>
+<li><a href="/sample-page.html">示例页面</a></li>
+<li><a href="/about/">关于</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+<div>
+<article class="hentry" role="article">
+  <header>
+      <h1 class="entry-title">Tomcat学习笔记@尚硅谷</h1>
+
+      <p class="meta">
+		
+
+
+<time datetime="2015-03-07T14:22:00+08:00" pubdate>2015年03月07日 14:22:00</time>
+      </p>
+  </header>
+
+  <div class="entry-content"><blockquote><p>目录:</p>
+<ul>
+<li><a href="#1.tomcat-introduction">1.Tomcat 简介</a></li>
+<li><a href="#2.tomcat-structure">2.Tomcat 的目录结构</a></li>
+<li><a href="#3.tomcat-startup">3.运行 Tomcat &amp; 关闭 Tomcat &amp; 修改 Tomcat 默认的端口号</a></li>
+<li><a href="#4.tomcat-startup-analysis">4. Tomcat 启动分析 (<em>执行 <code>startup.bat</code> ，实际上执行的是 <code>catalina.bat</code> </em>)</a></li>
+<li><a href="#5.tomcat-manager">5. Tomcat 的管理程序</a></li>
+<li><a href="#6.tomcat-app-struture">6. Servlet 规范中定义了 web 应用程序的目录层次</a></li>
+<li><a href="#7.tomcat-app-struture">7. (Java工程)第一个 WEB 应用程序: 开发, 并部署到 Tomcat 服务器下运行</a></li>
+<li><a href="#8.tomcat-app-config-deploy">8. 配置任意目录下的Web应用程序(自动将web应用部署到 tomcat 的webapp目录下)</a></li>
+</ul>
+</blockquote>
+<h1><span id="1.tomcat-introduction">1.Tomcat 简介</span></h1>
+<p>Tomcat 是一个免费的开放源代码的 Servlet 容器，它是 Apache 软件基金会的一个顶级项目，由 <strong>Apache</strong>，Sun和其他一些公司及个人共同开发而成。由于有了 Sun 的参与与支持，最新的 Servlet 和 JSP 规范总是能在 Tomcat 中的到体现。</p>
+<h1><span id="2.tomcat-structure">2.Tomcat 的目录结构</span></h1>
+<p><img src="/blog_images/software/dev/tomcat/2.tomcat-structure.jpg" alt="Servelt 与 Servlet 容器" title="Servelt 与 Servlet 容器" /></p>
+<h1><span id="3.tomcat-startup">3.运行 Tomcat &amp; 关闭 Tomcat &amp; 修改 Tomcat 默认的端口号</span></h1>
+<ul>
+<li><strong>运行 Tomcat</strong><ol>
+<li>解压 apache-tomcat-6.0.16.zip 到一个<strong>非中文目录</strong>下</li>
+<li>配置 <strong><code>java_home</code></strong> 或 <strong><code>jre_home</code></strong></li>
+<li>双击 bin 目录下的 <code>startup.bat</code> 文件<ul>
+<li>若已经启动了一个 Tomcat 应用, 若再启动同一个 Tomcat 应用, 会抛出异常:<code>java.net.BindException: Address already in use: JVM_Bind:8080</code> ,因为端口已经被占用了.</li>
+</ul>
+</li>
+<li>在地址栏中输入 <code>http://localhost:8080/</code></li>
+</ol>
+</li>
+<li><strong>关闭 Tomcat</strong><ol>
+<li>双击 bin 目录下的 shutdown.bat 文件关闭 Tomcat 服务器</li>
+</ol>
+</li>
+<li><strong>修改 Tomcat 默认的端口号</strong><ol>
+<li>打开 conf 目录下的 server.xml 文件</li>
+<li>修改端口号<pre class='brush:xml'>&lt;!-- A "Connector" represents an endpoint by which requests are received
+and responses are returned. Documentation at :
+Java HTTP Connector: /docs/config/http.html (blocking &amp; non-blocking)
+Java AJP  Connector: /docs/config/ajp.html
+APR (HTTP/AJP) Connector: /docs/apr.html
+Define a non-SSL HTTP/1.1 Connector on port 8080
+--&gt;
+&lt;!-- 将此处默认的 port=8080 修改为 port=9999 --&gt;
+&lt;Connector port="9999" protocol="HTTP/1.1" 
+   connectionTimeout="20000" 
+   redirectPort="8443" /&gt;
+</pre></li>
+</ol>
+</li>
+</ul>
+<h1><span id="4.tomcat-startup-analysis">4. Tomcat 启动分析 (<em>执行 <code>startup.bat</code> ，实际上执行的是 <code>catalina.bat</code> </em>)</span></h1>
+<blockquote><p><strong>结论</strong>: 执行 startup.bat ，实际上执行的是 catalina.bat</p>
+</blockquote>
+<ol>
+<li>为了可以在任意目录下启动 Tomcat 服务器 , 把 <strong><code>D:\apache-tomcat-6.0.16\bin</code></strong> 添加到 <strong><code>path</code></strong> 下</li>
+<li>添加成功后, 若在任意目录下通过 startup 启动 Tomcat 服务器, 会有提示:<pre class='brush:java'>The CATALINA_HOME environment variable is not defined correctly
+This environment variable is needed to run this program
+// 即: 要求设置 CATALINA_HOME 这个环境变量
+</pre></li>
+<li>设置 CATALINA_HOME 环境变量: Tomcat 的根目录<blockquote><p>startup.bat 批处理文件(部分)</p>
+<pre class='brush:java'>rem Guess CATALINA_HOME if not defined
+set CURRENT_DIR=%cd%
+if not "%CATALINA_HOME%" == "" goto gotHome  //判断 “catalina_home” 环境变量 是否为空
+set CATALINA_HOME=%CURRENT_DIR%
+if exist "%CATALINA_HOME%\bin\catalina.bat" goto okHome  //判断当前目录下是否存在 bin\catalina.bat 文件
+cd ..
+set CATALINA_HOME=%cd%
+cd %CURRENT_DIR%
+:gotHome
+if exist "%CATALINA_HOME%\bin\catalina.bat" goto okHome
+echo The CATALINA_HOME environment variable is not defined correctly
+echo This environment variable is needed to run this program
+goto end
+:okHome
+set EXECUTABLE=%CATALINA_HOME%\bin\catalina.bat
+</pre></blockquote>
+<ol>
+<li>通过阅读 startup.bat 批处理文件, 可知 <strong><code>CATALINA_HOME</code></strong> 环境变量下有一个 <code>bin 目录</code>,</li>
+<li>而 bin 目录又有一个 <strong><code>catalina.bat 文件</code></strong>, 由此可知 <strong><code>CATALINA_HOME</code></strong> 指向的应该是 <strong>Tomcat 安装的根目录</strong></li>
+<li>于是把 <strong>Tomcat 的根目录</strong> 设为 <strong><code>CATALINA_HOME</code></strong> 环境变量. <br />
+此时即可以在 任意 目录下通过 startup.bat、shutdown.bat 启动、关闭 Tomcat 服务器.</li>
+<li>继续阅读 startup.bat 文件， 发现启动 tomcat 服务器的是 catalina.bat 文件 <br /><ul>
+<li>catalina 命令有如上的可选参数. (以下为常用的参数.)<ul>
+<li><code>run</code>: 在 catalina 同一个命令行窗口下启动服务器.  <em>(示例: 同窗口启动: <code>catalina run</code>)</em></li>
+<li><code>start</code>: 开启一个新窗口启动服务器.  <em>(示例: 新窗口启动: <code>catalina start</code>)</em></li>
+<li><code>stop</code>: 关闭服务器.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote><p>在命令行窗口直接输入 catalina, 提示如下:</p>
+<pre class='brush:java'>  commands:
+  debug             Start Catalina in a debugger
+  debug -security   Debug Catalina with a security manager
+  jpda start        Start Catalina under JPDA debugger
+  run               Start Catalina in the current window
+  run -security     Start in the current window with security manager
+  start             Start Catalina in a separate window
+  start -security   Start in a separate window with security manager
+  stop              Stop Catalina
+  version           What version of tomcat are you running?
+</pre></blockquote>
+</li>
+</ol>
+<h1><span id="5.tomcat-manager">5. Tomcat 的管理程序</span></h1>
+<ul>
+<li>Tomcat 提供了一个<strong>管理程序：manager</strong>,用于管理部署到 Tomcat 服务器中的 web 应用程序.</li>
+<li>要访问 manager web 应用程序，<strong>需要添加具有管理员权限的账号</strong>.<ul>
+<li>编辑 <strong>conf 目录</strong>下的 <strong><code>tomcat-users.xml</code></strong> 文件，添加 manager 角色，设置用户名和密码  (可以在 tomcat 主页 &ndash;> 左上角的 <code>Tomcat Manager</code>&ndash;> 弹出框中点击取消, 在页面中可以看到 提示的配置信息.)<pre class='brush:xml'>&lt;role rolename="manager"/&gt;
+&lt;user username="tomcat" password="tomcat" roles="manager"/&gt;
+</pre><img src="/blog_images/software/dev/tomcat/5.tomcat-manager.gif" alt="Tomcat 的管理程序 示例" title="Tomcat 的管理程序 示例" /></li>
+</ul>
+</li>
+</ul>
+<h1><span id="6.tomcat-app-struture">6. Servlet 规范中定义了 web 应用程序的目录层次</span></h1>
+<ul>
+<li>一个 web 应用程序是由一组 Servlet，HTML 页面，类，以及其它的资源组成的运行在 web 服务器上的完整的应用程序，<span style="color:red"><strong>以一种结构化的有层次的目录形式存在.</strong></span></li>
+<li>组成 web 应用程序的这些文件要部署在相应的目录层次中，<strong><code>根目录</code></strong> 代表整个 web 应用程序的<strong><code>”根”</code></strong></li>
+<li>通常将 web 应用程序的目录放在 <strong><code>webapps 目录</code></strong>下，在 webapps 目录下的<strong>每一个子目录都是一个独立的 web 应用程序</strong>，<span style="color:red"><strong>子目录的名字就是 web 应用程序的名字，也就是 web 应用程序的“根”</strong></span>。用户通过 web 应用程序的”根”来访问 web 应用程序中的资源</li>
+<li><strong>Servlet 规范中定义了 web 应用程序的目录层次</strong>：
+<img src="/blog_images/software/dev/tomcat/6.tomcat-app-structure.jpg" alt="Servlet 规范中定义了 web 应用程序的目录层次" title="Servlet 规范中定义了 web 应用程序的目录层次" /><ul>
+<li><strong>重要说明</strong>：<ul>
+<li>WEB-INF 目录下的 <strong>classes 和 lib 目录</strong>都可以<strong>存放 Java 的类文件</strong>.<ul>
+<li>在Servlet容器运行时，<code>Web应用程序的类加载器</code>将 <strong>首先加载 <code>classes 目录</code>下的</strong>，<strong>其次才是 <code>lib 目录</code>下的类</strong>。</li>
+<li>如果这两个目录下<strong>存在同名的类</strong>，<span style="color:red"><strong>起作用的将是<code>classes目录</code>下的类 .</strong></span></li>
+</ul>
+</li>
+<li><span style="color:red"><strong><code>WEB-INF</code></strong> 是一个特殊的目录(所有字母都要大写)。</span><strong>这个目录并不属于Web应用程序可以访问的<code>上下文路径</code>的一部分.</strong><ul>
+<li>对<strong>客户端</strong>来说，<strong>这个目录是不可见的</strong>。</li>
+<li><strong>但该目录下的内容对于Servlet代码是可见的</strong> .</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1><span id="7.tomcat-app-struture">7. (Java工程)第一个 WEB 应用程序: 开发, 并部署到 Tomcat 服务器下运行</span></h1>
+<blockquote><p>步骤:</p>
+<ol>
+<li>在 Eclipse 新建一个 Java Project</li>
+<li>在 Java 项目下创建 WEB 开发的目录结构 ( 见 <a href="#6.tomcat-app-struture">6. Servlet 规范中定义了 web 应用程序的目录层次</a> , 其中 web.xml (从 apache-tomcat-6.0.16\webapps\docs\WEB-INF 中复制过来,可以不做修改))</li>
+<li>在 src 下新建一个 Person 类<pre class='brush:java'>package com.yafey.test;
+public class Person {
+public String getPersonInfo(){
+    return "person info...";
+}
+}
+</pre></li>
+<li>手工的 Person 类对应的<strong> class 文件(含包)复制到 (WEB-INF下的)classes 目录下</strong> . <br /><blockquote><p>【<strong>手工拷贝转自动复制</strong>】可以通过修改默认的输出目录达到自动把编译好的 class 放到 classes 目录下:
+<img src="/blog_images/software/dev/tomcat/7.auto-copy-classes.gif" alt="修改默认的输出目录达到自动把编译好的 class 放到 classes 目录下" title="修改默认的输出目录达到自动把编译好的 class 放到 classes 目录下" /></p>
+</blockquote>
+</li>
+<li>在 WebContent 目录下新建一个 JSP 文件:<pre class='brush:java'>&lt;%@page import="com.atguigu.test.Person"%&gt;
+&lt;%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%&gt;
+&lt;% 
+Person person = new Person();
+System.out.print(person.getPersonInfo()); 
+%&gt;
+</pre></li>
+<li>把 WebContent 目录复制到 Tomcat 的 webapps 目录下, 并改名为: helloworld</li>
+<li>在浏览器的地址栏中输入: <code>http://localhost:9999/helloworld/hello.jsp</code> 即可
+看到命令行的打印信息</li>
+<li><strong>配置任意目录下的Web应用程序:</strong> <br />
+在 conf 目录下依次创建 catalina\localhost 目录，然后在 localhost 目录下为 test
+这个Web应用程序建立 test.xml 文件，编辑这个文件输入以下内容<pre class='brush:xml'>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;Context docBase="D:\\dev4yafey\\eclipse-jee-kepler-R-win64\\workspace\\test\\WebContent" reloadable="true"/&gt;
+</pre></li>
+</ol>
+</blockquote>
+<h1><span id="8.tomcat-app-config-deploy">8. 配置任意目录下的Web应用程序(自动将web应用部署到 tomcat 的webapp目录下)</span></h1>
+<ul>
+<li>在Web服务器中可以配置虚拟目录，而<strong>虚拟目录</strong>所对应的真实目录可以在任何路径下。</li>
+<li>在Tomcat服务器中，主要在 XML 配置文件中<strong>通过 <code>&lt;Context&gt;元素</code>的设置来完成的</strong>。一个<code>&lt;Context&gt;元素</code>就表示一个Web应用程序，运行在特定的虚拟主机中。</li>
+</ul>
+<p><img src="/blog_images/software/dev/tomcat/8.config-context.gif" alt="配置任意目录下的Web应用程序(自动将web应用部署到 tomcat 的webapp目录下)" title="配置任意目录下的Web应用程序(自动将web应用部署到 tomcat 的webapp目录下)" /></p>
+<h2>【推荐】方式一 ， 在 conf 目录下 ,创建 <code>catalina\localhost\xxx.xml</code> (还有其他方式, 此处省略)</h2>
+<p>还可以在conf目录下依次创建Catalina\localhost目录，然后在localhost目录下为 test 这个Web应用程序建立 test.xml 文件，编辑这个文件输入以下内容</p>
+<pre class='brush:xml'>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;Context docBase="D:\\dev4yafey\\eclipse-jee-kepler-R-win64\\workspace\\test\\WebContent" reloadable="true"/&gt;
+</pre><p><img src="/blog_images/software/dev/tomcat/8.config-context-recommend.jpg" alt="配置任意目录下的Web应用程序(自动将web应用部署到 tomcat 的webapp目录下) ,推荐的配置方式" title="配置任意目录下的Web应用程序(自动将web应用部署到 tomcat 的webapp目录下),推荐的配置方式 " /></p>
+<blockquote><p>重要说明:</p>
+<ul>
+<li><strong>从Tomcat 5开始</strong>，<span style="color:red;"><strong>不建议直接在 conf\server.xml 文件中配置<code>&lt;Context&gt;元素</code></strong></span>，因为server.xml文件作为Tomcat的主要配置文件，<strong>一旦Tomcat启动后，将不会再读取这个文件</strong>，因此无法在Tomcat服务器启动时发布Web应用程序。如果在其他地方配置<code>&lt;Context&gt;元素</code>，那么在Tomcat运行时，也可以发布Web应用程序。</li>
+<li><strong>从Tomcat 5.5开始</strong>，在<strong><code>\conf\Catalina\localhost目录下创建XML配置文件</code></strong>来配置Web应用程序，<span style="color:red;"><strong>Tomcat将以XML文件的<code>文件名</code>将作为Web应用程序的上下文路径，而不理会在<code>&lt;Context&gt;元素</code>的path属性中指定的上下文路径是什么。</strong></span> 由于Tomcat 5.5之后的版本是以XML配置文件的文件名作为Web应用程序的上下文路径的，因此在配置<Context>元素时，可以不使用path属性。<br  /></li>
+</ul>
+</blockquote>
+</div>
+  <footer>
+    <p class="meta">
+<span class="byline author vcard">作者 <span class="fn"><a href='https://github.com/yafey'>YaFey</a></span></span>      
+
+
+<time datetime="2015-03-07T14:22:00+08:00" pubdate>2015年03月07日 14:22:00</time>
+
+<span class="categories">属于 <a class="category" href="/category/software/dev/">开发用的软件</a>, <a class="category" href="/category/tech/java/javaweb/">JavaWeb</a>
+ 分类</span>
+
+
+<span class="categories">被贴了 <a class="tag" href="/tag/javaweb/">JavaWeb</a>, <a class="tag" href="/tag/shang-gui-gu/">尚硅谷</a>
+ 标签</span>
+    </p>
+<div class="sharing">
+  </div>
+<p>
+  <h2>相关文章</h2>
+  <ul id="related-posts-list">
+      <li class="post">
+        <a href="/article/2015/03/eclipse-notes-shangguigu/">Eclipse优化配置笔记@尚硅谷</a>
+        <div class="source right"><time datetime="2015-03-08T17:38:00">2015-03-08</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/javaweb-notes-shangguigu/">JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)</a>
+        <div class="source right"><time datetime="2015-03-07T13:54:00">2015-03-07</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/struts2-notes-shangguigu/">Struts2学习笔记@尚硅谷</a>
+        <div class="source right"><time datetime="2015-03-05T22:58:00">2015-03-05</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/02/spring4.0-notes-shangguigu-jdbc-transaction/">Spring4.0学习笔记@尚硅谷 之 JDBC部分(含事务管理) (3/n)</a>
+        <div class="source right"><time datetime="2015-02-28T01:16:00">2015-02-28</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/02/spring4.0-notes-shangguigu-aop/">Spring4.0学习笔记@尚硅谷 之 AOP部分 (2/n)</a>
+        <div class="source right"><time datetime="2015-02-25T00:39:00">2015-02-25</time></div>
+      </li>
+  </ul>
+</p>    <p class="meta">
+        <a class="basic-alignment left" href="/article/2015/03/javaweb-notes-shangguigu/" title="上一篇: JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)">&laquo; JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)</a>
+        <a class="basic-alignment right" href="/article/2015/03/eclipse-notes-shangguigu/" title="下一篇: Eclipse优化配置笔记@尚硅谷">Eclipse优化配置笔记@尚硅谷 &raquo;</a>
+    </p>
+  </footer>
+</article>
+</div>
+<aside class="sidebar">
+<section>
+  <h1>近期文章</h1>
+  <ul id="recent_posts">
+  
+  
+      <li class="post">
+        <a href="/article/2015/03/eclipse-notes-shangguigu/">Eclipse优化配置笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/tomcat-notes-shangguigu/">Tomcat学习笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/javaweb-notes-shangguigu/">JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/struts2-notes-shangguigu/">Struts2学习笔记@尚硅谷</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/02/spring4.0-notes-shangguigu-jdbc-transaction/">Spring4.0学习笔记@尚硅谷 之 JDBC部分(含事务管理) (3/n)</a>
+      </li>
+  </ul>
+</section>
+
+<section>
+  <h1>分类</h1>
+  <ul id="categories">
+	<li class="category"><a href="/category/software/">软件应用</a><span class="count right">4</span>
+	    <ul class="children1">
+	<li class="category"><a href="/category/software/dev/">开发用的软件</a><span class="count right">2</span>
+	</li>
+	<li class="category"><a href="/category/software/software_with_sn/">破解版软件</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/software/windows/">Windows应用技巧</a><span class="count right">1</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/">编程开发</a><span class="count right">5</span>
+	    <ul class="children1">
+	<li class="category"><a href="/category/tech/java/">Java</a><span class="count right">5</span>
+	    <ul class="children2">
+	<li class="category"><a href="/category/tech/java/framework/">Java框架</a><span class="count right">4</span>
+	    <ul class="children3">
+	<li class="category"><a href="/category/tech/java/framework/spring/">Java框架-Spring</a><span class="count right">3</span>
+	</li>
+	<li class="category"><a href="/category/tech/java/framework/struts2/">Java框架-Struts2</a><span class="count right">1</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/java/javaweb/">JavaWeb</a><span class="count right">2</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/webFront/">web前端</a><span class="count right">2</span>
+	    <ul class="children2">
+	<li class="category"><a href="/category/tech/webFront/javascript/">JavaScript</a><span class="count right">4</span>
+	</li>
+    </ul>
+</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/opoopress/">opoopress</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/blog/">blog</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/you-xiu-bo-ke/">优秀博客</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/bo-ke/">博客</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/lu-xian-tu/">路线图</a><span class="count right">1</span>
+	</li>
+  </ul>
+</section>
+</aside>
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  版权所有 &copy; 2015 - <a href='https://github.com/yafey'>YaFey</a> -
+  <span class="credit">Powered by <a href="http://www.opoopress.com/">OpooPress</a></span>
+</p></footer>
+<script type="text/javascript" src="/javascripts/opoopress.min.js"></script>
+<script language="JavaScript">
+<!--
+    window.OpooPress = new OpooPressApp({siteUrl:'http://yoursite.com',rootUrl:'',pageUrl:'/article/2015/03/tomcat-notes-shangguigu/',title:'Tomcat学习笔记@尚硅谷',refreshRelativeTimes:true,verbose:true},{});
+    OpooPress.init();
+
+//-->
+</script>
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'applescript			/plugins/syntax-highlighter/scripts/shBrushAppleScript.js',
+        'actionscript3 as3		/plugins/syntax-highlighter/scripts/shBrushAS3.js',
+        'bash shell				/plugins/syntax-highlighter/scripts/shBrushBash.js',
+        'coldfusion cf			/plugins/syntax-highlighter/scripts/shBrushColdFusion.js',
+        'cpp c					/plugins/syntax-highlighter/scripts/shBrushCpp.js',
+        'c# c-sharp csharp		/plugins/syntax-highlighter/scripts/shBrushCSharp.js',
+        'css					/plugins/syntax-highlighter/scripts/shBrushCss.js',
+        'delphi pascal pas		/plugins/syntax-highlighter/scripts/shBrushDelphi.js',
+        'diff patch			    /plugins/syntax-highlighter/scripts/shBrushDiff.js',
+        'erl erlang				/plugins/syntax-highlighter/scripts/shBrushErlang.js',
+        'groovy					/plugins/syntax-highlighter/scripts/shBrushGroovy.js',
+        'java					/plugins/syntax-highlighter/scripts/shBrushJava.js',
+        'jfx javafx				/plugins/syntax-highlighter/scripts/shBrushJavaFX.js',
+        'js jscript javascript	/plugins/syntax-highlighter/scripts/shBrushJScript.js',
+        'perl pl				/plugins/syntax-highlighter/scripts/shBrushPerl.js',
+        'php					/plugins/syntax-highlighter/scripts/shBrushPhp.js',
+        'text plain				/plugins/syntax-highlighter/scripts/shBrushPlain.js',
+        'powershell ps          /plugins/syntax-highlighter/scripts/shBrushPowerShell.js',
+        'py python				/plugins/syntax-highlighter/scripts/shBrushPython.js',
+        'ruby rails ror rb		/plugins/syntax-highlighter/scripts/shBrushRuby.js',
+        'sass scss              /plugins/syntax-highlighter/scripts/shBrushSass.js',
+        'scala					/plugins/syntax-highlighter/scripts/shBrushScala.js',
+        'sql					/plugins/syntax-highlighter/scripts/shBrushSql.js',
+        'vb vbnet				/plugins/syntax-highlighter/scripts/shBrushVb.js',
+        'xml xhtml xslt html	/plugins/syntax-highlighter/scripts/shBrushXml.js'
+    );
+    SyntaxHighlighter.defaults['auto-links'] = false;                 
+    SyntaxHighlighter.defaults['toolbar'] = false;     
+    SyntaxHighlighter.defaults['tab-size'] = 4;
+    SyntaxHighlighter.all();
+</script>
+<!-- END: Syntax Highlighter ComPress -->
+</body>
+</html>
+
