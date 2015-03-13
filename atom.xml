@@ -3,7 +3,7 @@
   <title><![CDATA[YaFey 的博客]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-03-09T18:13:45+08:00</updated>
+  <updated>2015-03-13T16:56:02+08:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[<a href='https://github.com/yafey'>YaFey</a>]]></name>
@@ -11,6 +11,27 @@
   </author>
   <generator uri="http://press.opoo.org/">OpooPress</generator>
 
+  <entry>
+    <title type="html"><![CDATA[编程资源(规范)列表]]></title>
+    <link href="http://yoursite.com/article/2015/03/program_dev_books/"/>
+    <updated>2015-03-13T16:32:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/03/program_dev_books/</id>
+    <content type="html"><![CDATA[编程资源(规范)列表, post-brief]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Spring4.0学习笔记--特性部分(1/n)]]></title>
+    <link href="http://yoursite.com/article/2015/03/spring-feature-group/"/>
+    <updated>2015-03-11T10:49:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/03/spring-feature-group/</id>
+    <content type="html"><![CDATA[Spring4.0学习笔记--特性部分(1/n), post-brief]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[JavaWeb学习笔记@尚硅谷---JavaWeb-JSP(1/n)]]></title>
+    <link href="http://yoursite.com/article/2015/03/javaweb-jsp-notes-shangguigu/"/>
+    <updated>2015-03-09T21:37:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/03/javaweb-jsp-notes-shangguigu/</id>
+    <content type="html"><![CDATA[JavaWeb学习笔记@尚硅谷---JavaWeb-JSP(1/n), post-brief]]></content>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Eclipse优化配置笔记@尚硅谷]]></title>
     <link href="http://yoursite.com/article/2015/03/eclipse-notes-shangguigu/"/>
@@ -26,11 +47,11 @@
     <content type="html"><![CDATA[Tomcat学习笔记@尚硅谷 , post-brief]]></content>
   </entry>
   <entry>
-    <title type="html"><![CDATA[JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/2)]]></title>
-    <link href="http://yoursite.com/article/2015/03/javaweb-notes-shangguigu/"/>
+    <title type="html"><![CDATA[JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/n)]]></title>
+    <link href="http://yoursite.com/article/2015/03/javaweb-servlet-notes-shangguigu/"/>
     <updated>2015-03-07T13:54:00+08:00</updated>
-    <id>http://yoursite.com/article/2015/03/javaweb-notes-shangguigu/</id>
-    <content type="html"><![CDATA[JavaWeb学习笔记@尚硅谷 , post-brief]]></content>
+    <id>http://yoursite.com/article/2015/03/javaweb-servlet-notes-shangguigu/</id>
+    <content type="html"><![CDATA[JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/n) , post-brief]]></content>
   </entry>
   <entry>
     <title type="html"><![CDATA[Struts2学习笔记@尚硅谷]]></title>
@@ -129,44 +150,5 @@
     <updated>2014-12-12T09:56:00+08:00</updated>
     <id>http://yoursite.com/article/2014/12/coffeescript-dev-book-note/</id>
     <content type="html"><![CDATA[>1. 基础 >  - 语句换行 , 变量 , 注释 , 调用函数(小括号的合理使用) >  - 控制结构 ( if / else 语句 及 其相对的 unless 语句) >  - 比较运算符 及 自然语言的别名(*使表达比较判断的语句具有更好的可读性*) >  - 数组 的 声明 和 **遍历** ( `in`关键字 / 获得各元素对应结果的数组 / `when`关键字过滤结果 / 数组索引 *`index`* 及 `by`关键字步进增长 ) >  - 对象 的 声明 和 遍历 ( `of`关键字 ) >2. 运行 Coffee 应用程序 >  - 操作 DOM , 及如何在时间响应中回调 Coffee 函数. >  - 定义函数, 命名函数 , 如何隐式返回值. >  - 使用 switch 语句.]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[网站建设资源]]></title>
-    <link href="http://yoursite.com/article/2014/12/website-build/"/>
-    <updated>2014-12-10T16:05:00+08:00</updated>
-    <id>http://yoursite.com/article/2014/12/website-build/</id>
-    <content type="html"><![CDATA[<h1>静态博客生成</h1>
-<ul>
-<li><a href="http://www.opoopress.com/zh/docs/">opoopress 手册</a><blockquote><p>一个Java 语言和 FreeMarker 模板的博客生成器,参考 <a href="http://jekyllrb.com/">Jekyll</a> 的ruby代码, <a href="http://octopress.org/">Octopress</a> 的主题.</p>
-</blockquote>
-</li>
-</ul>
-<h1>免费资源</h1>
-<ul>
-<li><a href="http://www.freehao123.com/gitcafe/">GitCafe国内在线托管软件项目平台申请试用:附与Github简单比较 , @免费资源部落</a><blockquote><p>建站相关 (空间,域名,主机 等) 免费资源.</p>
-</blockquote>
-</li>
-<li><a href="http://opoo.org/2014/free-service-for-static-site/">几种可以免费托管静态网站的服务对比</a><blockquote><p>列举 简单对比了 <code>github pages</code> , <code>gitcage pages</code> , <code>七牛云存储</code> 等 可以免费托管静态网站的服务</p>
-</blockquote>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[分类参考资源]]></title>
-    <link href="http://yoursite.com/article/2014/12/class-reference-resource/"/>
-    <updated>2014-12-09T21:10:00+08:00</updated>
-    <id>http://yoursite.com/article/2014/12/class-reference-resource/</id>
-    <content type="html"><![CDATA[文章的摘要]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[世界，你好！]]></title>
-    <link href="http://yoursite.com/article/2014/12/hello-world/"/>
-    <updated>2014-12-07T22:25:00+08:00</updated>
-    <id>http://yoursite.com/article/2014/12/hello-world/</id>
-    <content type="html"><![CDATA[<p>欢迎使用 <a href="http://www.opoopress.com/zh/">OpooPress</a>！</p>
-<p>这是系统自动生成的演示文章。编辑或者删除它，然后开始您的博客！</p>
-<p>当前版本: <em>1.1.1</em></p>
-]]></content>
   </entry>
 </feed>
