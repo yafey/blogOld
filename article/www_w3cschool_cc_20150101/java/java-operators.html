@@ -1,0 +1,318 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Java运算符 | w3cschool菜鸟教程</title> <link rel='prev' title='Java修饰符' href="java-modifier-types.html"/> <link rel='next' title='Java循环结构 &#8211; for, while 及 do&#8230;while' href="java-loop.html"/> <link rel='canonical' href='http://www.w3cschool.cc/java/java-operators.html'/> <meta name="keywords" content="Java运算符"> <meta name="description" content="Java运算符 计算机的最基本用途之一就是执行数学运算，作为一门计算机语言，Java也提供了一套丰富的运算符来操纵变量。我们可以把运算符分成以下几组： 算术运算符 关系运算符 位运算符 逻辑运算符 赋值运算符 其他运算符 算术运算符 算术运算符用在数学表达式中，它们的作用和在数学中的作用一样。下表列出了所有的算术运算符。 表格中的实例假设整数变量A的值为10，变量B的值为20： .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Java 教程</strong></h2> <a target="_top" title="Java 教程" href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html"> Java 教程 </a> <a target="_top" title="Java 简介" href="java-intro.html" tppabs="http://www.w3cschool.cc/java/java-intro.html"> Java 简介 </a> <a target="_top" title="Java开发环境配置" href="java-environment-setup.html" tppabs="http://www.w3cschool.cc/java/java-environment-setup.html"> Java开发环境配置 </a> <a target="_top" title="Java基础语法" href="java-basic-syntax.html" tppabs="http://www.w3cschool.cc/java/java-basic-syntax.html"> Java基础语法 </a> <a target="_top" title="Java对象和类" href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html"> Java对象和类 </a> <a target="_top" title="Java基本数据类型" href="java-basic-datatypes.html" tppabs="http://www.w3cschool.cc/java/java-basic-datatypes.html"> Java基本数据类型 </a> <a target="_top" title="Java变量类型" href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html"> Java变量类型 </a> <a target="_top" title="Java修饰符" href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html"> Java修饰符 </a> <a target="_top" title="Java运算符" href="java-operators.html" tppabs="http://www.w3cschool.cc/java/java-operators.html"> Java运算符 </a> <a target="_top" title="Java循环结构 &#8211; for, while 及 do&#8230;while" href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html"> Java循环结构 </a> <a target="_top" title="Java分支结构 &#8211; if&#8230;else/switch" href="java-if-else-switch.html" tppabs="http://www.w3cschool.cc/java/java-if-else-switch.html"> Java分支结构 </a> <a target="_top" title="Java Number类" href="java-number.html" tppabs="http://www.w3cschool.cc/java/java-number.html"> Java Number类 </a> <a target="_top" title="Java Character类" href="java-character.html" tppabs="http://www.w3cschool.cc/java/java-character.html"> Java Character类 </a> <a target="_top" title="Java String类" href="java-string.html" tppabs="http://www.w3cschool.cc/java/java-string.html"> Java String类 </a> <a target="_top" title="Java StringBuffer和StringBuilder类" href="java-stringbuffer.html" tppabs="http://www.w3cschool.cc/java/java-stringbuffer.html"> Java StringBuffer和StringBuilder类 </a> <a target="_top" title="Java 数组" href="java-array.html" tppabs="http://www.w3cschool.cc/java/java-array.html"> Java 数组 </a> <a target="_top" title="Java日期时间" href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html"> Java日期时间 </a> <a target="_top" title="Java正则表达式" href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html"> Java正则表达式 </a> <a target="_top" title="Java 方法" href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html"> Java 方法 </a> <a target="_top" title="Java 流(Stream)、文件(File)和IO" href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html"> Java 流(Stream)、文件(File)和IO </a> <a target="_top" title="Java 异常处理" href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html"> Java 异常处理 </a> <br><h2 class="left">Java <span class="left_h2">面向对象</span></h2> <a target="_top" title="Java 继承" href="java-inheritance.html" tppabs="http://www.w3cschool.cc/java/java-inheritance.html"> Java 继承 </a> <a target="_top" title="Java 重写(Override)与重载(Overload)" href="java-override-overload.html" tppabs="http://www.w3cschool.cc/java/java-override-overload.html"> Java 重写(Override)与重载(Overload) </a> <a target="_top" title="Java 多态" href="java-polymorphism.html" tppabs="http://www.w3cschool.cc/java/java-polymorphism.html"> Java 多态 </a> <a target="_top" title="Java 抽象类" href="java-abstraction.html" tppabs="http://www.w3cschool.cc/java/java-abstraction.html"> Java 抽象类 </a> <a target="_top" title="java 封装" href="java-encapsulation.html" tppabs="http://www.w3cschool.cc/java/java-encapsulation.html"> java 封装 </a> <a target="_top" title="Java 接口" href="java-interfaces.html" tppabs="http://www.w3cschool.cc/java/java-interfaces.html"> Java 接口 </a> <a target="_top" title="Java 包(package)" href="java-package.html" tppabs="http://www.w3cschool.cc/java/java-package.html"> Java 包(package) </a> <br><h2 class="left">Java <span class="left_h2">高级教程</span></h2> <a target="_top" title="Java 数据结构" href="java-data-structures.html" tppabs="http://www.w3cschool.cc/java/java-data-structures.html"> Java 数据结构 </a> <a target="_top" title="Java 集合框架" href="java-collections.html" tppabs="http://www.w3cschool.cc/java/java-collections.html"> Java 集合框架 </a> <a target="_top" title="Java 泛型" href="java-generics.html" tppabs="http://www.w3cschool.cc/java/java-generics.html"> Java 泛型 </a> <a target="_top" title="Java序列化" href="java-serialization.html" tppabs="http://www.w3cschool.cc/java/java-serialization.html"> Java序列化 </a> <a target="_top" title="Java 网络编程" href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html"> Java 网络编程 </a> <a target="_top" title="Java 发送邮件" href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html"> Java 发送邮件 </a> <a target="_top" title="Java 多线程编程" href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html"> Java 多线程编程 </a> <a target="_top" title="Java Applet基础" href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html"> Java Applet基础 </a> <a target="_top" title="Java 文档注释" href="java-documentation.html" tppabs="http://www.w3cschool.cc/java/java-documentation.html"> Java 文档注释 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html" rel="prev"> Java修饰符</a></div> <div class="next"><a href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html" rel="next">Java循环结构 &#8211; for, while 及 do&#8230;while</a> &raquo;</div> </div> <div id="content"> <h1>Java运算符</h1> <p>计算机的最基本用途之一就是执行数学运算，作为一门计算机语言，Java也提供了一套丰富的运算符来操纵变量。我们可以把运算符分成以下几组：</p> <ul> <li> 算术运算符</li> <li> 关系运算符</li> <li> 位运算符</li> <li> 逻辑运算符</li> <li> 赋值运算符</li> <li> 其他运算符</li> </ul> <h2>算术运算符</h2> <p>算术运算符用在数学表达式中，它们的作用和在数学中的作用一样。下表列出了所有的算术运算符。</p> <p>表格中的实例假设整数变量A的值为10，变量B的值为20：</p> <table class="reference"> <tbody> <tr> <th style="width:64px;"> 操作符</th> <th style="width:273px;"> 描述</th> <th style="width:111px;"> 例子</th> </tr> <tr> <td style="width:64px;"> +</td> <td style="width:273px;"> 加法 - 相加运算符两侧的值</td> <td style="width:111px;"> A + B等于30</td> </tr> <tr> <td style="width:64px;"> -</td> <td style="width:273px;"> 减法 - 左操作数减去右操作数</td> <td style="width:111px;"> A – B等于-10</td> </tr> <tr> <td style="width:64px;"> *</td> <td style="width:273px;"> 乘法 - 相乘操作符两侧的值</td> <td style="width:111px;"> A * B等于200</td> </tr> <tr> <td style="width:64px;"> /</td> <td style="width:273px;"> 除法 - 左操作数除以右操作数</td> <td style="width:111px;"> B / A等于2</td> </tr> <tr> <td style="width:64px;"> ％</td> <td style="width:273px;"> 取模 - 右操作数除左操作数的余数</td> <td style="width:111px;"> B%A等于0</td> </tr> <tr> <td style="width:64px;"> + +</td> <td style="width:273px;"> 自增 - 操作数的值增加1</td> <td style="width:111px;"> B + +等于21</td> </tr> <tr> <td style="width:64px;"> -</td> <td style="width:273px;"> 自减 - 操作数的值减少1</td> <td style="width:111px;"> B - -等于19</td> </tr> </tbody> </table> <h3>实例</h3> <p>下面的简单示例程序演示了算术运算符。复制并粘贴下面的Java程序并保存为Test.java文件，然后编译并运行这个程序：</p> <pre>
+public class Test {
+
+  public static void main(String args[]) {
+     int a = 10;
+     int b = 20;
+     int c = 25;
+     int d = 25;
+     System.out.println("a + b = " + (a + b) );
+     System.out.println("a - b = " + (a - b) );
+     System.out.println("a * b = " + (a * b) );
+     System.out.println("b / a = " + (b / a) );
+     System.out.println("b % a = " + (b % a) );
+     System.out.println("c % a = " + (c % a) );
+     System.out.println("a++   = " +  (a++) );
+     System.out.println("b--   = " +  (a--) );
+     // Check the difference in d++ and ++d
+     System.out.println("d++   = " +  (d++) );
+     System.out.println("++d   = " +  (++d) );
+  }
+} 
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+a + b = 30
+a - b = -10
+a * b = 200
+b / a = 2
+b % a = 0
+c % a = 5
+a++   = 10
+b--   = 11
+d++   = 25
+++d   = 27
+</pre> <hr> <h2>关系运算符</h2> <p>下表为Java支持的关系运算符</p> <p>表格中的实例整数变量A的值为10，变量B的值为20：</p> <table class="reference"> <tbody> <tr> <th style="width:42px;"> 运算符</th> <th style="width:407px;"> 描述</th> <th style="width:128px;"> 例子</th> </tr> <tr> <td style="width:42px;"> ==</td> <td style="width:407px;"> 检查如果两个操作数的值是否相等，如果相等则条件为真。</td> <td style="width:128px;"> （A == B）为假(非真)。</td> </tr> <tr> <td style="width:42px;"> =！</td> <td style="width:407px;"> 检查如果两个操作数的值是否相等，如果值不相等则条件为真。</td> <td style="width:128px;"> （A = B）为真。</td> </tr> <tr> <td style="width:42px;"> &gt;&nbsp;</td> <td style="width:407px;"> 检查左操作数的值是否大于右操作数的值，如果是那么条件为真。</td> <td style="width:128px;"> （A&gt; B）非真。</td> </tr> <tr> <td style="width:42px;"> &lt;&nbsp;</td> <td style="width:407px;"> 检查左操作数的值是否小于右操作数的值，如果是那么条件为真。</td> <td style="width:128px;"> （A &lt;B）为真。</td> </tr> <tr> <td style="width:42px;"> &gt; =</td> <td style="width:407px;"> 检查左操作数的值是否大于或等于右操作数的值，如果是那么条件为真。</td> <td style="width:128px;"> （A&gt; = B）为假。</td> </tr> <tr> <td style="width:42px;"> &lt;=</td> <td style="width:407px;"> 检查左操作数的值是否小于或等于右操作数的值，如果是那么条件为真。</td> <td style="width:128px;"> （A &lt;= B）为真。</td> </tr> </tbody> </table> <h3>实例</h3> <p>下面的简单示例程序演示了关系运算符。复制并粘贴下面的Java程序并保存为Test.java文件，然后编译并运行这个程序：</p> <pre>
+public class Test {
+
+  public static void main(String args[]) {
+     int a = 10;
+     int b = 20;
+     System.out.println("a == b = " + (a == b) );
+     System.out.println("a != b = " + (a != b) );
+     System.out.println("a &gt; b = " + (a &gt; b) );
+     System.out.println("a &lt; b = " + (a &lt; b) );
+     System.out.println("b &gt;= a = " + (b &gt;= a) );
+     System.out.println("b &lt;= a = " + (b &lt;= a) );
+  }
+} 
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+a == b = false
+a != b = true
+a &gt; b = false
+a &lt; b = true
+b &gt;= a = true
+b &lt;= a = false
+</pre> <hr><h2> 位运算符</h2> <p> Java定义了位运算符，应用于整数类型(int)，长整型(long)，短整型(short)，字符型(char)，和字节型(byte)等类型。 </p> <p> 位运算符作用在所有的位上，并且按位运算。假设a = 60，和b = 13;它们的二进制格式表示将如下：</p> <pre>
+A = 0011 1100
+B = 0000 1101
+-----------------
+A&amp;b = 0000 1100
+A | B = 0011 1101
+^ B = 0011 0001
+~A= 1100 0011
+</pre> <p>下表列出了位运算符的基本运算,假设整数变量A的值为60和变量B的值为13：</p> <table class="reference"> <tbody> <tr> <th style="width:57px;"> 操作符</th> <th style="width:372px;"> 描述</th> <th style="width:148px;"> 例子</th> </tr> <tr> <td style="width:57px;"> ＆</td> <td style="width:372px;"> 按位与操作符，当且仅当两个操作数的某一位都非0时候结果的该位才为1。</td> <td style="width:148px;"> （A＆B），得到12，即0000 1100</td> </tr> <tr> <td style="width:57px;"> |</td> <td style="width:372px;"> 按位或操作符，只要两个操作数的某一位有一个非0时候结果的该位就为1。</td> <td style="width:148px;"> （A | B）得到61，即 0011 1101</td> </tr> <tr> <td style="width:57px;"> ^</td> <td style="width:372px;"> 按位异或操作符，两个操作数的某一位不相同时候结果的该位就为1。</td> <td style="width:148px;"> （A ^ B）得到49，即 0011 0001</td> </tr> <tr> <td style="width:57px;"> 〜</td> <td style="width:372px;"> 按位补运算符翻转操作数的每一位。</td> <td style="width:148px;"> （〜A）得到-60，即1100 0011</td> </tr> <tr> <td style="width:57px;"> &lt;&lt;&nbsp;</td> <td style="width:372px;"> 按位左移运算符。左操作数按位左移右操作数指定的位数。</td> <td style="width:148px;"> A &lt;&lt; 2得到240，即 1111 0000</td> </tr> <tr> <td style="width:57px;"> &gt;&gt;&nbsp;</td> <td style="width:372px;"> 按位右移运算符。左操作数按位右移右操作数指定的位数。</td> <td style="width:148px;"> A &gt;&gt; 2得到15即 1111</td> </tr> <tr> <td style="width:57px;"> &gt;&gt;&gt;&nbsp;</td> <td style="width:372px;"> 按位右移补零操作符。左操作数的值按右操作数指定的位数右移，移动得到的空位以零填充。</td> <td style="width:148px;"> A&gt;&gt;&gt;2得到15即0000 1111</td> </tr> </tbody> </table> <h3>实例</h3> <p>下面的简单示例程序演示了位运算符。复制并粘贴下面的Java程序并保存为Test.java文件，然后编译并运行这个程序： </p> <pre>
+public class Test {
+&nbsp; public static void main(String args[]) {
+&nbsp;&nbsp;&nbsp;  int a = 60; /* 60 = 0011 1100 */&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; int b = 13; /* 13 = 0000 1101 */
+&nbsp;&nbsp;&nbsp;&nbsp; int c = 0;
+&nbsp;&nbsp;&nbsp;&nbsp; c = a &amp; b;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 12 = 0000 1100 */
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a &amp; b = " + c );
+
+&nbsp;&nbsp;&nbsp;&nbsp; c = a | b;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 61 = 0011 1101 */
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a | b = " + c );
+
+&nbsp;&nbsp;&nbsp;&nbsp; c = a ^ b;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* 49 = 0011 0001 */
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a ^ b = " + c );
+
+&nbsp;&nbsp;&nbsp;&nbsp; c = ~a;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*-61 = 1100 0011 */
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("~a = " + c );
+
+&nbsp;&nbsp;&nbsp;&nbsp; c = a &lt;&lt; 2;&nbsp;&nbsp;&nbsp;&nbsp; /* 240 = 1111 0000 */
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a &lt;&lt; 2 = " + c );
+
+&nbsp;&nbsp;&nbsp;&nbsp; c = a &gt;&gt; 2;&nbsp;&nbsp;&nbsp;&nbsp; /* 215 = 1111 */
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a &gt;&gt; 2&nbsp; = " + c );
+&nbsp;&nbsp;
+  &nbsp;&nbsp; c = a &gt;&gt;&gt; 2;&nbsp;&nbsp;&nbsp;&nbsp; /* 215 = 0000 1111 */
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a &gt;&gt;&gt; 2 = " + c );
+&nbsp; }
+}&nbsp;
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+a &amp; b = 12
+a | b = 61
+a ^ b = 49
+~a = -61
+a &lt;&lt; 2 = 240
+a &gt;&gt; 15
+a &gt;&gt;&gt; 15
+</pre> <hr><h2>逻辑运算符</h2> <p>下表列出了逻辑运算符的基本运算，假设布尔变量A为真，变量B为假</p> <table class="reference"> <tbody> <tr> <th style="width:37px;"> 操作符</th> <th style="width:433px;"> 描述</th> <th style="width:106px;"> 例子</th> </tr> <tr> <td style="width:37px;"> &amp;&amp;</td> <td style="width:433px;"> 称为逻辑与运算符。当且仅当两个操作数都为真，条件才为真。</td> <td style="width:106px;"> （A &amp;&amp; B）为假。</td> </tr> <tr> <td style="width:37px;"> | |</td> <td style="width:433px;"> 称为逻辑或操作符。如果任何两个操作数任何一个为真，条件为真。</td> <td style="width:106px;"> （A | | B）为真。</td> </tr> <tr> <td style="width:37px;"> ！</td> <td style="width:433px;"> 称为逻辑非运算符。用来反转操作数的逻辑状态。如果条件为true，则逻辑非运算符将得到false。</td> <td style="width:106px;"> ！（A &amp;&amp; B）为真。</td> </tr> </tbody> </table> <h3>实例</h3> <p>下面的简单示例程序演示了逻辑运算符。复制并粘贴下面的Java程序并保存为Test.java文件，然后编译并运行这个程序：</p> <pre>
+public class Test {
+&nbsp; public static void main(String args[]) {
+&nbsp;&nbsp;&nbsp;&nbsp; boolean a = true;
+&nbsp;&nbsp;&nbsp;&nbsp; boolean b = false;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a &amp;&amp; b = " + (a&amp;&amp;b));
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("a || b = " + (a||b) );
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("!(a &amp;&amp; b) = " + !(a &amp;&amp; b));
+&nbsp; }
+}&nbsp;
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+a &amp;&amp; b = false
+a || b = true
+!(a &amp;&amp; b) = true
+</pre> <hr><h2>赋值运算符</h2> <p> 下面是Java语言支持的赋值运算符：</p> <table class="reference"> <tbody> <tr> <th style="width:46px;"> 操作符</th> <th style="width:376px;"> 描述</th> <th style="width:154px;"> 例子</th> </tr> <tr> <td style="width:46px;"> =</td> <td style="width:376px;"> 简单的赋值运算符，将右操作数的值赋给左侧操作数</td> <td style="width:154px;"> C = A + B将把A + B得到的值赋给C</td> </tr> <tr> <td style="width:46px;"> + =</td> <td style="width:376px;"> 加和赋值操作符，它把左操作数和右操作数相加赋值给左操作数</td> <td style="width:154px;"> C + = A等价于C = C + A</td> </tr> <tr> <td style="width:46px;"> - =</td> <td style="width:376px;"> 减和赋值操作符，它把左操作数和右操作数相减赋值给左操作数</td> <td style="width:154px;"> C - = A等价于C = C -<br> &nbsp;A</td> </tr> <tr> <td style="width:46px;"> * =</td> <td style="width:376px;"> 乘和赋值操作符，它把左操作数和右操作数相乘赋值给左操作数</td> <td style="width:154px;"> C * = A等价于C = C * A</td> </tr> <tr> <td style="width:46px;"> / =</td> <td style="width:376px;"> 除和赋值操作符，它把左操作数和右操作数相除赋值给左操作数</td> <td style="width:154px;"> C / = A等价于C = C / A</td> </tr> <tr> <td style="width:46px;"> （％）=</td> <td style="width:376px;"> 取模和赋值操作符，它把左操作数和右操作数取模后赋值给左操作数</td> <td style="width:154px;"> C％= A等价于C = C％A</td> </tr> <tr> <td style="width:46px;"> &lt;&lt; =</td> <td style="width:376px;"> 左移位赋值运算符</td> <td style="width:154px;"> C &lt;&lt; = 2等价于C = C &lt;&lt; 2</td> </tr> <tr> <td style="width:46px;"> &gt;&gt; =</td> <td style="width:376px;"> 右移位赋值运算符</td> <td style="width:154px;"> C &gt;&gt; = 2等价于C = C &gt;&gt; 2</td> </tr> <tr> <td style="width:46px;"> ＆=</td> <td style="width:376px;"> 按位与赋值运算符</td> <td style="width:154px;"> C＆= 2等价于C = C＆2</td> </tr> <tr> <td style="width:46px;"> ^ =</td> <td style="width:376px;"> 按位异或赋值操作符</td> <td style="width:154px;"> C ^ = 2等价于C = C ^ 2</td> </tr> <tr> <td style="width:46px;"> | =</td> <td style="width:376px;"> 按位或赋值操作符</td> <td style="width:154px;"> C | = 2等价于C = C | 2</td> </tr> </tbody> </table> <h3>实例</h3> <p>面的简单示例程序演示了赋值运算符。复制并粘贴下面的Java程序并保存为Test.java文件，然后编译并运行这个程序：</p> <pre>
+public class Test {
+&nbsp; public static void main(String args[]) {
+&nbsp;&nbsp;&nbsp;&nbsp; int a = 10;
+&nbsp;&nbsp;&nbsp;&nbsp; int b = 20;
+&nbsp;&nbsp;&nbsp;&nbsp; int c = 0;
+&nbsp;&nbsp;&nbsp;&nbsp; c = a + b;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c = a + b = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c += a ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c += a&nbsp; = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c -= a ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c -= a = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c *= a ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c *= a = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; a = 10;
+&nbsp;&nbsp;&nbsp;&nbsp; c = 15;
+&nbsp;&nbsp;&nbsp;&nbsp; c /= a ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c /= a = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; a = 10;
+&nbsp;&nbsp;&nbsp;&nbsp; c = 15;
+&nbsp;&nbsp;&nbsp;&nbsp; c %= a ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c %= a&nbsp; = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c &lt;&lt;= 2 ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c &lt;&lt;= 2 = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c &gt;&gt;= 2 ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c &gt;&gt;= 2 = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c &gt;&gt;= 2 ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c &gt;&gt;= a = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c &amp;= a ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c &amp;= 2&nbsp; = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c ^= a ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c ^= a&nbsp;&nbsp; = " + c );
+&nbsp;&nbsp;&nbsp;&nbsp; c |= a ;
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("c |= a&nbsp;&nbsp; = " + c );
+&nbsp; }
+}&nbsp;
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+c = a + b = 30
+c += a  = 40
+c -= a = 30
+c *= a = 300
+c /= a = 1
+c %= a  = 5
+c &lt;&lt;= 2 = 20
+c &gt;&gt;= 2 = 5
+c &gt;&gt;= 2 = 1
+c &amp;= a  = 0
+c ^= a   = 10
+c |= a   = 10
+</pre> <hr><h2>条件运算符（?:）</h2> <p>条件运算符也被称为三元运算符。该运算符有3个操作数，并且需要判断布尔表达式的值。该运算符的主要是决定哪个值应该赋值给变量。</p> <pre>
+variable x = (expression) ? value if true : value if false
+</pre> <h3>实例</h3> <pre>
+public class Test {
+   public static void main(String args[]){
+      int a , b;   
+      a = 10;    
+b = (a == 1) ? 20: 30;    
+System.out.println( "Value of b is : " +  b );
+      b = (a == 10) ? 20: 30;    
+     System.out.println( "Value of b is : " + b );
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+Value of b is : 30
+Value of b is : 20
+</pre> <hr><h2>instanceOf 运算符</h2> <p>该运算符用于操作对象实例，检查该对象是否是一个特定类型（类类型或接口类型）。</p> <p>instanceof运算符使用格式如下：</p> <pre>
+( Object reference variable ) instanceOf  (class/interface type)
+</pre> <p> 如果运算符左侧变量所指的对象，是操作符右侧类或接口(class/interface)的一个对象，那么结果为真。 </p><p> 下面是一个例子：</p> <pre>
+String name = 'James';
+boolean result = name instanceOf String; // 由于name是Strine类型，所以返回真
+</pre> <p>如果被比较的对象兼容于右侧类型,该运算符仍然返回true。</p> <p>看下面的例子：</p> <pre>
+class Vehicle {}
+
+public class Car extends Vehicle {
+   public static void main(String args[]){
+      Vehicle a = new Car();
+      boolean result =  a instanceof Car;
+      System.out.println( result);
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>true</pre> <hr><h2>Java运算符优先级</h2> <p>当多个运算符出现在一个表达式中，谁先谁后呢？这就涉及到运算符的优先级别的问题。在一个多运算符的表达式中，运算符优先级不同会导致最后得出的结果差别甚大。</p><p>例如，（1+3）＋（3+2）*2，这个表达式如果按加号最优先计算，答案就是 18，如果按照乘号最优先，答案则是 14。 </p><p>再如，x = 7 + 3 * 2;这里x得到13，而不是20，因为乘法运算符比加法运算符有较高的优先级，所以先计算3 * 2得到6，然后再加7。 </p><p>下表中具有最高优先级的运算符在的表的最上面，最低优先级的在表的底部。</p> <table class="reference"> <tbody> <tr> <th style="width:66px;"> 类别 </th> <th style="width:274px;"> 操作符</th> <th style="width:132px;"> 关联性 </th> </tr> <tr> <td style="width:66px;"> 后缀</td> <td style="width:274px;"> () [] . (点操作符)</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 一元</td> <td style="width:274px;"> + + - ！〜</td> <td style="width:132px;"> 从右到左</td> </tr> <tr> <td style="width:66px;"> 乘性&nbsp;</td> <td style="width:274px;"> * /％</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 加性&nbsp;</td> <td style="width:274px;"> + -</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 移位&nbsp;</td> <td style="width:274px;"> &gt;&gt; &gt;&gt;&gt; &nbsp;&lt;&lt;&nbsp;</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 关系&nbsp;</td> <td style="width:274px;"> &gt;&gt; = &lt;&lt; =&nbsp;</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 相等&nbsp;</td> <td style="width:274px;"> ==&nbsp; !=</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 按位与</td> <td style="width:274px;"> ＆</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 按位异或</td> <td style="width:274px;"> ^</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 按位或</td> <td style="width:274px;"> |</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 逻辑与</td> <td style="width:274px;"> &amp;&amp;</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 逻辑或</td> <td style="width:274px;"> | |</td> <td style="width:132px;"> 左到右</td> </tr> <tr> <td style="width:66px;"> 条件</td> <td style="width:274px;"> ？：</td> <td style="width:132px;"> 从右到左</td> </tr> <tr> <td style="width:66px;"> 赋值</td> <td style="width:274px;"> = + = - = * = / =％= &gt;&gt; = &lt;&lt; =＆= ^ = | =</td> <td style="width:132px;"> 从右到左</td> </tr> <tr> <td style="width:66px;"> 逗号</td> <td style="width:274px;"> ，</td> <td style="width:132px;"> 左到右</td> </tr> </tbody> </table> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html" rel="prev"> Java修饰符</a></div> <div class="next"><a href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html" rel="next">Java循环结构 &#8211; for, while 及 do&#8230;while</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/java/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/java/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

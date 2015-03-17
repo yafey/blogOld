@@ -1,0 +1,307 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Ruby XML, XSLT 和 XPath 教程 | w3cschool菜鸟教程</title> <link rel='prev' title='Ruby Socket 编程' href="ruby-socket-programming.html"/> <link rel='next' title='HTTP content-type' href="/http/http-content-type.html"/> <link rel='canonical' href='http://www.w3cschool.cc/ruby/ruby-xml-xslt-xpath.html'/> <meta name="keywords" content="Ruby XML, XSLT 和 XPath 教程"> <meta name="description" content="Ruby XML, XSLT 和 XPath 教程 什么是 XML ? XML 指可扩展标记语言（eXtensible Markup Language）。 可扩展标记语言，标准通用标记语言的子集，一种用于标记电子文件使其具有结构性的标记语言。 它可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。 它非常适合万维网传输，提供统一的方法来描述和交换独立于应用程序或供应商的结构化数据。 更多内容请查看我们的 .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Ruby 教程</strong></h2> <a target="_top" title="Ruby 教程" href="ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html"> Ruby 教程 </a> <a target="_top" title="Ruby 简介" href="ruby-intro.html" tppabs="http://www.w3cschool.cc/ruby/ruby-intro.html"> Ruby 简介 </a> <a target="_top" title="Ruby 环境" href="ruby-environment.html" tppabs="http://www.w3cschool.cc/ruby/ruby-environment.html"> Ruby 环境 </a> <a target="_top" title="Ruby 安装 &#8211; Unix" href="ruby-installation-unix.html" tppabs="http://www.w3cschool.cc/ruby/ruby-installation-unix.html"> Ruby 安装 - Unix </a> <a target="_top" title="Ruby 安装 &#8211; Windows" href="ruby-installation-windows.html" tppabs="http://www.w3cschool.cc/ruby/ruby-installation-windows.html"> Ruby 安装 - Windows </a> <a target="_top" title="Ruby 命令行选项" href="ruby-command-line-options.html" tppabs="http://www.w3cschool.cc/ruby/ruby-command-line-options.html"> Ruby 命令行选项 </a> <a target="_top" title="Ruby 环境变量" href="ruby-environment-variables.html" tppabs="http://www.w3cschool.cc/ruby/ruby-environment-variables.html"> Ruby 环境变量 </a> <a target="_top" title="Ruby 语法" href="ruby-syntax.html" tppabs="http://www.w3cschool.cc/ruby/ruby-syntax.html"> Ruby 语法 </a> <a target="_top" title="Ruby 类和对象" href="ruby-class.html" tppabs="http://www.w3cschool.cc/ruby/ruby-class.html"> Ruby 类和对象 </a> <a target="_top" title="Ruby 类案例" href="ruby-class-case-study.html" tppabs="http://www.w3cschool.cc/ruby/ruby-class-case-study.html"> Ruby 类案例 </a> <a target="_top" title="Ruby 变量" href="ruby-variable.html" tppabs="http://www.w3cschool.cc/ruby/ruby-variable.html"> Ruby 变量 </a> <a target="_top" title="Ruby 运算符" href="ruby-operator.html" tppabs="http://www.w3cschool.cc/ruby/ruby-operator.html"> Ruby 运算符 </a> <a target="_top" title="Ruby 注释" href="ruby-comment.html" tppabs="http://www.w3cschool.cc/ruby/ruby-comment.html"> Ruby 注释 </a> <a target="_top" title="Ruby 判断" href="ruby-decision.html" tppabs="http://www.w3cschool.cc/ruby/ruby-decision.html"> Ruby 判断 </a> <a target="_top" title="Ruby 循环" href="ruby-loop.html" tppabs="http://www.w3cschool.cc/ruby/ruby-loop.html"> Ruby 循环 </a> <a target="_top" title="Ruby 方法" href="ruby-method.html" tppabs="http://www.w3cschool.cc/ruby/ruby-method.html"> Ruby 方法 </a> <a target="_top" title="Ruby 块" href="ruby-block.html" tppabs="http://www.w3cschool.cc/ruby/ruby-block.html"> Ruby 块 </a> <a target="_top" title="Ruby 模块（Module）" href="ruby-module.html" tppabs="http://www.w3cschool.cc/ruby/ruby-module.html"> Ruby 模块（Module） </a> <a target="_top" title="Ruby 字符串（String）" href="ruby-string.html" tppabs="http://www.w3cschool.cc/ruby/ruby-string.html"> Ruby 字符串（String） </a> <a target="_top" title="Ruby 数组（Array）" href="ruby-array.html" tppabs="http://www.w3cschool.cc/ruby/ruby-array.html"> Ruby 数组（Array） </a> <a target="_top" title="Ruby 哈希（Hash）" href="ruby-hash.html" tppabs="http://www.w3cschool.cc/ruby/ruby-hash.html"> Ruby 哈希（Hash） </a> <a target="_top" title="Ruby 日期 &#038; 时间（Date &#038; Time）" href="ruby-date-time.html" tppabs="http://www.w3cschool.cc/ruby/ruby-date-time.html"> Ruby 日期 & 时间 </a> <a target="_top" title="Ruby 范围（Range）" href="ruby-range.html" tppabs="http://www.w3cschool.cc/ruby/ruby-range.html"> Ruby 范围（Range） </a> <a target="_top" title="Ruby 迭代器" href="ruby-iterators.html" tppabs="http://www.w3cschool.cc/ruby/ruby-iterators.html"> Ruby 迭代器 </a> <a target="_top" title="Ruby 文件的输入与输出" href="ruby-input-output.html" tppabs="http://www.w3cschool.cc/ruby/ruby-input-output.html"> Ruby 文件的输入与输出 </a> <a target="_top" title="Ruby File 类和方法" href="ruby-file-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-file-methods.html"> Ruby File 类和方法 </a> <a target="_top" title="Ruby Dir 类和方法" href="ruby-dir-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-dir-methods.html"> Ruby Dir 类和方法 </a> <a target="_top" title="Ruby 异常" href="ruby-exceptions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-exceptions.html"> Ruby 异常 </a> <br><h2 class="left"><span class="left_h2">Ruby</span> 高级教程</h2> <a target="_top" title="Ruby 面向对象" href="ruby-object-oriented.html" tppabs="http://www.w3cschool.cc/ruby/ruby-object-oriented.html"> Ruby 面向对象 </a> <a target="_top" title="Ruby 正则表达式" href="ruby-regular-expressions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-regular-expressions.html"> Ruby 正则表达式 </a> <a target="_top" title="Ruby 数据库访问 &#8211; DBI 教程" href="ruby-database-access.html" tppabs="http://www.w3cschool.cc/ruby/ruby-database-access.html"> Ruby 数据库访问 - DBI 教程 </a> <a target="_top" title="Ruby CGI 编程" href="ruby-cgi.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi.html"> Ruby CGI 编程 </a> <a target="_top" title="Ruby CGI方法" href="ruby-cgi-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-methods.html"> Ruby CGI方法 </a> <a target="_top" title="Ruby CGI Cookies" href="ruby-cgi-cookies.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-cookies.html"> Ruby CGI Cookies </a> <a target="_top" title="Ruby CGI Sessions" href="ruby-cgi-sessions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-sessions.html"> Ruby CGI Sessions </a> <a target="_top" title="Ruby 发送邮件 &#8211; SMTP" href="ruby-sending-email.html" tppabs="http://www.w3cschool.cc/ruby/ruby-sending-email.html"> Ruby 发送邮件 - SMTP </a> <a target="_top" title="Ruby Socket 编程" href="ruby-socket-programming.html" tppabs="http://www.w3cschool.cc/ruby/ruby-socket-programming.html"> Ruby Socket 编程 </a> <a target="_top" title="Ruby XML, XSLT 和 XPath 教程" href="ruby-xml-xslt-xpath.html" tppabs="http://www.w3cschool.cc/ruby/ruby-xml-xslt-xpath.html"> Ruby XML, XSLT 和 XPath 教程 </a> <a target="_top" title="Ruby Web Services 应用 &#8211; SOAP4R" href="ruby-web-services.html" tppabs="http://www.w3cschool.cc/ruby/ruby-web-services.html"> Ruby Web Services </a> <a target="_top" title="Ruby 多线程" href="ruby-multithreading.html" tppabs="http://www.w3cschool.cc/ruby/ruby-multithreading.html"> Ruby 多线程 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ruby-socket-programming.html" tppabs="http://www.w3cschool.cc/ruby/ruby-socket-programming.html" rel="prev"> Ruby Socket 编程</a></div> <div class="next"><a href="ruby-web-services.html" tppabs="http://www.w3cschool.cc/ruby/ruby-web-services.html" rel="next">Ruby Web Services 应用 &#8211; SOAP4R</a> &raquo;</div> </div> <div id="content"> <h1>Ruby XML, XSLT 和 XPath 教程</h1> <hr> <h2>什么是 XML ?</h2> <p>XML 指可扩展标记语言（eXtensible Markup Language）。</p><p> 可扩展标记语言，标准通用标记语言的子集，一种用于标记电子文件使其具有结构性的标记语言。</p><p> 它可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。 它非常适合万维网传输，提供统一的方法来描述和交换独立于应用程序或供应商的结构化数据。 </p> <p>更多内容请查看我们的 <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html" target="_blank">XML 教程</a></p> <hr> <h2>XML解析器结构和API</h2> <p>XML的解析器主要有DOM和SAX两种。</p> <ul> <li>SAX解析器是基于事件处理的，需要从头到尾把XML文档扫描一遍，在扫描的过程中，每次遇到一个语法结构时，就会调用这个特定语法结构的事件处理程序，向应用程序发送一个事件。 </li><li> DOM是文档对象模型解析，构建文档的分层语法结构，在内存中建立DOM树，DOM树的节点以对象的形式来标识，文档解析文成以后，文档的整个DOM树都会放在内存中。</li> </ul> <hr> <h2>Ruby 中解析及创建 XML</h2> <p>RUBY中对XML的文档的解析可以使用这个库REXML库。 </p><p> REXML库是ruby的一个XML工具包，是使用纯Ruby语言编写的，遵守XML1.0规范。</p><p> 在Ruby1.8版本及其以后，RUBY标准库中将包含REXML。</p><p> REXML库的路径是： rexml/document</p><p> 所有的方法和类都被封装到一个REXML模块内。</p> <p>REXML解析器比其他的解析器有以下优点：</p> <ul class="list"> <li>100% 由 Ruby 编写。</li> <li>可适用于 SAX 和 DOM 解析器。</li> <li>它是轻量级的,不到2000行代码。</li> <li>很容易理解的方法和类。</li> <li>基于 SAX2 API 和完整的 XPath 支持。</li> <li>使用 Ruby 安装，而无需单独安装。</li> </ul> <p>以下为实例的 XML 代码，保存为movies.xml: </p> <pre>
+&lt;collection shelf="New Arrivals"&gt;
+&lt;movie title="Enemy Behind"&gt;
+   &lt;type&gt;War, Thriller&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;year&gt;2003&lt;/year&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;10&lt;/stars&gt;
+   &lt;description&gt;Talk about a US-Japan war&lt;/description&gt;
+&lt;/movie&gt;
+&lt;movie title="Transformers"&gt;
+   &lt;type&gt;Anime, Science Fiction&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;year&gt;1989&lt;/year&gt;
+   &lt;rating&gt;R&lt;/rating&gt;
+   &lt;stars&gt;8&lt;/stars&gt;
+   &lt;description&gt;A schientific fiction&lt;/description&gt;
+&lt;/movie&gt;
+   &lt;movie title="Trigun"&gt;
+   &lt;type&gt;Anime, Action&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;episodes&gt;4&lt;/episodes&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;10&lt;/stars&gt;
+   &lt;description&gt;Vash the Stampede!&lt;/description&gt;
+&lt;/movie&gt;
+&lt;movie title="Ishtar"&gt;
+   &lt;type&gt;Comedy&lt;/type&gt;
+   &lt;format&gt;VHS&lt;/format&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;2&lt;/stars&gt;
+   &lt;description&gt;Viewable boredom&lt;/description&gt;
+&lt;/movie&gt;
+&lt;/collection&gt;
+</pre> <hr> <h2>DOM 解析器</h2> <p>让我们先来解析 XML 数据，首先我们先引入 rexml/document 库，通常我们可以将 REXML 在顶级的命名空间中引入：</p> <pre>
+#!/usr/bin/ruby -w
+
+require 'rexml/document'
+include REXML
+
+xmlfile = File.new("movies.xml")
+xmldoc = Document.new(xmlfile)
+
+# 获取 root 元素
+root = xmldoc.root
+puts "Root element : " + root.attributes["shelf"]
+
+# 以下将输出电影标题
+xmldoc.elements.each("collection/movie"){ 
+   |e| puts "Movie Title : " + e.attributes["title"] 
+}
+
+# 以下将输出所有电影类型
+xmldoc.elements.each("collection/movie/type") {
+   |e| puts "Movie Type : " + e.text 
+}
+
+# 以下将输出所有电影描述
+xmldoc.elements.each("collection/movie/description") {
+   |e| puts "Movie Description : " + e.text 
+}
+</pre> <p>以上实例输出结果为：</p> <pre>
+Root element : New Arrivals
+Movie Title : Enemy Behind
+Movie Title : Transformers
+Movie Title : Trigun
+Movie Title : Ishtar
+Movie Type : War, Thriller
+Movie Type : Anime, Science Fiction
+Movie Type : Anime, Action
+Movie Type : Comedy
+Movie Description : Talk about a US-Japan war
+Movie Description : A schientific fiction
+Movie Description : Vash the Stampede!
+Movie Description : Viewable boredom
+SAX-like Parsing:
+</pre> <hr> <h2>SAX 解析器</h2> <p>处理相同的数据文件：movies.xml，不建议SAX的解析为一个小文件，以下是个简单的实例：</p> <pre>
+#!/usr/bin/ruby -w
+
+require 'rexml/document'
+require 'rexml/streamlistener'
+include REXML
+
+
+class MyListener
+  include REXML::StreamListener
+  def tag_start(*args)
+    puts "tag_start: #{args.map {|x| x.inspect}.join(', ')}"
+  end
+
+  def text(data)
+    return if data =~ /^\w*$/     # whitespace only
+    abbrev = data[0..40] + (data.length &gt; 40 ? "..." : "")
+    puts "  text   :   #{abbrev.inspect}"
+  end
+end
+
+list = MyListener.new
+xmlfile = File.new("movies.xml")
+Document.parse_stream(xmlfile, list)
+</pre> <p>以上输出结果为：</p> <pre>
+tag_start: "collection", {"shelf"=&gt;"New Arrivals"}
+tag_start: "movie", {"title"=&gt;"Enemy Behind"}
+tag_start: "type", {}
+  text   :   "War, Thriller"
+tag_start: "format", {}
+tag_start: "year", {}
+tag_start: "rating", {}
+tag_start: "stars", {}
+tag_start: "description", {}
+  text   :   "Talk about a US-Japan war"
+tag_start: "movie", {"title"=&gt;"Transformers"}
+tag_start: "type", {}
+  text   :   "Anime, Science Fiction"
+tag_start: "format", {}
+tag_start: "year", {}
+tag_start: "rating", {}
+tag_start: "stars", {}
+tag_start: "description", {}
+  text   :   "A schientific fiction"
+tag_start: "movie", {"title"=&gt;"Trigun"}
+tag_start: "type", {}
+  text   :   "Anime, Action"
+tag_start: "format", {}
+tag_start: "episodes", {}
+tag_start: "rating", {}
+tag_start: "stars", {}
+tag_start: "description", {}
+  text   :   "Vash the Stampede!"
+tag_start: "movie", {"title"=&gt;"Ishtar"}
+tag_start: "type", {}
+tag_start: "format", {}
+tag_start: "rating", {}
+tag_start: "stars", {}
+tag_start: "description", {}
+  text   :   "Viewable boredom"
+</pre> <hr> <h2>XPath 和 Ruby</h2> <p>我们可以使用XPath来查看XML ,XPath 是一门在 XML 文档中查找信息的语言(查看：<a href="../xpath/xpath-tutorial.html" tppabs="http://www.w3cschool.cc/xpath/xpath-tutorial.html" target="_blank">XPath 教程</a>)。</p> <p>XPath即为XML路径语言，它是一种用来确定XML（标准通用标记语言的子集）文档中某部分位置的语言。XPath基于XML的树状结构，提供在数据结构树中找寻节点的能力。</p> <p>Ruby 通过 REXML 的 XPath 类支持 XPath，它是基于树的分析（文档对象模型）。</p> <pre>
+#!/usr/bin/ruby -w
+
+require 'rexml/document'
+include REXML
+
+xmlfile = File.new("movies.xml")
+xmldoc = Document.new(xmlfile)
+
+# 第一个电影的信息
+movie = XPath.first(xmldoc, "//movie")
+p movie
+
+# 打印所有电影类型
+XPath.each(xmldoc, "//type") { |e| puts e.text }
+
+# 获取所有电影格式的类型，返回数组
+names = XPath.match(xmldoc, "//format").map {|x| x.text }
+p names
+</pre> <p>以上实例输出结果为：</p> <pre>
+&lt;movie title='Enemy Behind'&gt; ... &lt;/&gt;
+War, Thriller
+Anime, Science Fiction
+Anime, Action
+Comedy
+["DVD", "DVD", "DVD", "VHS"]
+</pre> <hr> <h2>XSLT 和 Ruby</h2> <p>Ruby 中有两个 XSLT 解析器，以下给出简要描述：</p> <h3>Ruby-Sablotron</h3> <p>这个解析器是由正义Masayoshi Takahash编写和维护。这主要是为Linux操作系统编写的，需要以下库：</p> <ul> <li>Sablot</li> <li>Iconv</li> <li>Expat</li> </ul> <p>你可以在 <a href="javascript:if(confirm('http://www.rubycolor.org/try.php?filename=tryjs_imagemap  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.rubycolor.org/try.php?filename=tryjs_imagemap'" tppabs="http://www.rubycolor.org/sablot" title="Ruby Sablotron" target="_blank">Ruby-Sablotron</a> 找到这些库。</p> <h3>XSLT4R</h3> XSLT4R 由 Michael Neumann 编写。 XSLT4R 用于简单的命令行交互，可以被第三方应用程序用来转换XML文档。</p> <p> XSLT4R需要XMLScan操作，包含了 XSLT4R 归档，它是一个100%的Ruby的模块。这些模块可以使用标准的Ruby安装方法（即Ruby install.rb）进行安装。</p> <p> XSLT4R 语法格式如下：</p> <pre>
+ruby xslt.rb stylesheet.xsl document.xml [arguments]
+</pre> <p>如果您想在应用程序中使用XSLT4R，您可以引入XSLT及输入你所需要的参数。实例如下：</p> <pre>
+require "xslt"
+
+stylesheet = File.readlines("stylesheet.xsl").to_s
+xml_doc = File.readlines("document.xml").to_s
+arguments = { 'image_dir' =&gt; '/....' }
+
+sheet = XSLT::Stylesheet.new( stylesheet, arguments )
+
+# output to StdOut
+sheet.apply( xml_doc )
+
+# output to 'str'
+str = ""
+sheet.output = [ str ]
+sheet.apply( xml_doc )
+</pre> <hr> <h2> 更多资料</h2> <ul class="list"> <li>完整的 REXML 解析器, 请查看文档 <a href="javascript:if(confirm('http://www.germane-software.com/software/rexml/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.germane-software.com/software/rexml/'" tppabs="http://www.germane-software.com/software/rexml/" title="REXML Parser" target="_blank">REXML 解析器文档</a>。</p></li> <li>你可以从 <a href="javascript:if(confirm('http://raa.ruby-lang.org/project/xslt4r/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://raa.ruby-lang.org/project/xslt4r/'" tppabs="http://raa.ruby-lang.org/project/xslt4r/" title="XSLT4R">RAA 知识库</a> 中下载 XSLT4R 。</li> </ul> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ruby-socket-programming.html" tppabs="http://www.w3cschool.cc/ruby/ruby-socket-programming.html" rel="prev"> Ruby Socket 编程</a></div> <div class="next"><a href="ruby-web-services.html" tppabs="http://www.w3cschool.cc/ruby/ruby-web-services.html" rel="next">Ruby Web Services 应用 &#8211; SOAP4R</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/ruby/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/ruby/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

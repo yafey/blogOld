@@ -1,0 +1,415 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>C# 方法 | w3cschool菜鸟教程</title> <link rel='prev' title='C# 封装' href="csharp-encapsulation.html"/> <link rel='next' title='CSS :out-of-range选择器' href="/cssref/sel-out-of-range.html"/> <link rel='canonical' href='http://www.w3cschool.cc/csharp/csharp-methods.html'/> <meta name="keywords" content="C# 方法"> <meta name="description" content="C# 方法 一个方法是把一些相关的语句组织在一起，用来执行一个任务的语句块。每一个 C# 程序至少有一个带有 Main 方法的类。 要使用一个方法，您需要： 定义方法 调用方法 C# 中定义方法 当定义一个方法时，从根本上说是在声明它的结构的元素。在 C# 中，定义方法的语法如下： (Parameter List) { Method Body } 下面是方法的各个元素： Access Specifier：访问.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>C# 教程</strong></h2> <a target="_top" title="C# 教程" href="csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html"> C# 教程 </a> <a target="_top" title="C# 简介" href="csharp-intro.html" tppabs="http://www.w3cschool.cc/csharp/csharp-intro.html"> C# 简介 </a> <a target="_top" title="C# 环境" href="csharp-environment-setup.html" tppabs="http://www.w3cschool.cc/csharp/csharp-environment-setup.html"> C# 环境 </a> <a target="_top" title="C# 程序结构" href="csharp-program-structure.html" tppabs="http://www.w3cschool.cc/csharp/csharp-program-structure.html"> C# 程序结构 </a> <a target="_top" title="C# 基本语法" href="csharp-basic-syntax.html" tppabs="http://www.w3cschool.cc/csharp/csharp-basic-syntax.html"> C# 基本语法 </a> <a target="_top" title="C# 数据类型" href="csharp-data-types.html" tppabs="http://www.w3cschool.cc/csharp/csharp-data-types.html"> C# 数据类型 </a> <a target="_top" title="C# 类型转换" href="csharp-type-conversion.html" tppabs="http://www.w3cschool.cc/csharp/csharp-type-conversion.html"> C# 类型转换 </a> <a target="_top" title="C# 变量" href="csharp-variables.html" tppabs="http://www.w3cschool.cc/csharp/csharp-variables.html"> C# 变量 </a> <a target="_top" title="C# 常量" href="csharp-constants.html" tppabs="http://www.w3cschool.cc/csharp/csharp-constants.html"> C# 常量 </a> <a target="_top" title="C# 运算符" href="csharp-operators.html" tppabs="http://www.w3cschool.cc/csharp/csharp-operators.html"> C# 运算符 </a> <a target="_top" title="C# 判断" href="csharp-decision.html" tppabs="http://www.w3cschool.cc/csharp/csharp-decision.html"> C# 判断 </a> <a target="_top" title="C# 循环" href="csharp-loops.html" tppabs="http://www.w3cschool.cc/csharp/csharp-loops.html"> C# 循环 </a> <a target="_top" title="C# 封装" href="csharp-encapsulation.html" tppabs="http://www.w3cschool.cc/csharp/csharp-encapsulation.html"> C# 封装 </a> <a target="_top" title="C# 方法" href="csharp-methods.html" tppabs="http://www.w3cschool.cc/csharp/csharp-methods.html"> C# 方法 </a> <a target="_top" title="C# 可空类型" href="csharp-nullable.html" tppabs="http://www.w3cschool.cc/csharp/csharp-nullable.html"> C# 可空类型 </a> <a target="_top" title="C# 数组（Array）" href="csharp-array.html" tppabs="http://www.w3cschool.cc/csharp/csharp-array.html"> C# 数组（Array） </a> <a target="_top" title="C# 字符串（String）" href="csharp-string.html" tppabs="http://www.w3cschool.cc/csharp/csharp-string.html"> C# 字符串（String） </a> <a target="_top" title="C# 结构（Struct）" href="csharp-struct.html" tppabs="http://www.w3cschool.cc/csharp/csharp-struct.html"> C# 结构（Struct） </a> <a target="_top" title="C# 枚举（Enum）" href="csharp-enum.html" tppabs="http://www.w3cschool.cc/csharp/csharp-enum.html"> C# 枚举（Enum） </a> <a target="_top" title="C# 类（Class）" href="csharp-class.html" tppabs="http://www.w3cschool.cc/csharp/csharp-class.html"> C# 类（Class） </a> <a target="_top" title="C# 继承" href="csharp-inheritance.html" tppabs="http://www.w3cschool.cc/csharp/csharp-inheritance.html"> C# 继承 </a> <a target="_top" title="C# 多态性" href="csharp-polymorphism.html" tppabs="http://www.w3cschool.cc/csharp/csharp-polymorphism.html"> C# 多态性 </a> <a target="_top" title="C# 运算符重载" href="csharp-operator-overloading.html" tppabs="http://www.w3cschool.cc/csharp/csharp-operator-overloading.html"> C# 运算符重载 </a> <a target="_top" title="C# 接口（Interface）" href="csharp-interface.html" tppabs="http://www.w3cschool.cc/csharp/csharp-interface.html"> C# 接口（Interface） </a> <a target="_top" title="C# 命名空间（Namespace）" href="csharp-namespace.html" tppabs="http://www.w3cschool.cc/csharp/csharp-namespace.html"> C# 命名空间（Namespace） </a> <a target="_top" title="C# 预处理器指令" href="csharp-preprocessor-directives.html" tppabs="http://www.w3cschool.cc/csharp/csharp-preprocessor-directives.html"> C# 预处理器指令 </a> <a target="_top" title="C# 正则表达式" href="csharp-regular-expressions.html" tppabs="http://www.w3cschool.cc/csharp/csharp-regular-expressions.html"> C# 正则表达式 </a> <a target="_top" title="C# 异常处理" href="csharp-exception-handling.html" tppabs="http://www.w3cschool.cc/csharp/csharp-exception-handling.html"> C# 异常处理 </a> <a target="_top" title="C# 文件的输入与输出" href="csharp-file-io.html" tppabs="http://www.w3cschool.cc/csharp/csharp-file-io.html"> C# 文件的输入与输出 </a> <br><h2 class="left"><span class="left_h2">C#</span> 高级教程</h2> <a target="_top" title="C# 特性（Attribute）" href="csharp-attribute.html" tppabs="http://www.w3cschool.cc/csharp/csharp-attribute.html"> C# 特性（Attribute） </a> <a target="_top" title="C# 反射（Reflection）" href="csharp-reflection.html" tppabs="http://www.w3cschool.cc/csharp/csharp-reflection.html"> C# 反射（Reflection） </a> <a target="_top" title="C# 属性（Property）" href="csharp-property.html" tppabs="http://www.w3cschool.cc/csharp/csharp-property.html"> C# 属性（Property） </a> <a target="_top" title="C# 索引器（Indexer）" href="csharp-indexer.html" tppabs="http://www.w3cschool.cc/csharp/csharp-indexer.html"> C# 索引器（Indexer） </a> <a target="_top" title="C# 委托（Delegate）" href="csharp-delegate.html" tppabs="http://www.w3cschool.cc/csharp/csharp-delegate.html"> C# 委托（Delegate） </a> <a target="_top" title="C# 事件（Event）" href="csharp-event.html" tppabs="http://www.w3cschool.cc/csharp/csharp-event.html"> C# 事件（Event） </a> <a target="_top" title="C# 集合（Collection）" href="csharp-collection.html" tppabs="http://www.w3cschool.cc/csharp/csharp-collection.html"> C# 集合（Collection） </a> <a target="_top" title="C# 泛型（Generic）" href="csharp-generic.html" tppabs="http://www.w3cschool.cc/csharp/csharp-generic.html"> C# 泛型（Generic） </a> <a target="_top" title="C# 匿名方法" href="csharp-anonymous-methods.html" tppabs="http://www.w3cschool.cc/csharp/csharp-anonymous-methods.html"> C# 匿名方法 </a> <a target="_top" title="C# 不安全代码" href="csharp-unsafe-codes.html" tppabs="http://www.w3cschool.cc/csharp/csharp-unsafe-codes.html"> C# 不安全代码 </a> <a target="_top" title="C# 多线程" href="csharp-multithreading.html" tppabs="http://www.w3cschool.cc/csharp/csharp-multithreading.html"> C# 多线程 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="csharp-encapsulation.html" tppabs="http://www.w3cschool.cc/csharp/csharp-encapsulation.html" rel="prev"> C# 封装</a></div> <div class="next"><a href="csharp-nullable.html" tppabs="http://www.w3cschool.cc/csharp/csharp-nullable.html" rel="next">C# 可空类型</a> &raquo;</div> </div> <div id="content"> <h1>C# <span class="color_h1">方法</span></h1> <div class="tutintro"> <p>一个方法是把一些相关的语句组织在一起，用来执行一个任务的语句块。每一个 C# 程序至少有一个带有 Main 方法的类。</p> <p>要使用一个方法，您需要：</p> <ul class="list"> <li>定义方法</li> <li>调用方法</li> </ul> </div> <h2 class="tutheader">C# 中定义方法</h2> <p>当定义一个方法时，从根本上说是在声明它的结构的元素。在 C# 中，定义方法的语法如下：</p> <pre class="prettyprint">
+&lt;Access Specifier&gt; &lt;Return Type&gt; &lt;Method Name&gt;(Parameter List)
+{
+   Method Body
+}
+</pre> <p>下面是方法的各个元素：</p> <ul class="list"> <li><b>Access Specifier</b>：访问修饰符，这个决定了变量或方法对于另一个类的可见性。</li> <li><b>Return type</b>：返回类型，一个方法可以返回一个值。返回类型是方法返回的值的数据类型。如果方法不返回任何值，则返回类型为 <b>void</b>。</li> <li><b>Method name</b>：方法名称，是一个唯一的标识符，且是大小写敏感的。它不能与类中声明的其他标识符相同。</li> <li><b>Parameter list</b>：参数列表，使用圆括号括起来，该参数是用来传递和接收方法的数据。参数列表是指方法的参数类型、顺序和数量。参数是可选的，也就是说，一个方法可能不包含参数。</li> <li><b>Method body</b>：方法主体，包含了完成任务所需的指令集。</li> </ul> <h2 class="tutheader">实例</h2> <p>下面的代码片段显示一个函数 <i>FindMax</i>，它接受两个整数值，并返回两个中的较大值。它有 public 访问修饰符，所以它可以使用类的实例从类的外部进行访问。</p> <pre class="prettyprint">
+class NumberManipulator
+{
+   public int FindMax(int num1, int num2)
+   {
+      /* 局部变量声明 */
+      int result;
+
+      if (num1 &gt; num2)
+         result = num1;
+      else
+         result = num2;
+
+      return result;
+   }
+   ...
+}
+</pre> <h2 class="tutheader">C# 中调用方法</h2> <p>您可以使用方法名调用方法。下面的实例演示了这点：</p> <pre class="prettyprint">
+using System;
+
+namespace CalculatorApplication
+{
+   class NumberManipulator
+   {
+      public int FindMax(int num1, int num2)
+      {
+         /* 局部变量声明 */
+         int result;
+
+         if (num1 &gt; num2)
+            result = num1;
+         else
+            result = num2;
+
+         return result;
+      }
+      static void Main(string[] args)
+      {
+         /* 局部变量定义 */
+         int a = 100;
+         int b = 200;
+         int ret;
+         NumberManipulator n = new NumberManipulator();
+
+         //调用 FindMax 方法
+         ret = n.FindMax(a, b);
+         Console.WriteLine("最大值是： {0}", ret );
+         Console.ReadLine();
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+最大值是： 200
+</pre> <p>您也可以使用类的实例从另一个类中调用其他类的公有方法。例如，方法 <i>FindMax</i> 属于 <i>NumberManipulator</i> 类，您可以从另一个类 <i>Test</i> 中调用它。</p> <pre class="prettyprint">
+using System;
+
+namespace CalculatorApplication
+{
+    class NumberManipulator
+    {
+        public int FindMax(int num1, int num2)
+        {
+            /* 局部变量声明 */
+            int result;
+
+            if (num1 &gt; num2)
+                result = num1;
+            else
+                result = num2;
+
+            return result;
+        }
+    }
+    class Test
+    {
+        static void Main(string[] args)
+        {
+            /* 局部变量定义 */
+            int a = 100;
+            int b = 200;
+            int ret;
+            NumberManipulator n = new NumberManipulator();
+            //调用 FindMax 方法
+            ret = n.FindMax(a, b);
+            Console.WriteLine("最大值是： {0}", ret );
+            Console.ReadLine();
+
+        }
+    }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+最大值是： 200
+</pre> <h2 class="tutheader">递归方法调用</h2> <p>一个方法可以自我调用。这就是所谓的 <b>递归</b>。下面的实例使用递归函数计算一个数的阶乘：</p> <pre class="prettyprint">
+using System;
+
+namespace CalculatorApplication
+{
+    class NumberManipulator
+    {
+        public int factorial(int num)
+        {
+            /* 局部变量定义 */
+            int result;
+
+            if (num == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                result = factorial(num - 1) * num;
+                return result;
+            }
+        }
+    
+        static void Main(string[] args)
+        {
+            NumberManipulator n = new NumberManipulator();
+            //调用 factorial 方法
+            Console.WriteLine("6 的阶乘是： {0}", n.factorial(6));
+            Console.WriteLine("7 的阶乘是： {0}", n.factorial(7));
+            Console.WriteLine("8 的阶乘是： {0}", n.factorial(8));
+            Console.ReadLine();
+
+        }
+    }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+6 的阶乘是： 720
+7 的阶乘是： 5040
+8 的阶乘是： 40320
+</pre> <h2 class="tutheader">参数传递</h2> <p>当调用带有参数的方法时，您需要向方法传递参数。在 C# 中，有三种向方法传递参数的方式：</p> <table class="reference notranslate"> <tr><th style = "width:30%">方式</th><th>描述</th></tr> <tr><td>值参数</td><td>这种方式复制参数的实际值给函数的形式参数，实参和形参使用的是两个不同内存中的值。在这种情况下，当形参的值发生改变时，不会影响实参的值，从而保证了实参数据的安全。</td> </tr> <tr><td>引用参数</td><td>这种方式复制参数的内存位置的引用给形式参数。这意味着，当形参的值发生改变时，同时也改变实参的值。</td> </tr> <tr><td>输出参数</td><td>这种方式可以返回多个值。</td> </tr> </table> <h2>按值传递参数</h2> <p>这是参数传递的默认方式。在这种方式下，当调用一个方法时，会为每个值参数创建一个新的存储位置。</p> <p>实际参数的值会复制给形参，实参和形参使用的是两个不同内存中的值。所以，当形参的值发生改变时，不会影响实参的值，从而保证了实参数据的安全。下面的实例演示了这个概念：</p> <pre class="prettyprint">
+using System;
+
+namespace CalculatorApplication
+{
+    class NumberManipulator
+    {
+        public void swap(int x, int y)
+        {
+            int temp;
+
+            temp = x; /* 保存 x 的值 */
+            x = y;    /* 把 y 赋值给 x */
+            y = temp; /* 把 temp 赋值给 y */
+        }
+    
+        static void Main(string[] args)
+        {
+            NumberManipulator n = new NumberManipulator();
+            /* 局部变量定义 */
+            int a = 100;
+            int b = 200;
+
+            Console.WriteLine("在交换之前，a 的值： {0}", a);
+            Console.WriteLine("在交换之前，b 的值： {0}", b);
+
+            /* 调用函数来交换值 */
+            n.swap(a, b);
+
+            Console.WriteLine("在交换之后，a 的值： {0}", a);
+            Console.WriteLine("在交换之后，b 的值： {0}", b);
+ 
+            Console.ReadLine();
+        }
+    }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+在交换之前，a 的值：100
+在交换之前，b 的值：200
+在交换之后，a 的值：100
+在交换之后，b 的值：200
+</pre> <p>结果表明，即使在函数内改变了值，值也没有发生任何的变化。</p> <h2>按引用传递参数</h2> <p>引用参数是一个对变量的<b>内存位置的引用</b>。当按引用传递参数时，与值参数不同的是，它不会为这些参数创建一个新的存储位置。引用参数表示与提供给方法的实际参数具有相同的内存位置。</p> <p>在 C# 中，使用 <b>ref</b> 关键字声明引用参数。下面的实例演示了这点：</p> <pre class="prettyprint">
+using System;
+namespace CalculatorApplication
+{
+   class NumberManipulator
+   {
+      public void swap(ref int x, ref int y)
+      {
+         int temp;
+
+         temp = x; /* 保存 x 的值 */
+         x = y;    /* 把 y 赋值给 x */
+         y = temp; /* 把 temp 赋值给 y */
+       }
+   
+      static void Main(string[] args)
+      {
+         NumberManipulator n = new NumberManipulator();
+         /* 局部变量定义 */
+         int a = 100;
+         int b = 200;
+
+         Console.WriteLine("在交换之前，a 的值： {0}", a);
+         Console.WriteLine("在交换之前，b 的值： {0}", b);
+
+         /* 调用函数来交换值 */
+         n.swap(ref a, ref b);
+
+         Console.WriteLine("在交换之后，a 的值： {0}", a);
+         Console.WriteLine("在交换之后，b 的值： {0}", b);
+ 
+         Console.ReadLine();
+
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+在交换之前，a 的值：100
+在交换之前，b 的值：200
+在交换之后，a 的值：200
+在交换之后，b 的值：100
+</pre> <p>结果表明，<i>swap</i> 函数内的值改变了，且这个改变可以在 <i> Main</i> 函数中反映出来。</p> <h2>按输出传递参数</h2> <p>return 语句可用于只从函数中返回一个值。但是，可以使用 <b>输出参数</b> 来从函数中返回两个值。输出参数会把方法输出的数据赋给自己，其他方面与引用参数相似。</p> <p>下面的实例演示了这点：</p> <pre class="prettyprint">
+using System;
+
+namespace CalculatorApplication
+{
+   class NumberManipulator
+   {
+      public void getValue(out int x )
+      {
+         int temp = 5;
+         x = temp;
+      }
+   
+      static void Main(string[] args)
+      {
+         NumberManipulator n = new NumberManipulator();
+         /* 局部变量定义 */
+         int a = 100;
+         
+         Console.WriteLine("在方法调用之前，a 的值： {0}", a);
+         
+         /* 调用函数来获取值 */
+         n.getValue(out a);
+
+         Console.WriteLine("在方法调用之后，a 的值： {0}", a);
+         Console.ReadLine();
+
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+在方法调用之前，a 的值： 100
+在方法调用之后，a 的值： 5
+</pre> <p>提供给输出参数的变量不需要赋值。当需要从一个参数没有指定初始值的方法中返回值时，输出参数特别有用。请看下面的实例，来理解这一点：</p> <pre class="prettyprint">
+using System;
+
+namespace CalculatorApplication
+{
+   class NumberManipulator
+   {
+      public void getValues(out int x, out int y )
+      {
+          Console.WriteLine("请输入第一个值： ");
+          x = Convert.ToInt32(Console.ReadLine());
+          Console.WriteLine("请输入第二个值： ");
+          y = Convert.ToInt32(Console.ReadLine());
+      }
+   
+      static void Main(string[] args)
+      {
+         NumberManipulator n = new NumberManipulator();
+         /* 局部变量定义 */
+         int a , b;
+         
+         /* 调用函数来获取值 */
+         n.getValues(out a, out b);
+
+         Console.WriteLine("在方法调用之后，a 的值： {0}", a);
+         Console.WriteLine("在方法调用之后，b 的值： {0}", b);
+         Console.ReadLine();
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果（取决于用户输入）：</p> <pre class="result">
+请输入第一个值：
+7
+请输入第二个值：
+8
+在方法调用之后，a 的值： 7
+在方法调用之后，b 的值： 8
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="csharp-encapsulation.html" tppabs="http://www.w3cschool.cc/csharp/csharp-encapsulation.html" rel="prev"> C# 封装</a></div> <div class="next"><a href="csharp-nullable.html" tppabs="http://www.w3cschool.cc/csharp/csharp-nullable.html" rel="next">C# 可空类型</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/csharp/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/csharp/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

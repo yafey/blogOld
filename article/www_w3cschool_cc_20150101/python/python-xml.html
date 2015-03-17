@@ -1,0 +1,319 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>python XML解析 | w3cschool菜鸟教程</title> <link rel='prev' title='ASP.NET ListControl 控件' href="/aspnet/control-listcontrol.html"/> <link rel='next' title='python GUI编程(Tkinter)' href="python-gui-tkinter.html"/> <link rel='canonical' href='http://www.w3cschool.cc/python/python-xml.html'/> <meta name="keywords" content="python XML解析"> <meta name="description" content="python XML解析 什么是XML？ XML 指可扩展标记语言（eXtensible Markup Language）。 你可以通过本站学习XML教程 XML 被设计用来传输和存储数据。 XML是一套定义语义标记的规则，这些标记将文档分成许多部件并对这些部件加以标识。 它也是元标记语言，即定义了用于定义其他与特定领域有关的、语义的、结构化的标记语言的句法语言。 python对XML的解析 常见的XML编程接口有DOM和SAX.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Python 基础教程</strong></h2> <a target="_top" title="Python 基础教程" href="python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html"> Python 基础教程 </a> <a target="_top" title="Python 简介" href="python-intro.html" tppabs="http://www.w3cschool.cc/python/python-intro.html"> Python 简介 </a> <a target="_top" title="Python环境搭建" href="python-install.html" tppabs="http://www.w3cschool.cc/python/python-install.html"> Python环境搭建 </a> <a target="_top" title="Python 基础语法" href="python-basic-syntax.html" tppabs="http://www.w3cschool.cc/python/python-basic-syntax.html"> Python 基础语法 </a> <a target="_top" title="Python 变量类型" href="python-variable-types.html" tppabs="http://www.w3cschool.cc/python/python-variable-types.html"> Python 变量类型 </a> <a target="_top" title="Python 运算符" href="python-operators.html" tppabs="http://www.w3cschool.cc/python/python-operators.html"> Python 运算符 </a> <a target="_top" title="Python 条件语句" href="python-if-statement.html" tppabs="http://www.w3cschool.cc/python/python-if-statement.html"> Python 条件语句 </a> <a target="_top" title="Python 循环语句" href="python-loops.html" tppabs="http://www.w3cschool.cc/python/python-loops.html"> Python 循环语句 </a> <a target="_top" title="Python While循环语句" href="python-while-loop.html" tppabs="http://www.w3cschool.cc/python/python-while-loop.html"> Python While循环语句 </a> <a target="_top" title="Python for 循环语句" href="python-for-loop.html" tppabs="http://www.w3cschool.cc/python/python-for-loop.html"> Python for 循环语句 </a> <a target="_top" title="Python 循环嵌套" href="python-nested-loops.html" tppabs="http://www.w3cschool.cc/python/python-nested-loops.html"> Python 循环嵌套 </a> <a target="_top" title="Python break 语句" href="python-break-statement.html" tppabs="http://www.w3cschool.cc/python/python-break-statement.html"> Python break 语句 </a> <a target="_top" title="Python continue 语句" href="python-continue-statement.html" tppabs="http://www.w3cschool.cc/python/python-continue-statement.html"> Python continue 语句 </a> <a target="_top" title="Python pass 语句" href="python-pass-statement.html" tppabs="http://www.w3cschool.cc/python/python-pass-statement.html"> Python pass 语句 </a> <a target="_top" title="Python 数字" href="python-numbers.html" tppabs="http://www.w3cschool.cc/python/python-numbers.html"> Python 数字 </a> <a target="_top" title="Python 字符串" href="python-strings.html" tppabs="http://www.w3cschool.cc/python/python-strings.html"> Python 字符串 </a> <a target="_top" title="Python 列表(Lists)" href="python-lists.html" tppabs="http://www.w3cschool.cc/python/python-lists.html"> Python 列表(Lists) </a> <a target="_top" title="Python 元组" href="python-tuples.html" tppabs="http://www.w3cschool.cc/python/python-tuples.html"> Python 元组 </a> <a target="_top" title="Python 字典(Dictionary)" href="python-dictionary.html" tppabs="http://www.w3cschool.cc/python/python-dictionary.html"> Python 字典(Dictionary) </a> <a target="_top" title="Python 日期和时间" href="python-date-time.html" tppabs="http://www.w3cschool.cc/python/python-date-time.html"> Python 日期和时间 </a> <a target="_top" title="Python函数" href="python-functions.html" tppabs="http://www.w3cschool.cc/python/python-functions.html"> Python函数 </a> <a target="_top" title="Python模块" href="python-modules.html" tppabs="http://www.w3cschool.cc/python/python-modules.html"> Python模块 </a> <a target="_top" title="Python 文件I/O" href="python-files-io.html" tppabs="http://www.w3cschool.cc/python/python-files-io.html"> Python 文件I/O </a> <a target="_top" title="Python 异常处理" href="python-exceptions.html" tppabs="http://www.w3cschool.cc/python/python-exceptions.html"> Python 异常处理 </a> <br><h2 class="left"><span class="left_h2">Python</span> 高级教程</h2> <a target="_top" title="Python面向对象" href="python-object.html" tppabs="http://www.w3cschool.cc/python/python-object.html"> Python面向对象 </a> <a target="_top" title="Python正则表达式" href="python-reg-expressions.html" tppabs="http://www.w3cschool.cc/python/python-reg-expressions.html"> Python正则表达式 </a> <a target="_top" title="Python CGI编程" href="python-cgi.html" tppabs="http://www.w3cschool.cc/python/python-cgi.html"> Python CGI编程 </a> <a target="_top" title="python操作mysql数据库" href="python-mysql.html" tppabs="http://www.w3cschool.cc/python/python-mysql.html"> python操作mysql数据库 </a> <a target="_top" title="Python使用SMTP发送邮件" href="python-email.html" tppabs="http://www.w3cschool.cc/python/python-email.html"> Python使用SMTP发送邮件 </a> <a target="_top" title="Python多线程" href="python-multithreading.html" tppabs="http://www.w3cschool.cc/python/python-multithreading.html"> Python多线程 </a> <a target="_top" title="python XML解析" href="python-xml.html" tppabs="http://www.w3cschool.cc/python/python-xml.html"> python XML解析 </a> <a target="_top" title="python GUI编程(Tkinter)" href="python-gui-tkinter.html" tppabs="http://www.w3cschool.cc/python/python-gui-tkinter.html"> python GUI编程(Tkinter) </a> <a target="_top" title="Python2.x与3​​.x版本区别" href="python-2x-3x.html" tppabs="http://www.w3cschool.cc/python/python-2x-3x.html"> Python2.x与3​​.x版本区别 </a> <a target="_top" title="Python IDE" href="python-ide.html" tppabs="http://www.w3cschool.cc/python/python-ide.html"> Python IDE </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="python-multithreading.html" tppabs="http://www.w3cschool.cc/python/python-multithreading.html" rel="prev"> Python多线程</a></div> <div class="next"><a href="python-gui-tkinter.html" tppabs="http://www.w3cschool.cc/python/python-gui-tkinter.html" rel="next">python GUI编程(Tkinter)</a> &raquo;</div> </div> <div id="content"> <h1>python XML解析</h1> <hr> <h2>什么是XML？</h2> <p>XML 指可扩展标记语言（e<b>X</b>tensible <b>M</b>arkup <b>L</b>anguage）。 你可以通过本站学习<a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html" target="_blank" title="XML教程">XML教程</a> </p> <p>XML 被设计用来传输和存储数据。</p> <p>XML是一套定义语义标记的规则，这些标记将文档分成许多部件并对这些部件加以标识。</p> <p>它也是元标记语言，即定义了用于定义其他与特定领域有关的、语义的、结构化的标记语言的句法语言。</p> <hr> <h2>python对XML的解析</h2> <p>常见的XML编程接口有DOM和SAX，这两种接口处理XML文件的方式不同，当然使用场合也不同。</p> <p>python有三种方法解析XML，SAX，DOM，以及ElementTree:</p> <h3>1.SAX (simple API for XML )</h3> <p>pyhton 标准库包含SAX解析器，SAX用事件驱动模型，通过在解析XML的过程中触发一个个的事件并调用用户定义的回调函数来处理XML文件。</p> <h3>2.DOM(Document Object Model)</h3> <p>将XML数据在内存中解析成一个树，通过对树的操作来操作XML。</p> <h3>3.ElementTree(元素树)</h3> <p>ElementTree就像一个轻量级的DOM，具有方便友好的API。代码可用性好，速度快，消耗内存少。</p> <p><strong>注：</strong>因DOM需要将XML数据映射到内存中的树，一是比较慢，二是比较耗内存，而SAX流式读取XML文件，比较快，占用内存少，但需要用户实现回调函数（handler）。</p> <p>本章节使用到的XML实例文件movies.xml内容如下：</p> <pre>
+&lt;collection shelf="New Arrivals"&gt;
+&lt;movie title="Enemy Behind"&gt;
+   &lt;type&gt;War, Thriller&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;year&gt;2003&lt;/year&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;10&lt;/stars&gt;
+   &lt;description&gt;Talk about a US-Japan war&lt;/description&gt;
+&lt;/movie&gt;
+&lt;movie title="Transformers"&gt;
+   &lt;type&gt;Anime, Science Fiction&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;year&gt;1989&lt;/year&gt;
+   &lt;rating&gt;R&lt;/rating&gt;
+   &lt;stars&gt;8&lt;/stars&gt;
+   &lt;description&gt;A schientific fiction&lt;/description&gt;
+&lt;/movie&gt;
+   &lt;movie title="Trigun"&gt;
+   &lt;type&gt;Anime, Action&lt;/type&gt;
+   &lt;format&gt;DVD&lt;/format&gt;
+   &lt;episodes&gt;4&lt;/episodes&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;10&lt;/stars&gt;
+   &lt;description&gt;Vash the Stampede!&lt;/description&gt;
+&lt;/movie&gt;
+&lt;movie title="Ishtar"&gt;
+   &lt;type&gt;Comedy&lt;/type&gt;
+   &lt;format&gt;VHS&lt;/format&gt;
+   &lt;rating&gt;PG&lt;/rating&gt;
+   &lt;stars&gt;2&lt;/stars&gt;
+   &lt;description&gt;Viewable boredom&lt;/description&gt;
+&lt;/movie&gt;
+&lt;/collection&gt;
+</pre> <hr> <h2>python使用SAX解析xml</h2> <p>SAX是一种基于事件驱动的API。</p> <p>利用SAX解析XML文档牵涉到两个部分:解析器和事件处理器。</p> <p>解析器负责读取XML文档,并向事件处理器发送事件,如元素开始跟元素结束事件;</p> <p>而事件处理器则负责对事件作出相应,对传递的XML数据进行处理。 </p> <pSAX适于处理下面的问题：</p> <ul> <li> 1、对大型文件进行处理；</li><li> 2、只需要文件的部分内容，或者只需从文件中得到特定信息。</li><li> 3、想建立自己的对象模型的时候。</li></ul> <p>在python中使用sax方式处理xml要先引入xml.sax中的parse函数，还有xml.sax.handler中的ContentHandler。</p> <h3>ContentHandler类方法介绍</h3> <p><strong>characters(content)方法</strong></p> <p>调用时机：</p> <p>从行开始，遇到标签之前，存在字符，content的值为这些字符串。</p> <p>从一个标签，遇到下一个标签之前， 存在字符，content的值为这些字符串。</p> <p>从一个标签，遇到行结束符之前，存在字符，content的值为这些字符串。</p> <p>标签可以是开始标签，也可以是结束标签。</p> <p><strong>startDocument()方法</strong></p> <p>文档启动的时候调用。</p> <p><strong>endDocument()方法</strong></p> <p>解析器到达文档结尾时调用。</p> <p><strong>startElement(name, attrs)方法</strong></p> <p>遇到XML开始标签时调用，name是标签的名字，attrs是标签的属性值字典。</p> <p><strong>endElement(name)方法</strong></p> <p>遇到XML结束标签时调用。 </p> <hr> <h2>make_parser方法</h2> <p>以下方法创建一个新的解析器对象并返回。</p> <pre>
+xml.sax.make_parser( [parser_list] )
+</pre> <p>参数说明:</p> <ul> <li><strong>parser_list</strong> - 可选参数，解析器列表</li> </ul> <hr> <h2>parser方法</h2> <p>以下方法创建一个 SAX 解析器并解析xml文档：</p> <pre>
+xml.sax.parse( xmlfile, contenthandler[, errorhandler])
+</pre> <p>参数说明:</p> <ul> <li><strong>xmlfile</strong> - xml文件名</li> <li><strong>contenthandler</strong> - 必须是一个ContentHandler的对象</li> <li><strong>errorhandler</strong> - 如果指定该参数，errorhandler必须是一个SAX ErrorHandler对象</li> </ul> <hr> <h2>parseString方法</h2> <p>parseString方法创建一个XML解析器并解析xml字符串：</p> <pre>
+xml.sax.parseString(xmlstring, contenthandler[, errorhandler])
+</pre> <p>参数说明:</p> <ul> <li><strong>xmlstring</strong> - xml字符串</li> <li><strong>contenthandler</strong> - 必须是一个ContentHandler的对象</li> <li><strong>errorhandler</strong> - 如果指定该参数，errorhandler必须是一个SAX ErrorHandler对象</li> </ul> <hr> <h2>Python 解析XML实例</h2> <pre>
+#!/usr/bin/python
+
+import xml.sax
+
+class MovieHandler( xml.sax.ContentHandler ):
+   def __init__(self):
+      self.CurrentData = ""
+      self.type = ""
+      self.format = ""
+      self.year = ""
+      self.rating = ""
+      self.stars = ""
+      self.description = ""
+
+   # 元素开始事件处理
+   def startElement(self, tag, attributes):
+      self.CurrentData = tag
+      if tag == "movie":
+         print "*****Movie*****"
+         title = attributes["title"]
+         print "Title:", title
+
+   # 元素结束事件处理
+   def endElement(self, tag):
+      if self.CurrentData == "type":
+         print "Type:", self.type
+      elif self.CurrentData == "format":
+         print "Format:", self.format
+      elif self.CurrentData == "year":
+         print "Year:", self.year
+      elif self.CurrentData == "rating":
+         print "Rating:", self.rating
+      elif self.CurrentData == "stars":
+         print "Stars:", self.stars
+      elif self.CurrentData == "description":
+         print "Description:", self.description
+      self.CurrentData = ""
+
+   # 内容事件处理
+   def characters(self, content):
+      if self.CurrentData == "type":
+         self.type = content
+      elif self.CurrentData == "format":
+         self.format = content
+      elif self.CurrentData == "year":
+         self.year = content
+      elif self.CurrentData == "rating":
+         self.rating = content
+      elif self.CurrentData == "stars":
+         self.stars = content
+      elif self.CurrentData == "description":
+         self.description = content
+  
+if ( __name__ == "__main__"):
+   
+   # 创建一个 XMLReader
+   parser = xml.sax.make_parser()
+   # turn off namepsaces
+   parser.setFeature(xml.sax.handler.feature_namespaces, 0)
+
+   # 重写 ContextHandler
+   Handler = MovieHandler()
+   parser.setContentHandler( Handler )
+   
+   parser.parse("movies.xml")
+</pre> <p>以上代码执行结果如下：</p> <pre>
+*****Movie*****
+Title: Enemy Behind
+Type: War, Thriller
+Format: DVD
+Year: 2003
+Rating: PG
+Stars: 10
+Description: Talk about a US-Japan war
+*****Movie*****
+Title: Transformers
+Type: Anime, Science Fiction
+Format: DVD
+Year: 1989
+Rating: R
+Stars: 8
+Description: A schientific fiction
+*****Movie*****
+Title: Trigun
+Type: Anime, Action
+Format: DVD
+Rating: PG
+Stars: 10
+Description: Vash the Stampede!
+*****Movie*****
+Title: Ishtar
+Type: Comedy
+Format: VHS
+Rating: PG
+Stars: 2
+Description: Viewable boredom
+</pre> <p>完整的 SAX API 文档请查阅<a href="javascript:if(confirm('http://docs.python.org/library/try.php?filename=try_dom_tablerow_align  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://docs.python.org/library/try.php?filename=try_dom_tablerow_align'" tppabs="http://docs.python.org/library/xml.sax.html" target="_blank" rel="nofollow">Python SAX APIs</a></p> <hr> <h2>使用xml.dom解析xml</h2> <p>文件对象模型（Document Object Model，简称DOM），是W3C组织推荐的处理可扩展置标语言的标准编程接口。</p> <p>一个 DOM 的解析器在解析一个 XML 文档时，一次性读取整个文档，把文档中所有元素保存在内存中的一个树结构里，之后你可以利用DOM 提供的不同的函数来读取或修改文档的内容和结构，也可以把修改过的内容写入xml文件。 </p> <p> python中用xml.dom.minidom来解析xml文件，实例如下：</p> <pre>
+#!/usr/bin/python
+
+from xml.dom.minidom import parse
+import xml.dom.minidom
+
+# 使用minidom解析器打开 XML 文档
+DOMTree = xml.dom.minidom.parse("movies.xml")
+collection = DOMTree.documentElement
+if collection.hasAttribute("shelf"):
+   print "Root element : %s" % collection.getAttribute("shelf")
+
+# 在集合中获取所有电影
+movies = collection.getElementsByTagName("movie")
+
+# 打印每部电影的详细信息
+for movie in movies:
+   print "*****Movie*****"
+   if movie.hasAttribute("title"):
+      print "Title: %s" % movie.getAttribute("title")
+
+   type = movie.getElementsByTagName('type')[0]
+   print "Type: %s" % type.childNodes[0].data
+   format = movie.getElementsByTagName('format')[0]
+   print "Format: %s" % format.childNodes[0].data
+   rating = movie.getElementsByTagName('rating')[0]
+   print "Rating: %s" % rating.childNodes[0].data
+   description = movie.getElementsByTagName('description')[0]
+   print "Description: %s" % description.childNodes[0].data
+</pre> <p>以上程序执行结果如下：</p> <pre>
+Root element : New Arrivals
+*****Movie*****
+Title: Enemy Behind
+Type: War, Thriller
+Format: DVD
+Rating: PG
+Description: Talk about a US-Japan war
+*****Movie*****
+Title: Transformers
+Type: Anime, Science Fiction
+Format: DVD
+Rating: R
+Description: A schientific fiction
+*****Movie*****
+Title: Trigun
+Type: Anime, Action
+Format: DVD
+Rating: PG
+Description: Vash the Stampede!
+*****Movie*****
+Title: Ishtar
+Type: Comedy
+Format: VHS
+Rating: PG
+Description: Viewable boredom
+</pre> <p>完整的 DOM API 文档请查阅<a href="javascript:if(confirm('http://docs.python.org/library/try.php?filename=try_dom_tablerow_valign  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://docs.python.org/library/try.php?filename=try_dom_tablerow_valign'" tppabs="http://docs.python.org/library/xml.dom.html" target="_blank" rel="nofollow">Python DOM APIs</a>。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="python-multithreading.html" tppabs="http://www.w3cschool.cc/python/python-multithreading.html" rel="prev"> Python多线程</a></div> <div class="next"><a href="python-gui-tkinter.html" tppabs="http://www.w3cschool.cc/python/python-gui-tkinter.html" rel="next">python GUI编程(Tkinter)</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/python/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/python/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

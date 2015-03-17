@@ -1,0 +1,223 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Ruby 发送邮件 &#8211; SMTP | w3cschool菜鸟教程</title> <link rel='prev' title='Ruby CGI Sessions' href="ruby-cgi-sessions.html"/> <link rel='next' title='Ruby Socket 编程' href="ruby-socket-programming.html"/> <link rel='canonical' href='http://www.w3cschool.cc/ruby/ruby-sending-email.html'/> <meta name="keywords" content="Ruby 发送邮件 &#8211; SMTP"> <meta name="description" content="Ruby 发送邮件 - SMATP SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。 Ruby提供了 Net::SMTP 来发送邮件，并提供了两个方法 new 和 start: new 方法有两个参数： server name 默认为 localhost port number 默认为 .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Ruby 教程</strong></h2> <a target="_top" title="Ruby 教程" href="ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html"> Ruby 教程 </a> <a target="_top" title="Ruby 简介" href="ruby-intro.html" tppabs="http://www.w3cschool.cc/ruby/ruby-intro.html"> Ruby 简介 </a> <a target="_top" title="Ruby 环境" href="ruby-environment.html" tppabs="http://www.w3cschool.cc/ruby/ruby-environment.html"> Ruby 环境 </a> <a target="_top" title="Ruby 安装 &#8211; Unix" href="ruby-installation-unix.html" tppabs="http://www.w3cschool.cc/ruby/ruby-installation-unix.html"> Ruby 安装 - Unix </a> <a target="_top" title="Ruby 安装 &#8211; Windows" href="ruby-installation-windows.html" tppabs="http://www.w3cschool.cc/ruby/ruby-installation-windows.html"> Ruby 安装 - Windows </a> <a target="_top" title="Ruby 命令行选项" href="ruby-command-line-options.html" tppabs="http://www.w3cschool.cc/ruby/ruby-command-line-options.html"> Ruby 命令行选项 </a> <a target="_top" title="Ruby 环境变量" href="ruby-environment-variables.html" tppabs="http://www.w3cschool.cc/ruby/ruby-environment-variables.html"> Ruby 环境变量 </a> <a target="_top" title="Ruby 语法" href="ruby-syntax.html" tppabs="http://www.w3cschool.cc/ruby/ruby-syntax.html"> Ruby 语法 </a> <a target="_top" title="Ruby 类和对象" href="ruby-class.html" tppabs="http://www.w3cschool.cc/ruby/ruby-class.html"> Ruby 类和对象 </a> <a target="_top" title="Ruby 类案例" href="ruby-class-case-study.html" tppabs="http://www.w3cschool.cc/ruby/ruby-class-case-study.html"> Ruby 类案例 </a> <a target="_top" title="Ruby 变量" href="ruby-variable.html" tppabs="http://www.w3cschool.cc/ruby/ruby-variable.html"> Ruby 变量 </a> <a target="_top" title="Ruby 运算符" href="ruby-operator.html" tppabs="http://www.w3cschool.cc/ruby/ruby-operator.html"> Ruby 运算符 </a> <a target="_top" title="Ruby 注释" href="ruby-comment.html" tppabs="http://www.w3cschool.cc/ruby/ruby-comment.html"> Ruby 注释 </a> <a target="_top" title="Ruby 判断" href="ruby-decision.html" tppabs="http://www.w3cschool.cc/ruby/ruby-decision.html"> Ruby 判断 </a> <a target="_top" title="Ruby 循环" href="ruby-loop.html" tppabs="http://www.w3cschool.cc/ruby/ruby-loop.html"> Ruby 循环 </a> <a target="_top" title="Ruby 方法" href="ruby-method.html" tppabs="http://www.w3cschool.cc/ruby/ruby-method.html"> Ruby 方法 </a> <a target="_top" title="Ruby 块" href="ruby-block.html" tppabs="http://www.w3cschool.cc/ruby/ruby-block.html"> Ruby 块 </a> <a target="_top" title="Ruby 模块（Module）" href="ruby-module.html" tppabs="http://www.w3cschool.cc/ruby/ruby-module.html"> Ruby 模块（Module） </a> <a target="_top" title="Ruby 字符串（String）" href="ruby-string.html" tppabs="http://www.w3cschool.cc/ruby/ruby-string.html"> Ruby 字符串（String） </a> <a target="_top" title="Ruby 数组（Array）" href="ruby-array.html" tppabs="http://www.w3cschool.cc/ruby/ruby-array.html"> Ruby 数组（Array） </a> <a target="_top" title="Ruby 哈希（Hash）" href="ruby-hash.html" tppabs="http://www.w3cschool.cc/ruby/ruby-hash.html"> Ruby 哈希（Hash） </a> <a target="_top" title="Ruby 日期 &#038; 时间（Date &#038; Time）" href="ruby-date-time.html" tppabs="http://www.w3cschool.cc/ruby/ruby-date-time.html"> Ruby 日期 & 时间 </a> <a target="_top" title="Ruby 范围（Range）" href="ruby-range.html" tppabs="http://www.w3cschool.cc/ruby/ruby-range.html"> Ruby 范围（Range） </a> <a target="_top" title="Ruby 迭代器" href="ruby-iterators.html" tppabs="http://www.w3cschool.cc/ruby/ruby-iterators.html"> Ruby 迭代器 </a> <a target="_top" title="Ruby 文件的输入与输出" href="ruby-input-output.html" tppabs="http://www.w3cschool.cc/ruby/ruby-input-output.html"> Ruby 文件的输入与输出 </a> <a target="_top" title="Ruby File 类和方法" href="ruby-file-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-file-methods.html"> Ruby File 类和方法 </a> <a target="_top" title="Ruby Dir 类和方法" href="ruby-dir-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-dir-methods.html"> Ruby Dir 类和方法 </a> <a target="_top" title="Ruby 异常" href="ruby-exceptions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-exceptions.html"> Ruby 异常 </a> <br><h2 class="left"><span class="left_h2">Ruby</span> 高级教程</h2> <a target="_top" title="Ruby 面向对象" href="ruby-object-oriented.html" tppabs="http://www.w3cschool.cc/ruby/ruby-object-oriented.html"> Ruby 面向对象 </a> <a target="_top" title="Ruby 正则表达式" href="ruby-regular-expressions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-regular-expressions.html"> Ruby 正则表达式 </a> <a target="_top" title="Ruby 数据库访问 &#8211; DBI 教程" href="ruby-database-access.html" tppabs="http://www.w3cschool.cc/ruby/ruby-database-access.html"> Ruby 数据库访问 - DBI 教程 </a> <a target="_top" title="Ruby CGI 编程" href="ruby-cgi.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi.html"> Ruby CGI 编程 </a> <a target="_top" title="Ruby CGI方法" href="ruby-cgi-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-methods.html"> Ruby CGI方法 </a> <a target="_top" title="Ruby CGI Cookies" href="ruby-cgi-cookies.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-cookies.html"> Ruby CGI Cookies </a> <a target="_top" title="Ruby CGI Sessions" href="ruby-cgi-sessions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-sessions.html"> Ruby CGI Sessions </a> <a target="_top" title="Ruby 发送邮件 &#8211; SMTP" href="ruby-sending-email.html" tppabs="http://www.w3cschool.cc/ruby/ruby-sending-email.html"> Ruby 发送邮件 - SMTP </a> <a target="_top" title="Ruby Socket 编程" href="ruby-socket-programming.html" tppabs="http://www.w3cschool.cc/ruby/ruby-socket-programming.html"> Ruby Socket 编程 </a> <a target="_top" title="Ruby XML, XSLT 和 XPath 教程" href="ruby-xml-xslt-xpath.html" tppabs="http://www.w3cschool.cc/ruby/ruby-xml-xslt-xpath.html"> Ruby XML, XSLT 和 XPath 教程 </a> <a target="_top" title="Ruby Web Services 应用 &#8211; SOAP4R" href="ruby-web-services.html" tppabs="http://www.w3cschool.cc/ruby/ruby-web-services.html"> Ruby Web Services </a> <a target="_top" title="Ruby 多线程" href="ruby-multithreading.html" tppabs="http://www.w3cschool.cc/ruby/ruby-multithreading.html"> Ruby 多线程 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ruby-cgi-sessions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-sessions.html" rel="prev"> Ruby CGI Sessions</a></div> <div class="next"><a href="ruby-socket-programming.html" tppabs="http://www.w3cschool.cc/ruby/ruby-socket-programming.html" rel="next">Ruby Socket 编程</a> &raquo;</div> </div> <div id="content"> <h1>Ruby 发送邮件 - SMATP</h1> <p>SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。</p> <p>Ruby提供了 Net::SMTP 来发送邮件，并提供了两个方法 new 和 start:</p> <ul> <li> <b>new</b> 方法有两个参数： <ul> <li> <i>server name</i> 默认为 localhost</li> <li> <i>port number</i> 默认为 25</li> </ul> </li> <li> <b>start</b> 方法有以下参数： <ul> <li> <i>server</i> - SMTP 服务器 IP, 默认为 localhost</li> <li> <i>port</i> - 端口号，默认为 25</li> <li> <i>domain</i> - 邮件发送者域名，默认为 ENV["HOSTNAME"]</li> <li> <i>account</i> - 用户名，默认为 nil</li> <li> <i>password</i> - 用户密码，默认为nil</li> <li> <i>authtype</i> - 验证类型，默认为 <i>cram_md5</i></li> </ul> </li> </ul> <p> SMTP 对象实例化方法调用了 sendmail, 参数如下：</p> <ul> <li> <i>source</i> - 一个字符串或数组或每个迭代器在任一时间中返回的任何东西。</li> <li> <i>sender</i> -一个字符串，出现在 email 的表单字段。</li> <li> <i>recipients</i> - 一个字符串或字符串数组，表示收件人的地址。</li> </ul> <h3>实例</h3> <p>以下提供了简单的Ruby脚本来发送邮件:</p> <pre>
+require 'net/smtp'
+
+message = &lt;&lt;MESSAGE_END
+From: Private Person &lt;me@fromdomain.com&gt;
+To: A Test User &lt;test@todomain.com&gt;
+Subject: SMTP e-mail test
+
+This is a test e-mail message.
+MESSAGE_END
+
+Net::SMTP.start('localhost') do |smtp|
+  smtp.send_message message, 'me@fromdomain.com', 
+                             'test@todomain.com'
+end
+</pre> </p> 在以上实例中，你已经设置了一个基本的电子邮件消息，注意正确的标题格式。一个电子邮件要要From，To和Subject，文本内容与头部信息间需要一个空行。</p> <p> 使用Net::SMTP连接到本地机器上的SMTP服务器，使用send_message方法来发送邮件，方法参数为发送者邮件与接收者邮件。</p> <p> 如果你没有运行在本机上的SMTP服务器，您可以使用Net::SMTP与远程SMTP服务器进行通信。如果使用网络邮件服务（如Hotmail或雅虎邮件），您的电子邮件提供者会为您提供发送邮件服务器的详细信息:</p> <pre>
+Net::SMTP.start('mail.your-domain.com')
+</pre> <p> 以上代码将连接主机为 mail.your-domain.com，端口号为 25的邮件服务器，如果需要填写用户名密码，则代码如下：</p> </p> <pre>
+Net::SMTP.start('mail.your-domain.com', 
+                25, 
+                'localhost', 
+                'username', 'password' :plain)
+</pre> <p>以上实例使用了指定的用户名密码连接到主机为 mail.your-domain.com，端口号为 25的邮件服务器。</p> <hr> <h2>使用 Ruby 发送 HTML 邮件 </h2> <p>Net::SMTP同样提供了支持发送 HTML 格式的邮件。</p> <p>发送电子邮件时你可以设置MIME版本，文档类型，字符集来发送HTML格式的邮件。</p> <h3>实例</h3> <p>以下实例用于发送 HTML 格式的邮件：</p> <pre>
+require 'net/smtp'
+
+message = &lt;&lt;MESSAGE_END
+From: Private Person &lt;me@fromdomain.com&gt;
+To: A Test User &lt;test@todomain.com&gt;
+MIME-Version: 1.0
+Content-type: text/html
+Subject: SMTP e-mail test
+
+This is an e-mail message to be sent in HTML format
+
+&lt;b&gt;This is HTML message.&lt;/b&gt;
+&lt;h1&gt;This is headline.&lt;/h1&gt;
+MESSAGE_END
+
+Net::SMTP.start('localhost') do |smtp|
+  smtp.send_message message, 'me@fromdomain.com', 
+                             'test@todomain.com'
+end
+</pre> <hr> <h2>发送带附件的邮件</h2> <p>如果需要发送混合内容的电子邮件，需要设置Content-type为multipart/mixed。 这样就可以在邮件中添加附件内容。</p> <p>附件在传输前需要使用 <strong>pack("m")</strong> 函数将其内容转为 base64 格式。</p> <h3>实例</h3> <p>以下实例将发送附件为 /tmp/test.txt 的邮件：</p> <pre>
+require 'net/smtp'
+
+filename = "/tmp/test.txt"
+# 读取文件并编码为base64格式
+filecontent = File.read(filename)
+encodedcontent = [filecontent].pack("m")   # base64
+
+marker = "AUNIQUEMARKER"
+
+body =&lt;&lt;EOF
+This is a test email to send an attachement.
+EOF
+
+# 定义主要的头部信息
+part1 =&lt;&lt;EOF
+From: Private Person &lt;me@fromdomain.net&gt;
+To: A Test User &lt;test@todmain.com&gt;
+Subject: Sending Attachement
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=#{marker}
+--#{marker}
+EOF
+
+# 定义消息动作
+part2 =&lt;&lt;EOF
+Content-Type: text/plain
+Content-Transfer-Encoding:8bit
+
+#{body}
+--#{marker}
+EOF
+
+# 定义附件部分
+part3 =&lt;&lt;EOF
+Content-Type: multipart/mixed; name=\"#{filename}\"
+Content-Transfer-Encoding:base64
+Content-Disposition: attachment; filename="#{filename}"
+
+#{encodedcontent}
+--#{marker}--
+EOF
+
+mailtext = part1 + part2 + part3
+
+# 发送邮件
+begin 
+  Net::SMTP.start('localhost') do |smtp|
+     smtp.sendmail(mailtext, 'me@fromdomain.net',
+                          ['test@todmain.com'])
+  end
+rescue Exception =&gt; e  
+  print "Exception occured: " + e  
+end  
+</pre> <p><strong>注意：</strong>你可以指定多个发送的地址，但需要使用逗号隔开。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ruby-cgi-sessions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-sessions.html" rel="prev"> Ruby CGI Sessions</a></div> <div class="next"><a href="ruby-socket-programming.html" tppabs="http://www.w3cschool.cc/ruby/ruby-socket-programming.html" rel="next">Ruby Socket 编程</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/ruby/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/ruby/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

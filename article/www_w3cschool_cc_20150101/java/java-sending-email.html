@@ -1,0 +1,401 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Java 发送邮件 | w3cschool菜鸟教程</title> <link rel='prev' title='Java 网络编程' href="java-networking.html"/> <link rel='next' title='Java 多线程编程' href="java-multithreading.html"/> <link rel='canonical' href='http://www.w3cschool.cc/java/java-sending-email.html'/> <meta name="keywords" content="Java 发送邮件"> <meta name="description" content="Java 发送邮件 使用Java应用程序发送E-mail十分简单，但是首先你应该在你的机器上安装JavaMail API 和Java Activation Framework (JAF) 。 你可以在 JavaMail (Version 1.2) 下载最新的版本。 你可以再 在JAF (Version 1.1.1)下载最新的版本。 下载并解压这些文件，最上层文件夹你会发现很多的jar文件。你需要将mail.jar和activati.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Java 教程</strong></h2> <a target="_top" title="Java 教程" href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html"> Java 教程 </a> <a target="_top" title="Java 简介" href="java-intro.html" tppabs="http://www.w3cschool.cc/java/java-intro.html"> Java 简介 </a> <a target="_top" title="Java开发环境配置" href="java-environment-setup.html" tppabs="http://www.w3cschool.cc/java/java-environment-setup.html"> Java开发环境配置 </a> <a target="_top" title="Java基础语法" href="java-basic-syntax.html" tppabs="http://www.w3cschool.cc/java/java-basic-syntax.html"> Java基础语法 </a> <a target="_top" title="Java对象和类" href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html"> Java对象和类 </a> <a target="_top" title="Java基本数据类型" href="java-basic-datatypes.html" tppabs="http://www.w3cschool.cc/java/java-basic-datatypes.html"> Java基本数据类型 </a> <a target="_top" title="Java变量类型" href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html"> Java变量类型 </a> <a target="_top" title="Java修饰符" href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html"> Java修饰符 </a> <a target="_top" title="Java运算符" href="java-operators.html" tppabs="http://www.w3cschool.cc/java/java-operators.html"> Java运算符 </a> <a target="_top" title="Java循环结构 &#8211; for, while 及 do&#8230;while" href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html"> Java循环结构 </a> <a target="_top" title="Java分支结构 &#8211; if&#8230;else/switch" href="java-if-else-switch.html" tppabs="http://www.w3cschool.cc/java/java-if-else-switch.html"> Java分支结构 </a> <a target="_top" title="Java Number类" href="java-number.html" tppabs="http://www.w3cschool.cc/java/java-number.html"> Java Number类 </a> <a target="_top" title="Java Character类" href="java-character.html" tppabs="http://www.w3cschool.cc/java/java-character.html"> Java Character类 </a> <a target="_top" title="Java String类" href="java-string.html" tppabs="http://www.w3cschool.cc/java/java-string.html"> Java String类 </a> <a target="_top" title="Java StringBuffer和StringBuilder类" href="java-stringbuffer.html" tppabs="http://www.w3cschool.cc/java/java-stringbuffer.html"> Java StringBuffer和StringBuilder类 </a> <a target="_top" title="Java 数组" href="java-array.html" tppabs="http://www.w3cschool.cc/java/java-array.html"> Java 数组 </a> <a target="_top" title="Java日期时间" href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html"> Java日期时间 </a> <a target="_top" title="Java正则表达式" href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html"> Java正则表达式 </a> <a target="_top" title="Java 方法" href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html"> Java 方法 </a> <a target="_top" title="Java 流(Stream)、文件(File)和IO" href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html"> Java 流(Stream)、文件(File)和IO </a> <a target="_top" title="Java 异常处理" href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html"> Java 异常处理 </a> <br><h2 class="left">Java <span class="left_h2">面向对象</span></h2> <a target="_top" title="Java 继承" href="java-inheritance.html" tppabs="http://www.w3cschool.cc/java/java-inheritance.html"> Java 继承 </a> <a target="_top" title="Java 重写(Override)与重载(Overload)" href="java-override-overload.html" tppabs="http://www.w3cschool.cc/java/java-override-overload.html"> Java 重写(Override)与重载(Overload) </a> <a target="_top" title="Java 多态" href="java-polymorphism.html" tppabs="http://www.w3cschool.cc/java/java-polymorphism.html"> Java 多态 </a> <a target="_top" title="Java 抽象类" href="java-abstraction.html" tppabs="http://www.w3cschool.cc/java/java-abstraction.html"> Java 抽象类 </a> <a target="_top" title="java 封装" href="java-encapsulation.html" tppabs="http://www.w3cschool.cc/java/java-encapsulation.html"> java 封装 </a> <a target="_top" title="Java 接口" href="java-interfaces.html" tppabs="http://www.w3cschool.cc/java/java-interfaces.html"> Java 接口 </a> <a target="_top" title="Java 包(package)" href="java-package.html" tppabs="http://www.w3cschool.cc/java/java-package.html"> Java 包(package) </a> <br><h2 class="left">Java <span class="left_h2">高级教程</span></h2> <a target="_top" title="Java 数据结构" href="java-data-structures.html" tppabs="http://www.w3cschool.cc/java/java-data-structures.html"> Java 数据结构 </a> <a target="_top" title="Java 集合框架" href="java-collections.html" tppabs="http://www.w3cschool.cc/java/java-collections.html"> Java 集合框架 </a> <a target="_top" title="Java 泛型" href="java-generics.html" tppabs="http://www.w3cschool.cc/java/java-generics.html"> Java 泛型 </a> <a target="_top" title="Java序列化" href="java-serialization.html" tppabs="http://www.w3cschool.cc/java/java-serialization.html"> Java序列化 </a> <a target="_top" title="Java 网络编程" href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html"> Java 网络编程 </a> <a target="_top" title="Java 发送邮件" href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html"> Java 发送邮件 </a> <a target="_top" title="Java 多线程编程" href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html"> Java 多线程编程 </a> <a target="_top" title="Java Applet基础" href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html"> Java Applet基础 </a> <a target="_top" title="Java 文档注释" href="java-documentation.html" tppabs="http://www.w3cschool.cc/java/java-documentation.html"> Java 文档注释 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html" rel="prev"> Java 网络编程</a></div> <div class="next"><a href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html" rel="next">Java 多线程编程</a> &raquo;</div> </div> <div id="content"> <h1>Java 发送邮件 </h1> <p> 使用Java应用程序发送E-mail十分简单，但是首先你应该在你的机器上安装JavaMail API 和Java Activation Framework (JAF) 。</p><p> 你可以在 <a href="javascript:if(confirm('http://www.oracle.com/technetwork/java/try.php?filename=trycss_text-transform  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.oracle.com/technetwork/java/try.php?filename=trycss_text-transform'" tppabs="http://www.oracle.com/technetwork/java/index-138643.html" target="_blank">JavaMail (Version 1.2)</a> 下载最新的版本。</p><p> 你可以再 在<a href="javascript:if(confirm('http://www.oracle.com/technetwork/java/try.php?filename=trycss_text-indent  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.oracle.com/technetwork/java/try.php?filename=trycss_text-indent'" tppabs="http://www.oracle.com/technetwork/java/jaf11-139815.html" target="_blank">JAF (Version 1.1.1)</a>下载最新的版本。</p><p> 下载并解压这些文件，最上层文件夹你会发现很多的jar文件。你需要将mail.jar和activation.jar 添加到你的CLASSPATH中。</p> <p>如果你使用第三方邮件服务器如QQ的SMTP服务器，可查看文章底部用户认证完整的实例。</p> <hr> <h2> 发送一封简单的 E-mail</h2> <p> 下面是一个发送简单E-mail的例子。假设你的localhost已经连接到网络。</p> <pre>
+// 文件名 SendEmail.java
+ 
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+ 
+public class SendEmail
+{
+   public static void main(String [] args)
+   {   
+      // 收件人电子邮箱
+      String to = "abcd@gmail.com";
+ 
+      // 发件人电子邮箱
+      String from = "web@gmail.com";
+ 
+      // 指定发送邮件的主机为 localhost
+      String host = "localhost";
+ 
+      // 获取系统属性
+      Properties properties = System.getProperties();
+ 
+      // 设置邮件服务器
+      properties.setProperty("mail.smtp.host", host);
+ 
+      // 获取默认session对象
+      Session session = Session.getDefaultInstance(properties);
+ 
+      try{
+         // 创建默认的 MimeMessage 对象
+         MimeMessage message = new MimeMessage(session);
+ 
+         // Set From: 头部头字段
+         message.setFrom(new InternetAddress(from));
+ 
+         // Set To: 头部头字段
+         message.addRecipient(Message.RecipientType.TO,
+                                  new InternetAddress(to));
+ 
+         // Set Subject: 头部头字段
+         message.setSubject("This is the Subject Line!");
+ 
+         // 设置消息体
+         message.setText("This is actual message");
+ 
+         // 发送消息
+         Transport.send(message);
+         System.out.println("Sent message successfully....");
+      }catch (MessagingException mex) {
+         mex.printStackTrace();
+      }
+   }
+}
+</pre> <p> 编译并运行这个程序来发送一封简单的E-mail： </p> <pre>
+$ java SendEmail
+Sent message successfully....
+</pre> <p> 如果你想发送一封e-mail给多个收件人，那么使用下面的方法来指定多个收件人ID： </p> <pre>
+void addRecipients(Message.RecipientType type,
+                   Address[] addresses)
+throws MessagingException
+</pre> <p> 下面是对于参数的描述： </p> <ul> <li><p><b>type:</b>要被设置为TO, CC 或者BCC. 这里CC 代表抄送、BCC 代表秘密抄送y. 举例：<em>Message.RecipientType.TO</em></p></li> <li><p><b>addresses:</b> 这是email ID的数组。在指定电子邮件ID时，你将需要使用InternetAddress()方法。</p></li> </ul> <hr> <h2> 发送一封HTML E-mail</h2> <p> 下面是一个发送HTML E-mail的例子。假设你的localhost已经连接到网络。</p><p> 和上一个例子很相似，除了我们要使用setContent()方法来通过第二个参数为"text/html"，来设置内容来指定要发送HTML内容。</p> <pre>
+// 文件名 SendHTMLEmail.java
+ 
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+ 
+public class SendHTMLEmail
+{
+   public static void main(String [] args)
+   {
+     
+      // 收件人电子邮箱
+      String to = "abcd@gmail.com";
+ 
+      // 发件人电子邮箱
+      String from = "web@gmail.com";
+ 
+      // 指定发送邮件的主机为 localhost
+      String host = "localhost";
+ 
+      // 获取系统属性
+      Properties properties = System.getProperties();
+ 
+      // 设置邮件服务器
+      properties.setProperty("mail.smtp.host", host);
+ 
+      // 获取默认的 Session 对象。
+      Session session = Session.getDefaultInstance(properties);
+ 
+      try{
+         // 创建默认的 MimeMessage 对象。
+         MimeMessage message = new MimeMessage(session);
+ 
+         // Set From: 头部头字段
+         message.setFrom(new InternetAddress(from));
+ 
+         // Set To: 头部头字段
+         message.addRecipient(Message.RecipientType.TO,
+                                  new InternetAddress(to));
+ 
+         // Set Subject: 头字段
+         message.setSubject("This is the Subject Line!");
+ 
+         // 发送 HTML 消息, 可以插入html标签
+         message.setContent("&lt;h1&gt;This is actual message&lt;/h1&gt;",
+                            "text/html" );
+ 
+         // 发送消息
+         Transport.send(message);
+         System.out.println("Sent message successfully....");
+      }catch (MessagingException mex) {
+         mex.printStackTrace();
+      }
+   }
+}
+</pre> <p> 编译并运行此程序来发送HTML e-mail：</p> <pre>
+$ java SendHTMLEmail
+Sent message successfully....
+</pre><hr> <h2>发送带有附件的 E-mail </h2> <p> 下面是一个发送带有附件的 E-mail的例子。假设你的localhost已经连接到网络。 </p> <pre>
+// 文件名 SendFileEmail.java
+ 
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+ 
+public class SendFileEmail
+{
+   public static void main(String [] args)
+   {
+     
+      // 收件人电子邮箱
+      String to = "abcd@gmail.com";
+ 
+      // 发件人电子邮箱
+      String from = "web@gmail.com";
+ 
+      // 指定发送邮件的主机为 localhost
+      String host = "localhost";
+ 
+      // 获取系统属性
+      Properties properties = System.getProperties();
+ 
+      // 设置邮件服务器
+      properties.setProperty("mail.smtp.host", host);
+ 
+      // 获取默认的 Session 对象。
+      Session session = Session.getDefaultInstance(properties);
+ 
+      try{
+         // 创建默认的 MimeMessage 对象。
+         MimeMessage message = new MimeMessage(session);
+ 
+         // Set From: 头部头字段
+         message.setFrom(new InternetAddress(from));
+ 
+         // Set To: 头部头字段
+         message.addRecipient(Message.RecipientType.TO,
+                                  new InternetAddress(to));
+ 
+         // Set Subject: 头字段
+         message.setSubject("This is the Subject Line!");
+ 
+         // 创建消息部分
+         BodyPart messageBodyPart = new MimeBodyPart();
+ 
+         // 消息
+         messageBodyPart.setText("This is message body");
+        
+         // 创建多重消息
+         Multipart multipart = new MimeMultipart();
+ 
+         // 设置文本消息部分
+         multipart.addBodyPart(messageBodyPart);
+ 
+         // 附件部分
+         messageBodyPart = new MimeBodyPart();
+         String filename = "file.txt";
+         DataSource source = new FileDataSource(filename);
+         messageBodyPart.setDataHandler(new DataHandler(source));
+         messageBodyPart.setFileName(filename);
+         multipart.addBodyPart(messageBodyPart);
+ 
+         // 发送完整消息
+         message.setContent(multipart );
+ 
+         //   发送消息
+         Transport.send(message);
+         System.out.println("Sent message successfully....");
+      }catch (MessagingException mex) {
+         mex.printStackTrace();
+      }
+   }
+}
+</pre> <p> 编译并运行你的程序来发送一封带有附件的邮件。 </p> <pre>
+$ java SendFileEmail
+Sent message successfully....
+</pre> <hr><h2> 用户认证部分</h2> <p> 如果需要提供用户名和密码给e-mail服务器来达到用户认证的目的，你可以通过如下设置来完成： </p> <pre>
+ props.put("mail.smtp.auth", "true");
+ props.setProperty("mail.user", "myuser");
+ props.setProperty("mail.password", "mypwd");
+</pre> <p> e-mail其他的发送机制和上述保持一致。</p> <h3>需要用户名密码验证邮件发送实例:</h3> <p>本实例以QQ邮件服务器为例，你需要在登录QQ邮箱后台在"设置"=》账号中开启POP3/SMTP服务 ，如下图所示：</p> <p><img src="../wp-content/uploads/2014/01/try.php-filename=trycss_letter-spacing" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/01/qqmailset.jpg" alt="qqmailset" width="652" height="236" class="alignnone size-full wp-image-8503"/></p> <p>Java 代码如下：</p> <pre>
+// 需要用户名密码邮件发送实例
+//文件名 SendEmail2.java
+//本实例以QQ邮箱为例，你需要在qq后台设置
+
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+public class SendEmail2
+{
+   public static void main(String [] args)
+   {
+      // 收件人电子邮箱
+      String to = "xxx@qq.com";
+
+      // 发件人电子邮箱
+      String from = "xxx@qq.com";
+
+      // 指定发送邮件的主机为 localhost
+      String host = "smtp.qq.com";  //QQ 邮件服务器
+
+      // 获取系统属性
+      Properties properties = System.getProperties();
+
+      // 设置邮件服务器
+      properties.setProperty("mail.smtp.host", host);
+
+      properties.put("mail.smtp.auth", "true");
+      // 获取默认session对象
+      Session session = Session.getDefaultInstance(properties,new Authenticator(){
+	    public PasswordAuthentication getPasswordAuthentication()
+	    {
+	     return new PasswordAuthentication("xxx@qq.com", "qq邮箱密码"); //发件人邮件用户名、密码
+	    }
+	   });
+
+      try{
+         // 创建默认的 MimeMessage 对象
+         MimeMessage message = new MimeMessage(session);
+
+         // Set From: 头部头字段
+         message.setFrom(new InternetAddress(from));
+
+         // Set To: 头部头字段
+         message.addRecipient(Message.RecipientType.TO,
+                                  new InternetAddress(to));
+
+         // Set Subject: 头部头字段
+         message.setSubject("This is the Subject Line!");
+
+         // 设置消息体
+         message.setText("This is actual message");
+
+         // 发送消息
+         Transport.send(message);
+         System.out.println("Sent message successfully....from w3cschool.cc");
+      }catch (MessagingException mex) {
+         mex.printStackTrace();
+      }
+   }
+}
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html" rel="prev"> Java 网络编程</a></div> <div class="next"><a href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html" rel="next">Java 多线程编程</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/java/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/java/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

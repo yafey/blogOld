@@ -1,0 +1,256 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>HTML5 Canvas | w3cschoolèœé¸Ÿæ•™ç¨‹</title> <link rel='prev' title='HTML &lt;tbody&gt; æ ‡ç­¾' href="/tags/tag-tbody.html"/> <link rel='next' title='HTML &lt;thead&gt; æ ‡ç­¾' href="/tags/tag-thead.html"/> <link rel='canonical' href='http://www.w3cschool.cc/html/html5-canvas.html'/> <meta name="keywords" content="HTML5 Canvas"> <meta name="description" content="HTML5 Canvas &amp;lt;canvas&amp;gt; æ ‡ç­¾å®šä¹‰å›¾å½¢ï¼Œæ¯”å¦‚å›¾è¡¨å’Œå…¶ä»–å›¾åƒï¼Œæ‚¨å¿…é¡»ä½¿ç”¨è„šæœ¬æ¥ç»˜åˆ¶å›¾å½¢ã€‚ åœ¨ç”»å¸ƒä¸Šï¼ˆCanvasï¼‰ç”»ä¸€ä¸ªçº¢è‰²çŸ©å½¢ï¼Œæ¸å˜çŸ©å½¢ï¼Œå½©è‰²çŸ©å½¢ï¼Œå’Œä¸€äº›å½©è‰²çš„æ–‡å­—ã€‚ ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &amp;lt;canvas&amp;gt; å…ƒç´ . var c=document.getElementById(&#039;myCanvas&#039;); var canvOK=.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschoolèœé¸Ÿæ•™ç¨‹"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="æœç´¢"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">é¦–é¡µ</a> <a href="html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">å‰ç«¯å·¥å…·</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">æ›´å¤šâ€¦â€¦</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>HTML æ•™ç¨‹</strong></h2> <a target="_top" title="HTML æ•™ç¨‹" href="html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html"> HTML æ•™ç¨‹ </a> <a target="_top" title="HTML ç®€ä»‹" href="html-intro.html" tppabs="http://www.w3cschool.cc/html/html-intro.html"> HTML ç®€ä»‹ </a> <a target="_top" title="HTML ç¼–è¾‘å™¨" href="html-editors.html" tppabs="http://www.w3cschool.cc/html/html-editors.html"> HTML ç¼–è¾‘å™¨ </a> <a target="_top" title="HTML åŸºç¡€" href="html-basic.html" tppabs="http://www.w3cschool.cc/html/html-basic.html"> HTML åŸºç¡€ </a> <a target="_top" title="HTML å…ƒç´ " href="html-elements.html" tppabs="http://www.w3cschool.cc/html/html-elements.html"> HTML å…ƒç´  </a> <a target="_top" title="HTML å±æ€§" href="html-attributes.html" tppabs="http://www.w3cschool.cc/html/html-attributes.html"> HTML å±æ€§ </a> <a target="_top" title="HTML æ ‡é¢˜" href="html-headings.html" tppabs="http://www.w3cschool.cc/html/html-headings.html"> HTML æ ‡é¢˜ </a> <a target="_top" title="HTML æ®µè½" href="html-paragraphs.html" tppabs="http://www.w3cschool.cc/html/html-paragraphs.html"> HTML æ®µè½ </a> <a target="_top" title="HTML æ–‡æœ¬æ ¼å¼åŒ–" href="html-formatting.html" tppabs="http://www.w3cschool.cc/html/html-formatting.html"> HTML æ–‡æœ¬æ ¼å¼åŒ– </a> <a target="_top" title="HTML é“¾æ¥" href="html-links.html" tppabs="http://www.w3cschool.cc/html/html-links.html"> HTML é“¾æ¥ </a> <a target="_top" title="HTML å¤´éƒ¨" href="html-head.html" tppabs="http://www.w3cschool.cc/html/html-head.html"> HTML å¤´éƒ¨ </a> <a target="_top" title="HTML CSS" href="html-css.html" tppabs="http://www.w3cschool.cc/html/html-css.html"> HTML CSS </a> <a target="_top" title="HTML å›¾åƒ" href="html-images.html" tppabs="http://www.w3cschool.cc/html/html-images.html"> HTML å›¾åƒ </a> <a target="_top" title="HTML è¡¨æ ¼" href="html-tables.html" tppabs="http://www.w3cschool.cc/html/html-tables.html"> HTML è¡¨æ ¼ </a> <a target="_top" title="HTML åˆ—è¡¨" href="html-lists.html" tppabs="http://www.w3cschool.cc/html/html-lists.html"> HTML åˆ—è¡¨ </a> <a target="_top" title="HTML åŒºå—" href="html-blocks.html" tppabs="http://www.w3cschool.cc/html/html-blocks.html"> HTML åŒºå— </a> <a target="_top" title="HTML å¸ƒå±€" href="html-layouts.html" tppabs="http://www.w3cschool.cc/html/html-layouts.html"> HTML å¸ƒå±€ </a> <a target="_top" title="HTML è¡¨å•" href="html-forms.html" tppabs="http://www.w3cschool.cc/html/html-forms.html"> HTML è¡¨å• </a> <a target="_top" title="HTML æ¡†æ¶" href="html-iframes.html" tppabs="http://www.w3cschool.cc/html/html-iframes.html"> HTML æ¡†æ¶ </a> <a target="_top" title="HTML é¢œè‰²" href="html-colors.html" tppabs="http://www.w3cschool.cc/html/html-colors.html"> HTML é¢œè‰² </a> <a target="_top" title="HTML é¢œè‰²å" href="html-colornames.html" tppabs="http://www.w3cschool.cc/html/html-colornames.html"> HTML é¢œè‰²å </a> <a target="_top" title="HTML é¢œè‰²å€¼" href="html-colorvalues.html" tppabs="http://www.w3cschool.cc/html/html-colorvalues.html"> HTML é¢œè‰²å€¼ </a> <a target="_top" title="HTML è„šæœ¬" href="html-scripts.html" tppabs="http://www.w3cschool.cc/html/html-scripts.html"> HTML è„šæœ¬ </a> <a target="_top" title="HTML å­—ç¬¦å®ä½“" href="html-entities.html" tppabs="http://www.w3cschool.cc/html/html-entities.html"> HTML å­—ç¬¦å®ä½“ </a> <a target="_top" title="HTML URL" href="html-ur.html" tppabs="http://www.w3cschool.cc/html/html-ur.html"> HTML URL </a> <a target="_top" title="HTML é€ŸæŸ¥åˆ—è¡¨" href="html-quicklist.html" tppabs="http://www.w3cschool.cc/html/html-quicklist.html"> HTML é€ŸæŸ¥åˆ—è¡¨ </a> <a target="_top" title="HTML æ€»ç»“" href="html-summary.html" tppabs="http://www.w3cschool.cc/html/html-summary.html"> HTML æ€»ç»“ </a> <a target="_top" title="XHTML ç®€ä»‹" href="html-xhtml.html" tppabs="http://www.w3cschool.cc/html/html-xhtml.html"> XHTML ç®€ä»‹ </a> <br/><h2 class="left"><span class="left_h2">HTML5</span></h2> <a target="_top" title="HTML5 ç®€ä»‹" href="html5-intro.html" tppabs="http://www.w3cschool.cc/html/html5-intro.html"> HTML5 ç®€ä»‹ </a> <a target="_top" title="HTML5 æ–°å…ƒç´ " href="html5-new-element.html" tppabs="http://www.w3cschool.cc/html/html5-new-element.html"> HTML5 æ–°å…ƒç´  </a> <a target="_top" title="HTML5 Canvas" href="html5-canvas.html" tppabs="http://www.w3cschool.cc/html/html5-canvas.html"> HTML5 Canvas </a> <a target="_top" title="HTML5 å†…è” SVG" href="html5-svg.html" tppabs="http://www.w3cschool.cc/html/html5-svg.html"> HTML5 å†…è” SVG </a> <a target="_top" title="HTML5 æ‹–æ”¾" href="html5-draganddrop.html" tppabs="http://www.w3cschool.cc/html/html5-draganddrop.html"> HTML5 æ‹–æ”¾ </a> <a target="_top" title="HTML5 åœ°ç†å®šä½" href="html5-geolocation.html" tppabs="http://www.w3cschool.cc/html/html5-geolocation.html"> HTML5 åœ°ç†å®šä½ </a> <a target="_top" title="HTML5 Video(è§†é¢‘)" href="html5-video.html" tppabs="http://www.w3cschool.cc/html/html5-video.html"> HTML5 Video(è§†é¢‘) </a> <a target="_top" title="HTML5 Audio(éŸ³é¢‘)" href="html5-audio.html" tppabs="http://www.w3cschool.cc/html/html5-audio.html"> HTML5 Audio(éŸ³é¢‘) </a> <a target="_top" title="HTML5 Input ç±»å‹" href="html5-form-input-types.html" tppabs="http://www.w3cschool.cc/html/html5-form-input-types.html"> HTML5 Input ç±»å‹ </a> <a target="_top" title="HTML5 è¡¨å•å…ƒç´ " href="html5-form-elements.html" tppabs="http://www.w3cschool.cc/html/html5-form-elements.html"> HTML5 è¡¨å•å…ƒç´  </a> <a target="_top" title="HTML5 è¡¨å•å±æ€§" href="html5-form-attributes.html" tppabs="http://www.w3cschool.cc/html/html5-form-attributes.html"> HTML5 è¡¨å•å±æ€§ </a> <a target="_top" title="HTML5 è¯­ä¹‰å…ƒç´ " href="html5-semantic-elements.html" tppabs="http://www.w3cschool.cc/html/html5-semantic-elements.html"> HTML5 è¯­ä¹‰å…ƒç´  </a> <a target="_top" title="HTML5 Web å­˜å‚¨" href="html5-webstorage.html" tppabs="http://www.w3cschool.cc/html/html5-webstorage.html"> HTML5 Web å­˜å‚¨ </a> <a target="_top" title="HTML5 åº”ç”¨ç¨‹åºç¼“å­˜" href="html5-app-cache.html" tppabs="http://www.w3cschool.cc/html/html5-app-cache.html"> HTML5 åº”ç”¨ç¨‹åºç¼“å­˜ </a> <a target="_top" title="HTML5 Web Workers" href="html5-webworkers.html" tppabs="http://www.w3cschool.cc/html/html5-webworkers.html"> HTML5 Web Workers </a> <a target="_top" title="HTML5 æœåŠ¡å™¨å‘é€äº‹ä»¶(Server-Sent Events)" href="html5-serversentevents.html" tppabs="http://www.w3cschool.cc/html/html5-serversentevents.html"> HTML5 SSE </a> <a target="_top" title="HTML5 æµ‹éªŒ" href="../quiz/html5-quiz.html" tppabs="http://www.w3cschool.cc/quiz/html5-quiz.html"> HTML5 æµ‹éªŒ </a> <br/><h2 class="left"><span class="left_h2">HTML</span> åª’ä½“</h2> <a target="_top" title="HTML åª’ä½“(Media)" href="html-media.html" tppabs="http://www.w3cschool.cc/html/html-media.html"> HTML åª’ä½“(Media) </a> <a target="_top" title="HTML å¯¹è±¡" href="html-object.html" tppabs="http://www.w3cschool.cc/html/html-object.html"> HTML å¯¹è±¡ </a> <a target="_top" title="HTML éŸ³é¢‘(Audio)" href="html-sounds.html" tppabs="http://www.w3cschool.cc/html/html-sounds.html"> HTML éŸ³é¢‘(Audio) </a> <a target="_top" title="HTMLè§†é¢‘ï¼ˆVideosï¼‰æ’­æ”¾" href="html-videos.html" tppabs="http://www.w3cschool.cc/html/html-videos.html"> HTMLè§†é¢‘ï¼ˆVideosï¼‰æ’­æ”¾ </a> <a target="_top" title="HTML å®ä¾‹" href="html-examples.html" tppabs="http://www.w3cschool.cc/html/html-examples.html"> HTML å®ä¾‹ </a> <br><h2 class="left"><span class="left_h2">HTML</span> å‚è€ƒæ‰‹å†Œ</h2> <a target="_top" href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html"> HTML æ ‡ç­¾åˆ—è¡¨(å­—æ¯æ’åº) </a> <a target="_top" href="../tags/ref-byfunc.html" tppabs="http://www.w3cschool.cc/tags/ref-byfunc.html"> HTML æ ‡ç­¾åˆ—è¡¨ï¼ˆåŠŸèƒ½æ’åºï¼‰ </a> <a target="_top" href="../tags/ref-standardattributes.html" tppabs="http://www.w3cschool.cc/tags/ref-standardattributes.html"> HTML å±æ€§ </a> <a target="_top" href="../tags/ref-eventattributes.html" tppabs="http://www.w3cschool.cc/tags/ref-eventattributes.html"> HTML äº‹ä»¶ </a> <a target="_top" href="../tags/ref-canvas.html" tppabs="http://www.w3cschool.cc/tags/ref-canvasreference.html"> HTML ç”»å¸ƒ </a> <a target="_top" href="../tags/ref-av-dom.html" tppabs="http://www.w3cschool.cc/tags/html-audiovideo.html"> HTML éŸ³é¢‘/è§†é¢‘ </a> <a target="_top" href="../tags/html-elementsdoctypes.html" tppabs="http://www.w3cschool.cc/tags/html-elementsdoctypes.html"> HTML æœ‰æ•ˆDOCTYPES </a> <a target="_top" href="../tags/html-colorname.html" tppabs="http://www.w3cschool.cc/tags/html-colorname.html"> HTML é¢œè‰²å </a> <a target="_top" href="../tags/html-colorpicker.html" tppabs="http://www.w3cschool.cc/tags/html-colorpicker.html"> HTML æ‹¾è‰²å™¨ </a> <a target="_top" href="../tags/ref-charactersets.html" tppabs="http://www.w3cschool.cc/tags/html-charactersets.html"> HTML å­—ç¬¦é›† </a> <a target="_top" href="../tags/html-ascii.html" tppabs="http://www.w3cschool.cc/tags/html-ascii.html"> HTML ASCII </a> <a target="_top" href="../tags/ref-entities.html" tppabs="http://www.w3cschool.cc/tags/ref-entities.html"> HTML ISO-8859-1 </a> <a target="_top" href="../tags/html-symbols.html" tppabs="http://www.w3cschool.cc/tags/html-symbols.html"> HTML ç¬¦å· </a> <a target="_top" href="../tags/html-urlencode.html" tppabs="http://www.w3cschool.cc/tags/html-urlencode.html"> HTML URL ç¼–ç  </a> <a target="_top" href="../tags/html-language-codes.html" tppabs="http://www.w3cschool.cc/tags/html-language-codes.html"> HTML è¯­è¨€ä»£ç  </a> <a target="_top" href="../tags/html-httpmessages.html" tppabs="http://www.w3cschool.cc/tags/html-httpmessages.html"> HTTP æ¶ˆæ¯ </a> <a target="_top" href="../tags/html-httpmethods.html" tppabs="http://www.w3cschool.cc/tags/html-httpmethods.html"> HTTP æ–¹æ³• </a> <a target="_top" href="../tags/html-keyboardshortcuts.html" tppabs="http://www.w3cschool.cc/tags/html-keyboardshortcuts.html"> é”®ç›˜å¿«æ·é”® </a></div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="html5-new-element.html" tppabs="http://www.w3cschool.cc/html/html5-new-element.html" rel="prev"> HTML5 æ–°å…ƒç´ </a></div> <div class="next"><a href="html5-svg.html" tppabs="http://www.w3cschool.cc/html/html5-svg.html" rel="next">HTML5 å†…è” SVG</a> &raquo;</div> </div> <div id="content"> <h1>HTML5 <span class="color_h1">Canvas</span> </h1> <hr> <p class="intro">&lt;canvas&gt; æ ‡ç­¾å®šä¹‰å›¾å½¢ï¼Œæ¯”å¦‚å›¾è¡¨å’Œå…¶ä»–å›¾åƒï¼Œæ‚¨å¿…é¡»ä½¿ç”¨è„šæœ¬æ¥ç»˜åˆ¶å›¾å½¢ã€‚</p> <p class="intro">åœ¨ç”»å¸ƒä¸Šï¼ˆCanvasï¼‰ç”»ä¸€ä¸ªçº¢è‰²çŸ©å½¢ï¼Œæ¸å˜çŸ©å½¢ï¼Œå½©è‰²çŸ©å½¢ï¼Œå’Œä¸€äº›å½©è‰²çš„æ–‡å­—ã€‚</p> <canvas id="myCanvas" width="270" height="160" style="border:1px solid #c3c3c3;"> ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &lt;canvas&gt; å…ƒç´ . </canvas> <script>
+var c=document.getElementById("myCanvas");
+var canvOK=1;
+try {c.getContext("2d");}
+catch (er) {canvOK=0;}
+if (canvOK==1)
+	{
+	var ctx=c.getContext("2d");
+	ctx.fillStyle="#FF0000";
+	ctx.fillRect(20,20,100,50);
+	
+	var grd=ctx.createLinearGradient(140,20,240,70);
+    grd.addColorStop(0,"black");
+    grd.addColorStop(1,"white");
+    ctx.fillStyle=grd;
+    ctx.fillRect(140,20,100,50);
+    
+    var grd2=ctx.createLinearGradient(20,90,120,90);
+    grd2.addColorStop(0,"black");
+    grd2.addColorStop("0.3","magenta");
+    grd2.addColorStop("0.5","blue");
+    grd2.addColorStop("0.6","green");
+    grd2.addColorStop("0.8","yellow");
+    grd2.addColorStop(1,"red");
+    ctx.fillStyle=grd2;
+    ctx.fillRect(20,90,100,50);
+    
+    ctx.font="30px Verdana";
+    var grd3=ctx.createLinearGradient(140,20,240,90);
+    grd3.addColorStop(0,"black");
+    grd3.addColorStop("0.3","magenta");
+    grd3.addColorStop("0.6","blue");
+    grd3.addColorStop("0.8","green");
+    grd3.addColorStop(1,"red");
+    ctx.strokeStyle=grd3;
+    ctx.strokeText("Smile!",140,120); 
+	}
+	</script> <br><hr> <h2>ä»€ä¹ˆæ˜¯ Canvas?</h2> <p> HTML5 &lt;canvas&gt; å…ƒç´ ç”¨äºå›¾å½¢çš„ç»˜åˆ¶ï¼Œé€šè¿‡è„šæœ¬ (é€šå¸¸æ˜¯JavaScript)æ¥å®Œæˆ.</p> <p>&lt;canvas&gt; æ ‡ç­¾åªæ˜¯å›¾å½¢å®¹å™¨ï¼Œæ‚¨å¿…é¡»ä½¿ç”¨è„šæœ¬æ¥ç»˜åˆ¶å›¾å½¢ã€‚</p> <p>ä½ å¯ä»¥é€šè¿‡å¤šç§æ–¹æ³•ä½¿ç”¨Canvaç»˜åˆ¶è·¯å¾„,ç›’ã€åœ†ã€å­—ç¬¦ä»¥åŠæ·»åŠ å›¾åƒã€‚</p> <hr> <h2>æµè§ˆå™¨æ”¯æŒ</h2> <p> <img src="../images/compatible_ie.gif" tppabs="http://www.w3cschool.cc/images/compatible_ie.gif" width="31" height="30" alt="Internet Explorer" title="Internet Explorer"><img src="../images/compatible_firefox.gif" tppabs="http://www.w3cschool.cc/images/compatible_firefox.gif" width="31" height="30" alt="Firefox" title="Firefox"><img src="../images/compatible_opera.gif" tppabs="http://www.w3cschool.cc/images/compatible_opera.gif" width="28" height="30" alt="Opera" title="Opera"><img src="../images/compatible_chrome.gif" tppabs="http://www.w3cschool.cc/images/compatible_chrome.gif" width="31" height="30" alt="Google Chrome" title="Google Chrome"><img src="../images/compatible_safari.gif" tppabs="http://www.w3cschool.cc/images/compatible_safari.gif" width="28" height="30" alt="Safari" title="Safari"></p> <p>Internet Explorer 9+, Firefox, Opera, Chrome, å’Œ Safari æ”¯æŒ &lt;canvas&gt; å…ƒç´ .</p> <p><b>æ³¨æ„:</b> Internet Explorer 8 åŠæ›´æ—© IE ç‰ˆæœ¬çš„æµè§ˆå™¨ä¸æ”¯æŒ &lt;canvas&gt; å…ƒç´ .</p> <hr> <h2>åˆ›å»ºä¸€ä¸ªç”»å¸ƒï¼ˆCanvasï¼‰</h2> <p>ä¸€ä¸ªç”»å¸ƒåœ¨ç½‘é¡µä¸­æ˜¯ä¸€ä¸ªçŸ©å½¢æ¡†ï¼Œé€šè¿‡canvas&gt; å…ƒç´ æ¥ç»˜åˆ¶.</p> <p><b>æ³¨æ„:</b> é»˜è®¤æƒ…å†µä¸‹ &lt;canvas&gt; å…ƒç´ æ²¡æœ‰è¾¹æ¡†å’Œå†…å®¹ã€‚</p> <p>&lt;canvas&gt;ç®€å•å®ä¾‹å¦‚ä¸‹:</p> <div class="code notranslate"><div> &lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt; </div></div> <p><b>æ³¨æ„:</b> æ ‡ç­¾é€šå¸¸éœ€è¦æŒ‡å®šä¸€ä¸ªidå±æ€§ (è„šæœ¬ä¸­ç»å¸¸å¼•ç”¨), width å’Œ height å±æ€§å®šä¹‰çš„ç”»å¸ƒçš„å¤§å°.</p> <p><b>æç¤º:</b>ä½ å¯ä»¥åœ¨HTMLé¡µé¢ä¸­ä½¿ç”¨å¤šä¸ª &lt;canvas&gt; å…ƒç´ .</p> <p>ä½¿ç”¨ style å±æ€§æ¥æ·»åŠ è¾¹æ¡†:</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> &lt;canvas id="myCanvas" width="200" height="100"<br> style="border:1px solid #000000;"&gt;<br> &lt;/canvas&gt; </div> <br><a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-links.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-links.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_empty" class="tryitbtn">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>ä½¿ç”¨ JavaScript æ¥ç»˜åˆ¶å›¾åƒ</h2> <p>canvas å…ƒç´ æœ¬èº«æ˜¯æ²¡æœ‰ç»˜å›¾èƒ½åŠ›çš„ã€‚æ‰€æœ‰çš„ç»˜åˆ¶å·¥ä½œå¿…é¡»åœ¨ JavaScript å†…éƒ¨å®Œæˆï¼š<p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> &lt;script&gt;<br> var c=document.getElementById("myCanvas");<br> var ctx=c.getContext("2d");<br> ctx.fillStyle="#FF0000";<br> ctx.fillRect(0,0,150,75);<br> &lt;/script&gt; </div> <br><a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-head.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-head.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_first" class="tryitbtn">å°è¯•ä¸€ä¸‹ Â»</a> </div> <p><b>å®ä¾‹è§£æ:</b></p> <p>é¦–å…ˆï¼Œæ‰¾åˆ° &lt;canvas&gt; å…ƒç´ :</p> <div class="code notranslate"><div> var c=document.getElementById("myCanvas"); </div></div> <p>ç„¶åï¼Œåˆ›å»º context å¯¹è±¡ï¼š</p> <div class="code notranslate"><div> var ctx=c.getContext("2d"); </div></div> <p>getContext("2d") å¯¹è±¡æ˜¯å†…å»ºçš„ HTML5 å¯¹è±¡ï¼Œæ‹¥æœ‰å¤šç§ç»˜åˆ¶è·¯å¾„ã€çŸ©å½¢ã€åœ†å½¢ã€å­—ç¬¦ä»¥åŠæ·»åŠ å›¾åƒçš„æ–¹æ³•ã€‚ </p> <p>ä¸‹é¢çš„ä¸¤è¡Œä»£ç ç»˜åˆ¶ä¸€ä¸ªçº¢è‰²çš„çŸ©å½¢ï¼š</p> <div class="code notranslate"><div> ctx.fillStyle="#FF0000";<br> ctx.fillRect(0,0,150,75); </div></div> <p>è®¾ç½®fillStyleå±æ€§å¯ä»¥æ˜¯CSSé¢œè‰²ï¼Œæ¸å˜ï¼Œæˆ–å›¾æ¡ˆã€‚fillStyle é»˜è®¤è®¾ç½®æ˜¯#000000ï¼ˆé»‘è‰²ï¼‰ã€‚</p> <p> fillRect(<i>x,y,width,height</i>) æ–¹æ³•å®šä¹‰äº†çŸ©å½¢å½“å‰çš„å¡«å……æ–¹å¼ã€‚</p> <hr> <h2>Canvas åæ ‡</h2> <p>canvas æ˜¯ä¸€ä¸ªäºŒç»´ç½‘æ ¼ã€‚</p> <p>canvas çš„å·¦ä¸Šè§’åæ ‡ä¸º (0,0)</p> <p>ä¸Šé¢çš„ fillRect æ–¹æ³•æ‹¥æœ‰å‚æ•° (0,0,150,75)ã€‚</p> <p>æ„æ€æ˜¯ï¼šåœ¨ç”»å¸ƒä¸Šç»˜åˆ¶ 150x75 çš„çŸ©å½¢ï¼Œä»å·¦ä¸Šè§’å¼€å§‹ (0,0)ã€‚</p> <p><b>åæ ‡å®ä¾‹</b></p> <p>å¦‚ä¸‹å›¾æ‰€ç¤ºï¼Œç”»å¸ƒçš„ X å’Œ Y åæ ‡ç”¨äºåœ¨ç”»å¸ƒä¸Šå¯¹ç»˜ç”»è¿›è¡Œå®šä½ã€‚é¼ æ ‡ç§»åŠ¨çš„çŸ©å½¢æ¡†ä¸Šï¼Œæ˜¾ç¤ºå®šä½åæ ‡ã€‚</p> <div> <div style="width:230px;height:20px;text-align:center;clear:both">X</div> <div style="width:20px;padding-top:40px;float:left">Y</div> <div style="width:402px;float:left"> <iframe src="../try/demo_source/html-css.html" tppabs="http://www.w3cschool.cc/try/demo_source/tryhtml5_canvas_coordinates.htm" frameborder="0" style="border:0;overflow:hidden;width:400px;height:120px;"></iframe> </div> </div> <hr> <h2>Canvas - è·¯å¾„</h2> <p>åœ¨Canvasä¸Šç”»çº¿ï¼Œæˆ‘ä»¬å°†ä½¿ç”¨ä»¥ä¸‹ä¸¤ç§æ–¹æ³•ï¼š</p> <ul> <li>moveTo(<i>x,y</i>) å®šä¹‰çº¿æ¡å¼€å§‹åæ ‡</li> <li>lineTo(<i>x,y</i>) å®šä¹‰çº¿æ¡ç»“æŸåæ ‡</li> </ul> <p>ç»˜åˆ¶çº¿æ¡æˆ‘ä»¬å¿…é¡»ä½¿ç”¨åˆ° "ink" çš„æ–¹æ³•ï¼Œå°±åƒstroke().</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>å®šä¹‰å¼€å§‹åæ ‡(0,0), å’Œç»“æŸåæ ‡ (200,100). ç„¶åä½¿ç”¨ stroke() æ–¹æ³•æ¥ç»˜åˆ¶çº¿æ¡:</p> <canvas id="myCanvas2" width="200" height="100" style="border:1px solid #d3d3d3;background:#ffffff;"> ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &lt;canvas&gt; å…ƒç´ . </canvas> <script>
+var c=document.getElementById("myCanvas2");
+var canvOK=1;
+try {c.getContext("2d");}
+catch (er) {canvOK=0;}
+if (canvOK==1)
+	{
+	var ctx=c.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,100);
+	ctx.stroke();
+	}
+</script> <p>JavaScript:</p> <div class="example_code notranslate"> var c=document.getElementById("myCanvas");<br>var ctx=c.getContext("2d");<br> ctx.moveTo(0,0);<br>ctx.lineTo(200,100);<br> ctx.stroke();</div> <br><a class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-images.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-images.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_tut_path" target="_blank">å°è¯•ä¸€ä¸‹ Â»</a> </div> <p>åœ¨canvasä¸­ç»˜åˆ¶åœ†å½¢, æˆ‘ä»¬å°†ä½¿ç”¨ä»¥ä¸‹æ–¹æ³•:</p> <ul> <li>arc(x,y,r,start,stop)</li> </ul> <p>å®é™…ä¸Šæˆ‘ä»¬åœ¨ç»˜åˆ¶åœ†å½¢æ—¶ä½¿ç”¨äº† "ink" çš„æ–¹æ³•, æ¯”å¦‚ stroke() æˆ–è€… fill().</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>ä½¿ç”¨ arc() æ–¹æ³• ç»˜åˆ¶ä¸€ä¸ªåœ†:</p> <canvas id="myCanvas3" width="200" height="100" style="border:1px solid #d3d3d3;background:#ffffff;"> ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &lt;canvas&gt; å…ƒç´ . </canvas> <script>
+var c=document.getElementById("myCanvas3");
+var canvOK=1;
+try {c.getContext("2d");}
+catch (er) {canvOK=0;}
+if (canvOK==1)
+	{
+	var ctx=c.getContext("2d");
+	ctx.beginPath();
+	ctx.arc(95,50,40,0,2*Math.PI);
+	ctx.stroke();
+	}
+</script> <p>JavaScript:</p> <div class="example_code notranslate"> var c=document.getElementById("myCanvas");<br>var ctx=c.getContext("2d");<br> ctx.beginPath();<br>ctx.arc(95,50,40,0,2*Math.PI);<br>ctx.stroke();</div> <br><a class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-tables.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-tables.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_tut_path2" target="_blank">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Canvas - æ–‡æœ¬</h2> <p>ä½¿ç”¨ canvas ç»˜åˆ¶æ–‡æœ¬ï¼Œé‡è¦çš„å±æ€§å’Œæ–¹æ³•å¦‚ä¸‹ï¼š</p> <ul> <li>font - å®šä¹‰å­—ä½“</li> <li>fillText(<i>text,x,y</i>) - åœ¨ canvas ä¸Šç»˜åˆ¶å®å¿ƒçš„æ–‡æœ¬</li> <li>strokeText(<i>text,x,y</i>) - åœ¨ canvas ä¸Šç»˜åˆ¶ç©ºå¿ƒçš„æ–‡æœ¬</li> </ul> <p>ä½¿ç”¨ fillText():</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>ä½¿ç”¨ "Arial" å­—ä½“åœ¨ç”»å¸ƒä¸Šç»˜åˆ¶ä¸€ä¸ªé«˜ 30px çš„æ–‡å­—ï¼ˆå®å¿ƒï¼‰ï¼š</p> <canvas id="myCanvas4" width="200" height="100" style="border:1px solid #d3d3d3;background:#ffffff;"> ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &lt;canvas&gt; å…ƒç´ . </canvas> <script>
+
+var c=document.getElementById("myCanvas4");
+var canvOK=1;
+try {c.getContext("2d");}
+catch (er) {canvOK=0;}
+if (canvOK==1)
+	{
+    var ctx=c.getContext("2d");
+    ctx.font="30px Arial";
+    ctx.fillText("Hello World",10,50);
+	}
+	</script> <p>JavaScript:</p> <div class="example_code notranslate"> var c=document.getElementById("myCanvas");<br>var ctx=c.getContext("2d");<br> ctx.font="30px Arial";<br>ctx.fillText("Hello World",10,50);</div> <br><a class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-lists.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-lists.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_tut_text" target="_blank">å°è¯•ä¸€ä¸‹ Â»</a> </div> <p>ä½¿ç”¨ strokeText():</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>ä½¿ç”¨ "Arial" å­—ä½“åœ¨ç”»å¸ƒä¸Šç»˜åˆ¶ä¸€ä¸ªé«˜ 30px çš„æ–‡å­—ï¼ˆç©ºå¿ƒï¼‰ï¼š</p> <canvas id="myCanvas5" width="200" height="100" style="border:1px solid #d3d3d3;background:#ffffff;"> ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &lt;canvas&gt; å…ƒç´ . </canvas> <script>
+
+var c=document.getElementById("myCanvas5");
+var canvOK=1;
+try {c.getContext("2d");}
+catch (er) {canvOK=0;}
+if (canvOK==1)
+	{
+    var ctx=c.getContext("2d");
+    ctx.font="30px Arial";
+    ctx.strokeText("Hello World",10,50);
+	}
+	</script> <p>JavaScript:</p> <div class="example_code notranslate"> var c=document.getElementById("myCanvas");<br>var ctx=c.getContext("2d");<br> ctx.font="30px Arial";<br>ctx.strokeText("Hello World",10,50);</div> <br><a class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-blocks.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-blocks.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_tut_text2" target="_blank">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Canvas - æ¸å˜</h2> <p> æ¸å˜å¯ä»¥å¡«å……åœ¨çŸ©å½¢, åœ†å½¢, çº¿æ¡, æ–‡æœ¬ç­‰ç­‰, å„ç§å½¢çŠ¶å¯ä»¥è‡ªå·±å®šä¹‰ä¸åŒçš„é¢œè‰²ã€‚</p> <p>ä»¥ä¸‹æœ‰ä¸¤ç§ä¸åŒçš„æ–¹å¼æ¥è®¾ç½®Canvasæ¸å˜ï¼š</p> <ul> <li>createLinearGradient(<i>x,y,x1,y1</i>) - åˆ›å»ºçº¿æ¡æ¸å˜</li> <li>createRadialGradient(<i>x,y,r,x1,y1,r1</i>) - åˆ›å»ºä¸€ä¸ªå¾„å‘/åœ†æ¸å˜</li> </ul> <p>å½“æˆ‘ä»¬ä½¿ç”¨æ¸å˜å¯¹è±¡ï¼Œå¿…é¡»ä½¿ç”¨ä¸¤ç§æˆ–ä¸¤ç§ä»¥ä¸Šçš„åœæ­¢é¢œè‰²ã€‚</p> <p> addColorStop()æ–¹æ³•æŒ‡å®šé¢œè‰²åœæ­¢ï¼Œå‚æ•°ä½¿ç”¨åæ ‡æ¥æè¿°ï¼Œå¯ä»¥æ˜¯0è‡³1.</p> <p>ä½¿ç”¨æ¸å˜ï¼Œè®¾ç½®fillStyleæˆ–strokeStyleçš„å€¼ä¸º æ¸å˜ï¼Œç„¶åç»˜åˆ¶å½¢çŠ¶ï¼Œå¦‚çŸ©å½¢ï¼Œæ–‡æœ¬ï¼Œæˆ–ä¸€æ¡çº¿ã€‚</p> <p>ä½¿ç”¨ createLinearGradient():</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>åˆ›å»ºä¸€ä¸ªçº¿æ€§æ¸å˜ã€‚ä½¿ç”¨æ¸å˜å¡«å……çŸ©å½¢:</p> <canvas id="myCanvas6" width="200" height="100" style="border:1px solid #d3d3d3;background:#ffffff;"> ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &lt;canvas&gt; å…ƒç´ . </canvas> <script>
+
+var c=document.getElementById("myCanvas6");
+var canvOK=1;
+try {c.getContext("2d");}
+catch (er) {canvOK=0;}
+if (canvOK==1)
+	{
+    var ctx=c.getContext("2d");
+    var grd=ctx.createLinearGradient(0,0,200,0);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+    ctx.fillStyle=grd;
+    ctx.fillRect(10,10,150,80);
+	}
+	</script> <p>JavaScript:</p> <div class="example_code notranslate"> var c=document.getElementById("myCanvas");<br> var ctx=c.getContext("2d");<br><br> // Create gradient<br> var grd=ctx.createLinearGradient(0,0,200,0);<br> grd.addColorStop(0,"red");<br> grd.addColorStop(1,"white");<br><br> // Fill with gradient<br> ctx.fillStyle=grd;<br> ctx.fillRect(10,10,150,80);</div> <br><a class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-layouts.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-layouts.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_tut_grad" target="_blank">å°è¯•ä¸€ä¸‹ Â»</a> </div> <p>ä½¿ç”¨ createRadialGradient():</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>åˆ›å»ºä¸€ä¸ªå¾„å‘/åœ†æ¸å˜ã€‚ä½¿ç”¨æ¸å˜å¡«å……çŸ©å½¢ï¼š</p> <canvas id="myCanvas7" width="200" height="100" style="border:1px solid #d3d3d3;background:#ffffff;"> ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &lt;canvas&gt; å…ƒç´ . </canvas> <script>
+
+var c=document.getElementById("myCanvas7");
+var canvOK=1;
+try {c.getContext("2d");}
+catch (er) {canvOK=0;}
+if (canvOK==1)
+	{
+    var ctx=c.getContext("2d");
+    // Create gradient
+    var grd=ctx.createRadialGradient(75,50,5,90,60,100);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+    // Fill with gradient
+    ctx.fillStyle=grd;
+    ctx.fillRect(10,10,150,80);
+	}
+	</script> <p>JavaScript:</p> <div class="example_code notranslate"> var c=document.getElementById("myCanvas");<br> var ctx=c.getContext("2d");<br><br> // Create gradient<br> var grd=ctx.createRadialGradient(75,50,5,90,60,100);<br> grd.addColorStop(0,"red");<br> grd.addColorStop(1,"white");<br><br> // Fill with gradient<br> ctx.fillStyle=grd;<br> ctx.fillRect(10,10,150,80);</div> <br><a class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-forms.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-forms.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_tut_grad2" target="_blank">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Canvas - å›¾åƒ</h2> <p>æŠŠä¸€å¹…å›¾åƒæ”¾ç½®åˆ°ç”»å¸ƒä¸Š, ä½¿ç”¨ä»¥ä¸‹æ–¹æ³•:</p> <ul> <li>drawImage(<i>image,x,y</i>)</li> </ul> <div class="example"> <h2 class="example">ä½¿ç”¨å›¾åƒ:</h2> <p><img id="scream" src="../images/html-iframes.html" tppabs="http://www.w3cschool.cc/images/img_the_scream.jpg" alt="The Scream"></p> <h2 class="example">å®ä¾‹</h2> <p>æŠŠä¸€å¹…å›¾åƒæ”¾ç½®åˆ°ç”»å¸ƒä¸Š:</p> <canvas id="myCanvas8" width="250" height="300" style="border:1px solid #d3d3d3;background:#ffffff;"> ä½ çš„æµè§ˆå™¨ä¸æ”¯æŒ HTML5 çš„ &lt;canvas&gt; å…ƒç´ . </canvas> <script>
+
+var c=document.getElementById("myCanvas8");
+var canvOK=1;
+try {c.getContext("2d");}
+catch (er) {canvOK=0;}
+if (canvOK==1)
+	{
+    var ctx=c.getContext("2d");
+    var img=document.getElementById("scream");
+    ctx.drawImage(img,10,10);
+	}
+	</script> <p>JavaScript:</p> <div class="example_code notranslate"> var c=document.getElementById("myCanvas");<br> var ctx=c.getContext("2d");<br> var img=document.getElementById("scream");<br> ctx.drawImage(img,10,10);</div> <br><a class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/html-colors.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/html-colors.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_canvas_tut_img" target="_blank">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>HTML Canvas å‚è€ƒæ‰‹å†Œ</h2> <p>æ ‡ç­¾çš„å®Œæ•´å±æ€§å¯ä»¥å‚è€ƒ<a href="../tags/ref-canvas.html" tppabs="http://www.w3cschool.cc/tags/ref-canvas.html">Canvas å‚è€ƒæ‰‹å†Œ.</a></p> <h2>The HTML &lt;canvas&gt; Tag</h2> <table class="reference notranslate"> <tr> <th align="left" width="150">Tag</th> <th align="left">æè¿°</th> </tr> <tr> <td><a href="../tags/tag-canvas.html" tppabs="http://www.w3cschool.cc/tags/tag-canvas.html">&lt;canvas&gt;</a></td> <td>HTML5 çš„ canvas å…ƒç´ ä½¿ç”¨ JavaScript åœ¨ç½‘é¡µä¸Šç»˜åˆ¶å›¾åƒã€‚</td> </tr> </table> </div> <div class="chapter"> <div class="prev">&laquo; <a href="html5-new-element.html" tppabs="http://www.w3cschool.cc/html/html5-new-element.html" rel="prev"> HTML5 æ–°å…ƒç´ </a></div> <div class="next"><a href="html5-svg.html" tppabs="http://www.w3cschool.cc/html/html5-svg.html" rel="next">HTML5 å†…è” SVG</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">å…³æ³¨å¾®ä¿¡ä¸‹è½½ç¦»çº¿æ‰‹å†Œ</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschoolç§»åŠ¨ç‰ˆ"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.ccèœé¸Ÿå®¶æ—" title="w3cschool.ccèœé¸Ÿå®¶æ—"></a> </div> <div class="rightad"> <h2>å‚è€ƒæ‰‹å†Œ</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML å‚è€ƒæ‰‹å†Œ</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS å‚è€ƒæ‰‹å†Œ">JS å‚è€ƒæ‰‹å†Œ</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS å‚è€ƒæ‰‹å†Œ">CSS å‚è€ƒæ‰‹å†Œ</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>HTML/CSS/JS åœ¨çº¿å·¥å…·</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>JSON æ ¼å¼å·¥å…·</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>ç¨‹åºçŒ¿å­¦ä¹ è·¯çº¿</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>æ‰“å¼€CHMæ–‡æ¡£é‡åˆ°é—®é¢˜â€¦â€¦</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="é—®é¢˜/æ„è§åé¦ˆ"/>é—®é¢˜/æ„è§åé¦ˆ</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3Cèœé¸Ÿç¬”è®°</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">å…è´£å£°æ˜</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">å…³äºæˆ‘ä»¬</a> </ul> </div> <div id="footerText"> æä¾›çš„å†…å®¹ä»…ç”¨äºåŸ¹è®­ã€‚æˆ‘ä»¬ä¸ä¿è¯å†…å®¹çš„æ­£ç¡®æ€§ã€‚é€šè¿‡ä½¿ç”¨æœ¬ç«™å†…å®¹éšä¹‹è€Œæ¥çš„é£é™©ä¸æœ¬ç«™æ— å…³ã€‚å½“ä½¿ç”¨æœ¬ç«™æ—¶ï¼Œä»£è¡¨æ‚¨å·²æ¥å—äº†æœ¬ç«™çš„ä½¿ç”¨æ¡æ¬¾å’Œéšç§æ¡æ¬¾ã€‚ ç‰ˆæƒæ‰€æœ‰ï¼Œä¿ç•™ä¸€åˆ‡æƒåˆ©ã€‚W3CSchool ç®€ä½“ä¸­æ–‡ç‰ˆçš„æ‰€æœ‰å†…å®¹ä»…ä¾›æµ‹è¯•ï¼Œå¯¹ä»»ä½•æ³•å¾‹é—®é¢˜åŠé£é™©ä¸æ‰¿æ‹…ä»»ä½•è´£ä»»ã€‚ </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">åˆ†äº«åˆ°</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="åˆ†äº«åˆ°QQç©ºé—´" href="#"></a> <a class="bds_tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš" href="#"></a> <a class="bds_tqq" title="åˆ†äº«åˆ°äººäººç½‘" href="#"></a> <a class="bds_baidu" title="ç™¾åº¦æ”¶è—" href="#"></a> <span class="bds_more">æ›´å¤š</span> <a class="shareCount" id="shareCount" href="#" title="ç´¯è®¡åˆ†äº«0æ¬¡">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //é…è‰²æ ‡è®°
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //ç»“æŸå¾ªç¯
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //ç¬¬äºŒé‡åˆ¤æ–­
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/html/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/html/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

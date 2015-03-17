@@ -1,0 +1,264 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Java正则表达式 | w3cschool菜鸟教程</title> <link rel='prev' title='Java日期时间' href="java-date-time.html"/> <link rel='next' title='Java 方法' href="java-methods.html"/> <link rel='canonical' href='http://www.w3cschool.cc/java/java-regular-expressions.html'/> <meta name="keywords" content="Java正则表达式"> <meta name="description" content="Java正则表达式 正则表达式定义了字符串的模式。 正则表达式可以用来搜索、编辑或处理文本。 正则表达式并不仅限于某一种语言，但是在每种语言中有细微的差别。 Java正则表达式和Perl的是最为相似的。 java.util.regex包主要包括以下三个类： Pattern类：pattern对象是一个正则表达式的编译表示。Pattern类没有公共构造方法。要创建一个Pattern对象，你必须首先调用其公共静态编译方法，它返回一个.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Java 教程</strong></h2> <a target="_top" title="Java 教程" href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html"> Java 教程 </a> <a target="_top" title="Java 简介" href="java-intro.html" tppabs="http://www.w3cschool.cc/java/java-intro.html"> Java 简介 </a> <a target="_top" title="Java开发环境配置" href="java-environment-setup.html" tppabs="http://www.w3cschool.cc/java/java-environment-setup.html"> Java开发环境配置 </a> <a target="_top" title="Java基础语法" href="java-basic-syntax.html" tppabs="http://www.w3cschool.cc/java/java-basic-syntax.html"> Java基础语法 </a> <a target="_top" title="Java对象和类" href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html"> Java对象和类 </a> <a target="_top" title="Java基本数据类型" href="java-basic-datatypes.html" tppabs="http://www.w3cschool.cc/java/java-basic-datatypes.html"> Java基本数据类型 </a> <a target="_top" title="Java变量类型" href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html"> Java变量类型 </a> <a target="_top" title="Java修饰符" href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html"> Java修饰符 </a> <a target="_top" title="Java运算符" href="java-operators.html" tppabs="http://www.w3cschool.cc/java/java-operators.html"> Java运算符 </a> <a target="_top" title="Java循环结构 &#8211; for, while 及 do&#8230;while" href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html"> Java循环结构 </a> <a target="_top" title="Java分支结构 &#8211; if&#8230;else/switch" href="java-if-else-switch.html" tppabs="http://www.w3cschool.cc/java/java-if-else-switch.html"> Java分支结构 </a> <a target="_top" title="Java Number类" href="java-number.html" tppabs="http://www.w3cschool.cc/java/java-number.html"> Java Number类 </a> <a target="_top" title="Java Character类" href="java-character.html" tppabs="http://www.w3cschool.cc/java/java-character.html"> Java Character类 </a> <a target="_top" title="Java String类" href="java-string.html" tppabs="http://www.w3cschool.cc/java/java-string.html"> Java String类 </a> <a target="_top" title="Java StringBuffer和StringBuilder类" href="java-stringbuffer.html" tppabs="http://www.w3cschool.cc/java/java-stringbuffer.html"> Java StringBuffer和StringBuilder类 </a> <a target="_top" title="Java 数组" href="java-array.html" tppabs="http://www.w3cschool.cc/java/java-array.html"> Java 数组 </a> <a target="_top" title="Java日期时间" href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html"> Java日期时间 </a> <a target="_top" title="Java正则表达式" href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html"> Java正则表达式 </a> <a target="_top" title="Java 方法" href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html"> Java 方法 </a> <a target="_top" title="Java 流(Stream)、文件(File)和IO" href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html"> Java 流(Stream)、文件(File)和IO </a> <a target="_top" title="Java 异常处理" href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html"> Java 异常处理 </a> <br><h2 class="left">Java <span class="left_h2">面向对象</span></h2> <a target="_top" title="Java 继承" href="java-inheritance.html" tppabs="http://www.w3cschool.cc/java/java-inheritance.html"> Java 继承 </a> <a target="_top" title="Java 重写(Override)与重载(Overload)" href="java-override-overload.html" tppabs="http://www.w3cschool.cc/java/java-override-overload.html"> Java 重写(Override)与重载(Overload) </a> <a target="_top" title="Java 多态" href="java-polymorphism.html" tppabs="http://www.w3cschool.cc/java/java-polymorphism.html"> Java 多态 </a> <a target="_top" title="Java 抽象类" href="java-abstraction.html" tppabs="http://www.w3cschool.cc/java/java-abstraction.html"> Java 抽象类 </a> <a target="_top" title="java 封装" href="java-encapsulation.html" tppabs="http://www.w3cschool.cc/java/java-encapsulation.html"> java 封装 </a> <a target="_top" title="Java 接口" href="java-interfaces.html" tppabs="http://www.w3cschool.cc/java/java-interfaces.html"> Java 接口 </a> <a target="_top" title="Java 包(package)" href="java-package.html" tppabs="http://www.w3cschool.cc/java/java-package.html"> Java 包(package) </a> <br><h2 class="left">Java <span class="left_h2">高级教程</span></h2> <a target="_top" title="Java 数据结构" href="java-data-structures.html" tppabs="http://www.w3cschool.cc/java/java-data-structures.html"> Java 数据结构 </a> <a target="_top" title="Java 集合框架" href="java-collections.html" tppabs="http://www.w3cschool.cc/java/java-collections.html"> Java 集合框架 </a> <a target="_top" title="Java 泛型" href="java-generics.html" tppabs="http://www.w3cschool.cc/java/java-generics.html"> Java 泛型 </a> <a target="_top" title="Java序列化" href="java-serialization.html" tppabs="http://www.w3cschool.cc/java/java-serialization.html"> Java序列化 </a> <a target="_top" title="Java 网络编程" href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html"> Java 网络编程 </a> <a target="_top" title="Java 发送邮件" href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html"> Java 发送邮件 </a> <a target="_top" title="Java 多线程编程" href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html"> Java 多线程编程 </a> <a target="_top" title="Java Applet基础" href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html"> Java Applet基础 </a> <a target="_top" title="Java 文档注释" href="java-documentation.html" tppabs="http://www.w3cschool.cc/java/java-documentation.html"> Java 文档注释 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html" rel="prev"> Java日期时间</a></div> <div class="next"><a href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html" rel="next">Java 方法</a> &raquo;</div> </div> <div id="content"> <h1>Java正则表达式</h1> <p>正则表达式定义了字符串的模式。</p> <p>正则表达式可以用来搜索、编辑或处理文本。</p> <p>正则表达式并不仅限于某一种语言，但是在每种语言中有细微的差别。</p> <p>Java正则表达式和Perl的是最为相似的。</p> <p>java.util.regex包主要包括以下三个类：</p> <ul> <li> <strong>Pattern类：</strong><p>pattern对象是一个正则表达式的编译表示。Pattern类没有公共构造方法。要创建一个Pattern对象，你必须首先调用其公共静态编译方法，它返回一个Pattern对象。该方法接受一个正则表达式作为它的第一个参数。</p></li> <li> <strong>Matcher类：</strong><p>Matcher对象是对输入字符串进行解释和匹配操作的引擎。与Pattern类一样，Matcher也没有公共构造方法。你需要调用Pattern对象的matcher方法来获得一个Matcher对象。</p></li> <li> <strong>PatternSyntaxException：</strong><p>PatternSyntaxException是一个非强制异常类，它表示一个正则表达式模式中的语法错误。</p></li> </ul> <hr> <h2> 捕获组 </h2> <p>捕获组是把多个字符当一个单独单元进行处理的方法，它通过对括号内的字符分组来创建。 </p> <p>例如，正则表达式(dog) 创建了单一分组，组里包含"d"，"o"，和"g"。 </p><p>捕获组是通过从左至右计算其开括号来编号。例如，在表达式（（A）（B（C））），有四个这样的组： </p> <ul class="list"> <li>((A)(B(C)))</li> <li>(A)</li> <li>(B(C))</li> <li>(C)</li> </ul> <p>可以通过调用matcher对象的groupCount方法来查看表达式有多少个分组。groupCount方法返回一个int值，表示matcher对象当前有多个捕获组。 </p><p>还有一个特殊的组（组0），它总是代表整个表达式。该组不包括在groupCount的返回值中。 </p> <h2>实例</h2> <p>下面的例子说明如何从一个给定的字符串中找到数字串：</p> <pre>
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches
+{
+    public static void main( String args[] ){
+
+      // 按指定模式在字符串查找
+      String line = "This order was placed for QT3000! OK?";
+      String pattern = "(.*)(\\d+)(.*)";
+
+      // 创建 Pattern 对象
+      Pattern r = Pattern.compile(pattern);
+
+      // 现在创建 matcher 对象
+      Matcher m = r.matcher(line);
+      if (m.find( )) {
+         System.out.println("Found value: " + m.group(0) );
+         System.out.println("Found value: " + m.group(1) );
+         System.out.println("Found value: " + m.group(2) );
+      } else {
+         System.out.println("NO MATCH");
+      }
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+Found value: This order was placed for QT3000! OK?
+Found value: This order was placed for QT300
+Found value: 0
+</pre> <hr> <h2>正则表达式语法</h2> <table class="reference"><tbody><tr><th><p>字符</p></th><th><p>说明</p></th></tr><tr><td><p>\</p></td><td><p>将下一字符标记为特殊字符、文本、反向引用或八进制转义符。例如，"n"匹配字符"n"。"\n"匹配换行符。序列"\\"匹配"\"，"\("匹配"("。</p></td></tr><tr><td><p>^</p></td><td><p>匹配输入字符串开始的位置。如果设置了 <b>RegExp</b> 对象的 <b>Multiline</b> 属性，^ 还会与"\n"或"\r"之后的位置匹配。</p></td></tr><tr><td><p>$</p></td><td><p>匹配输入字符串结尾的位置。如果设置了 <b>RegExp</b> 对象的 <b>Multiline</b> 属性，$ 还会与"\n"或"\r"之前的位置匹配。</p></td></tr><tr><td><p>*</p></td><td><p>零次或多次匹配前面的字符或子表达式。例如，zo* 匹配"z"和"zoo"。* 等效于 {0,}。</p></td></tr><tr><td><p>+</p></td><td><p>一次或多次匹配前面的字符或子表达式。例如，"zo+"与"zo"和"zoo"匹配，但与"z"不匹配。+ 等效于 {1,}。</p></td></tr><tr><td><p>?</p></td><td><p>零次或一次匹配前面的字符或子表达式。例如，"do(es)?"匹配"do"或"does"中的"do"。? 等效于 {0,1}。</p></td></tr><tr><td><p>{<i>n</i>}</p></td><td><p><i>n </i>是非负整数。正好匹配 <i>n</i> 次。例如，"o{2}"与"Bob"中的"o"不匹配，但与"food"中的两个"o"匹配。</p></td></tr><tr><td><p>{<i>n</i>,}</p></td><td><p><i>n </i>是非负整数。至少匹配 <i>n </i>次。例如，"o{2,}"不匹配"Bob"中的"o"，而匹配"foooood"中的所有 o。"o{1,}"等效于"o+"。"o{0,}"等效于"o*"。</p></td></tr><tr><td><p>{<i>n</i>,<i>m</i>}</p></td><td><p><i>M</i> 和 <i>n</i> 是非负整数，其中 <i>n</i> &lt;= <i>m</i>。匹配至少 <i>n</i> 次，至多 <i>m</i> 次。例如，"o{1,3}"匹配"fooooood"中的头三个 o。'o{0,1}' 等效于 'o?'。注意：您不能将空格插入逗号和数字之间。</p></td></tr><tr><td><p>?</p></td><td><p>当此字符紧随任何其他限定符（*、+、?、{<i>n</i>}、{<i>n</i>,}、{<i>n</i>,<i>m</i>}）之后时，匹配模式是"非贪心的"。"非贪心的"模式匹配搜索到的、尽可能短的字符串，而默认的"贪心的"模式匹配搜索到的、尽可能长的字符串。例如，在字符串"oooo"中，"o+?"只匹配单个"o"，而"o+"匹配所有"o"。</p></td></tr><tr><td><p>.</p></td><td><p>匹配除"\n"之外的任何单个字符。若要匹配包括"\n"在内的任意字符，请使用诸如"[\s\S]"之类的模式。</p></td></tr><tr><td><p>(<i>pattern</i>)</p></td><td><p>匹配 <i>pattern</i> 并捕获该匹配的子表达式。可以使用 <b>$0…$9</b> 属性从结果"匹配"集合中检索捕获的匹配。若要匹配括号字符 ( )，请使用"\("或者"\)"。</p></td></tr><tr><td><p>(?:<i>pattern</i>)</p></td><td><p>匹配 <i>pattern</i> 但不捕获该匹配的子表达式，即它是一个非捕获匹配，不存储供以后使用的匹配。这对于用"or"字符 (|) 组合模式部件的情况很有用。例如，'industr(?:y|ies) 是比 'industry|industries' 更经济的表达式。</p></td></tr><tr><td><p>(?=<i>pattern</i>)</p></td><td><p>执行正向预测先行搜索的子表达式，该表达式匹配处于匹配 <i>pattern</i> 的字符串的起始点的字符串。它是一个非捕获匹配，即不能捕获供以后使用的匹配。例如，'Windows (?=95|98|NT|2000)' 匹配"Windows 2000"中的"Windows"，但不匹配"Windows 3.1"中的"Windows"。预测先行不占用字符，即发生匹配后，下一匹配的搜索紧随上一匹配之后，而不是在组成预测先行的字符后。</p></td></tr><tr><td><p>(?!<i>pattern</i>)</p></td><td><p>执行反向预测先行搜索的子表达式，该表达式匹配不处于匹配 <i>pattern</i> 的字符串的起始点的搜索字符串。它是一个非捕获匹配，即不能捕获供以后使用的匹配。例如，'Windows (?!95|98|NT|2000)' 匹配"Windows 3.1"中的 "Windows"，但不匹配"Windows 2000"中的"Windows"。预测先行不占用字符，即发生匹配后，下一匹配的搜索紧随上一匹配之后，而不是在组成预测先行的字符后。</p></td></tr><tr><td><p><i>x</i>|<i>y</i></p></td><td><p>匹配 <i>x</i> 或 <i>y</i>。例如，'z|food' 匹配"z"或"food"。'(z|f)ood' 匹配"zood"或"food"。</p></td></tr><tr><td><p>[<i>xyz</i>]</p></td><td><p>字符集。匹配包含的任一字符。例如，"[abc]"匹配"plain"中的"a"。</p></td></tr><tr><td><p>[^<i>xyz</i>]</p></td><td><p>反向字符集。匹配未包含的任何字符。例如，"[^abc]"匹配"plain"中的"p"。</p></td></tr><tr><td><p>[<i>a-z</i>]</p></td><td><p>字符范围。匹配指定范围内的任何字符。例如，"[a-z]"匹配"a"到"z"范围内的任何小写字母。</p></td></tr><tr><td><p>[^<i>a-z</i>]</p></td><td><p>反向范围字符。匹配不在指定的范围内的任何字符。例如，"[^a-z]"匹配任何不在"a"到"z"范围内的任何字符。</p></td></tr><tr><td><p>\b</p></td><td><p>匹配一个字边界，即字与空格间的位置。例如，"er\b"匹配"never"中的"er"，但不匹配"verb"中的"er"。</p></td></tr><tr><td><p>\B</p></td><td><p>非字边界匹配。"er\B"匹配"verb"中的"er"，但不匹配"never"中的"er"。</p></td></tr><tr><td><p>\c<i>x</i></p></td><td><p>匹配 <i>x</i> 指示的控制字符。例如，\cM 匹配 Control-M 或回车符。<i>x</i> 的值必须在 A-Z 或 a-z 之间。如果不是这样，则假定 c 就是"c"字符本身。</p></td></tr><tr><td><p>\d</p></td><td><p>数字字符匹配。等效于 [0-9]。</p></td></tr><tr><td><p>\D</p></td><td><p>非数字字符匹配。等效于 [^0-9]。</p></td></tr><tr><td><p>\f</p></td><td><p>换页符匹配。等效于 \x0c 和 \cL。</p></td></tr><tr><td><p>\n</p></td><td><p>换行符匹配。等效于 \x0a 和 \cJ。</p></td></tr><tr><td><p>\r</p></td><td><p>匹配一个回车符。等效于 \x0d 和 \cM。</p></td></tr><tr><td><p>\s</p></td><td><p>匹配任何空白字符，包括空格、制表符、换页符等。与 [&nbsp;\f\n\r\t\v] 等效。</p></td></tr><tr><td><p>\S</p></td><td><p>匹配任何非空白字符。与 [^&nbsp;\f\n\r\t\v] 等效。</p></td></tr><tr><td><p>\t</p></td><td><p>制表符匹配。与 \x09 和 \cI 等效。</p></td></tr><tr><td><p>\v</p></td><td><p>垂直制表符匹配。与 \x0b 和 \cK 等效。</p></td></tr><tr><td><p>\w</p></td><td><p>匹配任何字类字符，包括下划线。与"[A-Za-z0-9_]"等效。</p></td></tr><tr><td><p>\W</p></td><td><p>与任何非单词字符匹配。与"[^A-Za-z0-9_]"等效。</p></td></tr><tr><td><p>\x<i>n</i></p></td><td><p>匹配 <i>n</i>，此处的 <i>n</i> 是一个十六进制转义码。十六进制转义码必须正好是两位数长。例如，"\x41"匹配"A"。"\x041"与"\x04"&amp;"1"等效。允许在正则表达式中使用 ASCII 代码。</p></td></tr><tr><td><p>\<i>num</i></p></td><td><p>匹配 <i>num</i>，此处的 <i>num</i> 是一个正整数。到捕获匹配的反向引用。例如，"(.)\1"匹配两个连续的相同字符。</p></td></tr><tr><td><p>\<i>n</i></p></td><td><p>标识一个八进制转义码或反向引用。如果 \<i>n</i> 前面至少有 <i>n</i> 个捕获子表达式，那么 <i>n</i> 是反向引用。否则，如果 <i>n</i> 是八进制数 (0-7)，那么 <i>n</i> 是八进制转义码。</p></td></tr><tr><td><p>\<i>nm</i></p></td><td><p>标识一个八进制转义码或反向引用。如果 \<i>nm</i> 前面至少有 <i>nm</i> 个捕获子表达式，那么 <i>nm</i> 是反向引用。如果 \<i>nm</i> 前面至少有 <i>n</i> 个捕获，则 <i>n</i> 是反向引用，后面跟有字符 <i>m</i>。如果两种前面的情况都不存在，则 \<i>nm</i> 匹配八进制值 <i>nm</i>，其中 <i>n </i>和 <i>m</i> 是八进制数字 (0-7)。</p></td></tr><tr><td><p>\<span class="parameter" sdata="paramReference">nml</span></p></td><td><p>当 <i>n</i> 是八进制数 (0-3)，<i>m</i> 和 <i>l</i> 是八进制数 (0-7) 时，匹配八进制转义码 <i>nml</i>。</p></td></tr><tr><td><p>\u<i>n</i></p></td><td><p>匹配 <i>n</i>，其中 <i>n</i> 是以四位十六进制数表示的 Unicode 字符。例如，\u00A9 匹配版权符号 (©)。</p></td></tr></tbody></table> <h2>Mather类的方法 </h2> <h2>索引方法</h2><p> 索引方法提供了有用的索引值，精确表明输入字符串中在哪能找到匹配：</p> <table class="reference"> <tbody> <tr> <th style="width:45px;"> <strong>序号</strong></th> <th style="width:532px;"> <strong>方法及说明</strong></th> </tr> <tr> <td style="width:45px;"> 1</td> <td style="width:532px;"> <strong>public int start() </strong><br> 返回以前匹配的初始索引。</td> </tr> <tr> <td style="width:45px;"> 2</td> <td style="width:532px;"> <strong>public int start(int group)</strong><br> &nbsp;返回在以前的匹配操作期间，由给定组所捕获的子序列的初始索引</td> </tr> <tr> <td style="width:45px;"> 3</td> <td style="width:532px;"> <strong>public int end()</strong><br> 返回最后匹配字符之后的偏移量。</td> </tr> <tr> <td style="width:45px;"> 4</td> <td style="width:532px;"> <strong>public int end(int group)</strong><br> 返回在以前的匹配操作期间，由给定组所捕获子序列的最后字符之后的偏移量。</td> </tr> </tbody> </table> <h2>研究方法</h2> <p> 研究方法用来检查输入字符串并返回一个布尔值，表示是否找到该模式： </p> <table class="reference"> <tbody> <tr> <th style="width:49px;"> <strong>序号</strong></th> <th style="width:528px;"> <strong>方法及说明</strong></th> </tr> <tr> <td style="width:49px;"> 1</td> <td style="width:528px;"> <strong>public boolean lookingAt() </strong><br> &nbsp;尝试将从区域开头开始的输入序列与该模式匹配。</td> </tr> <tr> <td style="width:49px;"> 2</td> <td style="width:528px;"> <strong>public boolean find() </strong><br> 尝试查找与该模式匹配的输入序列的下一个子序列。</td> </tr> <tr> <td style="width:49px;"> 3</td> <td style="width:528px;"> <strong>public boolean find(int start</strong><strong>）</strong><br> 重置此匹配器，然后尝试查找匹配该模式、从指定索引开始的输入序列的下一个子序列。</td> </tr> <tr> <td style="width:49px;"> 4</td> <td style="width:528px;"> <strong>public boolean matches() </strong><br> 尝试将整个区域与模式匹配。</td> </tr> </tbody> </table> <h2>替换方法</h2> <p> 替换方法是替换输入字符串里文本的方法： </p> <table class="reference"> <tbody> <tr> <th style="width:43px;"> <strong>序号</strong></th> <th style="width:534px;"> <strong>方法及说明</strong></th> </tr> <tr> <td style="width:43px;"> 1</td> <td style="width:534px;"> <strong>public Matcher appendReplacement(StringBuffer sb, String replacement)</strong><br> 实现非终端添加和替换步骤。</td> </tr> <tr> <td style="width:43px;"> 2</td> <td style="width:534px;"> <strong>public StringBuffer appendTail(StringBuffer sb)</strong><br> 实现终端添加和替换步骤。</td> </tr> <tr> <td style="width:43px;"> 3</td> <td style="width:534px;"> <strong>public String replaceAll(String replacement) </strong><br> &nbsp;替换模式与给定替换字符串相匹配的输入序列的每个子序列。</td> </tr> <tr> <td style="width:43px;"> 4</td> <td style="width:534px;"> <strong>public String replaceFirst(String replacement)</strong><br> &nbsp;替换模式与给定替换字符串匹配的输入序列的第一个子序列。</td> </tr> <tr> <td style="width:43px;"> 5</td> <td style="width:534px;"> <strong>public static String quoteReplacement(String s)</strong><br> 返回指定字符串的字面替换字符串。这个方法返回一个字符串，就像传递给Matcher类的appendReplacement 方法一个字面字符串一样工作。</td> </tr> </tbody> </table> <h2>start 和end 方法</h2> <p> 下面是一个对单词"cat"出现在输入字符串中出现次数进行计数的例子： </p> <pre>
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches
+{
+    private static final String REGEX = "\\bcat\\b";
+    private static final String INPUT =
+                                    "cat cat cat cattie cat";
+
+    public static void main( String args[] ){
+       Pattern p = Pattern.compile(REGEX);
+       Matcher m = p.matcher(INPUT); // 获取 matcher 对象
+       int count = 0;
+
+       while(m.find()) {
+         count++;
+         System.out.println("Match number "+count);
+         System.out.println("start(): "+m.start());
+         System.out.println("end(): "+m.end());
+      }
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+Match number 1
+start(): 0
+end(): 3
+Match number 2
+start(): 4
+end(): 7
+Match number 3
+start(): 8
+end(): 11
+Match number 4
+start(): 19
+end(): 22
+</pre> <p>可以看到这个例子是使用单词边界，以确保字母 "c" "a" "t" 并非仅是一个较长的词的子串。它也提供了一些关于输入字符串中匹配发生位置的有用信息。 </p><p>Start方法返回在以前的匹配操作期间，由给定组所捕获的子序列的初始索引，end方法最后一个匹配字符的索引加1。 </p> <h2>matches 和lookingAt 方法</h2> <p> matches 和lookingAt 方法都用来尝试匹配一个输入序列模式。它们的不同是matcher要求整个序列都匹配，而lookingAt 不要求。 </p> <p> 这两个方法经常在输入字符串的开始使用。 </p><p> 我们通过下面这个例子，来解释这个功能： </p> <pre>
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches
+{
+    private static final String REGEX = "foo";
+    private static final String INPUT = "fooooooooooooooooo";
+    private static Pattern pattern;
+    private static Matcher matcher;
+
+    public static void main( String args[] ){
+       pattern = Pattern.compile(REGEX);
+       matcher = pattern.matcher(INPUT);
+
+       System.out.println("Current REGEX is: "+REGEX);
+       System.out.println("Current INPUT is: "+INPUT);
+
+       System.out.println("lookingAt(): "+matcher.lookingAt());
+       System.out.println("matches(): "+matcher.matches());
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+Current REGEX is: foo
+Current INPUT is: fooooooooooooooooo
+lookingAt(): true
+matches(): false
+</pre> <h2>replaceFirst 和replaceAll 方法</h2> <p>replaceFirst 和replaceAll 方法用来替换匹配正则表达式的文本。不同的是，replaceFirst 替换首次匹配，replaceAll 替换所有匹配。 </p><p>下面的例子来解释这个功能：</p> <pre>
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches
+{
+    private static String REGEX = "dog";
+    private static String INPUT = "The dog says meow. " +
+                                    "All dogs say meow.";
+    private static String REPLACE = "cat";
+
+    public static void main(String[] args) {
+       Pattern p = Pattern.compile(REGEX);
+       // get a matcher object
+       Matcher m = p.matcher(INPUT); 
+       INPUT = m.replaceAll(REPLACE);
+       System.out.println(INPUT);
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+The cat says meow. All cats say meow.
+</pre> <h2>appendReplacement 和 appendTail 方法</h2> <p> Matcher 类也提供了appendReplacement 和appendTail 方法用于文本替换： </p><p>看下面的例子来解释这个功能：</p> <pre>
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexMatches
+{
+   private static String REGEX = "a*b";
+   private static String INPUT = "aabfooaabfooabfoob";
+   private static String REPLACE = "-";
+   public static void main(String[] args) {
+      Pattern p = Pattern.compile(REGEX);
+      // 获取 matcher 对象
+      Matcher m = p.matcher(INPUT);
+      StringBuffer sb = new StringBuffer();
+      while(m.find()){
+         m.appendReplacement(sb,REPLACE);
+      }
+      m.appendTail(sb);
+      System.out.println(sb.toString());
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+-foo-foo-foo-
+</pre> <h2>PatternSyntaxException 类的方法</h2> <p>PatternSyntaxException 是一个非强制异常类，它指示一个正则表达式模式中的语法错误。 </p><p>PatternSyntaxException 类提供了下面的方法来帮助我们查看发生了什么错误。 </p> <table class="reference"> <tbody> <tr> <th style="width:45px;"> <strong>序号</strong></th> <th style="width:532px;"> <strong>方法及说明</strong></th> </tr> <tr> <td style="width:45px;"> 1</td> <td style="width:532px;"> <strong>public String getDescription()</strong><br> 获取错误的描述。</td> </tr> <tr> <td style="width:45px;"> 2</td> <td style="width:532px;"> <strong>public int getIndex() </strong><br> &nbsp;获取错误的索引。</td> </tr> <tr> <td style="width:45px;"> 3</td> <td style="width:532px;"> <strong>public String getPattern() </strong><br> 获取错误的正则表达式模式。</td> </tr> <tr> <td style="width:45px;"> 4</td> <td style="width:532px;"> <strong>public String getMessage() </strong><br> 返回多行字符串，包含语法错误及其索引的描述、错误的正则表达式模式和模式中错误索引的可视化指示。</td> </tr> </tbody> </table> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html" rel="prev"> Java日期时间</a></div> <div class="next"><a href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html" rel="next">Java 方法</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/java/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/java/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

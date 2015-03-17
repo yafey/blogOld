@@ -1,0 +1,127 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>VBScript 变量 | w3cschool菜鸟教程</title> <link rel='prev' title='VBScript 用法' href="vbscript-howto.html"/> <link rel='next' title='VBScript 程序' href="vbscript-procedures.html"/> <link rel='canonical' href='http://www.w3cschool.cc/vbscript/vbscript-variables.html'/> <meta name="keywords" content="VBScript 变量"> <meta name="description" content="VBScript 变量 变量是存储信息的“容器”。 尝试一下 - 实例（只适用于 IE） 创建和改变变量 如何创建一个变量，并为它赋值，然后再改变它的值。 在一段文本中插入变量值 如何在一段文本中插入变量值。 创建数组 数组用来存储一系列相关的数据项。本例演示如何创建一个存储名字的数组。 还记得在学校里学过的代数吗？ 还记得在学校里学过的代数吗？x=5，y=6，z=x+y 还记得吗？一个字母（比如 x）可以保存一个值.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>VBScript 教程</strong></h2> <a target="_top" title="VBScript 教程" href="vbscript-tutorial.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-tutorial.html"> VB 教程 </a> <a target="_top" title="VBScript 用法" href="vbscript-howto.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-howto.html"> VB 用法 </a> <a target="_top" title="VBScript 变量" href="vbscript-variables.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-variables.html"> VB 变量 </a> <a target="_top" title="VBScript 程序" href="vbscript-procedures.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-procedures.html"> VB 程序 </a> <a target="_top" title="VBScript 条件语句" href="vbscript-conditionals.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-conditionals.html"> VB 条件 </a> <a target="_top" title="VBScript 循环语句" href="vbscript-looping.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-looping.html"> VB 循环 </a> <a target="_top" title="VBScript 总结" href="vbscript-summary.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-summary.html"> VB 总结 </a> <a target="_top" title="VBScript 实例" href="vbscript-examples.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-examples.html"> VB 实例 </a> <a target="_top" title="VBScript 函数" href="vbscript-ref-functions.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-ref-functions.html"> VB 函数 </a> <a target="_top" title="VBScript 关键字" href="vbscript-ref-keywords.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-ref-keywords.html"> VB 关键字 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="vbscript-howto.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-howto.html" rel="prev"> VBScript 用法</a></div> <div class="next"><a href="vbscript-procedures.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-procedures.html" rel="next">VBScript 程序</a> &raquo;</div> </div> <div id="content"> <h1>VBScript <span class="color_h1">变量</span> </h1> <hr> <p class="intro">变量是存储信息的"容器"。</p> <hr> <div class="tryit_ex"> <img src="../images/tryitimg.gif" tppabs="http://www.w3cschool.cc/images/tryitimg.gif" width="40" height="46px" alt="实例"><h2>尝试一下 - 实例（只适用于 IE）</h2> </div> <p> <a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/try.php?filename=trysvg_rect3  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/try.php?filename=trysvg_rect3'" tppabs="http://www.w3cschool.cc/try/try.php?filename=vbdemo_variable">创建和改变变量</a><br> 如何创建一个变量，并为它赋值，然后再改变它的值。</p> <p> <a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/try.php?filename=trysvg_rect4  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/try.php?filename=trysvg_rect4'" tppabs="http://www.w3cschool.cc/try/try.php?filename=vbdemo_variable2">在一段文本中插入变量值</a><br> 如何在一段文本中插入变量值。</p> <p> <a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/try.php?filename=trysvg_ellipse  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/try.php?filename=trysvg_ellipse'" tppabs="http://www.w3cschool.cc/try/try.php?filename=vbdemo_array">创建数组</a><br> 数组用来存储一系列相关的数据项。本例演示如何创建一个存储名字的数组。</p> <hr> <h2>还记得在学校里学过的代数吗？</h2> <p>还记得在学校里学过的代数吗？x=5，y=6，z=x+y</p> <p>还记得吗？一个字母（比如 x）可以保存一个值（比如 5)，并且可以使用上面的信息计算出 z 的值是 11。</p> <p>这些字母称为<b>变量</b>，变量可用于保存值（x=5）或表达式（z=x+y）。</p> <hr> <h2>VBScript 变量</h2> <p>与代数相比，VBScript 变量用于保存值或表达式。</p> <p>变量可以有一个短的名称，如 x，或一个更具描述性的名称，如 carname。</p> <p>VBScript 变量名称的规则：</p> <ul> <li>必须以字母开头</li> <li>不能包含点号（.）</li> <li>不能超过 255 个字符</li> </ul> <p>在 VBScript 中，所有的变量都与类型 <i>variant</i> 相关，可存储不同类型的数据。</p> <hr> <h2>声明（创建）VBScript 变量</h2> <p>在 VBScript 创建变量通常指"声明"变量。</p> <p>您可以通过 Dim、Public 或 Private 语句声明 VBScript 变量。如下所示：</p> <div class="code notranslate"><div> Dim x<br> Dim carname</div></div> <p>现在您已经创建了两个变量。变量的名称是 "x" 和 "carname"。</p> <p>您也可以在脚本中通过使用它的名称来声明变量。如下所示：</p> <div class="code notranslate"><div> carname="Volvo"</div></div> <p>现在您又创建了一个变量。变量的名称是 "carname"。然后，这个做法不是一个好习惯，因为您可能会在脚本中拼错变量名，那样可能会在脚本运行时引起奇怪的结果。</p> <p>如果您拼错变量名，比如 "carname" 变量错拼为 "carnime"，脚本会自动创建一个名为 "carnime" 的新变量。为了防止脚本这样做，您可以使用 Option Explicit 语句。如果您使用这个语句，就必须使用 dim、public 或 private 语句来声明所有的变量。</p> <p>把 Option Explicit 语句放置于脚本的顶端，如下所示：</p> <div class="code notranslate"><div> Option Explicit<br> Dim carname<br> carname=some value</div></div> <br><hr> <h2>为变量赋值</h2> <p>您可以为某个变量赋值，如下所示：</p> <div class="code notranslate"><div> carname="Volvo"<br> x=10</div></div> <p>变量名是在表达式的左侧，需要赋给变量的值在表达式的右侧。现在变量 "carname" 的值是 "Volvo"，变量 "x" 的值是 "10"。</p> <hr> <h2>变量的生存期</h2> <p>变量的生存期指的是它可以存在的时长。</p> <p>当您在一个子程序中声明变量时，变量只能在此程序内进行访问。当退出此程序时，变量也会失效。这样的变量称为本地变量。您可以在不同的子程序中使用名称相同的本地变量，因为每个变量只能在声明它的程序内得到识别。</p> <p>如果您在子程序以外声明了一个变量，在您的页面上的所有子程序都可以访问它。这类变量的生存期始于它们被声明，止于页面被关闭。 </p> <hr> <h2>VBScript 数组变量</h2> <p>数组变量用于在一个单一的变量中存储多个值。</p> <p> 在下面的实例中，声明了一个包含 3 个元素的数组： </p> <div class="code notranslate"><div> Dim names(2)</div></div> <p>括号内显示的数字是 2。数组的下标以 0 开始，因此该数组包含 3 个元素。这是容量固定的数组。您可以为数组的每个元素分配数据，如下所示：</p> <div class="code notranslate"><div> names(0)="Tove"<br> names(1)="Jani"<br> names(2)="Stale"<br> </div></div> <p>同样地，通过使用特定数组元素的下标号，您可以取回任何元素的值。如下所示：</p> <div class="code notranslate"><div> mother=names(0)</div></div> <p>您可以在一个数组中使用多达 60 个维数。声明多维数组的方法是在括号中用逗号来分隔数字。这里，我们声明了一个包含 5 行 7 列的 2 维数组： </p> <div class="code notranslate"><div> Dim table(4,6)</div></div> <p>为二位数组赋值：</p> <div class="example"> <h2 class="example">实例（仅适用于 IE）</h2> <div class="example_code notranslate"> &lt;html&gt;<br> &lt;body&gt;<br><br> &lt;script type="text/vbscript"&gt;<br> Dim x(2,2)<br> x(0,0)="Volvo"<br> x(0,1)="BMW"<br> x(0,2)="Ford"<br> x(1,0)="Apple"<br> x(1,1)="Orange"<br> x(1,2)="Banana"<br> x(2,0)="Coke"<br> x(2,1)="Pepsi"<br> x(2,2)="Sprite"<br> for i=0 to 2<br> document.write("&lt;p&gt;")<br> for j=0 to 2<br> document.write(x(i,j) &amp; "&lt;br /&gt;")<br> next<br> document.write("&lt;/p&gt;")<br> next<br> &lt;/script&gt;<br><br> &lt;/body&gt;<br> &lt;/html&gt;</div> <br><a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/try.php?filename=trysvg_ellipse2  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/try.php?filename=trysvg_ellipse2'" tppabs="http://www.w3cschool.cc/try/try.php?filename=vbdemo_twodimensionalarray" class="tryitbtn">尝试一下 »</a> </div> <br> </div> <div class="chapter"> <div class="prev">&laquo; <a href="vbscript-howto.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-howto.html" rel="prev"> VBScript 用法</a></div> <div class="next"><a href="vbscript-procedures.html" tppabs="http://www.w3cschool.cc/vbscript/vbscript-procedures.html" rel="next">VBScript 程序</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/vbscript/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/vbscript/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

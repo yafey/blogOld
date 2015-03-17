@@ -1,0 +1,269 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Linux 文件与目录管理 | w3cschool菜鸟教程</title> <link rel='prev' title='Linux 文件基本属性' href="linux-file-attr-permission.html"/> <link rel='next' title='Linux 用户和用户组管理' href="linux-user-manage.html"/> <link rel='canonical' href='http://www.w3cschool.cc/linux/linux-file-content-manage.html'/> <meta name="keywords" content="Linux 文件与目录管理"> <meta name="description" content="Linux 文件与目录管理 我们知道Linux的目录结构为树状结构，最顶级的目录为根目录 /。 其他目录通过挂载可以将它们添加到树中，通过解除挂载可以移除它们。 在开始本教程前我们需要先知道什么是绝对路径与相对路径。 绝对路径：路径的写法，由根目录 / 写起，例如： /usr/share/doc 这个目录。 相对路径：路径的写法，不是由 / 写起，例如由 /usr/share/doc 要到 /usr/share/man 底下时，可.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Linux 教程</strong></h2> <a target="_top" title="Linux 教程" href="linux-tutorial.html" tppabs="http://www.w3cschool.cc/linux/linux-tutorial.html"> Linux 教程 </a> <a target="_top" title="Linux 简介" href="linux-intro.html" tppabs="http://www.w3cschool.cc/linux/linux-intro.html"> Linux 简介 </a> <a target="_top" title="Linux 安装" href="linux-install.html" tppabs="http://www.w3cschool.cc/linux/linux-install.html"> Linux 安装 </a> <a target="_top" title="Linux 系统启动过程" href="linux-system-boot.html" tppabs="http://www.w3cschool.cc/linux/linux-system-boot.html"> Linux 系统启动过程 </a> <a target="_top" title="Linux 系统目录结构" href="linux-system-contents.html" tppabs="http://www.w3cschool.cc/linux/linux-system-contents.html"> Linux 系统目录结构 </a> <a target="_top" title="Linux 忘记密码解决方法" href="linux-forget-password.html" tppabs="http://www.w3cschool.cc/linux/linux-forget-password.html"> Linux 忘记密码解决方法 </a> <a target="_top" title="Linux 远程登录" href="linux-remote-login.html" tppabs="http://www.w3cschool.cc/linux/linux-remote-login.html"> Linux 远程登录 </a> <a target="_top" title="Linux 文件基本属性" href="linux-file-attr-permission.html" tppabs="http://www.w3cschool.cc/linux/linux-file-attr-permission.html"> Linux 文件基本属性 </a> <a target="_top" title="Linux 文件与目录管理" href="linux-file-content-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-file-content-manage.html"> Linux 文件与目录管理 </a> <a target="_top" title="Linux 用户和用户组管理" href="linux-user-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-user-manage.html"> Linux 用户和用户组管理 </a> <a target="_top" title="Linux 磁盘管理" href="linux-filesystem.html" tppabs="http://www.w3cschool.cc/linux/linux-filesystem.html"> Linux 磁盘管理 </a> <a target="_top" title="Linux vi/vim" href="linux-vim.html" tppabs="http://www.w3cschool.cc/linux/linux-vim.html"> Linux vi/vim </a> <a target="_top" title="linux yum 命令" href="linux-yum.html" tppabs="http://www.w3cschool.cc/linux/linux-yum.html"> linux yum 命令 </a> <br><h2 class="left"><span class="left_h2">Shell</span> 编程</h2> <a target="_top" title="Shell 教程" href="linux-shell.html" tppabs="http://www.w3cschool.cc/linux/linux-shell.html"> Shell 教程 </a> <a target="_top" title="Shell 变量" href="linux-shell-variable.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-variable.html"> Shell 变量 </a> <a target="_top" title="Shell echo命令" href="linux-shell-echo.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-echo.html"> Shell echo命令 </a> <a target="_top" title="Shell test命令" href="linux-shell-test.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-test.html"> Shell test命令 </a> <a target="_top" title="Shell 流程控制" href="linux-shell-process-control.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-process-control.html"> Shell 流程控制 </a> <a target="_top" title="Shell 函数" href="linux-shell-func.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-func.html"> Shell 函数 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-file-attr-permission.html" tppabs="http://www.w3cschool.cc/linux/linux-file-attr-permission.html" rel="prev"> Linux 文件基本属性</a></div> <div class="next"><a href="linux-user-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-user-manage.html" rel="next">Linux 用户和用户组管理</a> &raquo;</div> </div> <div id="content"> <h1><span class="color_h1">Linux </span> 文件与目录管理</h1> <p>我们知道Linux的目录结构为树状结构，最顶级的目录为根目录 /。</p><p> 其他目录通过挂载可以将它们添加到树中，通过解除挂载可以移除它们。</p> <p>在开始本教程前我们需要先知道什么是绝对路径与相对路径。</p> <ul><li><strong> 绝对路径：</strong><br>路径的写法，由根目录 / 写起，例如： /usr/share/doc 这个目录。</li> <li><strong> 相对路径：</strong><br>路径的写法，不是由 / 写起，例如由 /usr/share/doc 要到 /usr/share/man 底下时，可以写成： cd ../man 这就是相对路径的写法啦！</li></ul> <hr> <h2>处理目录的常用命令</h2> <p>接下来我们就来看几个常见的处理目录的命令吧：</p> <ul> <li>ls: 列出目录</li> <li>cd：切换目录</li> <li>pwd：显示目前的目录</li> <li>mkdir：创建一个新的目录</li> <li>rmdir：删除一个空的目录</li> <li>cp: 复制文件或目录</li> <li>rm: 移除文件或目录</li> </ul> <p>你可以使用 <em>man [命令]</em> 来查看各个命令的使用文档，如 ：man cp。</p> <h3>ls (列出目录)</h3> <p>在Linux系统当中， ls 命令可能是最常被运行的。</p> <p>语法：</p> <pre>
+[root@www ~]# ls [-aAdfFhilnrRSt] 目录名称
+[root@www ~]# ls [--color={never,auto,always}] 目录名称
+[root@www ~]# ls [--full-time] 目录名称
+</pre> <p>选项与参数：</p> <ul><li>-a ：全部的文件，连同隐藏档( 开头为 . 的文件) 一起列出来(常用)</li><li> -d ：仅列出目录本身，而不是列出目录内的文件数据(常用)</li><li> -l ：长数据串列出，包含文件的属性与权限等等数据；(常用)</li></ul> <p> 将家目录下的所有文件列出来(含属性与隐藏档) </p> <pre>
+[root@www ~]# ls -al ~
+</pre> <h3>cd (切换目录)</h3> <p>cd是Change Directory的缩写，这是用来变换工作目录的命令。</p> <p>语法：</p> <pre>
+ cd [相对路径或绝对路径]
+</pre> <pre>
+#使用 mkdir 命令创建w3cschool.cc目录
+[root@www ~]# mkdir w3cschool.cc
+
+#使用绝对路径切换到w3cschool.cc目录
+[root@www ~]# cd /root/w3cschool.cc/
+
+#使用相对路径切换到w3cschool.cc目录
+[root@www ~]# cd ./w3cschool.cc/
+
+# 表示回到自己的家目录，亦即是 /root 这个目录
+[root@www w3cschool.cc]# cd ~
+
+# 表示去到目前的上一级目录，亦即是 /root 的上一级目录的意思；
+[root@www ~]# cd ..
+</pre> <p>接下来大家多操作几次应该就可以很好的理解 cd 命令的。</p> <h3>pwd (显示目前所在的目录)</h3> <p>pwd是Print Working Directory的缩写，也就是显示目前所在目录的命令。</p> <pre>
+[root@www ~]# pwd [-P]
+选项与参数：
+-P  ：显示出确实的路径，而非使用连结 (link) 路径。
+
+范例：单纯显示出目前的工作目录：
+[root@www ~]# pwd
+/root   &lt;== 显示出目录啦～
+
+范例：显示出实际的工作目录，而非连结档本身的目录名而已
+[root@www ~]# cd /var/mail   &lt;==注意，/var/mail是一个连结档
+[root@www mail]# pwd
+/var/mail         &lt;==列出目前的工作目录
+[root@www mail]# pwd -P
+/var/spool/mail   &lt;==怎么回事？有没有加 -P 差很多～
+[root@www mail]# ls -ld /var/mail
+lrwxrwxrwx 1 root root 10 Sep  4 17:54 /var/mail -&gt; spool/mail
+# 看到这里应该知道为啥了吧？因为 /var/mail 是连结档，连结到 /var/spool/mail 
+# 所以，加上 pwd -P 的选项后，会不以连结档的数据显示，而是显示正确的完整路径啊！
+</pre> <h3>mkdir (创建新目录)</h3> <p>如果想要创建新的目录的话，那么就使用mkdir (make directory)吧。</p> <p>语法：</p> <pre>
+mkdir [-mp] 目录名称
+</pre> <p> 选项与参数：</p> <ul><li> -m ：配置文件的权限喔！直接配置，不需要看默认权限 (umask) 的脸色～</li><li> -p ：帮助你直接将所需要的目录(包含上一级目录)递回创建起来！</li></ul> <p> 范例：请到/tmp底下尝试创建数个新目录看看： </p> <pre>
+[root@www ~]# cd /tmp
+[root@www tmp]# mkdir test    &lt;==创建一名为 test 的新目录
+[root@www tmp]# mkdir test1/test2/test3/test4
+mkdir: cannot create directory `test1/test2/test3/test4': 
+No such file or directory       &lt;== 没办法直接创建此目录啊！
+[root@www tmp]# mkdir -p test1/test2/test3/test4
+</pre> <p>加了这个 -p 的选项，可以自行帮你创建多层目录！</p> <p> 范例：创建权限为rwx--x--x的目录</p> <pre>
+[root@www tmp]# mkdir -m 711 test2
+[root@www tmp]# ls -l
+drwxr-xr-x  3 root  root 4096 Jul 18 12:50 test
+drwxr-xr-x  3 root  root 4096 Jul 18 12:53 test1
+drwx--x--x  2 root  root 4096 Jul 18 12:54 test2
+</pre> <p> 上面的权限部分，如果没有加上 -m 来强制配置属性，系统会使用默认属性。</p><p> 如果我们使用 -m ，如上例我们给予 -m 711 来给予新的目录 drwx--x--x 的权限。</p> </pre> <h3>rmdir (删除空的目录)</h3> <p>语法：</p> <pre>
+ rmdir [-p] 目录名称
+</pre> <p> 选项与参数：</p><ul><li> <strong>-p ：</strong>连同上一级『空的』目录也一起删除 </li></ul> <p>删除 w3cschool.cc 目录</p> <pre>
+[root@www tmp]# rmdir w3cschool.cc/
+</pre> <p>范例：将於mkdir范例中创建的目录(/tmp底下)删除掉！</p> <pre>
+[root@www tmp]# ls -l   &lt;==看看有多少目录存在？
+drwxr-xr-x  3 root  root 4096 Jul 18 12:50 test
+drwxr-xr-x  3 root  root 4096 Jul 18 12:53 test1
+drwx--x--x  2 root  root 4096 Jul 18 12:54 test2
+[root@www tmp]# rmdir test   &lt;==可直接删除掉，没问题
+[root@www tmp]# rmdir test1  &lt;==因为尚有内容，所以无法删除！
+rmdir: `test1': Directory not empty
+[root@www tmp]# rmdir -p test1/test2/test3/test4
+[root@www tmp]# ls -l        &lt;==您看看，底下的输出中test与test1不见了！
+drwx--x--x  2 root  root 4096 Jul 18 12:54 test2
+</pre> <p>利用 -p 这个选项，立刻就可以将 test1/test2/test3/test4 一次删除。</p> <p>不过要注意的是，这个 rmdir 仅能删除空的目录，你可以使用 rm 命令来删除非空目录。</p> <h3>cp (复制文件或目录)</h3> <p>cp 即拷贝文件和目录。</p> <p>语法:</p> <pre>
+[root@www ~]# cp [-adfilprsu] 来源档(source) 目标档(destination)
+[root@www ~]# cp [options] source1 source2 source3 .... directory
+</pre> <p>选项与参数：</p> <li>-a ：相当於 -pdr 的意思，至於 pdr 请参考下列说明；(常用)</li><li> -d ：若来源档为连结档的属性(link file)，则复制连结档属性而非文件本身；</li><li> -f ：为强制(force)的意思，若目标文件已经存在且无法开启，则移除后再尝试一次；</li><li> -i ：若目标档(destination)已经存在时，在覆盖时会先询问动作的进行(常用)</li><li> -l ：进行硬式连结(hard link)的连结档创建，而非复制文件本身；</li><li> -p ：连同文件的属性一起复制过去，而非使用默认属性(备份常用)；</li><li> -r ：递回持续复制，用於目录的复制行为；(常用)</li><li> -s ：复制成为符号连结档 (symbolic link)，亦即『捷径』文件；</li><li> -u ：若 destination 比 source 旧才升级 destination ！</li></ul> <p>用root身份，将家目录下的 .bashrc 复制到 /tmp 下，并更名为 bashr</p> <pre>
+[root@www ~]# cp ~/.bashrc /tmp/bashrc
+[root@www ~]# cp -i ~/.bashrc /tmp/bashrc
+cp: overwrite `/tmp/bashrc'? n  &lt;==n不覆盖，y为覆盖
+</pre> <h3>rm (移除文件或目录)</h3> <p>语法：</p> <pre>
+ rm [-fir] 文件或目录
+</pre> <p> 选项与参数：</p> <ul><li> -f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息；</li><li> -i ：互动模式，在删除前会询问使用者是否动作</li><li> -r ：递回删除啊！最常用在目录的删除了！这是非常危险的选项！！！</li><li> </ul> <p>将刚刚在 cp 的范例中创建的 bashrc 删除掉！</p> <pre>
+[root@www tmp]# rm -i bashrc
+rm: remove regular file `bashrc'? y
+</pre> <p>如果加上 -i 的选项就会主动询问喔，避免你删除到错误的档名！</p> <h3>mv (移动文件与目录，或修改名称)</h3> <p>语法：</p> <pre>
+[root@www ~]# mv [-fiu] source destination
+[root@www ~]# mv [options] source1 source2 source3 .... directory
+</pre><p> 选项与参数：</p> <ul><li> -f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；</li><li> -i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！</li><li> -u ：若目标文件已经存在，且 source 比较新，才会升级 (update)</li></ul> <p>复制一文件，创建一目录，将文件移动到目录中</p> <pre>
+[root@www ~]# cd /tmp
+[root@www tmp]# cp ~/.bashrc bashrc
+[root@www tmp]# mkdir mvtest
+[root@www tmp]# mv bashrc mvtest
+</pre> <p> 将某个文件移动到某个目录去，就是这样做！ </p> <p>将刚刚的目录名称更名为 mvtest2</p> <pre>
+[root@www tmp]# mv mvtest mvtest2
+</pre> <hr> <h2>Linux 文件内容查看</h2> <p>Linux系统中使用以下命令来查看文件的内容：</p> <ul> <li>cat&nbsp; 由第一行开始显示文件内容</li> <li>tac&nbsp; 从最后一行开始显示，可以看出 tac 是 cat 的倒著写！</li> <li>nl &nbsp;&nbsp;显示的时候，顺道输出行号！</li> <li>more 一页一页的显示文件内容</li> <li>less 与 more 类似，但是比 more 更好的是，他可以往前翻页！</li> <li>head 只看头几行</li> <li>tail 只看尾巴几行</li></ul> <p>你可以使用 <em>man [命令]</em>来查看各个命令的使用文档，如 ：man cp。</p> <h3>cat</h3> <p>由第一行开始显示文件内容</p> <p>语法：</p> <pre>
+cat [-AbEnTv]
+</pre> <p>选项与参数：</p> <ul><li> -A ：相当於 -vET 的整合选项，可列出一些特殊字符而不是空白而已；</li><li> -b ：列出行号，仅针对非空白行做行号显示，空白行不标行号！</li><li> -E ：将结尾的断行字节 $ 显示出来；</li><li> -n ：列印出行号，连同空白行也会有行号，与 -b 的选项不同；</li><li> -T ：将 [tab] 按键以 ^I 显示出来；</li><li> -v ：列出一些看不出来的特殊字符</li></ul> <p>检看 /etc/issue 这个文件的内容：</p> <pre>
+[root@www ~]# cat /etc/issue
+CentOS release 6.4 (Final)
+Kernel \r on an \m
+</pre> <h3>tac</h3> <p>tac与cat命令刚好相反，文件内容从最后一行开始显示，可以看出 tac 是 cat 的倒着写！如：</p> <pre>
+
+[root@www ~]# tac /etc/issue
+
+Kernel \r on an \m
+CentOS release 6.4 (Final)
+</pre> <h3>nl</h3> <p>显示行号</p> <p>语法：</p> <pre>
+nl [-bnw] 文件
+</pre> <p>选项与参数：</p> <ul><li> -b ：指定行号指定的方式，主要有两种：<br> -b a ：表示不论是否为空行，也同样列出行号(类似 cat -n)；<br> -b t ：如果有空行，空的那一行不要列出行号(默认值)；</li><li> -n ：列出行号表示的方法，主要有三种：<br> -n ln ：行号在萤幕的最左方显示；<br> -n rn ：行号在自己栏位的最右方显示，且不加 0 ；<br> -n rz ：行号在自己栏位的最右方显示，且加 0 ；</li><li> -w ：行号栏位的占用的位数。</li></ul> <p>范例一：用 nl 列出 /etc/issue 的内容 </p> <pre>
+[root@www ~]# nl /etc/issue
+     1  CentOS release 6.4 (Final)
+     2  Kernel \r on an \m
+</pre> <h3>more</h3> <p>一页一页翻动</p> <pre>
+[root@www ~]# more /etc/man.config
+#
+# Generated automatically from man.conf.in by the
+# configure script.
+#
+# man.conf from man-1.6d
+....(中间省略)....
+--More--(28%)  &lt;== 重点在这一行喔！你的光标也会在这里等待你的命令
+</pre> <p>在 more 这个程序的运行过程中，你有几个按键可以按的：</p> <ul> <li>空白键 (space)：代表向下翻一页；</li> <li>Enter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：代表向下翻『一行』；</li> <li>/字串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li> <li>:f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：立刻显示出档名以及目前显示的行数；</li> <li>q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：代表立刻离开 more ，不再显示该文件内容。</li> <li>b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。</li> </ul> <h3>less</h3> <p>一页一页翻动，以下实例输出/etc/man.config文件的内容：</p> <pre>
+[root@www ~]# less /etc/man.config
+#
+# Generated automatically from man.conf.in by the
+# configure script.
+#
+# man.conf from man-1.6d
+....(中间省略)....
+:   &lt;== 这里可以等待你输入命令！
+</pre> <p>less运行时可以输入的命令有：</p> <ul> <li>空白键&nbsp;&nbsp;&nbsp;&nbsp;：向下翻动一页；</li> <li>[pagedown]：向下翻动一页；</li> <li>[pageup]&nbsp;&nbsp;：向上翻动一页；</li> <li>/字串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：向下搜寻『字串』的功能；</li> <li>?字串&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：向上搜寻『字串』的功能；</li> <li>n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：重复前一个搜寻 (与 / 或 ? 有关！)</li> <li>N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：反向的重复前一个搜寻 (与 / 或 ? 有关！)</li> <li>q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：离开 less 这个程序；</li></ul> <h3>head </h3> <p>取出文件前面几行</p> <p>语法：</p> <pre>
+head [-n number] 文件 
+</pre><p> 选项与参数：</p> <ul><li> -n ：后面接数字，代表显示几行的意思 </li></ul> <pre>
+[root@www ~]# head /etc/man.config
+</pre> <p>默认的情况中，显示前面 10 行！若要显示前 20 行，就得要这样：</p> <pre>
+[root@www ~]# head -n 20 /etc/man.config
+</pre> <h3>tail </h3> <p>取出文件后面几行</p> <p>语法：</p> <pre>
+tail [-n number] 文件 
+</pre><p> 选项与参数：</p><ul> <li>-n ：后面接数字，代表显示几行的意思</li><li> -f ：表示持续侦测后面所接的档名，要等到按下[ctrl]-c才会结束tail的侦测 </li></ul> <pre>
+[root@www ~]# tail /etc/man.config
+# 默认的情况中，显示最后的十行！若要显示最后的 20 行，就得要这样：
+[root@www ~]# tail -n 20 /etc/man.config
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-file-attr-permission.html" tppabs="http://www.w3cschool.cc/linux/linux-file-attr-permission.html" rel="prev"> Linux 文件基本属性</a></div> <div class="next"><a href="linux-user-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-user-manage.html" rel="next">Linux 用户和用户组管理</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/linux/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/linux/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

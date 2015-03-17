@@ -1,0 +1,212 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Servlet Session 跟踪 | w3cschool菜鸟教程</title> <link rel='prev' title='Servlet Cookies 处理' href="servlet-cookies-handling.html"/> <link rel='next' title='Servlet 数据库访问' href="servlet-database-access.html"/> <link rel='canonical' href='http://www.w3cschool.cc/servlet/servlet-session-tracking.html'/> <meta name="keywords" content="Servlet Session 跟踪"> <meta name="description" content="Servlet Session 跟踪 HTTP 是一种“无状态”协议，这意味着每次客户端检索网页时，客户端打开一个单独的连接到 Web 服务器，服务器会自动不保留之前客户端请求的任何记录。 但是仍然有以下三种方式来维持 Web 客户端和 Web 服务器之间的 session 会话： Cookies 一个 Web 服务器可以分配一个唯一的 session 会话 ID 作为每个 Web 客户端的 cookie，对于客户端的后续请求可.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Servlet 教程</strong></h2> <a target="_top" title="Servlet 教程" href="servlet-tutorial.html" tppabs="http://www.w3cschool.cc/servlet/servlet-tutorial.html"> Servlet 教程 </a> <a target="_top" title="Servlet 简介" href="servlet-intro.html" tppabs="http://www.w3cschool.cc/servlet/servlet-intro.html"> Servlet 简介 </a> <a target="_top" title="Servlet 环境设置" href="servlet-environment-setup.html" tppabs="http://www.w3cschool.cc/servlet/servlet-environment-setup.html"> Servlet 环境设置 </a> <a target="_top" title="Servlet 生命周期" href="servlet-life-cycle.html" tppabs="http://www.w3cschool.cc/servlet/servlet-life-cycle.html"> Servlet 生命周期 </a> <a target="_top" title="Servlet 实例" href="servlet-first-example.html" tppabs="http://www.w3cschool.cc/servlet/servlet-first-example.html"> Servlet 实例 </a> <a target="_top" title="Servlet 表单数据" href="servlet-form-data.html" tppabs="http://www.w3cschool.cc/servlet/servlet-form-data.html"> Servlet 表单数据 </a> <a target="_top" title="Servlet 客户端 HTTP 请求" href="servlet-client-request.html" tppabs="http://www.w3cschool.cc/servlet/servlet-client-request.html"> Servlet 客户端 HTTP 请求 </a> <a target="_top" title="Servlet 服务器 HTTP 响应" href="servlet-server-response.html" tppabs="http://www.w3cschool.cc/servlet/servlet-server-response.html"> Servlet 服务器 HTTP 响应 </a> <a target="_top" title="Servlet HTTP 状态码" href="servlet-http-status-codes.html" tppabs="http://www.w3cschool.cc/servlet/servlet-http-status-codes.html"> Servlet HTTP 状态码 </a> <a target="_top" title="Servlet 编写过滤器" href="servlet-writing-filters.html" tppabs="http://www.w3cschool.cc/servlet/servlet-writing-filters.html"> Servlet 编写过滤器 </a> <a target="_top" title="Servlet 异常处理" href="servlet-exception-handling.html" tppabs="http://www.w3cschool.cc/servlet/servlet-exception-handling.html"> Servlet 异常处理 </a> <a target="_top" title="Servlet Cookies 处理" href="servlet-cookies-handling.html" tppabs="http://www.w3cschool.cc/servlet/servlet-cookies-handling.html"> Servlet Cookies 处理 </a> <a target="_top" title="Servlet Session 跟踪" href="servlet-session-tracking.html" tppabs="http://www.w3cschool.cc/servlet/servlet-session-tracking.html"> Servlet Session 跟踪 </a> <a target="_top" title="Servlet 数据库访问" href="servlet-database-access.html" tppabs="http://www.w3cschool.cc/servlet/servlet-database-access.html"> Servlet 数据库访问 </a> <a target="_top" title="Servlet 文件上传" href="servlet-file-uploading.html" tppabs="http://www.w3cschool.cc/servlet/servlet-file-uploading.html"> Servlet 文件上传 </a> <a target="_top" title="Servlet 处理日期" href="servlet-handling-date.html" tppabs="http://www.w3cschool.cc/servlet/servlet-handling-date.html"> Servlet 处理日期 </a> <a target="_top" title="Servlet 网页重定向" href="servlet-page-redirect.html" tppabs="http://www.w3cschool.cc/servlet/servlet-page-redirect.html"> Servlet 网页重定向 </a> <a target="_top" title="Servlet 点击计数器" href="servlet-hits-counter.html" tppabs="http://www.w3cschool.cc/servlet/servlet-hits-counter.html"> Servlet 点击计数器 </a> <a target="_top" title="Servlet 自动刷新页面" href="servlet-auto-refresh.html" tppabs="http://www.w3cschool.cc/servlet/servlet-auto-refresh.html"> Servlet 自动刷新页面 </a> <a target="_top" title="Servlet 发送电子邮件" href="servlet-sending-email.html" tppabs="http://www.w3cschool.cc/servlet/servlet-sending-email.html"> Servlet 发送电子邮件 </a> <a target="_top" title="Servlet 包" href="servlet-packaging.html" tppabs="http://www.w3cschool.cc/servlet/servlet-packaging.html"> Servlet 包 </a> <a target="_top" title="Servlet 调试" href="servlet-debugging.html" tppabs="http://www.w3cschool.cc/servlet/servlet-debugging.html"> Servlet 调试 </a> <a target="_top" title="Servlet 国际化" href="servlet-internationalization.html" tppabs="http://www.w3cschool.cc/servlet/servlet-internationalization.html"> Servlet 国际化 </a> <br><h2 class="left">Servlet <span class="left_h2">其他</span></h2> <a target="_top" title="Servlet 有用的资源" href="servlet-useful-resources.html" tppabs="http://www.w3cschool.cc/servlet/servlet-useful-resources.html"> Servlet 有用的资源 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="servlet-cookies-handling.html" tppabs="http://www.w3cschool.cc/servlet/servlet-cookies-handling.html" rel="prev"> Servlet Cookies 处理</a></div> <div class="next"><a href="servlet-database-access.html" tppabs="http://www.w3cschool.cc/servlet/servlet-database-access.html" rel="next">Servlet 数据库访问</a> &raquo;</div> </div> <div id="content"> <h1>Servlet <span class="color_h1">Session 跟踪</span></h1> <div class="tutintro"> <p>HTTP 是一种"无状态"协议，这意味着每次客户端检索网页时，客户端打开一个单独的连接到 Web 服务器，服务器会自动不保留之前客户端请求的任何记录。</p> <p>但是仍然有以下三种方式来维持 Web 客户端和 Web 服务器之间的 session 会话：</p> </div> <h2>Cookies</h2> <p>一个 Web 服务器可以分配一个唯一的 session 会话 ID 作为每个 Web 客户端的 cookie，对于客户端的后续请求可以使用接收到的 cookie 来识别。</p> <p>这可能不是一个有效的方法，因为很多浏览器不支持 cookie，所以我们建议不要使用这种方式来维持 session 会话。</p> <h2>隐藏的表单字段</h2> <p>一个 Web 服务器可以发送一个隐藏的 HTML 表单字段，以及一个唯一的 session 会话 ID，如下所示：</p> <pre class="prettyprint">
+&lt;input type="hidden" name="sessionid" value="12345"&gt;
+</pre> <p>该条目意味着，当表单被提交时，指定的名称和值会被自动包含在 GET 或 POST 数据中。每次当 Web 浏览器发送回请求时，session_id 值可以用于保持不同的 Web 浏览器的跟踪。</p> <p>这可能是一种保持 session 会话跟踪的有效方式，但是点击常规的超文本链接（&lt;A HREF...&gt;）不会导致表单提交，因此隐藏的表单字段也不支持常规的 session 会话跟踪。</p> <h2>URL 重写</h2> <p>您可以在每个 URL 末尾追加一些额外的数据来标识 session 会话，服务器会把该 session 会话标识符与已存储的有关 session 会话的数据相关联。</p> <p>例如，http://w3cschool.cc/file.htm;sessionid=12345，session 会话标识符被附加为 sessionid=12345，标识符可被 Web 服务器访问以识别客户端。</p> <p>URL 重写是一种更好的维持 session 会话的方式，它在浏览器不支持 cookie 时能够很好地工作，但是它的缺点是会动态生成每个 URL 来为页面分配一个 session 会话 ID，即使是在很简单的静态 HTML 页面中也会如此。</p> <h2 class="tutheader">HttpSession 对象</h2> <p>除了上述的三种方式，Servlet 还提供了 HttpSession 接口，该接口提供了一种跨多个页面请求或访问网站时识别用户以及存储有关用户信息的方式。</p> <p>Servlet 容器使用这个接口来创建一个 HTTP 客户端和 HTTP 服务器之间的 session 会话。会话持续一个指定的时间段，跨多个连接或页面请求。</p> <p>您会通过调用 HttpServletRequest 的公共方法 <b>getSession()</b> 来获取 HttpSession 对象，如下所示：</p> <pre class="prettyprint">
+HttpSession session = request.getSession();
+</pre> <p>你需要在向客户端发送任何文档内容之前调用 <i>request.getSession()</i>。下面总结了 HttpSession 对象中可用的几个重要的方法：</p> <table class="reference notranslate"> <tr><th style="width:5%">序号</th><th>方法 &amp; 描述</th></tr> <tr><td>1</td><td><b>public Object getAttribute(String name)</b><br/>该方法返回在该 session 会话中具有指定名称的对象，如果没有指定名称的对象，则返回 null。</td></tr> <tr><td>2</td><td><b>public Enumeration getAttributeNames()</b><br/>该方法返回 String 对象的枚举，String 对象包含所有绑定到该 session 会话的对象的名称。</td></tr> <tr><td>3</td><td><b>public long getCreationTime()</b><br/>该方法返回该 session 会话被创建的时间，自格林尼治标准时间 1970 年 1 月 1 日午夜算起，以毫秒为单位。</td></tr> <tr><td>4</td><td><b>public String getId()</b><br/>该方法返回一个包含分配给该 session 会话的唯一标识符的字符串。</td></tr> <tr><td>5</td><td><b>public long getLastAccessedTime()</b><br/>该方法返回客户端最后一次发送与该 session 会话相关的请求的时间自格林尼治标准时间 1970 年 1 月 1 日午夜算起，以毫秒为单位。</td></tr> <tr><td>6</td><td><b>public int getMaxInactiveInterval()</b><br/>该方法返回 Servlet 容器在客户端访问时保持 session 会话打开的最大时间间隔，以秒为单位。</td></tr> <tr><td>7</td><td><b>public void invalidate()</b><br/>该方法指示该 session 会话无效，并解除绑定到它上面的任何对象。</td></tr> <tr><td>8</td><td><b>public boolean isNew(</b><br/>如果客户端还不知道该 session 会话，或者如果客户选择不参入该 session 会话，则该方法返回 true。</td></tr> <tr><td>9</td><td><b>public void removeAttribute(String name)</b><br/>该方法将从该 session 会话移除指定名称的对象。</td></tr> <tr><td>10</td><td><b>public void setAttribute(String name, Object value) </b><br/>该方法使用指定的名称绑定一个对象到该 session 会话。</td></tr> <tr><td>11</td><td><b>public void setMaxInactiveInterval(int interval)</b><br/>该方法在 Servlet 容器指示该 session 会话无效之前，指定客户端请求之间的时间，以秒为单位。</td></tr> </table> <br/> <h2 class="tutheader">Session 跟踪实例</h2> <p>本实例说明了如何使用 HttpSession 对象获取 session 会话创建时间和最后访问时间。如果不存在 session 会话，我们将通过请求创建一个新的 session 会话。</p> <pre class="prettyprint">
+// 导入必需的 java 库
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.util.*;
+ 
+// 扩展 HttpServlet 类
+public class SessionTrack extends HttpServlet {
+ 
+  public void doGet(HttpServletRequest request,
+                    HttpServletResponse response)
+            throws ServletException, IOException
+  {
+      // 如果不存在 session 会话，则创建一个 session 对象
+      HttpSession session = request.getSession(true);
+      // 获取 session 创建时间
+      Date createTime = new Date(session.getCreationTime());
+      // 获取该网页的最后一次访问时间
+      Date lastAccessTime = 
+                        new Date(session.getLastAccessedTime());
+
+      String title = "欢迎回到我的网站";
+      Integer visitCount = new Integer(0);
+      String visitCountKey = new String("visitCount");
+      String userIDKey = new String("userID");
+      String userID = new String("ABCD");
+
+      // 检查网页上是否有新的访问者
+      if (session.isNew()){
+         title = "欢迎来到我的网站";
+         session.setAttribute(userIDKey, userID);
+      } else {
+         visitCount = (Integer)session.getAttribute(visitCountKey);
+         visitCount = visitCount + 1;
+         userID = (String)session.getAttribute(userIDKey);
+      }
+      session.setAttribute(visitCountKey,  visitCount);
+
+      // 设置响应内容类型
+      response.setContentType("text/html");
+      PrintWriter out = response.getWriter();
+
+      String docType =
+      "&lt;!doctype html public \"-//w3c//dtd html 4.0 " +
+      "transitional//en\"&gt;\n";
+      out.println(docType +
+                "&lt;html&gt;\n" +
+                "&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n" +
+                "&lt;body bgcolor=\"#f0f0f0\"&gt;\n" +
+                "&lt;h1 align=\"center\"&gt;" + title + "&lt;/h1&gt;\n" +
+                 "&lt;h2 align=\"center\"&gt;Session 信息&lt;/h2&gt;\n" +
+                "&lt;table border=\"1\" align=\"center\"&gt;\n" +
+                "&lt;tr bgcolor=\"#949494\"&gt;\n" +
+                "  &lt;th&gt;Session 信息&lt;/th&gt;&lt;th&gt;值&lt;/th&gt;&lt;/tr&gt;\n" +
+                "&lt;tr&gt;\n" +
+                "  &lt;td&gt;id&lt;/td&gt;\n" +
+                "  &lt;td&gt;" + session.getId() + "&lt;/td&gt;&lt;/tr&gt;\n" +
+                "&lt;tr&gt;\n" +
+                "  &lt;td&gt;Creation Time&lt;/td&gt;\n" +
+                "  &lt;td&gt;" + createTime + 
+                "  &lt;/td&gt;&lt;/tr&gt;\n" +
+                "&lt;tr&gt;\n" +
+                "  &lt;td&gt;Time of Last Access&lt;/td&gt;\n" +
+                "  &lt;td&gt;" + lastAccessTime + 
+                "  &lt;/td&gt;&lt;/tr&gt;\n" +
+                "&lt;tr&gt;\n" +
+                "  &lt;td&gt;User ID&lt;/td&gt;\n" +
+                "  &lt;td&gt;" + userID + 
+                "  &lt;/td&gt;&lt;/tr&gt;\n" +
+                "&lt;tr&gt;\n" +
+                "  &lt;td&gt;Number of visits&lt;/td&gt;\n" +
+                "  &lt;td&gt;" + visitCount + "&lt;/td&gt;&lt;/tr&gt;\n" +
+                "&lt;/table&gt;\n" +
+                "&lt;/body&gt;&lt;/html&gt;");
+  }
+}
+</pre> <p>编译上面的 Servlet <b>SessionTrack</b>，并在 web.xml 文件中创建适当的条目。在浏览器地址栏输入 <i>http://localhost:8080/SessionTrack</i>，当您第一次运行时将显示如下结果：</p> <div style="border: 1px solid #D6D6D6;padding: 5px;"> <h1 align="center">欢迎来到我的网站</h1> <h2 align="center">Session 信息</h2> <table cellpadding="5" class="src" border="1" style="background-color: #f7f7f7;border: 1px solid #d6d6d6;border-collapse: collapse;width: 100%;"> <tr bgcolor="#949494"> <th>Session 信息</th><th>值</th></tr> <tr> <td>id</td> <td>0AE3EC93FF44E3C525B4351B77ABB2D5</td></tr> <tr> <td>Creation Time</td> <td>Tue Jun 08 17:26:40 GMT+04:00 2014 </td></tr> <tr> <td>Time of Last Access</td> <td>Tue Jun 08 17:26:40 GMT+04:00 2014 </td></tr> <tr> <td>User ID</td> <td>ABCD </td></tr> <tr> <td>Number of visits</td> <td>0</td></tr> </table> </div> <p>再次尝试运行相同的 Servlet，它将显示如下结果：</p> <div style="border: 1px solid #D6D6D6;padding: 5px;"> <h1 align="center">欢迎回到我的网站</h1> <h2 align="center">Session 信息</h2> <table cellpadding="5" class="src" border="1" style="background-color: #f7f7f7;border: 1px solid #d6d6d6;border-collapse: collapse;width: 100%;"> <tr bgcolor="#949494"> <th>Session 信息</th><th>值</th></tr> <tr> <td>id</td> <td>0AE3EC93FF44E3C525B4351B77ABB2D5</td></tr> <tr> <td>Creation Time</td> <td>Tue Jun 08 17:26:40 GMT+04:00 2014 </td></tr> <tr> <td>Time of Last Access</td> <td>Tue Jun 08 17:26:40 GMT+04:00 2014 </td></tr> <tr> <td>User ID</td> <td>ABCD </td></tr> <tr> <td>Number of visits</td> <td>1</td></tr> </table> </div> <br/> <h2 class="tutheader">删除 Session 会话数据</h2> <p>当您完成了一个用户的 session 会话数据，您有以下几种选择：</p> <ul class="list"> <li><b>移除一个特定的属性：</b>您可以调用 <i>public void removeAttribute(String name)</i> 方法来删除与特定的键相关联的值。 to delete the value associated with a particular key.</li> <li><b>删除整个 session 会话：</b>您可以调用 <i>public void invalidate()</i> 方法来丢弃整个 session 会话。</li> <li><b>设置 session 会话过期时间：</b>您可以调用 <i>public void setMaxInactiveInterval(int interval)</i> 方法来单独设置 session 会话超时。</li> <li><b>注销用户：</b>如果使用的是支持 servlet 2.4 的服务器，您可以调用 <b>logout</b> 来注销 Web 服务器的客户端，并把属于所有用户的所有 session 会话设置为无效。</li> <li><b>web.xml 配置：</b>如果您使用的是 Tomcat，除了上述方法，您还可以在 web.xml 文件中配置 session 会话超时，如下所示：</li> </ul> <pre class="prettyprint">
+  &lt;session-config&gt;
+    &lt;session-timeout&gt;15&lt;/session-timeout&gt;
+  &lt;/session-config&gt;
+</pre> <p>上面实例中的超时时间是以分钟为单位，将覆盖 Tomcat 中默认的 30 分钟超时时间。</p> <p>在一个 Servlet 中的 getMaxInactiveInterval() 方法会返回 session 会话的超时时间，以秒为单位。所以，如果在 web.xml 中配置 session 会话超时时间为 15 分钟，那么 getMaxInactiveInterval() 会返回 900。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="servlet-cookies-handling.html" tppabs="http://www.w3cschool.cc/servlet/servlet-cookies-handling.html" rel="prev"> Servlet Cookies 处理</a></div> <div class="next"><a href="servlet-database-access.html" tppabs="http://www.w3cschool.cc/servlet/servlet-database-access.html" rel="next">Servlet 数据库访问</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/servlet/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/servlet/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

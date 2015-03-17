@@ -1,0 +1,375 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Java 方法 | w3cschool菜鸟教程</title> <link rel='prev' title='Java正则表达式' href="java-regular-expressions.html"/> <link rel='next' title='Java 流(Stream)、文件(File)和IO' href="java-files-io.html"/> <link rel='canonical' href='http://www.w3cschool.cc/java/java-methods.html'/> <meta name="keywords" content="Java 方法"> <meta name="description" content="Java 方法 在前面几个章节中我们经常使用到System.out.println()，那么它是什么呢？ println()是一个方法(Method)，而System是系统类(Class)，out是标准输出对象(Object)。这句话的用法是调用系统类System中的标准输出对象out中的方法println()。 那么什么是方法呢？ Java方法是语句的集合，它们在一起执行一个功能。 方法是解决一类问题的步骤的有序组合 方法包含.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Java 教程</strong></h2> <a target="_top" title="Java 教程" href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html"> Java 教程 </a> <a target="_top" title="Java 简介" href="java-intro.html" tppabs="http://www.w3cschool.cc/java/java-intro.html"> Java 简介 </a> <a target="_top" title="Java开发环境配置" href="java-environment-setup.html" tppabs="http://www.w3cschool.cc/java/java-environment-setup.html"> Java开发环境配置 </a> <a target="_top" title="Java基础语法" href="java-basic-syntax.html" tppabs="http://www.w3cschool.cc/java/java-basic-syntax.html"> Java基础语法 </a> <a target="_top" title="Java对象和类" href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html"> Java对象和类 </a> <a target="_top" title="Java基本数据类型" href="java-basic-datatypes.html" tppabs="http://www.w3cschool.cc/java/java-basic-datatypes.html"> Java基本数据类型 </a> <a target="_top" title="Java变量类型" href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html"> Java变量类型 </a> <a target="_top" title="Java修饰符" href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html"> Java修饰符 </a> <a target="_top" title="Java运算符" href="java-operators.html" tppabs="http://www.w3cschool.cc/java/java-operators.html"> Java运算符 </a> <a target="_top" title="Java循环结构 &#8211; for, while 及 do&#8230;while" href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html"> Java循环结构 </a> <a target="_top" title="Java分支结构 &#8211; if&#8230;else/switch" href="java-if-else-switch.html" tppabs="http://www.w3cschool.cc/java/java-if-else-switch.html"> Java分支结构 </a> <a target="_top" title="Java Number类" href="java-number.html" tppabs="http://www.w3cschool.cc/java/java-number.html"> Java Number类 </a> <a target="_top" title="Java Character类" href="java-character.html" tppabs="http://www.w3cschool.cc/java/java-character.html"> Java Character类 </a> <a target="_top" title="Java String类" href="java-string.html" tppabs="http://www.w3cschool.cc/java/java-string.html"> Java String类 </a> <a target="_top" title="Java StringBuffer和StringBuilder类" href="java-stringbuffer.html" tppabs="http://www.w3cschool.cc/java/java-stringbuffer.html"> Java StringBuffer和StringBuilder类 </a> <a target="_top" title="Java 数组" href="java-array.html" tppabs="http://www.w3cschool.cc/java/java-array.html"> Java 数组 </a> <a target="_top" title="Java日期时间" href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html"> Java日期时间 </a> <a target="_top" title="Java正则表达式" href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html"> Java正则表达式 </a> <a target="_top" title="Java 方法" href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html"> Java 方法 </a> <a target="_top" title="Java 流(Stream)、文件(File)和IO" href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html"> Java 流(Stream)、文件(File)和IO </a> <a target="_top" title="Java 异常处理" href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html"> Java 异常处理 </a> <br><h2 class="left">Java <span class="left_h2">面向对象</span></h2> <a target="_top" title="Java 继承" href="java-inheritance.html" tppabs="http://www.w3cschool.cc/java/java-inheritance.html"> Java 继承 </a> <a target="_top" title="Java 重写(Override)与重载(Overload)" href="java-override-overload.html" tppabs="http://www.w3cschool.cc/java/java-override-overload.html"> Java 重写(Override)与重载(Overload) </a> <a target="_top" title="Java 多态" href="java-polymorphism.html" tppabs="http://www.w3cschool.cc/java/java-polymorphism.html"> Java 多态 </a> <a target="_top" title="Java 抽象类" href="java-abstraction.html" tppabs="http://www.w3cschool.cc/java/java-abstraction.html"> Java 抽象类 </a> <a target="_top" title="java 封装" href="java-encapsulation.html" tppabs="http://www.w3cschool.cc/java/java-encapsulation.html"> java 封装 </a> <a target="_top" title="Java 接口" href="java-interfaces.html" tppabs="http://www.w3cschool.cc/java/java-interfaces.html"> Java 接口 </a> <a target="_top" title="Java 包(package)" href="java-package.html" tppabs="http://www.w3cschool.cc/java/java-package.html"> Java 包(package) </a> <br><h2 class="left">Java <span class="left_h2">高级教程</span></h2> <a target="_top" title="Java 数据结构" href="java-data-structures.html" tppabs="http://www.w3cschool.cc/java/java-data-structures.html"> Java 数据结构 </a> <a target="_top" title="Java 集合框架" href="java-collections.html" tppabs="http://www.w3cschool.cc/java/java-collections.html"> Java 集合框架 </a> <a target="_top" title="Java 泛型" href="java-generics.html" tppabs="http://www.w3cschool.cc/java/java-generics.html"> Java 泛型 </a> <a target="_top" title="Java序列化" href="java-serialization.html" tppabs="http://www.w3cschool.cc/java/java-serialization.html"> Java序列化 </a> <a target="_top" title="Java 网络编程" href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html"> Java 网络编程 </a> <a target="_top" title="Java 发送邮件" href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html"> Java 发送邮件 </a> <a target="_top" title="Java 多线程编程" href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html"> Java 多线程编程 </a> <a target="_top" title="Java Applet基础" href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html"> Java Applet基础 </a> <a target="_top" title="Java 文档注释" href="java-documentation.html" tppabs="http://www.w3cschool.cc/java/java-documentation.html"> Java 文档注释 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html" rel="prev"> Java正则表达式</a></div> <div class="next"><a href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html" rel="next">Java 流(Stream)、文件(File)和IO</a> &raquo;</div> </div> <div id="content"> <h1>Java 方法</h1> <p> 在前面几个章节中我们经常使用到System.out.println()，那么它是什么呢？ </p> <p>println()是一个方法(Method)，而System是系统类(Class)，out是标准输出对象(Object)。这句话的用法是调用系统类System中的标准输出对象out中的方法println()。 </p> <h3>那么什么是方法呢？</h3> <p>Java方法是语句的集合，它们在一起执行一个功能。</p> <ul> <li>方法是解决一类问题的步骤的有序组合</li> <li>方法包含于类或对象中</li> <li>方法在程序中被创建，在其他地方被引用</li> </ul><hr> <h2>方法的定义</h2> <p>一般情况下，定义一个方法包含以下语法：</p> <pre>
+修饰符 返回值类型 方法名 (参数类型 参数名){
+    ...
+    方法体
+    ...
+    return 返回值;
+}
+</pre> <p>方法包含一个方法头和一个方法体。下面是一个方法的所有部分：</p> <ul> <li> <strong>修饰符：</strong>修饰符，这是可选的，告诉编译器如何调用该方法。定义了该方法的访问类型。</li> <li> <strong>返回值类型 ：</strong>方法可能会返回值。returnValueType是方法返回值的数据类型。有些方法执行所需的操作，但没有返回值。在这种情况下，returnValueType是关键字<strong>void</strong>。</li> <li> <strong>方法名：</strong>是方法的实际名称。方法名和参数表共同构成方法签名。</li> <li> <strong>参数类型：</strong>参数像是一个占位符。当方法被调用时，传递值给参数。这个值被称为实参或变量。参数列表是指方法的参数类型、顺序和参数的个数。参数是可选的，方法可以不包含任何参数。</li> <li> <strong>方法体：</strong>方法体包含具体的语句，定义该方法的功能。</li> </ul> <p> <img src="../wp-content/uploads/2013/12/try.php-filename=trycss_background-image" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/12/12-130Q1220955916.jpg"/> </p> <p>如：</p> <pre>
+public static int age(int birthday){...}
+</pre> <p> 参数可以有多个： </p><pre>
+static float interest(float principal, int year){...}
+</pre> <p> <strong>注意：</strong> 在一些其它语言中方法指过程和函数。一个返回非void类型返回值的方法称为函数；一个返回void类型返回值的方法叫做过程。 </p> <h3>实例</h3> <p> 下面的方法包含2个参数num1和num2，它返回这两个参数的最大值。 </p> <pre>
+/** 返回两个整型变量数据的较大值 */
+public static int max(int num1, int num2) {
+   int result;
+   if (num1 &gt; num2)
+      result = num1;
+   else
+      result = num2;
+
+   return result; 
+}
+</pre> <hr> <h2>方法调用 </h2> <p>Java支持两种调用方法的方式，根据方法是否返回值来选择。 </p><p>当程序调用一个方法时，程序的控制权交给了被调用的方法。当被调用方法的返回语句执行或者到达方法体闭括号时候交还控制权给程序。 </p><p>当方法返回一个值的时候，方法调用通常被当做一个值。例如： </p><pre>
+int larger = max(30, 40);
+</pre> <p>如果方法返回值是void，方法调用一定是一条语句。例如，方法println返回void。下面的调用是个语句： </p> <pre>
+System.out.println("Welcome to Java!");
+</pre> <h3>示例</h3> <p>下面的例子演示了如何定义一个方法，以及如何调用它：</p> <pre>
+public class TestMax {
+   /** 主方法 */
+   public static void main(String[] args) {
+      int i = 5;
+      int j = 2;
+      int k = max(i, j);
+      System.out.println("The maximum between " + i +
+                    " and " + j + " is " + k);
+   }
+
+   /** 返回两个整数变量较大的值 */
+   public static int max(int num1, int num2) {
+      int result;
+      if (num1 &gt; num2)
+         result = num1;
+      else
+         result = num2;
+
+      return result; 
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+The maximum between 5 and 2 is 5
+</pre> <p>这个程序包含main方法和max方法。Main方法是被JVM调用的，除此之外，main方法和其它方法没什么区别。 </p><p>main方法的头部是不变的，如例子所示，带修饰符public和static,返回void类型值，方法名字是main,此外带个一个String[]类型参数。String[]表明参数是字符串数组。 </p> <hr> <h2>void 关键字</h2> <p>本节说明如何声明和调用一个void方法。 </p><p>下面的例子声明了一个名为printGrade的方法，并且调用它来打印给定的分数。 </p><h3>示例</h3> <pre>
+public class TestVoidMethod {
+
+   public static void main(String[] args) {
+      printGrade(78.5);
+   }
+
+   public static void printGrade(double score) {
+      if (score &gt;= 90.0) {
+         System.out.println('A');
+      }
+      else if (score &gt;= 80.0) {
+         System.out.println('B');
+      }
+      else if (score &gt;= 70.0) {
+         System.out.println('C');
+      }
+      else if (score &gt;= 60.0) {
+         System.out.println('D');
+      }
+      else {
+         System.out.println('F');
+      }
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+C
+</pre> <p>这里printGrade方法是一个void类型方法，它不返回值。 </p><p>一个void方法的调用一定是一个语句。 所以，它被在main方法第三行以语句形式调用。就像任何以分号结束的语句一样。 </p> <hr><h2>通过值传递参数</h2> <p> 调用一个方法时候需要提供参数，你必须按照参数列表指定的顺序提供。 </p><p>例如，下面的方法连续n次打印一个消息： </p> <pre>
+public static void nPrintln(String message, int n) {
+  for (int i = 0; i &lt; n; i++)
+    System.out.println(message);
+}
+</pre> <h3>示例</h3> <p> 下面的例子演示按值传递的效果。</p><p> 该程序创建一个方法，该方法用于交换两个变量。 </p> <pre>
+public class TestPassByValue {
+
+   public static void main(String[] args) {
+      int num1 = 1;
+      int num2 = 2;
+
+      System.out.println("Before swap method, num1 is " +
+                          num1 + " and num2 is " + num2);
+
+      // 调用swap方法
+      swap(num1, num2);
+      System.out.println("After swap method, num1 is " +
+                         num1 + " and num2 is " + num2);
+   }
+   /** 交换两个变量的方法 */
+   public static void swap(int n1, int n2) {
+      System.out.println("\tInside the swap method");
+      System.out.println("\t\tBefore swapping n1 is " + n1
+                           + " n2 is " + n2);
+      // 交换 n1 与 n2的值
+      int temp = n1;
+      n1 = n2;
+      n2 = temp;
+
+      System.out.println("\t\tAfter swapping n1 is " + n1
+                           + " n2 is " + n2);
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+Before swap method, num1 is 1 and num2 is 2
+        Inside the swap method
+                Before swapping n1 is 1 n2 is 2
+                After swapping n1 is 2 n2 is 1
+After swap method, num1 is 1 and num2 is 2
+</pre> <p> 传递两个参数调用swap方法。有趣的是，方法被调用后，实参的值并没有改变。 </p> <hr> <h2>方法的重载</h2> <p> 上面使用的max方法仅仅适用于int型数据。但如果你想得到两个浮点类型数据的最大值呢？ </p><p>解决方法是创建另一个有相同名字但参数不同的方法，如下面代码所示： </p> <pre>
+public static double max(double num1, double num2) {
+  if (num1 &gt; num2)
+    return num1;
+  else
+    return num2;
+}
+</pre> <p>如果你调用max方法时传递的是int型参数，则 int型参数的max方法就会被调用； </p><p>如果传递的事double型参数，则double类型的max方法体会被调用，这叫做方法重载； </p><p>就是说一个类的两个方法拥有相同的名字，但是有不同的参数列表。 </p><p>Java编译器根据方法签名判断哪个方法应该被调用。 </p><p>方法重载可以让程序更清晰易读。执行密切相关任务的方法应该使用相同的名字。 </p><p>重载的方法必须拥有不同的参数列表。你不能仅仅依据修饰符或者返回类型的不同来重载方法。 </p><hr><h2>变量作用域</h2> <p> 变量的范围是程序中该变量可以被引用的部分。 </p><p>方法内定义的变量被称为局部变量。 </p><p>局部变量的作用范围从声明开始，直到包含它的块结束。 </p><p>局部变量必须声明才可以使用。 </p><p>方法的参数范围涵盖整个方法。参数实际上是一个局部变量。 </p><p>for循环的初始化部分声明的变量，其作用范围在整个循环。 </p><p>但循环体内声明的变量其适用范围是从它声明到循环体结束。它包含如下所示的变量声明： </p> <p> <img src="../wp-content/uploads/2013/12/try.php-filename=trycss_background-image_bad" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/12/12-130Q1221013F0.jpg"/> </p> <p>你可以在一个方法里，不同的非嵌套块中多次声明一个具有相同的名称局部变量，但你不能在嵌套块内两次声明局部变量。 </p> <h2>命令行参数的使用</h2> <p> 有时候你希望运行一个程序时候再传递给它消息。这要靠传递命令行参数给main()函数实现。 </p><p>命令行参数是在执行程序时候紧跟在程序名字后面的信息。</p> <h3>实例</h3><p> 下面的程序打印所有的命令行参数： </p> <pre>
+public class CommandLine {
+
+   public static void main(String args[]){ 
+      for(int i=0; i&lt;args.length; i++){
+         System.out.println("args[" + i + "]: " +
+                                           args[i]);
+      }
+   }
+}
+</pre> <p> 如下所示，运行这个程序： </p> <pre>
+java CommandLine this is a command line 200 -100
+</pre> <p>运行结果如下：</p> <pre>
+args[0]: this
+args[1]: is
+args[2]: a
+args[3]: command
+args[4]: line
+args[5]: 200
+args[6]: -100
+</pre> <hr><h2>构造方法</h2> <p> 当一个对象被创建时候，构造方法用来初始化该对象。构造方法和它所在类的名字相同，但构造方法没有返回值。 </p><p>通常会使用构造方法给一个类的实例变量赋初值，或者执行其它必要的步骤来创建一个完整的对象。 </p><p>不管你与否自定义构造方法，所有的类都有构造方法，因为Java自动提供了一个默认构造方法，它把所有成员初始化为0。 </p><p>一旦你定义了自己的构造方法，默认构造方法就会失效。 <h3>实例</h3> <p> 下面是一个使用构造方法的例子： </p> <pre>
+// 一个简单的构造函数
+class MyClass {
+   int x;
+   
+   // 以下是构造函数
+   MyClass() {
+      x = 10;
+   }
+}
+</pre> <p>你可以像下面这样调用构造方法来初始化一个对象：</p> <pre>
+public class ConsDemo {
+
+   public static void main(String args[]) {
+      MyClass t1 = new MyClass();
+      MyClass t2 = new MyClass();
+      System.out.println(t1.x + " " + t2.x);
+   }
+}
+</pre> <p>大多时候需要一个有参数的构造方法。 </p> <h3>实例</h3> <p>下面是一个使用构造方法的例子：</p> <pre>
+// 一个简单的构造函数
+class MyClass {
+   int x;
+   
+   // 以下是构造函数
+   MyClass(int i ) {
+      x = i;
+   }
+}
+</pre> <p>你可以像下面这样调用构造方法来初始化一个对象：</p> <pre>
+public class ConsDemo {
+
+   public static void main(String args[]) {
+      MyClass t1 = new MyClass( 10 );
+      MyClass t2 = new MyClass( 20 );
+      System.out.println(t1.x + " " + t2.x);
+   }
+}
+</pre> <p>运行结果如下：</p> <pre>
+10 20
+</pre> <h2>可变参数</h2> <p>JDK 1.5 开始，Java支持传递同类型的可变参数给一个方法。 </p><p>方法的可变参数的声明如下所示：</p> <pre>
+typeName... parameterName
+</pre> <p>在方法声明中，在指定参数类型后加一个省略号(...) 。 </p><p>一个方法中只能指定一个可变参数，它必须是方法的最后一个参数。任何普通的参数必须在它之前声明。 </p> <h3>实例</h3> <pre>
+public class VarargsDemo {
+
+   public static void main(String args[]) {
+      // 调用可变参数的方法
+	  printMax(34, 3, 3, 2, 56.5);
+      printMax(new double[]{1, 2, 3});
+   }
+
+   public static void printMax( double... numbers) {
+   if (numbers.length == 0) {
+      System.out.println("No argument passed");
+      return;
+   }
+
+   double result = numbers[0];
+
+   for (int i = 1; i &lt;  numbers.length; i++)
+      if (numbers[i] &gt;  result)
+      result = numbers[i];
+      System.out.println("The max value is " + result);
+   }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+The max value is 56.5
+The max value is 3.0
+</pre> <hr><h2>finalize() 方法</h2> <p>Java允许定义这样的方法，它在对象被垃圾收集器析构(回收)之前调用，这个方法叫做finalize( )，它用来清除回收对象。 </p><p>例如，你可以使用finalize()来确保一个对象打开的文件被关闭了。 </p><p>在finalize()方法里，你必须指定在对象销毁时候要执行的操作。 </p><p>finalize()一般格式是：</p> <pre>
+protected void finalize()
+{
+   // 在这里终结代码
+}
+</pre> <p> 关键字protected是一个限定符，它确保finalize() 方法不会被该类以外的代码调用。 </p> <p> 当然，Java的内存回收可以由JVM来自动完成。如果你手动使用，则可以使用上面的方法。 </p> <h3>实例</h3> <pre>
+public class FinalizationDemo {  
+    public static void main(String[] args) {  
+        Cake c1 = new Cake(1);  
+        Cake c2 = new Cake(2);  
+        Cake c3 = new Cake(3);  
+          
+        c2 = c3 = null;  
+        System.gc(); //调用Java垃圾收集器
+    }  
+}  
+  
+class Cake extends Object {  
+    private int id;  
+    public Cake(int id) {  
+        this.id = id;  
+        System.out.println("Cake Object " + id + "is created");  
+    }  
+      
+    protected void finalize() throws java.lang.Throwable {  
+        super.finalize();  
+        System.out.println("Cake Object " + id + "is disposed");  
+    }  
+}  
+</pre> <p>运行以上代码，输出结果如下：</p> <pre>
+C:\1&gt;java FinalizationDemo  
+Cake Object 1is created  
+Cake Object 2is created  
+Cake Object 3is created  
+Cake Object 3is disposed  
+Cake Object 2is disposed 
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html" rel="prev"> Java正则表达式</a></div> <div class="next"><a href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html" rel="next">Java 流(Stream)、文件(File)和IO</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/java/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/java/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

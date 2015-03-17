@@ -1,0 +1,261 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>JSP 表单处理 | w3cschool菜鸟教程</title> <link rel='prev' title='JSP HTTP 状态码' href="jsp-http-status-codes.html"/> <link rel='next' title='JSP 过滤器' href="jsp-writing-filters.html"/> <link rel='canonical' href='http://www.w3cschool.cc/jsp/jsp-form-processing.html'/> <meta name="keywords" content="JSP 表单处理"> <meta name="description" content="JSP 表单处理 我们在浏览网页的时候，经常需要向服务器提交信息，并让后台程序处理。浏览器中使用 GET 和 POST 方法向服务器提交数据。 GET 方法 GET方法将请求的编码信息添加在网址后面，网址与编码信息通过&#039;?&#039;号分隔。如下所示： http://www.w3cschool.cc/hello?key1=value1&amp;key2=value2 GET方法是浏览器默认传递参数的方法，一些敏感信息，如密码.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>JSP 教程</strong></h2> <a target="_top" title="JSP 教程" href="jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html"> JSP 教程 </a> <a target="_top" title="JSP 简介" href="jsp-intro.html" tppabs="http://www.w3cschool.cc/jsp/jsp-intro.html"> JSP 简介 </a> <a target="_top" title="JSP 开发环境搭建" href="jsp-setup.html" tppabs="http://www.w3cschool.cc/jsp/jsp-setup.html"> JSP 开发环境搭建 </a> <a target="_top" title="JSP 结构" href="jsp-architecture.html" tppabs="http://www.w3cschool.cc/jsp/jsp-architecture.html"> JSP 结构 </a> <a target="_top" title="JSP 生命周期" href="jsp-life-cycle.html" tppabs="http://www.w3cschool.cc/jsp/jsp-life-cycle.html"> JSP 生命周期 </a> <a target="_top" title="JSP 语法" href="jsp-syntax.html" tppabs="http://www.w3cschool.cc/jsp/jsp-syntax.html"> JSP 语法 </a> <a target="_top" title="JSP 指令" href="jsp-directives.html" tppabs="http://www.w3cschool.cc/jsp/jsp-directives.html"> JSP 指令 </a> <a target="_top" title="JSP 动作元素" href="jsp-actions.html" tppabs="http://www.w3cschool.cc/jsp/jsp-actions.html"> JSP 动作元素 </a> <a target="_top" title="JSP 隐含对象" href="jsp-implicit-objects.html" tppabs="http://www.w3cschool.cc/jsp/jsp-implicit-objects.html"> JSP 隐含对象 </a> <a target="_top" title="JSP 客户端请求" href="jsp-client-request.html" tppabs="http://www.w3cschool.cc/jsp/jsp-client-request.html"> JSP 客户端请求 </a> <a target="_top" title="JSP 服务器响应" href="jsp-server-response.html" tppabs="http://www.w3cschool.cc/jsp/jsp-server-response.html"> JSP 服务器响应 </a> <a target="_top" title="JSP HTTP 状态码" href="jsp-http-status-codes.html" tppabs="http://www.w3cschool.cc/jsp/jsp-http-status-codes.html"> JSP HTTP 状态码 </a> <a target="_top" title="JSP 表单处理" href="jsp-form-processing.html" tppabs="http://www.w3cschool.cc/jsp/jsp-form-processing.html"> JSP 表单处理 </a> <a target="_top" title="JSP 过滤器" href="jsp-writing-filters.html" tppabs="http://www.w3cschool.cc/jsp/jsp-writing-filters.html"> JSP 过滤器 </a> <a target="_top" title="JSP Cookies 处理" href="jsp-cookies.html" tppabs="http://www.w3cschool.cc/jsp/jsp-cookies.html"> JSP Cookies 处理 </a> <a target="_top" title="JSP Session" href="jsp-session.html" tppabs="http://www.w3cschool.cc/jsp/jsp-session.html"> JSP Session </a> <a target="_top" title="JSP 文件上传" href="jsp-file-uploading.html" tppabs="http://www.w3cschool.cc/jsp/jsp-file-uploading.html"> JSP 文件上传 </a> <a target="_top" title="JSP 日期处理" href="jsp-handling-date.html" tppabs="http://www.w3cschool.cc/jsp/jsp-handling-date.html"> JSP 日期处理 </a> <a target="_top" title="JSP 页面重定向" href="jsp-page-redirect.html" tppabs="http://www.w3cschool.cc/jsp/jsp-page-redirect.html"> JSP 页面重定向 </a> <a target="_top" title="JSP 点击量统计" href="jsp-hits-counter.html" tppabs="http://www.w3cschool.cc/jsp/jsp-hits-counter.html"> JSP 点击量统计 </a> <a target="_top" title="JSP 自动刷新" href="jsp-auto-refresh.html" tppabs="http://www.w3cschool.cc/jsp/jsp-auto-refresh.html"> JSP 自动刷新 </a> <a target="_top" title="JSP 发送邮件" href="jsp-sending-email.html" tppabs="http://www.w3cschool.cc/jsp/jsp-sending-email.html"> JSP 发送邮件 </a> <br><h2 class="left"><span class="left_h2">JSP 高级教程</span></h2> <a target="_top" title="JSP 标准标签库（JSTL）" href="jsp-jstl.html" tppabs="http://www.w3cschool.cc/jsp/jsp-jstl.html"> JSP 标准标签库（JSTL） </a> <a target="_top" title="JSP 连接数据库" href="jsp-database-access.html" tppabs="http://www.w3cschool.cc/jsp/jsp-database-access.html"> JSP 连接数据库 </a> <a target="_top" title="JSP XML 数据处理" href="jsp-xml-data.html" tppabs="http://www.w3cschool.cc/jsp/jsp-xml-data.html"> JSP XML 数据处理 </a> <a target="_top" title="JSP JavaBean" href="jsp-javabean.html" tppabs="http://www.w3cschool.cc/jsp/jsp-javabean.html"> JSP JavaBean </a> <a target="_top" title="JSP 自定义标签" href="jsp-custom-tags.html" tppabs="http://www.w3cschool.cc/jsp/jsp-custom-tags.html"> JSP 自定义标签 </a> <a target="_top" title="JSP 表达式语言" href="jsp-expression-language.html" tppabs="http://www.w3cschool.cc/jsp/jsp-expression-language.html"> JSP 表达式语言 </a> <a target="_top" title="JSP 异常处理" href="jsp-exception-handling.html" tppabs="http://www.w3cschool.cc/jsp/jsp-exception-handling.html"> JSP 异常处理 </a> <a target="_top" title="JSP 调试" href="jsp-debugging.html" tppabs="http://www.w3cschool.cc/jsp/jsp-debugging.html"> JSP 调试 </a> <a target="_top" title="JSP 国际化" href="jsp-internationalization.html" tppabs="http://www.w3cschool.cc/jsp/jsp-internationalization.html"> JSP 国际化 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jsp-http-status-codes.html" tppabs="http://www.w3cschool.cc/jsp/jsp-http-status-codes.html" rel="prev"> JSP HTTP 状态码</a></div> <div class="next"><a href="jsp-writing-filters.html" tppabs="http://www.w3cschool.cc/jsp/jsp-writing-filters.html" rel="next">JSP 过滤器</a> &raquo;</div> </div> <div id="content"> <h1>JSP <span class="color_h1">表单处理</span></h1> <p>我们在浏览网页的时候，经常需要向服务器提交信息，并让后台程序处理。浏览器中使用 GET 和 POST 方法向服务器提交数据。</p> <hr> <h2>GET 方法</h2> <p>GET方法将请求的编码信息添加在网址后面，网址与编码信息通过"?"号分隔。如下所示：</p> <pre>http://www.w3cschool.cc/hello?key1=value1&amp;key2=value2</pre> <p>GET方法是浏览器默认传递参数的方法，一些敏感信息，如密码等建议不使用GET方法。</p> <p>用get时，传输数据的大小有限制 （注意不是参数的个数有限制），最大为1024字节。</p> <hr> <h2>POST 方法</h2> <p>一些敏感信息，如密码等我们可以同过POST方法传递，post提交数据是隐式的。</p> <p>POST提交数据是不可见的，GET是通过在url里面传递的（可以看一下你浏览器的地址栏）。</p> <p>JSP使用getParameter()来获得传递的参数，getInputStream()方法用来处理客户端的二进制数据流的请求。</p><hr> <h2>JSP 读取表单数据</h2> <ul> <li><p><b>getParameter():</b> 使用 request.getParameter() 方法来获取表单参数的值。</p></li> <li><p><b>getParameterValues():</b> 获得如checkbox类（名字相同，但值有多个）的数据。 接收数组变量 ，如checkobx类型 </p></li> <li><p><b>getParameterNames():</b>该方法可以取得所有变量的名称，该方法返回一个Emumeration。</p></li> <li><p><b>getInputStream():</b>调用此方法来读取来自客户端的二进制数据流。</p></li> </ul> <hr> <h2>使用URL的 GET 方法实例</h2> <p>以下是一个简单的URL,并使用GET方法来传递URL中的参数：</p> <pre>http://localhost:8080/main.jsp?first_name=ZARA&amp;last_name=ALI</pre> <p>以下是main.jsp文件的JSP程序用于处理客户端提交的表单数据，我们使用getParameter()方法来获取提交的数据：</p> <pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Using GET Method to Read Form Data&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h1&gt;Using GET Method to Read Form Data&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;First Name:&lt;/b&gt;
+   &lt;%= request.getParameter("first_name")%&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Last  Name:&lt;/b&gt;
+   &lt;%= request.getParameter("last_name")%&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>接下来我们通过浏览器访问<em>http://localhost:8080/main.jsp?first_name=ZARA&last_name=ALI</em> 输出结果如下所示：</p> <pre>
+Using GET Method to Read Form Data
+First Name: ZARA
+
+Last Name: ALI
+</pre> <hr> <h2>使用表单的 GET 方法实例</h2> <p>以下是一个简单的HTML表单，该表单通过GET方法将客户端数据提交 到main.jsp文件中：</p> <pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form action="main.jsp" method="GET"&gt;
+First Name: &lt;input type="text" name="first_name"&gt;
+&lt;br /&gt;
+Last Name: &lt;input type="text" name="last_name" /&gt;
+&lt;input type="submit" value="Submit" /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>将以上HTML代码保存到Hello.htm文件中。 将该文件放置于&lt;Tomcat安装目录&gt;/webapps/ROOT 目录下。 通过访问<em> http://localhost:8080/Hello.htm</em>，输出界面如下所示：</p> <p><img src="../wp-content/uploads/2014/01/try.php-filename=trycss_list-style-image" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/01/form-1.jpg" alt="form-1" width="434" height="77" class="alignnone size-full wp-image-5193"/></p> <p> 在"First Name" 与 "Last Name"两个表单中填入信息，并点击"Submit"按钮，它将输出结果。</p> <hr> <h2>使用表单的 POST 方法实例</h2> <p>接下来让我们使用POST方法来传递表单数据，修改main.jsp与Hello.htm文件代码，如下所示：</p> <p>main.jsp文件代码：</p> <pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Using GET and POST Method to Read Form Data&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h1&gt;Using GET Method to Read Form Data&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;First Name:&lt;/b&gt;
+   &lt;%= request.getParameter("first_name")%&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Last  Name:&lt;/b&gt;
+   &lt;%= request.getParameter("last_name")%&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>以下是Hello.htm修改后的代码：</p> <pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form action="main.jsp" method="POST"&gt;
+First Name: &lt;input type="text" name="first_name"&gt;
+&lt;br /&gt;
+Last Name: &lt;input type="text" name="last_name" /&gt;
+&lt;input type="submit" value="Submit" /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>通过浏览器访问<em> http://localhost:8080/Hello.htm</em>，输出如下：</p> <p><img src="../wp-content/uploads/2014/01/try.php-filename=trycss_list-style-image" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/01/form-1.jpg" alt="form-1" width="434" height="77" class="alignnone size-full wp-image-5193"/></p> <p>在"First Name" 与 "Last Name"两个表单中填入信息，并点击"Submit"按钮，它将输出结果。</p> </p> <hr> <h2>传递 Checkbox 数据到JSP程序</h2> <p>复选框 checkbox 可以传递一个甚至多个数据。</p> <p>以下是一个简单的HTML代码，并将代码保存在CheckBox.htm文件中：</p> <pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form action="main.jsp" method="POST" target="_blank"&gt;
+&lt;input type="checkbox" name="maths" checked="checked" /&gt; Maths
+&lt;input type="checkbox" name="physics"  /&gt; Physics
+&lt;input type="checkbox" name="chemistry" checked="checked" /&gt; 
+                                                Chemistry
+&lt;input type="submit" value="Select Subject" /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>以上代码在浏览器访问如下所示：</p> <p>以下为main.jsp文件代码，用于处理复选框数据：</p> <pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Reading Checkbox Data&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h1&gt;Reading Checkbox Data&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Maths Flag:&lt;/b&gt;
+   &lt;%= request.getParameter("maths")%&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Physics Flag:&lt;/b&gt;
+   &lt;%= request.getParameter("physics")%&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;b&gt;Chemistry Flag:&lt;/b&gt;
+   &lt;%= request.getParameter("chemistry")%&gt;
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>以上实例输出结果为：</p> <p><img src="../wp-content/uploads/2014/01/try.php-filename=trycss_list-style-image_crossbrow" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/01/form-2.jpg" alt="form-2" width="361" height="46" class="alignnone size-full wp-image-5194"/></p> <hr> <h2>读取所有表单参数</h2> <p>以下我们将使用 HttpServletRequest 的getParameterNames()来读取所有可用的表单参数,该方法可以取得所有变量的名称，该方法返回一个Emumeration。</p> <p>一旦我们有了一个Enumeration（枚举），我们就可以调用hasMoreElements（）方法来确定何时停止使用和nextElement（）方法来获得每个参数的名称。</p> <pre>
+&lt;%@ page import="java.io.*,java.util.*" %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;HTTP Header Request Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h2&gt;HTTP Header Request Example&lt;/h2&gt;
+&lt;table width="100%" border="1" align="center"&gt;
+&lt;tr bgcolor="#949494"&gt;
+&lt;th&gt;Param Name&lt;/th&gt;&lt;th&gt;Param Value(s)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;%
+   Enumeration paramNames = request.getParameterNames();
+
+   while(paramNames.hasMoreElements()) {
+      String paramName = (String)paramNames.nextElement();
+      out.print("&lt;tr&gt;&lt;td&gt;" + paramName + "&lt;/td&gt;\n");
+      String paramValue = request.getHeader(paramName);
+      out.println("&lt;td&gt; " + paramValue + "&lt;/td&gt;&lt;/tr&gt;\n");
+   }
+%&gt;
+&lt;/table&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>以下是Hello.htm文件的内容:</p> <pre>
+&lt;html&gt;
+&lt;body&gt;
+&lt;form action="main.jsp" method="POST" target="_blank"&gt;
+&lt;input type="checkbox" name="maths" checked="checked" /&gt; Maths
+&lt;input type="checkbox" name="physics"  /&gt; Physics
+&lt;input type="checkbox" name="chemistry" checked="checked" /&gt; Chem
+&lt;input type="submit" value="Select Subject" /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>现在我们通过浏览器访问 Hello.htm 文件并提交数据，输出结果如下：</p> <p><img src="../wp-content/uploads/2014/01/try.php-filename=trycss_list-style" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/01/form-3.jpg" alt="form-3" width="569" height="132" class="alignnone size-full wp-image-5195"/></p> <p>你可以尝试使用以上的JSP代码读取其它对象，如文本框，单选按钮或下拉框等等其他形式的数据。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jsp-http-status-codes.html" tppabs="http://www.w3cschool.cc/jsp/jsp-http-status-codes.html" rel="prev"> JSP HTTP 状态码</a></div> <div class="next"><a href="jsp-writing-filters.html" tppabs="http://www.w3cschool.cc/jsp/jsp-writing-filters.html" rel="next">JSP 过滤器</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/jsp/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/jsp/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

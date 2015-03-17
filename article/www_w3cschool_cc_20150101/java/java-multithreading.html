@@ -1,0 +1,341 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Java 多线程编程 | w3cschool菜鸟教程</title> <link rel='prev' title='Java 发送邮件' href="java-sending-email.html"/> <link rel='next' title='Java Applet基础' href="java-applet-basics.html"/> <link rel='canonical' href='http://www.w3cschool.cc/java/java-multithreading.html'/> <meta name="keywords" content="Java 多线程编程"> <meta name="description" content="Java 多线程编程 Java给多线程编程提供了内置的支持。一个多线程程序包含两个或多个能并发运行的部分。程序的每一部分都称作一个线程，并且每个线程定义了一个独立的执行路径。 多线程是多任务的一种特别的形式。多线程比多任务需要更小的开销。 这里定义和线程相关的另一个术语：进程：一个进程包括由操作系统分配的内存空间，包含一个或多个线程。一个线程不能独立的存在，它必须是进程的一部分。一个进程一直运行，直到所有的非守候线程都结束运行后才能.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Java 教程</strong></h2> <a target="_top" title="Java 教程" href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html"> Java 教程 </a> <a target="_top" title="Java 简介" href="java-intro.html" tppabs="http://www.w3cschool.cc/java/java-intro.html"> Java 简介 </a> <a target="_top" title="Java开发环境配置" href="java-environment-setup.html" tppabs="http://www.w3cschool.cc/java/java-environment-setup.html"> Java开发环境配置 </a> <a target="_top" title="Java基础语法" href="java-basic-syntax.html" tppabs="http://www.w3cschool.cc/java/java-basic-syntax.html"> Java基础语法 </a> <a target="_top" title="Java对象和类" href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html"> Java对象和类 </a> <a target="_top" title="Java基本数据类型" href="java-basic-datatypes.html" tppabs="http://www.w3cschool.cc/java/java-basic-datatypes.html"> Java基本数据类型 </a> <a target="_top" title="Java变量类型" href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html"> Java变量类型 </a> <a target="_top" title="Java修饰符" href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html"> Java修饰符 </a> <a target="_top" title="Java运算符" href="java-operators.html" tppabs="http://www.w3cschool.cc/java/java-operators.html"> Java运算符 </a> <a target="_top" title="Java循环结构 &#8211; for, while 及 do&#8230;while" href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html"> Java循环结构 </a> <a target="_top" title="Java分支结构 &#8211; if&#8230;else/switch" href="java-if-else-switch.html" tppabs="http://www.w3cschool.cc/java/java-if-else-switch.html"> Java分支结构 </a> <a target="_top" title="Java Number类" href="java-number.html" tppabs="http://www.w3cschool.cc/java/java-number.html"> Java Number类 </a> <a target="_top" title="Java Character类" href="java-character.html" tppabs="http://www.w3cschool.cc/java/java-character.html"> Java Character类 </a> <a target="_top" title="Java String类" href="java-string.html" tppabs="http://www.w3cschool.cc/java/java-string.html"> Java String类 </a> <a target="_top" title="Java StringBuffer和StringBuilder类" href="java-stringbuffer.html" tppabs="http://www.w3cschool.cc/java/java-stringbuffer.html"> Java StringBuffer和StringBuilder类 </a> <a target="_top" title="Java 数组" href="java-array.html" tppabs="http://www.w3cschool.cc/java/java-array.html"> Java 数组 </a> <a target="_top" title="Java日期时间" href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html"> Java日期时间 </a> <a target="_top" title="Java正则表达式" href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html"> Java正则表达式 </a> <a target="_top" title="Java 方法" href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html"> Java 方法 </a> <a target="_top" title="Java 流(Stream)、文件(File)和IO" href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html"> Java 流(Stream)、文件(File)和IO </a> <a target="_top" title="Java 异常处理" href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html"> Java 异常处理 </a> <br><h2 class="left">Java <span class="left_h2">面向对象</span></h2> <a target="_top" title="Java 继承" href="java-inheritance.html" tppabs="http://www.w3cschool.cc/java/java-inheritance.html"> Java 继承 </a> <a target="_top" title="Java 重写(Override)与重载(Overload)" href="java-override-overload.html" tppabs="http://www.w3cschool.cc/java/java-override-overload.html"> Java 重写(Override)与重载(Overload) </a> <a target="_top" title="Java 多态" href="java-polymorphism.html" tppabs="http://www.w3cschool.cc/java/java-polymorphism.html"> Java 多态 </a> <a target="_top" title="Java 抽象类" href="java-abstraction.html" tppabs="http://www.w3cschool.cc/java/java-abstraction.html"> Java 抽象类 </a> <a target="_top" title="java 封装" href="java-encapsulation.html" tppabs="http://www.w3cschool.cc/java/java-encapsulation.html"> java 封装 </a> <a target="_top" title="Java 接口" href="java-interfaces.html" tppabs="http://www.w3cschool.cc/java/java-interfaces.html"> Java 接口 </a> <a target="_top" title="Java 包(package)" href="java-package.html" tppabs="http://www.w3cschool.cc/java/java-package.html"> Java 包(package) </a> <br><h2 class="left">Java <span class="left_h2">高级教程</span></h2> <a target="_top" title="Java 数据结构" href="java-data-structures.html" tppabs="http://www.w3cschool.cc/java/java-data-structures.html"> Java 数据结构 </a> <a target="_top" title="Java 集合框架" href="java-collections.html" tppabs="http://www.w3cschool.cc/java/java-collections.html"> Java 集合框架 </a> <a target="_top" title="Java 泛型" href="java-generics.html" tppabs="http://www.w3cschool.cc/java/java-generics.html"> Java 泛型 </a> <a target="_top" title="Java序列化" href="java-serialization.html" tppabs="http://www.w3cschool.cc/java/java-serialization.html"> Java序列化 </a> <a target="_top" title="Java 网络编程" href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html"> Java 网络编程 </a> <a target="_top" title="Java 发送邮件" href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html"> Java 发送邮件 </a> <a target="_top" title="Java 多线程编程" href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html"> Java 多线程编程 </a> <a target="_top" title="Java Applet基础" href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html"> Java Applet基础 </a> <a target="_top" title="Java 文档注释" href="java-documentation.html" tppabs="http://www.w3cschool.cc/java/java-documentation.html"> Java 文档注释 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html" rel="prev"> Java 发送邮件</a></div> <div class="next"><a href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html" rel="next">Java Applet基础</a> &raquo;</div> </div> <div id="content"> <h1>Java 多线程编程 </h1> <p> Java给多线程编程提供了内置的支持。一个多线程程序包含两个或多个能并发运行的部分。程序的每一部分都称作一个线程，并且每个线程定义了一个独立的执行路径。</p><p> 多线程是多任务的一种特别的形式。多线程比多任务需要更小的开销。</p><p> 这里定义和线程相关的另一个术语：进程：一个进程包括由操作系统分配的内存空间，包含一个或多个线程。一个线程不能独立的存在，它必须是进程的一部分。一个进程一直运行，直到所有的非守候线程都结束运行后才能结束。</p><p> 多线程能满足程序员编写非常有效率的程序来达到充分利用CPU的目的，因为CPU的空闲时间能够保持在最低限度。</p><hr> <h2> 一个线程的生命周 </h2> <p> 线程经过其生命周期的各个阶段。下图显示了一个线程完整的生命周期。</p> <p> <img class="attachment-full" alt="java_thread" src="../wp-content/uploads/2014/01/try.php-filename=trycss_line-height" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/01/java_thread.jpg" width="450" height="353"/> </p> <ul> <li><b>新状态:</b> 一个新产生的线程从新状态开始了它的生命周期。它保持这个状态知道程序start这个线程。</li> <li><b>运行状态:</b>当一个新状态的线程被start以后，线程就变成可运行状态，一个线程在此状态下被认为是开始执行其任务</li> <li><b>就绪状态:</b>当一个线程等待另外一个线程执行一个任务的时候，该线程就进入就绪状态。当另一个线程给就绪状态的线程发送信号时，该线程才重新切换到运行状态。</li> <li><b>休眠状态:</b> 由于一个线程的时间片用完了，该线程从运行状态进入休眠状态。当时间间隔到期或者等待的时间发生了，该状态的线程切换到运行状态。</li> <li><b>终止状态: </b>一个运行状态的线程完成任务或者其他终止条件发生，该线程就切换到终止状态。</li> </ul> <hr> <h2> 线程的优先级</h2> <p> 每一个Java线程都有一个优先级，这样有助于操作系统确定线程的调度顺序。Java优先级在MIN_PRIORITY（1）和MAX_PRIORITY（10）之间的范围内。默认情况下，每一个线程都会分配一个优先级NORM_PRIORITY（5）。 </p><p>具有较高优先级的线程对程序更重要，并且应该在低优先级的线程之前分配处理器时间。然而，线程优先级不能保证线程执行的顺序，而且非常依赖于平台。</p> <hr> <h2> 创建一个线程</h2> <p>Java提供了两种创建线程方法：</p> <ul><li> 通过实现Runable接口；</li><li> 通过继承Thread类本身。</li></ul> <hr><h2> 通过实现Runnable接口来创建线程</h2> <p> 创建一个线程，最简单的方法是创建一个实现Runnable接口的类。</p><p> 为了实现Runnable，一个类只需要执行一个方法调用run()，声明如下：</p><p> <pre>
+publicvoid run()
+</pre> <p> 你可以重写该方法，重要的是理解的run()可以调用其他方法，使用其他类，并声明变量，就像主线程一样。</p><p> 在创建一个实现Runnable接口的类之后，你可以在类中实例化一个线程对象。</p><p> Thread定义了几个构造方法，下面的这个是我们经常使用的：</p> <pre>
+Thread(Runnable threadOb,String threadName);
+</pre> <p> 这里，threadOb 是一个实现Runnable 接口的类的实例，并且 threadName指定新线程的名字。</p><p> 新线程创建之后，你调用它的start()方法它才会运行。</p> <pre>
+void start();
+</pre> <h3> 实例</h3> <p> 下面是一个创建线程并开始让它执行的实例： </p> <pre>
+// 创建一个新的线程
+class NewThread implements Runnable {
+   Thread t;
+   NewThread() {
+      // 创建第二个新线程
+      t = new Thread(this, "Demo Thread");
+      System.out.println("Child thread: " + t);
+      t.start(); // 开始线程
+   }
+  
+   // 第二个线程入口
+   public void run() {
+      try {
+         for(int i = 5; i &gt; 0; i--) {
+            System.out.println("Child Thread: " + i);
+            // 暂停线程
+            Thread.sleep(50);
+         }
+     } catch (InterruptedException e) {
+         System.out.println("Child interrupted.");
+     }
+     System.out.println("Exiting child thread.");
+   }
+}
+ 
+public class ThreadDemo {
+   public static void main(String args[]) {
+      new NewThread(); // 创建一个新线程
+      try {
+         for(int i = 5; i &gt; 0; i--) {
+           System.out.println("Main Thread: " + i);
+           Thread.sleep(100);
+         }
+      } catch (InterruptedException e) {
+         System.out.println("Main thread interrupted.");
+      }
+      System.out.println("Main thread exiting.");
+   }
+}
+</pre> <p> 编译以上程序运行结果如下： </p> <pre>
+Child thread: Thread[Demo Thread,5,main]
+Main Thread: 5
+Child Thread: 5
+Child Thread: 4
+Main Thread: 4
+Child Thread: 3
+Child Thread: 2
+Main Thread: 3
+Child Thread: 1
+Exiting child thread.
+Main Thread: 2
+Main Thread: 1
+Main thread exiting.
+</pre> <hr> <h2> 通过继承Thread来创建线程</h2> <p> 创建一个线程的第二种方法是创建一个新的类，该类继承Thread类，然后创建一个该类的实例。</p><p> 继承类必须重写run()方法，该方法是新线程的入口点。它也必须调用start()方法才能执行。</p> <h3> 实例</h3> <pre>
+// 通过继承 Thread 创建线程
+class NewThread extends Thread {
+   NewThread() {
+      // 创建第二个新线程
+      super("Demo Thread");
+      System.out.println("Child thread: " + this);
+      start(); // 开始线程
+   }
+ 
+   // 第二个线程入口
+   public void run() {
+      try {
+         for(int i = 5; i &gt; 0; i--) {
+            System.out.println("Child Thread: " + i);
+                            // 让线程休眠一会
+            Thread.sleep(50);
+         }
+      } catch (InterruptedException e) {
+         System.out.println("Child interrupted.");
+      }
+      System.out.println("Exiting child thread.");
+   }
+}
+ 
+public class ExtendThread {
+   public static void main(String args[]) {
+      new NewThread(); // 创建一个新线程
+      try {
+         for(int i = 5; i &gt; 0; i--) {
+            System.out.println("Main Thread: " + i);
+            Thread.sleep(100);
+         }
+      } catch (InterruptedException e) {
+         System.out.println("Main thread interrupted.");
+      }
+      System.out.println("Main thread exiting.");
+   }
+}
+</pre> <p>编译以上程序运行结果如下： </p> <pre>
+Child thread: Thread[Demo Thread,5,main]
+Main Thread: 5
+Child Thread: 5
+Child Thread: 4
+Main Thread: 4
+Child Thread: 3
+Child Thread: 2
+Main Thread: 3
+Child Thread: 1
+Exiting child thread.
+Main Thread: 2
+Main Thread: 1
+Main thread exiting.
+</pre><hr> <h2> Thread 方法</h2> <p> 下表列出了Thread类的一些重要方法： </p> <table class="reference"> <tbody> <tr> <th> <strong>序号</strong></th> <th style="text-align: center;"> <strong>方法描述</strong></th> </tr> <tr> <td> 1</td> <td> <strong>public void start()</strong><br> 使该线程开始执行；<b style="color:black;background-color:#ffff66">Java</b> 虚拟机调用该线程的&nbsp;run&nbsp;方法。</td> </tr> <tr> <td> 2</td> <td> <strong>public void run()</strong><br> 如果该线程是使用独立的&nbsp;Runnable&nbsp;运行对象构造的，则调用该&nbsp;Runnable&nbsp;对象的&nbsp;run&nbsp;方法；否则，该方法不执行任何操作并返回。</td> </tr> <tr> <td> 3</td> <td> <strong>public final void setName(String name)</strong><br> 改变线程名称，使之与参数&nbsp;name&nbsp;相同。</td> </tr> <tr> <td> 4</td> <td> <strong>public final void setPriority(int priority)</strong><br> &nbsp;更改线程的优先级。</td> </tr> <tr> <td> 5</td> <td> <strong>public final void setDaemon(boolean on)</strong><br> 将该线程标记为守护线程或用户线程。</td> </tr> <tr> <td> 6</td> <td> <strong>public final void join(long millisec)</strong><br> 等待该线程终止的时间最长为&nbsp;millis&nbsp;毫秒。</td> </tr> <tr> <td> 7</td> <td> <strong>public void interrupt()</strong><br> 中断线程。</td> </tr> <tr> <td> 8</td> <td> <strong>public final boolean isAlive()</strong><br> 测试线程是否处于活动状态。</td> </tr> </tbody> </table> <p>测试线程是否处于活动状态。 上述方法是被Thread对象调用的。下面的方法是Thread类的静态方法。 </p> <table class="reference"> <tbody> <tr> <th> <strong>序号</strong></th> <th style="text-align: center;"> <strong>方法描述</strong></th> </tr> <tr> <td> 1</td> <td> <strong>public static void yield()</strong><br> 暂停当前正在执行的线程对象，并执行其他线程。</td> </tr> <tr> <td> 2</td> <td> <strong>public static void sleep(long millisec)</strong><br> 在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。</td> </tr> <tr> <td> 3</td> <td> <strong>public static boolean holdsLock(Object x)</strong><br> 当且仅当当前线程在指定的对象上保持监视器锁时，才返回&nbsp;true。</td> </tr> <tr> <td> 4</td> <td> <strong>public static Thread currentThread()</strong><br> 返回对当前正在执行的线程对象的引用。</td> </tr> <tr> <td> 5</td> <td> <strong>public static void dumpStack()</strong><br> 将当前线程的堆栈跟踪打印至标准错误流。</td> </tr> </tbody> </table> <h3>实例</h3> <p> 如下的ThreadClassDemo 程序演示了Thread类的一些方法： </p> <pre>
+// 文件名 : DisplayMessage.java
+// 通过实现 Runnable 接口创建线程
+public class DisplayMessage implements Runnable
+{
+   private String message;
+   public DisplayMessage(String message)
+   {
+      this.message = message;
+   }
+   public void run()
+   {
+      while(true)
+      {
+         System.out.println(message);
+      }
+   }
+}
+</pre> <pre>
+// 文件名 : GuessANumber.java
+// 通过继承 Thread 类创建线程
+
+public class GuessANumber extends Thread
+{
+   private int number;
+   public GuessANumber(int number)
+   {
+      this.number = number;
+   }
+   public void run()
+   {
+      int counter = 0;
+      int guess = 0;
+      do
+      {
+          guess = (int) (Math.random() * 100 + 1);
+          System.out.println(this.getName()
+                       + " guesses " + guess);
+          counter++;
+      }while(guess != number);
+      System.out.println("** Correct! " + this.getName()
+                       + " in " + counter + " guesses.**");
+   }
+}
+</pre> <pre>
+// 文件名 : ThreadClassDemo.java
+public class ThreadClassDemo
+{
+   public static void main(String [] args)
+   {
+      Runnable hello = new DisplayMessage("Hello");
+      Thread thread1 = new Thread(hello);
+      thread1.setDaemon(true);
+      thread1.setName("hello");
+      System.out.println("Starting hello thread...");
+      thread1.start();
+     
+      Runnable bye = new DisplayMessage("Goodbye");
+      Thread thread2 = new Thread(hello);
+      thread2.setPriority(Thread.MIN_PRIORITY);
+      thread2.setDaemon(true);
+      System.out.println("Starting goodbye thread...");
+      thread2.start();
+ 
+      System.out.println("Starting thread3...");
+      Thread thread3 = new GuessANumber(27);
+      thread3.start();
+      try
+      {
+         thread3.join();
+      }catch(InterruptedException e)
+      {
+         System.out.println("Thread interrupted.");
+      }
+      System.out.println("Starting thread4...");
+      Thread thread4 = new GuessANumber(75);
+     
+           thread4.start();
+      System.out.println("main() is ending...");
+   }
+}
+</pre> <p> 运行结果如下，每一次运行的结果都不一样。 </p> <pre>
+Starting hello thread...
+Starting goodbye thread...
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Thread-2 guesses 27
+Hello
+** Correct! Thread-2 in 102 guesses.**
+Hello
+Starting thread4...
+Hello
+Hello
+..........remaining result produced.
+</pre> <h2>线程的几个主要概念: </h2> <p> 在多线程编程时，你需要了解以下几个概念：</p> <ul> <li> 线程同步</li><li> 线程间通信</li><li> 线程死锁</li><li> 线程控制：挂起、停止和恢复</li></ul> <hr><h2>多线程的使用</h2> <p> 有效利用多线程的关键是理解程序是并发执行而不是串行执行的。例如：程序中有两个子系统需要并发执行，这时候就需要利用多线程编程。</p><p> 通过对多线程的使用，可以编写出非常高效的程序。不过请注意，如果你创建太多的线程，程序执行的效率实际上是降低了，而不是提升了。</p><p> 请记住，上下文的切换开销也很重要，如果你创建了太多的线程，CPU花费在上下文的切换的时间将多于执行程序的时间！</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html" rel="prev"> Java 发送邮件</a></div> <div class="next"><a href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html" rel="next">Java Applet基础</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/java/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/java/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

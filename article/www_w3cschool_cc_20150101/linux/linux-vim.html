@@ -1,0 +1,129 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Linux vi/vim | w3cschool菜鸟教程</title> <link rel='prev' title='Servlet 有用的资源' href="/servlet/servlet-useful-resources.html"/> <link rel='next' title='linux yum 命令' href="linux-yum.html"/> <link rel='canonical' href='http://www.w3cschool.cc/linux/linux-vim.html'/> <meta name="keywords" content="Linux vi/vim"> <meta name="description" content="Linux vi/vim 所有的 Unix Like 系统都会内建 vi 文书编辑器，其他的文书编辑器则不一定会存在。 但是目前我们使用比较多的是 vim 编辑器。 vim 具有程序编辑的能力，可以主动的以字体颜色辨别语法的正确性，方便程序设计。 什么是 vim？ Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。 简单的来说， vi 是老式的字处理器，不过功能已.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Linux 教程</strong></h2> <a target="_top" title="Linux 教程" href="linux-tutorial.html" tppabs="http://www.w3cschool.cc/linux/linux-tutorial.html"> Linux 教程 </a> <a target="_top" title="Linux 简介" href="linux-intro.html" tppabs="http://www.w3cschool.cc/linux/linux-intro.html"> Linux 简介 </a> <a target="_top" title="Linux 安装" href="linux-install.html" tppabs="http://www.w3cschool.cc/linux/linux-install.html"> Linux 安装 </a> <a target="_top" title="Linux 系统启动过程" href="linux-system-boot.html" tppabs="http://www.w3cschool.cc/linux/linux-system-boot.html"> Linux 系统启动过程 </a> <a target="_top" title="Linux 系统目录结构" href="linux-system-contents.html" tppabs="http://www.w3cschool.cc/linux/linux-system-contents.html"> Linux 系统目录结构 </a> <a target="_top" title="Linux 忘记密码解决方法" href="linux-forget-password.html" tppabs="http://www.w3cschool.cc/linux/linux-forget-password.html"> Linux 忘记密码解决方法 </a> <a target="_top" title="Linux 远程登录" href="linux-remote-login.html" tppabs="http://www.w3cschool.cc/linux/linux-remote-login.html"> Linux 远程登录 </a> <a target="_top" title="Linux 文件基本属性" href="linux-file-attr-permission.html" tppabs="http://www.w3cschool.cc/linux/linux-file-attr-permission.html"> Linux 文件基本属性 </a> <a target="_top" title="Linux 文件与目录管理" href="linux-file-content-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-file-content-manage.html"> Linux 文件与目录管理 </a> <a target="_top" title="Linux 用户和用户组管理" href="linux-user-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-user-manage.html"> Linux 用户和用户组管理 </a> <a target="_top" title="Linux 磁盘管理" href="linux-filesystem.html" tppabs="http://www.w3cschool.cc/linux/linux-filesystem.html"> Linux 磁盘管理 </a> <a target="_top" title="Linux vi/vim" href="linux-vim.html" tppabs="http://www.w3cschool.cc/linux/linux-vim.html"> Linux vi/vim </a> <a target="_top" title="linux yum 命令" href="linux-yum.html" tppabs="http://www.w3cschool.cc/linux/linux-yum.html"> linux yum 命令 </a> <br><h2 class="left"><span class="left_h2">Shell</span> 编程</h2> <a target="_top" title="Shell 教程" href="linux-shell.html" tppabs="http://www.w3cschool.cc/linux/linux-shell.html"> Shell 教程 </a> <a target="_top" title="Shell 变量" href="linux-shell-variable.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-variable.html"> Shell 变量 </a> <a target="_top" title="Shell echo命令" href="linux-shell-echo.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-echo.html"> Shell echo命令 </a> <a target="_top" title="Shell test命令" href="linux-shell-test.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-test.html"> Shell test命令 </a> <a target="_top" title="Shell 流程控制" href="linux-shell-process-control.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-process-control.html"> Shell 流程控制 </a> <a target="_top" title="Shell 函数" href="linux-shell-func.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-func.html"> Shell 函数 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-filesystem.html" tppabs="http://www.w3cschool.cc/linux/linux-filesystem.html" rel="prev"> Linux 磁盘管理</a></div> <div class="next"><a href="linux-yum.html" tppabs="http://www.w3cschool.cc/linux/linux-yum.html" rel="next">linux yum 命令</a> &raquo;</div> </div> <div id="content"> <h1>Linux vi/vim </h1> <p> 所有的 Unix Like 系统都会内建 vi 文书编辑器，其他的文书编辑器则不一定会存在。</p> <p>但是目前我们使用比较多的是 vim 编辑器。</p> <p>vim 具有程序编辑的能力，可以主动的以字体颜色辨别语法的正确性，方便程序设计。</p> <hr> <h2>什么是 vim？</h2> <p>Vim是从 vi 发展出来的一个文本编辑器。代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。 </p> <p>简单的来说， vi 是老式的字处理器，不过功能已经很齐全了，但是还是有可以进步的地方。 vim 则可以说是程序开发者的一项很好用的工具。 连 vim 的官方网站 (http://www.vim.org) 自己也说 vim 是一个程序开发工具而不是文字处理软件。 </p> <hr> <h2>vi/vim 的使用</h2> <p> 基本上 vi/vim 共分为三种模式，分别是一般模式、编辑模式与指令列命令模式。 这三种模式的作用分别是： </p> <ul> <li>一般模式：<br> 以 vi 打开一个档案就直接进入一般模式了(这是默认的模式)。在这个模式中， 你可以使用『上下左右』按键来移动光标，你可以使用『删除字符』或『删除整行』来处理档案内容， 也可以使用『复制、贴上』来处理你的文件数据。<br></li> <li>编辑模式：<br> 在一般模式中可以进行删除、复制、贴上等等的动作，但是却无法编辑文件内容的！ 要等到你按下『i, I, o, O, a, A, r, R』等任何一个字母之后才会进入编辑模式。注意了！通常在 Linux 中，按下这些按键时，在画面的左下方会出现『INSERT 或 REPLACE 』的字样，此时才可以进行编辑。而如果要回到一般模式时， 则必须要按下『Esc』这个按键即可退出编辑模式。<br></li> <li>指令列命令模式：<br> 在一般模式当中，输入『 : / ? 』三个中的任何一个按钮，就可以将光标移动到最底下那一行。在这个模式当中， 可以提供你『搜寻资料』的动作，而读取、存盘、大量取代字符、离开 vi 、显示行号等等的动作则是在此模式中达成的！</li> </ul> <p>简单的说，我们可以将这三个模式想成底下的图标来表示：</p> <img src="../wp-content/uploads/2014/07/color.php-hex=D3D3D3" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/07/vim_model.png"/> <h3> vi/vim 使用实例</h3> <h4>使用 vi/vim 进入一般模式</h4> <p>如果你想要使用 vi 来建立一个名为 test.txt 的文件时，你可以这样做：</p> <pre>
+[root@www ~]# vi test.txt
+</pre> <p>直接输入<strong> vi 文件名 </strong>就能够进入 vi 的一般模式了。请注意，记得 vi 后面一定要加文件名，不管该文件存在与否！ </p> <img src="../wp-content/uploads/2014/07/color.php-color=LightGreen" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/07/vi1.jpg"/> <h4>按下 i 进入编辑模式，开始编辑文字</h4> <p>在一般模式之中，只要按下 i, o, a 等字符就可以进入编辑模式了！</p> <p>在编辑模式当中，你可以发现在左下角状态栏中会出现 –INSERT- 的字样，那就是可以输入任意字符的提示。</p> <p>这个时候，键盘上除了 [Esc] 这个按键之外，其他的按键都可以视作为一般的输入按钮了，所以你可以进行任何的编辑。 </p> <img src="../wp-content/uploads/2014/07/color.php-hex=90EE90" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/07/vi2.jpg"/> <h4>按下 [ESC] 按钮回到一般模式</h4> <p>好了，假设我已经按照上面的样式给他编辑完毕了，那么应该要如何退出呢？是的！没错！就是给他按下 [Esc] 这个按钮即可！马上你就会发现画面左下角的 – INSERT – 不见了！ </p> <h4>在一般模式中按下 :wq 储存后离开 vi</h4> <p> OK，我们要存档了，存盘并离开的指令很简单，输入『:wq』即可保存离开！ </p> <img src="../wp-content/uploads/2014/07/color.php-color=LightPink" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/07/vi3.jpg"/> <p>OK! 这样我们就成功创建了一个 test.txt 的文件。是不是很简单。</p> <hr> <h2>vi/vim 按键说明</h2> <p>除了上面简易范例的 i, [Esc], :wq 之外，其实 vim 还有非常多的按键可以使用。</p> <h4> 第一部份：一般模式可用的按钮说明，光标移动、复制贴上、搜寻取代等 </h4> <table class="reference"> <tbody><tr><th colspan="2"><font color="#FFFFFF">移动光标的方法</font></th></tr> <tr><td width="22%">h 或 向左箭头键(←)</td> <td>光标向左移动一个字符</td></tr> <tr><td>j 或 向下箭头键(↓)</td> <td>光标向下移动一个字符</td></tr> <tr><td>k 或 向上箭头键(↑)</td> <td>光标向上移动一个字符</td></tr> <tr><td>l 或 向右箭头键(→)</td> <td>光标向右移动一个字符</td></tr> <tr><td colspan="2"> 如果你将右手放在键盘上的话，你会发现 hjkl 是排列在一起的，因此可以使用这四个按钮来移动光标。 如果想要进行多次移动的话，例如向下移动 30 行，可以使用 "30j" 或 "30↓" 的组合按键， 亦即加上想要进行的次数(数字)后，按下动作即可！</td></tr> <tr><td>[Ctrl] + [f]</td> <td>屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)</td></tr> <tr><td>[Ctrl] + [b]</td> <td>屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)</td></tr> <tr><td>[Ctrl] + [d]</td> <td>屏幕『向下』移动半页</td></tr> <tr><td>[Ctrl] + [u]</td> <td>屏幕『向上』移动半页</td></tr> <tr><td>+</td> <td>光标移动到非空格符的下一列</td></tr> <tr><td>-</td> <td>光标移动到非空格符的上一列</td></tr> <tr><td>n&lt;space&gt;</td> <td>那个 n 表示『数字』，例如 20 。按下数字后再按空格键，光标会向右移动这一行的 n 个字符。例如 20&lt;space&gt; 则光标会向后面移动 20 个字符距离。</td></tr> <tr><td>0 或功能键[Home]</td> <td>这是数字『 0 』：移动到这一行的最前面字符处 (常用)</td></tr> <tr><td>$ 或功能键[End]</td> <td>移动到这一行的最后面字符处(常用)</td></tr> <tr><td>H</td> <td>光标移动到这个屏幕的最上方那一行的第一个字符</td></tr> <tr><td>M</td> <td>光标移动到这个屏幕的中央那一行的第一个字符</td></tr> <tr><td>L</td> <td>光标移动到这个屏幕的最下方那一行的第一个字符</td></tr> <tr><td>G</td> <td>移动到这个档案的最后一行(常用)</td></tr> <tr><td>nG</td> <td>n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu)</td></tr> <tr><td>gg</td> <td>移动到这个档案的第一行，相当于 1G 啊！ (常用)</td></tr> <tr><td>n&lt;Enter&gt;</td> <td>n 为数字。光标向下移动 n 行(常用)</td></tr> <tr><th colspan="2"><font color="#FFFFFF">搜寻与取代</font></th></tr> <tr><td>/word</td> <td>向光标之下寻找一个名称为 word 的字符串。例如要在档案内搜寻 vbird 这个字符串，就输入 /vbird 即可！ (常用)</td></tr> <tr><td>?word</td> <td>向光标之上寻找一个字符串名称为 word 的字符串。</td></tr> <tr><td>n</td> <td>这个 n 是英文按键。代表重复前一个搜寻的动作。举例来说， 如果刚刚我们执行 /vbird 去向下搜寻 vbird 这个字符串，则按下 n 后，会向下继续搜寻下一个名称为 vbird 的字符串。如果是执行 ?vbird 的话，那么按下 n 则会向上继续搜寻名称为 vbird 的字符串！</td></tr> <tr><td>N</td> <td>这个 N 是英文按键。与 n 刚好相反，为『反向』进行前一个搜寻动作。 例如 /vbird 后，按下 N 则表示『向上』搜寻 vbird 。</td></tr> <tr><td colspan="2"> 使用 /word 配合 n 及 N 是非常有帮助的！可以让你重复的找到一些你搜寻的关键词！ </td></tr> <tr><td>:n1,n2s/word1/word2/g</td> <td>n1 与 n2 为数字。在第 n1 与 n2 行之间寻找 word1 这个字符串，并将该字符串取代为 word2 ！举例来说，在 100 到 200 行之间搜寻 vbird 并取代为 VBIRD 则：<br> 『:100,200s/vbird/VBIRD/g』。(常用)</td></tr> <tr><td>:1,$s/word1/word2/g</td> <td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！(常用)</td></tr> <tr><td>:1,$s/word1/word2/gc</td> <td>从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！且在取代前显示提示字符给用户确认 (confirm) 是否需要取代！(常用)</td></tr> <tr><th colspan="2"><font color="#FFFFFF">删除、复制与贴上</font></th></tr> <tr><td>x, X</td> <td>在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) (常用)</td></tr> <tr><td>nx</td> <td>n 为数字，连续向后删除 n 个字符。举例来说，我要连续删除 10 个字符， 『10x』。</td></tr> <tr><td>dd</td> <td>删除游标所在的那一整列(常用)</td></tr> <tr><td>ndd</td> <td>n 为数字。删除光标所在的向下 n 列，例如 20dd 则是删除 20 列 (常用)</td></tr> <tr><td>d1G</td> <td>删除光标所在到第一行的所有数据</td></tr> <tr><td>dG</td> <td>删除光标所在到最后一行的所有数据</td></tr> <tr><td>d$</td> <td>删除游标所在处，到该行的最后一个字符</td></tr> <tr><td>d0</td> <td>那个是数字的 0 ，删除游标所在处，到该行的最前面一个字符</td></tr> <tr><td>yy</td> <td>复制游标所在的那一行(常用)</td></tr> <tr><td>nyy</td> <td>n 为数字。复制光标所在的向下 n 列，例如 20yy 则是复制 20 列(常用)</td></tr> <tr><td>y1G</td> <td>复制游标所在列到第一列的所有数据</td></tr> <tr><td>yG</td> <td>复制游标所在列到最后一列的所有数据</td></tr> <tr><td>y0</td> <td>复制光标所在的那个字符到该行行首的所有数据</td></tr> <tr><td>y$</td> <td>复制光标所在的那个字符到该行行尾的所有数据</td></tr> <tr><td>p, P</td> <td>p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！ 举例来说，我目前光标在第 20 行，且已经复制了 10 行数据。则按下 p 后， 那 10 行数据会贴在原本的 20 行之后，亦即由 21 行开始贴。但如果是按下 P 呢？ 那么原本的第 20 行会被推到变成 30 行。 (常用)</td></tr> <tr><td>J</td> <td>将光标所在列与下一列的数据结合成同一列</td></tr> <tr><td>c</td> <td>重复删除多个数据，例如向下删除 10 行，[ 10cj ]</td></tr> <tr><td>u</td> <td>复原前一个动作。(常用)</td></tr> <tr><td>[Ctrl]+r</td> <td>重做上一个动作。(常用)</td></tr> <tr><td colspan="2">这个 u 与 [Ctrl]+r 是很常用的指令！一个是复原，另一个则是重做一次～ 利用这两个功能按键，你的编辑，嘿嘿！很快乐的啦！</td></tr> <tr><td>.</td> <td>不要怀疑！这就是小数点！意思是重复前一个动作的意思。 如果你想要重复删除、重复贴上等等动作，按下小数点『.』就好了！ (常用)</td></tr> </tbody></table> <h4>第二部份：一般模式切换到编辑模式的可用的按钮说明</h4> <table class="reference"> <tbody><tr><th colspan="2"><font color="#FFFFFF">进入插入或取代的编辑模式</font></th></tr> <tr><td width="120">i, I</td> <td>进入插入模式(Insert mode)：<br> i 为『从目前光标所在处插入』， I 为『在目前所在行的第一个非空格符处开始插入』。 (<span class="text_import2">常用</span>)</td></tr> <tr><td>a, A</td> <td>进入插入模式(Insert mode)：<br> a 为『从目前光标所在的下一个字符处开始插入』， A 为『从光标所在行的最后一个字符处开始插入』。(<span class="text_import2">常用</span>)</td></tr> <tr><td>o, O</td> <td>进入插入模式(Insert mode)：<br> 这是英文字母 o 的大小写。o 为『在目前光标所在的下一行处插入新的一行』； O 为在目前光标所在处的上一行插入新的一行！(<span class="text_import2">常用</span>)</td></tr> <tr><td>r, R</td> <td>进入取代模式(Replace mode)：<br> r 只会取代光标所在的那一个字符一次；R会一直取代光标所在的文字，直到按下 ESC 为止；(<span class="text_import2">常用</span>)</td></tr> <tr><td colspan="2">上面这些按键中，在 vi 画面的左下角处会出现『--INSERT--』或『--REPLACE--』的字样。 由名称就知道该动作了吧！！特别注意的是，我们上面也提过了，你想要在档案里面输入字符时， 一定要在左下角处看到 INSERT 或 REPLACE 才能输入喔！</td></tr> <tr><td>[Esc]</td> <td>退出编辑模式，回到一般模式中(<span class="text_import2">常用</span>)</td></tr> </tbody></table> <h4>第三部份：一般模式切换到指令列模式的可用的按钮说明</h4> <table class="reference"> <tbody><tr><th colspan="2"><font color="#FFFFFF">指令列的储存、离开等指令</font></th></tr> <tr><td width="160">:w</td> <td>将编辑的数据写入硬盘档案中(<span class="text_import2">常用</span>)</td></tr> <tr><td>:w!</td> <td>若文件属性为『只读』时，强制写入该档案。不过，到底能不能写入， 还是跟你对该档案的档案权限有关啊！</td></tr> <tr><td>:q</td> <td>离开 vi (<span class="text_import2">常用</span>)</td></tr> <tr><td>:q!</td> <td>若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。</td></tr> <tr><td colspan="2">注意一下啊，那个惊叹号 (!) 在 vi 当中，常常具有『强制』的意思～</td></tr> <tr><td>:wq</td> <td>储存后离开，若为 :wq! 则为强制储存后离开 (<span class="text_import2">常用</span>)</td></tr> <tr><td>ZZ</td> <td>这是大写的 Z 喔！若档案没有更动，则不储存离开，若档案已经被更动过，则储存后离开！</td></tr> <tr><td>:w [filename]</td> <td>将编辑的数据储存成另一个档案（类似另存新档）</td></tr> <tr><td>:r [filename]</td> <td>在编辑的数据中，读入另一个档案的数据。亦即将 『filename』 这个档案内容加到游标所在行后面</td></tr> <tr><td>:n1,n2 w [filename]</td> <td>将 n1 到 n2 的内容储存成 filename 这个档案。</td></tr> <tr><td>:! command</td> <td>暂时离开 vi 到指令列模式下执行 command 的显示结果！例如<br> 『:! ls /home』即可在 vi 当中察看 /home 底下以 ls 输出的档案信息！</td></tr> <tr><th colspan="2"><font color="#FFFFFF">vim 环境的变更</font></th></tr> <tr><td>:set nu</td> <td>显示行号，设定之后，会在每一行的前缀显示该行的行号</td></tr> <tr><td>:set nonu</td> <td>与 set nu 相反，为取消行号！</td></tr> </tbody></table> <p>特别注意，在 vi/vim 中，数字是很有意义的！数字通常代表重复做几次的意思！ 也有可能是代表去到第几个什么什么的意思。</p> <p>举例来说，要删除 50 行，则是用 『50dd』 对吧！ 数字加在动作之前，如我要向下移动 20 行呢？那就是『20j』或者是『20↓』即可。 </p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-filesystem.html" tppabs="http://www.w3cschool.cc/linux/linux-filesystem.html" rel="prev"> Linux 磁盘管理</a></div> <div class="next"><a href="linux-yum.html" tppabs="http://www.w3cschool.cc/linux/linux-yum.html" rel="next">linux yum 命令</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/linux/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/linux/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

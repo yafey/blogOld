@@ -1,0 +1,153 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Python2.x与3​​.x版本区别 | w3cschool菜鸟教程</title> <link rel='prev' title='Ruby DBI Read 操作' href="/ruby/ruby-dbi-read.html"/> <link rel='next' title='Python 3 教程' href="/python3/python3-tutorial.html"/> <link rel='canonical' href='http://www.w3cschool.cc/python/python-2x-3x.html'/> <meta name="keywords" content="Python2.x与3​​.x版本区别"> <meta name="description" content="Python2.x与3​​.x版本区别 Python的3​​.0版本，常被称为Python 3000，或简称Py3k。相对于Python的早期版本，这是一个较大的升级。 为了不带入过多的累赘，Python 3.0在设计的时候没有考虑向下相容。 许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。 为了照顾现有程式，Python 2.6作为一个过渡版本，基本使用了Python 2.x的语法和库，同时考虑了向Py.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Python 基础教程</strong></h2> <a target="_top" title="Python 基础教程" href="python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html"> Python 基础教程 </a> <a target="_top" title="Python 简介" href="python-intro.html" tppabs="http://www.w3cschool.cc/python/python-intro.html"> Python 简介 </a> <a target="_top" title="Python环境搭建" href="python-install.html" tppabs="http://www.w3cschool.cc/python/python-install.html"> Python环境搭建 </a> <a target="_top" title="Python 基础语法" href="python-basic-syntax.html" tppabs="http://www.w3cschool.cc/python/python-basic-syntax.html"> Python 基础语法 </a> <a target="_top" title="Python 变量类型" href="python-variable-types.html" tppabs="http://www.w3cschool.cc/python/python-variable-types.html"> Python 变量类型 </a> <a target="_top" title="Python 运算符" href="python-operators.html" tppabs="http://www.w3cschool.cc/python/python-operators.html"> Python 运算符 </a> <a target="_top" title="Python 条件语句" href="python-if-statement.html" tppabs="http://www.w3cschool.cc/python/python-if-statement.html"> Python 条件语句 </a> <a target="_top" title="Python 循环语句" href="python-loops.html" tppabs="http://www.w3cschool.cc/python/python-loops.html"> Python 循环语句 </a> <a target="_top" title="Python While循环语句" href="python-while-loop.html" tppabs="http://www.w3cschool.cc/python/python-while-loop.html"> Python While循环语句 </a> <a target="_top" title="Python for 循环语句" href="python-for-loop.html" tppabs="http://www.w3cschool.cc/python/python-for-loop.html"> Python for 循环语句 </a> <a target="_top" title="Python 循环嵌套" href="python-nested-loops.html" tppabs="http://www.w3cschool.cc/python/python-nested-loops.html"> Python 循环嵌套 </a> <a target="_top" title="Python break 语句" href="python-break-statement.html" tppabs="http://www.w3cschool.cc/python/python-break-statement.html"> Python break 语句 </a> <a target="_top" title="Python continue 语句" href="python-continue-statement.html" tppabs="http://www.w3cschool.cc/python/python-continue-statement.html"> Python continue 语句 </a> <a target="_top" title="Python pass 语句" href="python-pass-statement.html" tppabs="http://www.w3cschool.cc/python/python-pass-statement.html"> Python pass 语句 </a> <a target="_top" title="Python 数字" href="python-numbers.html" tppabs="http://www.w3cschool.cc/python/python-numbers.html"> Python 数字 </a> <a target="_top" title="Python 字符串" href="python-strings.html" tppabs="http://www.w3cschool.cc/python/python-strings.html"> Python 字符串 </a> <a target="_top" title="Python 列表(Lists)" href="python-lists.html" tppabs="http://www.w3cschool.cc/python/python-lists.html"> Python 列表(Lists) </a> <a target="_top" title="Python 元组" href="python-tuples.html" tppabs="http://www.w3cschool.cc/python/python-tuples.html"> Python 元组 </a> <a target="_top" title="Python 字典(Dictionary)" href="python-dictionary.html" tppabs="http://www.w3cschool.cc/python/python-dictionary.html"> Python 字典(Dictionary) </a> <a target="_top" title="Python 日期和时间" href="python-date-time.html" tppabs="http://www.w3cschool.cc/python/python-date-time.html"> Python 日期和时间 </a> <a target="_top" title="Python函数" href="python-functions.html" tppabs="http://www.w3cschool.cc/python/python-functions.html"> Python函数 </a> <a target="_top" title="Python模块" href="python-modules.html" tppabs="http://www.w3cschool.cc/python/python-modules.html"> Python模块 </a> <a target="_top" title="Python 文件I/O" href="python-files-io.html" tppabs="http://www.w3cschool.cc/python/python-files-io.html"> Python 文件I/O </a> <a target="_top" title="Python 异常处理" href="python-exceptions.html" tppabs="http://www.w3cschool.cc/python/python-exceptions.html"> Python 异常处理 </a> <br><h2 class="left"><span class="left_h2">Python</span> 高级教程</h2> <a target="_top" title="Python面向对象" href="python-object.html" tppabs="http://www.w3cschool.cc/python/python-object.html"> Python面向对象 </a> <a target="_top" title="Python正则表达式" href="python-reg-expressions.html" tppabs="http://www.w3cschool.cc/python/python-reg-expressions.html"> Python正则表达式 </a> <a target="_top" title="Python CGI编程" href="python-cgi.html" tppabs="http://www.w3cschool.cc/python/python-cgi.html"> Python CGI编程 </a> <a target="_top" title="python操作mysql数据库" href="python-mysql.html" tppabs="http://www.w3cschool.cc/python/python-mysql.html"> python操作mysql数据库 </a> <a target="_top" title="Python使用SMTP发送邮件" href="python-email.html" tppabs="http://www.w3cschool.cc/python/python-email.html"> Python使用SMTP发送邮件 </a> <a target="_top" title="Python多线程" href="python-multithreading.html" tppabs="http://www.w3cschool.cc/python/python-multithreading.html"> Python多线程 </a> <a target="_top" title="python XML解析" href="python-xml.html" tppabs="http://www.w3cschool.cc/python/python-xml.html"> python XML解析 </a> <a target="_top" title="python GUI编程(Tkinter)" href="python-gui-tkinter.html" tppabs="http://www.w3cschool.cc/python/python-gui-tkinter.html"> python GUI编程(Tkinter) </a> <a target="_top" title="Python2.x与3​​.x版本区别" href="python-2x-3x.html" tppabs="http://www.w3cschool.cc/python/python-2x-3x.html"> Python2.x与3​​.x版本区别 </a> <a target="_top" title="Python IDE" href="python-ide.html" tppabs="http://www.w3cschool.cc/python/python-ide.html"> Python IDE </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="javascript:if(confirm('http://www.w3cschool.cc/python/try.php?filename=try_dom_table_paddspac  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/python/try.php?filename=try_dom_table_paddspac'" tppabs="http://www.w3cschool.cc/python/att-time-tzset.html" rel="prev"> Python time tzset()方法</a></div> <div class="next"><a href="python-ide.html" tppabs="http://www.w3cschool.cc/python/python-ide.html" rel="next">Python IDE</a> &raquo;</div> </div> <div id="content"> <h1>Python2.x与3​​.x版本区别</h1> <p> Python的3​​.0版本，常被称为Python 3000，或简称Py3k。相对于Python的早期版本，这是一个较大的升级。 </p><p>为了不带入过多的累赘，Python 3.0在设计的时候没有考虑向下相容。</p><p> 许多针对早期Python版本设计的程式都无法在Python 3.0上正常执行。</p><p> 为了照顾现有程式，Python 2.6作为一个过渡版本，基本使用了Python 2.x的语法和库，同时考虑了向Python 3.0的迁移，允许使用部分Python 3.0的语法与函数。</p> </p> 新的Python程式建议使用Python 3.0版本的语法。</p><p> 除非执行环境无法安装Python 3.0或者程式本身使用了不支援Python 3.0的第三方库。目前不支援Python 3.0的第三方库有Twisted, py2exe, PIL等。</p><p> 大多数第三方库都正在努力地相容Python 3.0版本。即使无法立即使用Python 3.0，也建议编写相容Python 3.0版本的程式，然后使用Python 2.6, Python 2.7来执行。</p> <hr> <h2>主要变化</h2> <p>Python 3.0的变化主要在以下几个方面:</p> <p>print语句没有了，取而代之的是print()函数。 Python 2.6与Python 2.7部分地支持这种形式的print语法。在Python 2.6与Python 2.7里面，以下三种形式是等价的： </p> <pre>
+print "fish"
+print ("fish") #注意print后面有个空格
+print("fish") #print()不能带有任何其它参数
+</pre> <p>然而，Python 2.6实际已经支持新的print()语法：</p> <pre>
+from __future__ import print_function
+print("fish", "panda", sep=', ')
+</pre> <p>新的str类别表示一个Unicode字串，相当于Python 2.x版本的unicode类别。而位元组序列则用类似b"abc"的语法表示，用bytes类表示，相当于Python 2.x的str类别。</p> <p>现在两种类别不能再隐式地自动转换，因此在Python 3.x里面"fish"+b"panda"是错误。正确的写法是"fish"+b"panda".decode("utf-8")。 Python 2.6可以自动地将位元组序列识别为Unicode字串，方法是： </p> <pre>
+from __future__ import unicode_literals
+print(repr("fish"))
+</pre> <p>除法运算符"/"在Python 3.x内总是返回浮点数。而在Python 2.6内会判断被除数与除数是否是整数。如果是整数会返回整数值，相当于整除;浮点数则返回浮点数值。</p> <p>为了让Python 2.6统一返回浮点数值，可以： </p> <pre>
+from __future__ import division
+print(3/2)
+</pre> <ul> <li> 捕获异常的语法由except exc, var改为except exc as var。使用语法except (exc1, exc2) as var可以同时捕获多种类别的异常。 Python 2.6已经支援这两种语法。</li> <li> 集合(set) 的新写法：{1,2,3,4}。注意{}仍然表示空的字典(dict) 。 </li> <li> 字典推导式(Dictionary comprehensions) {expr1: expr2 for k, v in d}，这个语法等价于</li> </ul> <pre>
+result={}
+for k, v in d.items():
+    result[expr1]=expr2
+return result
+</pre> <p> 集合推导式(Set Comprehensions) {expr1 for x in stuff}。这个语法等价于： </p> <pre>
+result = set()
+for x in stuff:
+    result.add(expr1)
+return result
+</pre> <ul> <li> 八进制数必须写成0o777，原来的形式0777不能用了；二进制必须写成0b111。新增了一个bin()函数用于将一个整数转换成二进制字串。 Python 2.6已经支援这两种语法。</li> <li> dict.keys(), dict.values​​(), dict.items(), map(), filter(), range(), zip()不再返回列表，而是迭代器。</li> <li> 如果两个物件之间没有定义明确的有意义的顺序。使用<, >, <=, >=比较它们会投掷异常。比如1 < ""在Python 2.6里面会返回True，而在Python 3.0里面会投掷异常。现在cmp(), instance.__cmp__()函数已经被删除。 </li> <li> 可以注释函数的参数与返回值。此特性可方便IDE对原始码进行更深入的分析。例如给参数增加类别讯息： </li> <pre>
+def sendMail(from_: str, to: str, title: str, body: str) -&gt; bool:
+    pass
+</pre> <li>合并int与long类型。</li> <li>多个模块被改名（根据PEP8）：</li> <table class="reference"> <tbody><tr> <th>旧的名字</th> <th>新的名字</th> </tr> <tr> <td>_winreg</td> <td>winreg</td> </tr> <tr> <td>ConfigParser</td> <td>configparser</td> </tr> <tr> <td>copy_reg</td> <td>copyreg</td> </tr> <tr> <td>Queue</td> <td>queue</td> </tr> <tr> <td>SocketServer</td> <td>socketserver</td> </tr> <tr> <td>repr</td> <td>reprlib</td> </tr> </tbody></table> <li> StringIO模块现在被合并到新的io模组内。 new, md5, gopherlib等模块被删除。 Python 2.6已经支援新的io模组。</li><li> httplib, BaseHTTPServer, CGIHTTPServer, SimpleHTTPServer, Cookie, cookielib被合并到http包内。</li><li> 取消了exec语句，只剩下exec()函数。 Python 2.6已经支援exec()函数。</li></ul> </div> <div class="chapter"> <div class="prev">&laquo; <a href="javascript:if(confirm('http://www.w3cschool.cc/python/try.php?filename=try_dom_table_paddspac  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/python/try.php?filename=try_dom_table_paddspac'" tppabs="http://www.w3cschool.cc/python/att-time-tzset.html" rel="prev"> Python time tzset()方法</a></div> <div class="next"><a href="python-ide.html" tppabs="http://www.w3cschool.cc/python/python-ide.html" rel="next">Python IDE</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/python/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/python/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

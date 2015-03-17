@@ -1,0 +1,156 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Linux 系统启动过程 | w3cschool菜鸟教程</title> <link rel='prev' title='Linux 安装' href="linux-install.html"/> <link rel='next' title='Linux 系统目录结构' href="linux-system-contents.html"/> <link rel='canonical' href='http://www.w3cschool.cc/linux/linux-system-boot.html'/> <meta name="keywords" content="Linux 系统启动过程"> <meta name="description" content="Linux 系统启动过程 linux启动时我们会看到许多启动信息。 Linux系统的启动过程并不是大家想象中的那么复杂，其过程可以分为5个阶段： 内核的引导。 运行init。系统初始化。建立终端 。用户登录系统。 内核引导 当计算机打开电源后，首先是BIOS开机自检，按照BIOS中设置的启动设备（通常是硬盘）来启动。 操作系统接管硬件以后，首先读入 /boot 目录下的内核文件。 运行init init 进程是系统所有进.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Linux 教程</strong></h2> <a target="_top" title="Linux 教程" href="linux-tutorial.html" tppabs="http://www.w3cschool.cc/linux/linux-tutorial.html"> Linux 教程 </a> <a target="_top" title="Linux 简介" href="linux-intro.html" tppabs="http://www.w3cschool.cc/linux/linux-intro.html"> Linux 简介 </a> <a target="_top" title="Linux 安装" href="linux-install.html" tppabs="http://www.w3cschool.cc/linux/linux-install.html"> Linux 安装 </a> <a target="_top" title="Linux 系统启动过程" href="linux-system-boot.html" tppabs="http://www.w3cschool.cc/linux/linux-system-boot.html"> Linux 系统启动过程 </a> <a target="_top" title="Linux 系统目录结构" href="linux-system-contents.html" tppabs="http://www.w3cschool.cc/linux/linux-system-contents.html"> Linux 系统目录结构 </a> <a target="_top" title="Linux 忘记密码解决方法" href="linux-forget-password.html" tppabs="http://www.w3cschool.cc/linux/linux-forget-password.html"> Linux 忘记密码解决方法 </a> <a target="_top" title="Linux 远程登录" href="linux-remote-login.html" tppabs="http://www.w3cschool.cc/linux/linux-remote-login.html"> Linux 远程登录 </a> <a target="_top" title="Linux 文件基本属性" href="linux-file-attr-permission.html" tppabs="http://www.w3cschool.cc/linux/linux-file-attr-permission.html"> Linux 文件基本属性 </a> <a target="_top" title="Linux 文件与目录管理" href="linux-file-content-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-file-content-manage.html"> Linux 文件与目录管理 </a> <a target="_top" title="Linux 用户和用户组管理" href="linux-user-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-user-manage.html"> Linux 用户和用户组管理 </a> <a target="_top" title="Linux 磁盘管理" href="linux-filesystem.html" tppabs="http://www.w3cschool.cc/linux/linux-filesystem.html"> Linux 磁盘管理 </a> <a target="_top" title="Linux vi/vim" href="linux-vim.html" tppabs="http://www.w3cschool.cc/linux/linux-vim.html"> Linux vi/vim </a> <a target="_top" title="linux yum 命令" href="linux-yum.html" tppabs="http://www.w3cschool.cc/linux/linux-yum.html"> linux yum 命令 </a> <br><h2 class="left"><span class="left_h2">Shell</span> 编程</h2> <a target="_top" title="Shell 教程" href="linux-shell.html" tppabs="http://www.w3cschool.cc/linux/linux-shell.html"> Shell 教程 </a> <a target="_top" title="Shell 变量" href="linux-shell-variable.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-variable.html"> Shell 变量 </a> <a target="_top" title="Shell echo命令" href="linux-shell-echo.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-echo.html"> Shell echo命令 </a> <a target="_top" title="Shell test命令" href="linux-shell-test.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-test.html"> Shell test命令 </a> <a target="_top" title="Shell 流程控制" href="linux-shell-process-control.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-process-control.html"> Shell 流程控制 </a> <a target="_top" title="Shell 函数" href="linux-shell-func.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-func.html"> Shell 函数 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-install.html" tppabs="http://www.w3cschool.cc/linux/linux-install.html" rel="prev"> Linux 安装</a></div> <div class="next"><a href="linux-system-contents.html" tppabs="http://www.w3cschool.cc/linux/linux-system-contents.html" rel="next">Linux 系统目录结构</a> &raquo;</div> </div> <div id="content"> <h1><span class="color_h1">Linux </span>系统启动过程</h1> <p> linux启动时我们会看到许多启动信息。 </p> <p>Linux系统的启动过程并不是大家想象中的那么复杂，其过程可以分为5个阶段：</p> <ul> <li>内核的引导。 </li><li>运行init。</li><li>系统初始化。</li><li>建立终端 。</li><li>用户登录系统。</li></ul> <hr> <h2> 内核引导</h2> <p>当计算机打开电源后，首先是BIOS开机自检，按照BIOS中设置的启动设备（通常是硬盘）来启动。</p> <p>操作系统接管硬件以后，首先读入 /boot 目录下的内核文件。 </p> <img src="../wp-content/uploads/2014/06/color.php-color=Gray" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/bg2013081702.png" alt="bg2013081702" width="602" height="135" class="alignnone size-full wp-image-7939"/> <hr> <h2>运行init</h2> <p>init 进程是系统所有进程的起点，你可以把它比拟成系统所有进程的老祖宗，没有这个进程，系统中任何进程都不会启动。</p><p>init 程序首先是需要读取配置文件 /etc/inittab。 </p> <img src="../wp-content/uploads/2014/06/color.php-hex=808080" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/bg2013081703.png" alt="bg2013081703" width="596" height="131" class="alignnone size-full wp-image-7940"/> <p> <h3>运行级别</h3> <p>许多程序需要开机启动。它们在Windows叫做"服务"（service），在Linux就叫做"守护进程"（daemon）。</p> <p>init进程的一大任务，就是去运行这些开机启动的程序。</p><p>但是，不同的场合需要启动不同的程序，比如用作服务器时，需要启动Apache，用作桌面就不需要。</p><p>Linux允许为不同的场合，分配不同的开机启动程序，这就叫做"运行级别"（runlevel）。也就是说，启动时根据"运行级别"，确定要运行哪些程序。</p> <img src="../wp-content/uploads/2014/06/color.php-color=Green" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/bg2013081704.png" alt="bg2013081704" width="589" height="114" class="alignnone size-full wp-image-7941"/> <p>Linux系统有7个运行级别(runlevel)：</p> <ul> <li>运行级别0：系统停机状态，系统默认运行级别不能设为0，否则不能正常启动</li> <li>运行级别1：单用户工作状态，root权限，用于系统维护，禁止远程登陆</li> <li>运行级别2：多用户状态(没有NFS)</li> <li>运行级别3：完全的多用户状态(有NFS)，登陆后进入控制台命令行模式</li> <li>运行级别4：系统未使用，保留</li> <li>运行级别5：X11控制台，登陆后进入图形GUI模式</li> <li>运行级别6：系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动</li> </ul> <hr> <h2>系统初始化</h2> <p>在init的配置文件中有这么一行： si::sysinit:/etc/rc.d/rc.sysinit　它调用执行了/etc/rc.d/rc.sysinit，而rc.sysinit是一个bash shell的脚本，它主要是完成一些系统初始化的工作，rc.sysinit是每一个运行级别都要首先运行的重要脚本。</p><p>它主要完成的工作有：激活交换分区，检查磁盘，加载硬件模块以及其它一些需要优先执行任务。 </p> <pre>
+l5:5:wait:/etc/rc.d/rc 5
+</pre> <p>这一行表示以5为参数运行/etc/rc.d/rc，/etc/rc.d/rc是一个Shell脚本，它接受5作为参数，去执行/etc/rc.d/rc5.d/目录下的所有的rc启动脚本，/etc/rc.d/rc5.d/目录中的这些启动脚本实际上都是一些连接文件，而不是真正的rc启动脚本，真正的rc启动脚本实际上都是放在/etc/rc.d/init.d/目录下。</p><p>而这些rc启动脚本有着类似的用法，它们一般能接受start、stop、restart、status等参数。</p> <p>/etc/rc.d/rc5.d/中的rc启动脚本通常是K或S开头的连接文件，对于以以S开头的启动脚本，将以start参数来运行。</p> <p>而如果发现存在相应的脚本也存在K打头的连接，而且已经处于运行态了(以/var/lock/subsys/下的文件作为标志)，则将首先以stop为参数停止这些已经启动了的守护进程，然后再重新运行。</p><p>这样做是为了保证是当init改变运行级别时，所有相关的守护进程都将重启。</p> <p> 至于在每个运行级中将运行哪些守护进程，用户可以通过chkconfig或setup中的"System Services"来自行设定。</p> <img src="../wp-content/uploads/2014/06/color.php-hex=008000" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/bg2013081705.png" alt="bg2013081705" width="592" height="206" class="alignnone size-full wp-image-7943"/> <hr> <h2> 建立终端</h2> <p>rc执行完毕后，返回init。这时基本系统环境已经设置好了，各种守护进程也已经启动了。</p><p>init接下来会打开6个终端，以便用户登录系统。在inittab中的以下6行就是定义了6个终端：</p> <pre>
+1:2345:respawn:/sbin/mingetty tty1
+2:2345:respawn:/sbin/mingetty tty2
+3:2345:respawn:/sbin/mingetty tty3
+4:2345:respawn:/sbin/mingetty tty4
+5:2345:respawn:/sbin/mingetty tty5
+6:2345:respawn:/sbin/mingetty tty6
+</pre> <p>从上面可以看出在2、3、4、5的运行级别中都将以respawn方式运行mingetty程序，mingetty程序能打开终端、设置模式。</p><p> 同时它会显示一个文本登录界面，这个界面就是我们经常看到的登录界面，在这个登录界面中会提示用户输入用户名，而用户输入的用户将作为参数传给login程序来验证用户的身份。</p> <hr> <h2>用户登录系统</h2> <p> 一般来说，用户的登录方式有三种： </p><ul><li> （1）命令行登录</li><li> （2）ssh登录</li><li> （3）图形界面登录</li></ul> <img src="../wp-content/uploads/2014/06/color.php-color=GreenYellow" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/bg2013081706.png" alt="bg2013081706" width="599" height="215" class="alignnone size-full wp-image-7944"/> <p>对于运行级别为5的图形方式用户来说，他们的登录是通过一个图形化的登录界面。登录成功后可以直接进入KDE、Gnome等窗口管理器。</p> <p>而本文主要讲的还是文本方式登录的情况：当我们看到mingetty的登录界面时，我们就可以输入用户名和密码来登录系统了。 </p> <p> Linux的账号验证程序是login，login会接收mingetty传来的用户名作为用户名参数。</p><p>然后login会对用户名进行分析：如果用户名不是root，且存在/etc/nologin文件，login将输出nologin文件的内容，然后退出。</p>这通常用来系统维护时防止非root用户登录。只有/etc/securetty中登记了的终端才允许root用户登录，如果不存在这个文件，则root可以在任何终端上登录。</p> <p>/etc/usertty文件用于对用户作出附加访问限制，如果不存在这个文件，则没有其他限制。</p> <p在分析完用户名后，login将搜索/etc/passwd以及/etc/shadow来验证密码以及设置账户的其它信息，比如：主目录是什么、使用何种shell。如果没有指定主目录，将默认为根目录；如果没有指定shell，将默认为/bin/bash。</p> <hr> <h2>图形模式与文字模式的切换方式</h2> <p>Linux预设提供了六个命令窗口终端机让我们来登录。</p><p>默认我们登录的就是第一个窗口，也就是tty1，这个六个窗口分别为tty1,tty2 … tty6，你可以按下Ctrl + Alt + F1 ~ F6 来切换它们。</p><p>如果你安装了图形界面，默认情况下是进入图形界面的，此时你就可以按Ctrl + Alt + F1 ~ F6来进入其中一个命令窗口界面。</p><p>当你进入命令窗口界面后再返回图形界面只要按下Ctrl + Alt + F7 就回来了。</p><p>如果你用的vmware 虚拟机，命令窗口切换的快捷键为 Alt + Space + F1~F6. 如果你在图形界面下请按Alt + Shift + Ctrl + F1~F6 切换至命令窗口。 </p> <img src="../wp-content/uploads/2014/06/color.php-hex=ADFF2F" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/bg2013081707.png" alt="bg2013081707" width="603" height="237" class="alignnone size-full wp-image-7945"/> <hr> <h2>Linux 关机</h2> <p>在linux领域内大多用在服务器上，很少遇到关机的操作。毕竟服务器上跑一个服务是永无止境的，除非特殊情况下，不得已才会关机。</p> <p>正确的关机流程为：sysnc &gt; shutdown &gt; reboot &gt; halt</p> <p>关机指令为：shutdown ，你可以man shutdown 来看一下帮助文档。</p> <p>例如你可以运行如下命令关机：</p> <pre>
+sync 将数据由内存同步到硬盘中。
+
+shutdown 关机指令，你可以man shutdown 来看一下帮助文档。例如你可以运行如下命令关机：
+
+shutdown &ndash;h 10 &lsquo;This server will shutdown after 10 mins&rsquo; 这个命令告诉大家，计算机将在10分钟后关机，并且会显示在登陆用户的当前屏幕中。
+
+Shutdown &ndash;h now 立马关机
+
+Shutdown &ndash;h 20:25 系统会在今天20:25关机
+
+Shutdown &ndash;h +10 十分钟后关机
+
+Shutdown &ndash;r now 系统立马重启
+
+Shutdown &ndash;r +10 系统十分钟后重启
+
+reboot 就是重启，等同于 shutdown &ndash;r now
+
+halt 关闭系统，等同于shutdown &ndash;h now 和 poweroff
+</pre> <p>最后总结一下，不管是重启系统还是关闭系统，首先要运行sync命令，把内存中的数据写到磁盘中。</p> <p>关机的命令有 shutdown –h now halt poweroff 和 init 0 , 重启系统的命令有 shutdown –r now reboot init 6. </p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-install.html" tppabs="http://www.w3cschool.cc/linux/linux-install.html" rel="prev"> Linux 安装</a></div> <div class="next"><a href="linux-system-contents.html" tppabs="http://www.w3cschool.cc/linux/linux-system-contents.html" rel="next">Linux 系统目录结构</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/linux/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/linux/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

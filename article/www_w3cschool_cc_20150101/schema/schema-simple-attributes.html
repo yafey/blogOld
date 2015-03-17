@@ -1,0 +1,127 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>XML Schema 属性 | w3cschool菜鸟教程</title> <link rel='prev' title='XSD 简易元素' href="schema-simple.html"/> <link rel='next' title='XML Schema 限定 / Facets' href="schema-facets.html"/> <link rel='canonical' href='http://www.w3cschool.cc/schema/schema-simple-attributes.html'/> <meta name="keywords" content="XML Schema 属性"> <meta name="description" content="XSD 属性 所有的属性均作为简易类型来声明。 什么是属性？ 简易元素无法拥有属性。假如某个元素拥有属性，它就会被当作某种复合类型。但是属性本身总是作为简易类型被声明的。 如何声明属性？ 定义属性的语法是 &amp;lt;xs:attribute name=&#039;xxx&#039; type=&#039;yyy&#039;/&amp;gt; 在此处，xxx 指属性名称，yyy 则规定属性的数据类型。XML S.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>XML Schema 教程</strong></h2> <a target="_top" title="XML Schema 教程" href="schema-tutorial.html" tppabs="http://www.w3cschool.cc/schema/schema-tutorial.html"> XML Schema 教程 </a> <a target="_top" title="XML Schemas 简介" href="schema-intro.html" tppabs="http://www.w3cschool.cc/schema/schema-intro.html"> XML Schemas 简介 </a> <a target="_top" title="为什么使用 XML Schema？" href="schema-why.html" tppabs="http://www.w3cschool.cc/schema/schema-why.html"> 为什么使用 XML Schema？ </a> <a target="_top" title="如何使用 XML Schema" href="schema-howto.html" tppabs="http://www.w3cschool.cc/schema/schema-howto.html"> 如何使用 XML Schema </a> <a target="_top" title="XML schema 元素" href="schema-schema.html" tppabs="http://www.w3cschool.cc/schema/schema-schema.html"> XML schema 元素 </a> <a target="_top" title="XSD 简易元素" href="schema-simple.html" tppabs="http://www.w3cschool.cc/schema/schema-simple.html"> XSD 简易元素 </a> <a target="_top" title="XML Schema 属性" href="schema-simple-attributes.html" tppabs="http://www.w3cschool.cc/schema/schema-simple-attributes.html"> XML Schema 属性 </a> <a target="_top" title="XML Schema 限定 / Facets" href="schema-facets.html" tppabs="http://www.w3cschool.cc/schema/schema-facets.html"> XML Schema 限定 / Facets </a> <a target="_top" title="XML Schema 复合元素" href="schema-complex.html" tppabs="http://www.w3cschool.cc/schema/schema-complex.html"> XML Schema 复合元素 </a> <a target="_top" title="XML Schema 复合空元素" href="schema-complex-empty.html" tppabs="http://www.w3cschool.cc/schema/schema-complex-empty.html"> XML Schema 复合空元素 </a> <a target="_top" title="XML Schema 复合类型 &#8211; 仅含元素" href="schema-complex-elements.html" tppabs="http://www.w3cschool.cc/schema/schema-complex-elements.html"> XML Schema 复合类型 - 仅含元素 </a> <a target="_top" title="XML Schema 复合元素 &#8211; 仅含文本" href="schema-complex-text.html" tppabs="http://www.w3cschool.cc/schema/schema-complex-text.html"> XML Schema 复合元素 - 仅含文本 </a> <a target="_top" title="XML Schema 复合类型 &#8211; 混合内容" href="schema-complex-mixed.html" tppabs="http://www.w3cschool.cc/schema/schema-complex-mixed.html"> XML Schema 复合类型 - 混合内容 </a> <a target="_top" title="XML Schema 指示器" href="schema-complex-indicators.html" tppabs="http://www.w3cschool.cc/schema/schema-complex-indicators.html"> XML Schema 指示器 </a> <a target="_top" title="XML Schema any 元素" href="schema-complex-any.html" tppabs="http://www.w3cschool.cc/schema/schema-complex-any.html"> XML Schema any 元素 </a> <a target="_top" title="XML Schema anyAttribute 元素" href="schema-complex-anyattribute.html" tppabs="http://www.w3cschool.cc/schema/schema-complex-anyattribute.html"> XML Schema anyAttribute 元素 </a> <a target="_top" title="XML Schema 元素替换" href="schema-complex-subst.html" tppabs="http://www.w3cschool.cc/schema/schema-complex-subst.html"> XML Schema 元素替换 </a> <a target="_top" title="XML Schema 实例" href="schema-example.html" tppabs="http://www.w3cschool.cc/schema/schema-example.html"> XML Schema 实例 </a> <a target="_top" title="XML Schema 字符串数据类型" href="schema-dtypes-string.html" tppabs="http://www.w3cschool.cc/schema/schema-dtypes-string.html"> XML Schema 字符串数据类型 </a> <a target="_top" title="XML Schema 日期/时间 数据类型" href="schema-dtypes-date.html" tppabs="http://www.w3cschool.cc/schema/schema-dtypes-date.html"> XML Schema 日期/时间 数据类型 </a> <a target="_top" title="XML Schema 数值数据类型" href="schema-dtypes-numeric.html" tppabs="http://www.w3cschool.cc/schema/schema-dtypes-numeric.html"> XML Schema 数值数据类型 </a> <a target="_top" title="XML Schema 杂项数据类型" href="schema-dtypes-misc.html" tppabs="http://www.w3cschool.cc/schema/schema-dtypes-misc.html"> XML Schema 杂项数据类型 </a> <a target="_top" title="XML 编辑器" href="schema-editor.html" tppabs="http://www.w3cschool.cc/schema/schema-editor.html"> XML 编辑器 </a> <a target="_top" title="XML Schema 总结" href="schema-summary.html" tppabs="http://www.w3cschool.cc/schema/schema-summary.html"> XML Schema 总结 </a> <a target="_top" title="XML Schema 参考手册" href="schema-elements-ref.html" tppabs="http://www.w3cschool.cc/schema/schema-elements-ref.html"> XML Schema 参考手册 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="schema-simple.html" tppabs="http://www.w3cschool.cc/schema/schema-simple.html" rel="prev"> XSD 简易元素</a></div> <div class="next"><a href="schema-facets.html" tppabs="http://www.w3cschool.cc/schema/schema-facets.html" rel="next">XML Schema 限定 / Facets</a> &raquo;</div> </div> <div id="content"> <h1>XSD <span class="color_h1">属性</span> </h1> <hr> <p class="intro">所有的属性均作为简易类型来声明。 </p> <hr> <h2>什么是属性？</h2> <p>简易元素无法拥有属性。假如某个元素拥有属性，它就会被当作某种复合类型。但是属性本身总是作为简易类型被声明的。</p> <hr> <h2>如何声明属性？ </h2> <p>定义属性的语法是</p> <div class="code notranslate"><div> &lt;xs:attribute name="xxx" type="yyy"/&gt; </div></div> <p>在此处，xxx 指属性名称，yyy 则规定属性的数据类型。XML Schema 拥有很多内建的数据类型。</p> <h3>最常用的类型是：</h3> <ul> <li>xs:string</li> <li>xs:decimal</li> <li>xs:integer</li> <li>xs:boolean</li> <li>xs:date</li> <li>xs:time</li> </ul> <h3>实例</h3> <p> 这是带有属性的 XML 元素：</p> <div class="code notranslate"><div> &lt;lastname lang="EN"&gt;Smith&lt;/lastname&gt; </div></div> <p>这是对应的属性定义：</p> <div class="code notranslate"><div> &lt;xs:attribute name="lang" type="xs:string"/&gt; </div></div> <br><hr> <h2>属性的默认值和固定值</h2> <p>属性可拥有指定的默认值或固定值。</p> <p>当没有其他的值被规定时，默认值就会自动分配给元素。</p> <p>在下面的例子中，缺省值是 &quot;EN&quot;：</p> <div class="code notranslate"><div> &lt;xs:attribute name="lang" type="xs:string" default="EN"/&gt; </div></div> <p>固定值同样会自动分配给元素，并且您无法规定另外的值。</p> <p>在下面的例子中，固定值是 &quot;EN&quot;：</p> <div class="code notranslate"><div> &lt;xs:attribute name="lang" type="xs:string" fixed="EN"/&gt; </div></div> <br><hr> <h2>可选的和必需的属性</h2> <p>在缺省的情况下，属性是可选的。如需规定属性为必选，请使用 &quot;use&quot; 属性：</p> <div class="code notranslate"><div> &lt;xs:attribute name="lang" type="xs:string" use="required"/&gt; </div></div> <br><hr> <h2>对内容的限定</h2> <p>当 XML 元素或属性拥有被定义的数据类型时，就会向元素或属性的内容添加限定。</p> <p>假如 XML 元素的类型是 &quot;xs:date&quot;，而其包含的内容是类似 &quot;Hello World&quot; 的字符串，元素将不会（通过）验证。</p> <p>通过 XML schema，您也可向您的 XML 元素及属性添加自己的限定。这些限定被称为 facet（编者注：意为(多面体的)面，可译为限定面）。您会在下一节了解到更多有关 facet 的知识。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="schema-simple.html" tppabs="http://www.w3cschool.cc/schema/schema-simple.html" rel="prev"> XSD 简易元素</a></div> <div class="next"><a href="schema-facets.html" tppabs="http://www.w3cschool.cc/schema/schema-facets.html" rel="next">XML Schema 限定 / Facets</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/schema/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/schema/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

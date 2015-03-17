@@ -1,0 +1,294 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Bootstrap 工具提示（Tooltip）插件 | w3cschool菜鸟教程</title> <link rel='prev' title='Bootstrap 标签页（Tab）插件' href="bootstrap-tab-plugin.html"/> <link rel='next' title='Bootstrap 弹出框（Popover）插件' href="bootstrap-popover-plugin.html"/> <link rel='canonical' href='http://www.w3cschool.cc/bootstrap/bootstrap-tooltip-plugin.html'/> <meta name="keywords" content="Bootstrap 工具提示（Tooltip）插件"> <meta name="description" content="Bootstrap 工具提示（Tooltip）插件 当您想要描述一个链接的时候，工具提示（Tooltip）就显得非常有用。工具提示（Tooltip）插件是受 Jason Frame 写的 jQuery.tipsy 的启发。工具提示（Tooltip）插件做了很多改进，例如不需要依赖图像，而是改用 CSS 实现动画效果，用 data 属性存储标题信息。 如果您想要单独引用该插件的功能，那么您需要引用 tooltip.js。或者，正如 Bo.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Bootstrap 教程</strong></h2> <a target="_top" title="Bootstrap 教程" href="bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html"> Bootstrap 教程 </a> <a target="_top" href="bootstrap-intro.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-intro.html"> Bootstrap 简介 </a> <a target="_top" href="bootstrap-environment-setup.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-environment-setup.html"> Bootstrap 环境安装 </a> <br><h2 class="left">Bootstrap <span class="left_h2">CSS</span></h2> <a target="_top" href="bootstrap-css-overview.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-css-overview.html"> Bootstrap CSS 概览 </a> <a target="_top" href="bootstrap-grid-system.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-grid-system.html"> Bootstrap 网格系统 </a> <a target="_top" href="bootstrap-typography.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-typography.html"> Bootstrap 排版 </a> <a target="_top" href="bootstrap-code.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-code.html"> Bootstrap 代码 </a> <a target="_top" href="bootstrap-tables.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tables.html"> Bootstrap 表格 </a> <a target="_top" href="bootstrap-forms.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-forms.html"> Bootstrap 表单 </a> <a target="_top" href="bootstrap-buttons.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-buttons.html"> Bootstrap 按钮 </a> <a target="_top" href="bootstrap-images.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-images.html"> Bootstrap 图像 </a> <a target="_top" href="bootstrap-helper-classes.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-helper-classes.html"> Bootstrap 帮助器类 </a> <a target="_top" href="bootstrap-responsive-utilities.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-responsive-utilities.html"> Bootstrap 响应式实用工具 </a> <br><h2 class="left">Bootstrap <span class="left_h2">布局组件</span></h2> <a target="_top" href="bootstrap-glyphicons.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-glyphicons.html"> Bootstrap 字形图标 </a> <a target="_top" href="bootstrap-dropdowns.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-dropdowns.html"> Bootstrap 下拉菜单 </a> <a target="_top" href="bootstrap-button-groups.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-button-groups.html"> Bootstrap 按钮组 </a> <a target="_top" href="bootstrap-button-dropdowns.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-button-dropdowns.html"> Bootstrap 按钮下拉菜单 </a> <a target="_top" href="bootstrap-input-groups.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-input-groups.html"> Bootstrap 输入框组 </a> <a target="_top" href="bootstrap-navigation-elements.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-navigation-elements.html"> Bootstrap 导航元素 </a> <a target="_top" href="bootstrap-navbar.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-navbar.html"> Bootstrap 导航栏 </a> <a target="_top" href="bootstrap-breadcrumbs.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-breadcrumbs.html"> Bootstrap 面包屑导航 </a> <a target="_top" href="bootstrap-pagination.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-pagination.html"> Bootstrap 分页 </a> <a target="_top" href="bootstrap-labels.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-labels.html"> Bootstrap 标签 </a> <a target="_top" href="bootstrap-badges.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-badges.html"> Bootstrap 徽章 </a> <a target="_top" href="bootstrap-jumbotron.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-jumbotron.html"> Bootstrap 超大屏幕 </a> <a target="_top" href="bootstrap-page-header.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-page-header.html"> Bootstrap 页面标题 </a> <a target="_top" href="bootstrap-thumbnails.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-thumbnails.html"> Bootstrap 缩略图 </a> <a target="_top" href="bootstrap-alerts.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-alerts.html"> Bootstrap 警告 </a> <a target="_top" href="bootstrap-progress-bars.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-progress-bars.html"> Bootstrap 进度条 </a> <a target="_top" href="bootstrap-media-object.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-media-object.html"> Bootstrap 多媒体对象 </a> <a target="_top" href="bootstrap-list-group.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-list-group.html"> Bootstrap 列表组 </a> <a target="_top" href="bootstrap-panels.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-panels.html"> Bootstrap 面板 </a> <a target="_top" href="bootstrap-wells.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-wells.html"> Bootstrap Wells </a> <br><h2 class="left">Bootstrap <span class="left_h2">插件</span></h2> <a target="_top" title="Bootstrap 插件概览" href="bootstrap-plugins-overview.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-plugins-overview.html"> Bootstrap 插件概览 </a> <a target="_top" title="Bootstrap 过渡效果（Transition）插件" href="bootstrap-transition-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-transition-plugin.html"> Bootstrap 过渡效果 </a> <a target="_top" title="Bootstrap 模态框（Modal）插件" href="bootstrap-modal-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-modal-plugin.html"> Bootstrap 模态框 </a> <a target="_top" title="Bootstrap 下拉菜单（Dropdown）插件" href="bootstrap-dropdown-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-dropdown-plugin.html"> Bootstrap 下拉菜单 </a> <a target="_top" title="Bootstrap 滚动监听（Scrollspy）插件" href="bootstrap-scrollspy-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-scrollspy-plugin.html"> Bootstrap 滚动监听 </a> <a target="_top" title="Bootstrap 标签页（Tab）插件" href="bootstrap-tab-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tab-plugin.html"> Bootstrap 标签页 </a> <a target="_top" title="Bootstrap 工具提示（Tooltip）插件" href="bootstrap-tooltip-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tooltip-plugin.html"> Bootstrap 工具提示 </a> <a target="_top" title="Bootstrap 弹出框（Popover）插件" href="bootstrap-popover-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-popover-plugin.html"> Bootstrap 弹出框 </a> <a target="_top" title="Bootstrap 警告框" href="bootstrap-alert-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-alert-plugin.html"> Bootstrap 警告框 </a> <a target="_top" title="Bootstrap 按钮（Button）插件" href="bootstrap-button-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-button-plugin.html"> Bootstrap 按钮 </a> <a target="_top" title="Bootstrap 折叠（Collapse）插件" href="bootstrap-collapse-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-collapse-plugin.html"> Bootstrap 折叠 </a> <a target="_top" title="Bootstrap 轮播（Carousel）插件" href="bootstrap-carousel-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-carousel-plugin.html"> Bootstrap 轮播 </a> <a target="_top" title="Bootstrap 附加导航（Affix）插件" href="bootstrap-affix-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-affix-plugin.html"> Bootstrap 附加导航 </a> <br><h2 class="left">Bootstrap <span class="left_h2">其他</span></h2> <a target="_top" href="bootstrap-ui-editor.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-ui-editor.html"> Bootstrap UI 编辑器 </a> <a target="_top" href="bootstrap-v2-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-v2-tutorial.html"> Bootstrap v2 教程 </a></div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="bootstrap-tab-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tab-plugin.html" rel="prev"> Bootstrap 标签页（Tab）插件</a></div> <div class="next"><a href="bootstrap-popover-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-popover-plugin.html" rel="next">Bootstrap 弹出框（Popover）插件</a> &raquo;</div> </div> <div id="content"> <h1>Bootstrap <span class="color_h1">工具提示（Tooltip）插件</span></h1> <p>当您想要描述一个链接的时候，工具提示（Tooltip）就显得非常有用。工具提示（Tooltip）插件是受 <i>Jason Frame</i> 写的 <i>jQuery.tipsy</i> 的启发。工具提示（Tooltip）插件做了很多改进，例如不需要依赖图像，而是改用 CSS 实现动画效果，用 data 属性存储标题信息。</p> <blockquote><img src="../angularjs/angularjs-reference.html" tppabs="http://www.w3cschool.cc/images/quote.png">如果您想要单独引用该插件的功能，那么您需要引用 <b>tooltip.js</b>。或者，正如 <a target="_top" href="bootstrap-plugins-overview.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-plugins-overview.html">Bootstrap 插件概览</a> 一章中所提到，您可以引用 <i>bootstrap.js</i> 或压缩版的 <i>bootstrap.min.js</i>。</blockquote> <h2>用法</h2> <p>工具提示（Tooltip）插件根据需求生成内容和标记，默认情况下是把工具提示（tooltip）放在它们的触发元素后面。您可以有以下两种方式添加工具提示（tooltip）：</p> <ul class="list"> <li><b>通过 data 属性</b>：如需添加一个工具提示（tooltip），只需向一个锚标签添加 <b>data-toggle="tooltip"</b> 即可。锚的 title 即为工具提示（tooltip）的文本。默认情况下，插件把工具提示（tooltip）设置在顶部。 <pre class="prettyprint">
+&lt;a href="#" data-toggle="tooltip" title="Example tooltip"&gt;请悬停在我的上面&lt;/a&gt;
+</pre> </li> <li><b>通过 JavaScript</b>：通过 JavaScript 触发工具提示（tooltip）： <pre class="prettyprint">
+$('#identifier').tooltip(options)
+</pre> </li> </ul> <blockquote><img src="../angularjs/angularjs-reference.html" tppabs="http://www.w3cschool.cc/images/quote.png">工具提示（Tooltip）插件不像之前所讨论的下拉菜单及其他插件那样，它不是纯 CSS 插件。如需使用该插件，您必须使用 jquery 激活它（读取 javascript）。使用下面的脚本来启用页面中的所有的工具提示（tooltip）： <pre class="prettyprint">
+$(function () { $("[data-toggle='tooltip']").tooltip(); });
+</pre> </blockquote> <h3>实例</h3> <p>下面的实例演示了通过 data 属性使用工具提示（Tooltip）插件的用法。</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 工具提示（Tooltip）插件&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h4&gt;工具提示（Tooltip）插件 - 锚&lt;/h4&gt;
+这是一个 &lt;a href="#" class="tooltip-test" data-toggle="tooltip" 
+   title="默认的 Tooltip"&gt;
+   默认的 Tooltip
+&lt;/a&gt;.
+这是一个 &lt;a href="#" class="tooltip-test" data-toggle="tooltip" 
+   data-placement="left" title="左侧的 Tooltip"&gt;
+   左侧的 Tooltip
+&lt;/a&gt;.
+这是一个 &lt;a href="#" data-toggle="tooltip" data-placement="top" 
+   title="顶部的 Tooltip"&gt;
+   顶部的 Tooltip
+&lt;/a&gt;.
+这是一个 &lt;a href="#" data-toggle="tooltip" data-placement="bottom" 
+   title="底部的 Tooltip"&gt;
+   底部的 Tooltip
+&lt;/a&gt;.
+这是一个 &lt;a href="#" data-toggle="tooltip" data-placement="right" 
+   title="右侧的 Tooltip"&gt;
+   右侧的 Tooltip
+&lt;/a&gt;
+
+&lt;br&gt;
+
+&lt;h4&gt;工具提示（Tooltip）插件 - 按钮&lt;/h4&gt;
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip" 
+   title="默认的 Tooltip"&gt;
+   默认的 Tooltip
+&lt;/button&gt;
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip" 
+   data-placement="left" title="左侧的 Tooltip"&gt;
+   左侧的 Tooltip
+&lt;/button&gt;
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip" 
+   data-placement="top" title="顶部的 Tooltip"&gt;
+   顶部的 Tooltip
+&lt;/button&gt;
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip" 
+   data-placement="bottom" title="底部的 Tooltip"&gt;
+   底部的 Tooltip
+&lt;/button&gt;
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip" 
+   data-placement="right" title="右侧的 Tooltip"&gt;
+   右侧的 Tooltip
+&lt;/button&gt;
+&lt;script&gt;
+   $(function () { $("[data-toggle='tooltip']").tooltip(); });
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/ruby-installation-windows.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/ruby-installation-windows.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-plugin-tooltip" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/07/ruby-command-line-options.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/07/tooltipplugin_demo.jpg" alt="工具提示（Tooltip）插件"/> </div> <h2>选项</h2> <p>有一些选项是通过 Bootstrap 数据 API（Bootstrap Data API）添加或通过 JavaScript 调用的。下表列出了这些选项：</p> <table class="reference notranslate"> <tr><th>选项名称</th><th>类型/默认值</th><th>Data 属性名称</th><th>描述</th></tr> <tr><td>animation</td><td>boolean<br> <i>默认值：true</i></td><td>data-animation</td><td>向工具提示应用 CSS 褪色过渡效果。</td></tr> <tr><td>html</td><td>boolean<br> <i>默认值：false</i></td><td>data-html</td><td>向工具提示插入 HTML。如果为 false，jQuery 的 text 方法将被用于向 dom 插入内容。如果您担心 XSS 攻击，请使用 text。</td></tr> <tr><td>placement</td><td>string|function<br> <i>默认值：top</i></td><td>data-placement</td><td>规定如何定位工具提示（即 top|bottom|left|right|auto）。<br>当指定为 <i>auto</i> 时，会动态调整工具提示。例如，如果 placement 是 "auto left"，工具提示将会尽可能显示在左边，在情况不允许的情况下它才会显示在右边。</td></tr> <tr><td>selector</td><td>string<br> <i>默认值：false</i></td><td>data-selector</td><td>如果提供了一个选择器，工具提示对象将被委派到指定的目标。</td></tr> <tr><td>title</td><td>string | function<br> <i>默认值：''</i></td><td>data-title</td><td>如果未指定 <i>title</i> 属性，则 title 选项是默认的 title 值。</td></tr> <tr><td>trigger</td><td>string<br> <i>默认值：'hover focus'</i></td><td>data-trigger</td><td>定义如何触发工具提示：<b> click| hover | focus | manual</b>。您可以传递多个触发器，每个触发器之间用空格分隔。</td></tr> <tr><td>content</td><td>string | function<br> <i>默认值：''</i></td><td>data-content</td><td>如果未指定 <i>data-content</i> 属性，则使用默认的 content 值。</td></tr> <tr><td>delay</td><td>number | object<br> <i>默认值：0</i></td><td>data-delay</td><td>延迟显示和隐藏工具提示的毫秒数 - 对 manual 手动触发类型不适用。如果提供的是一个数字，那么延迟将会应用于显示和隐藏。如果提供的是对象，结构如下所示： <pre class="prettyprint">
+delay:
+{ show: 500, hide: 100 }</pre></td></tr> <tr><td>container</td><td>string | false<br> <i>默认值：false</i></td><td>data-container</td><td>向指定元素追加工具提示。<br>实例： container: 'body'</td></tr> </table> <h2>方法</h2> <p>下面是一些工具提示（Tooltip）插件中有用的方法：</p> <table class="reference notranslate"> <tr><th>方法</th><th>描述</th><th>实例</th></tr> <tr><td><b>Options:</b> .tooltip(options)</td><td>向元素集合附加提示工具句柄。</td><td> <pre class="prettyprint">
+$().tooltip(options)</pre> </td></tr> <tr><td><b>Toggle:</b> .tooltip('toggle')</td><td>切换显示/隐藏元素的提示工具。</td><td> <pre class="prettyprint">
+$('#element').tooltip('toggle')
+</pre></td></tr> <tr><td><b>Show:</b> .tooltip('show')</td><td>显示元素的提示工具。</td><td> <pre class="prettyprint">
+$('#element').tooltip('show')
+</pre></td></tr> <tr><td><b>Hide:</b> .tooltip('hide')</td><td>隐藏元素的提示工具。</td><td> <pre class="prettyprint">
+$('#element').tooltip('hide')
+</pre></td></tr> <tr><td><b>Destroy:</b> .tooltip('destroy')</td><td>隐藏并销毁元素的提示工具。</td><td> <pre class="prettyprint">
+$('#element').tooltip('destroy')
+</pre></td></tr> </table> <h3>实例</h3> <p>下面的实例演示了工具提示（Tooltip）插件方法的用法。</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 工具提示（Tooltip）插件方法&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div style="padding: 100px 100px 10px;"&gt;
+   这是一个 &lt;a href="#" class="tooltip-show" data-toggle="tooltip" 
+      title="show"&gt;Tooltip 方法 show
+   &lt;/a&gt;.
+
+   这是一个 &lt;a href="#" class="tooltip-hide" data-toggle="tooltip" 
+      data-placement="left" title="hide"&gt;Tooltip 方法 hide
+   &lt;/a&gt;.
+
+   这是一个 &lt;a href="#" class="tooltip-destroy" data-toggle="tooltip" 
+      data-placement="top" title="destroy"&gt;Tooltip 方法 destroy
+   &lt;/a&gt;.
+
+   这是一个 &lt;a href="#" class="tooltip-toggle" data-toggle="tooltip" 
+      data-placement="bottom" title="toggle"&gt;Tooltip 方法 toggle
+   &lt;/a&gt;.
+   &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+   &lt;p class="tooltip-options" &gt;
+      这是一个 &lt;a href="#" data-toggle="tooltip" title="&lt;h2&gt;'am Header2
+         &lt;/h2&gt;"&gt;Tooltip 方法 options
+      &lt;/a&gt;.
+   &lt;/p&gt;
+
+   &lt;script&gt;
+      $(function () { $('.tooltip-show').tooltip('show');});
+      $(function () { $('.tooltip-hide').tooltip('hide');});
+      $(function () { $('.tooltip-destroy').tooltip('destroy');});
+      $(function () { $('.tooltip-toggle').tooltip('toggle');});
+      $(function () { $(".tooltip-options a").tooltip({html : true });
+      });
+   &lt;/script&gt;
+&lt;div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/ruby-environment-variables.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/ruby-environment-variables.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-plugin-tooltip-method" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/07/ruby-syntax.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/07/tooltippluginmethods_demo.jpg" alt="工具提示（Tooltip）插件方法"/> </div> <h2>事件</h2> <p>下表列出了工具提示（Tooltip）插件中要用到的事件。这些事件可在函数中当钩子使用。</p> <table class="reference notranslate"> <tr><th>事件</th><th>描述</th><th>实例</th></tr> <tr><td>show.bs.tooltip</td><td>当调用 show 实例方法时立即触发该事件。</td><td> <pre class="prettyprint">
+$('#myTooltip').on('show.bs.tooltip', function () {
+  // 执行一些动作...
+})
+</pre></td></tr> <tr><td>shown.bs.tooltip</td><td>当工具提示对用户可见时触发该事件（将等待 CSS 过渡效果完成）。</td><td> <pre class="prettyprint">
+$('#myTooltip').on('shown.bs.tooltip', function () {
+  // 执行一些动作...
+})
+</pre></td></tr> <tr><td>hide.bs.tooltip</td><td>当调用 hide 实例方法时立即触发该事件。</td><td> <pre class="prettyprint">
+$('#myTooltip').on('hide.bs.tooltip', function () {
+  // 执行一些动作...
+})
+</pre></td></tr> <tr><td>hidden.bs.tooltip</td><td>当工具提示对用户隐藏时触发该事件（将等待 CSS 过渡效果完成）。</td><td> <pre class="prettyprint">
+$('#myTooltip').on('hidden.bs.tooltip', function () {
+  // 执行一些动作...
+})
+</pre></td></tr> </table> <h3>实例</h3> <p>下面的实例演示了工具提示（Tooltip）插件事件的用法。</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 工具提示（Tooltip）插件事件&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h4&gt;工具提示（Tooltip）插件 - 锚&lt;/h4&gt;
+这是一个 &lt;a href="#" class="tooltip-show" data-toggle="tooltip" 
+   title="默认的 Tooltip"&gt;默认的 Tooltip
+&lt;/a&gt;.
+
+&lt;script&gt;
+$(function () { $('.tooltip-show').tooltip('show');});
+$(function () { $('.tooltip-show').on('show.bs.tooltip', function () {
+   alert("Alert message on show");
+})});
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/ruby-class.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/ruby-class.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-plugin-tooltip-event" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/07/ruby-class-case-study.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/07/tooltippluginevents_demo.jpg" alt="工具提示（Tooltip）插件事件"/> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="bootstrap-tab-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tab-plugin.html" rel="prev"> Bootstrap 标签页（Tab）插件</a></div> <div class="next"><a href="bootstrap-popover-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-popover-plugin.html" rel="next">Bootstrap 弹出框（Popover）插件</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		$("pre").css('background-image', 'none');
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/bootstrap/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/bootstrap/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

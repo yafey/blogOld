@@ -1,0 +1,336 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Java 流(Stream)、文件(File)和IO | w3cschool菜鸟教程</title> <link rel='prev' title='Java 方法' href="java-methods.html"/> <link rel='next' title='Java 异常处理' href="java-exceptions.html"/> <link rel='canonical' href='http://www.w3cschool.cc/java/java-files-io.html'/> <meta name="keywords" content="Java 流(Stream)、文件(File)和IO"> <meta name="description" content="Java 流(Stream)、文件(File)和IO Java.io包几乎包含了所有操作输入、输出需要的类。所有这些流类代表了输入源和输出目标。 Java.io包中的流支持很多种格式，比如：基本类型、对象、本地化字符集等等。 一个流可以理解为一个数据的序列。输入流表示从一个源读取数据，输出流表示向一个目标写数据。 Java为I/O提供了强大的而灵活的支持，使其更广泛地应用到文件传输和网络编程中。 但本节讲述最基本的和流与I/O相关的功能.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Java 教程</strong></h2> <a target="_top" title="Java 教程" href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html"> Java 教程 </a> <a target="_top" title="Java 简介" href="java-intro.html" tppabs="http://www.w3cschool.cc/java/java-intro.html"> Java 简介 </a> <a target="_top" title="Java开发环境配置" href="java-environment-setup.html" tppabs="http://www.w3cschool.cc/java/java-environment-setup.html"> Java开发环境配置 </a> <a target="_top" title="Java基础语法" href="java-basic-syntax.html" tppabs="http://www.w3cschool.cc/java/java-basic-syntax.html"> Java基础语法 </a> <a target="_top" title="Java对象和类" href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html"> Java对象和类 </a> <a target="_top" title="Java基本数据类型" href="java-basic-datatypes.html" tppabs="http://www.w3cschool.cc/java/java-basic-datatypes.html"> Java基本数据类型 </a> <a target="_top" title="Java变量类型" href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html"> Java变量类型 </a> <a target="_top" title="Java修饰符" href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html"> Java修饰符 </a> <a target="_top" title="Java运算符" href="java-operators.html" tppabs="http://www.w3cschool.cc/java/java-operators.html"> Java运算符 </a> <a target="_top" title="Java循环结构 &#8211; for, while 及 do&#8230;while" href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html"> Java循环结构 </a> <a target="_top" title="Java分支结构 &#8211; if&#8230;else/switch" href="java-if-else-switch.html" tppabs="http://www.w3cschool.cc/java/java-if-else-switch.html"> Java分支结构 </a> <a target="_top" title="Java Number类" href="java-number.html" tppabs="http://www.w3cschool.cc/java/java-number.html"> Java Number类 </a> <a target="_top" title="Java Character类" href="java-character.html" tppabs="http://www.w3cschool.cc/java/java-character.html"> Java Character类 </a> <a target="_top" title="Java String类" href="java-string.html" tppabs="http://www.w3cschool.cc/java/java-string.html"> Java String类 </a> <a target="_top" title="Java StringBuffer和StringBuilder类" href="java-stringbuffer.html" tppabs="http://www.w3cschool.cc/java/java-stringbuffer.html"> Java StringBuffer和StringBuilder类 </a> <a target="_top" title="Java 数组" href="java-array.html" tppabs="http://www.w3cschool.cc/java/java-array.html"> Java 数组 </a> <a target="_top" title="Java日期时间" href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html"> Java日期时间 </a> <a target="_top" title="Java正则表达式" href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html"> Java正则表达式 </a> <a target="_top" title="Java 方法" href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html"> Java 方法 </a> <a target="_top" title="Java 流(Stream)、文件(File)和IO" href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html"> Java 流(Stream)、文件(File)和IO </a> <a target="_top" title="Java 异常处理" href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html"> Java 异常处理 </a> <br><h2 class="left">Java <span class="left_h2">面向对象</span></h2> <a target="_top" title="Java 继承" href="java-inheritance.html" tppabs="http://www.w3cschool.cc/java/java-inheritance.html"> Java 继承 </a> <a target="_top" title="Java 重写(Override)与重载(Overload)" href="java-override-overload.html" tppabs="http://www.w3cschool.cc/java/java-override-overload.html"> Java 重写(Override)与重载(Overload) </a> <a target="_top" title="Java 多态" href="java-polymorphism.html" tppabs="http://www.w3cschool.cc/java/java-polymorphism.html"> Java 多态 </a> <a target="_top" title="Java 抽象类" href="java-abstraction.html" tppabs="http://www.w3cschool.cc/java/java-abstraction.html"> Java 抽象类 </a> <a target="_top" title="java 封装" href="java-encapsulation.html" tppabs="http://www.w3cschool.cc/java/java-encapsulation.html"> java 封装 </a> <a target="_top" title="Java 接口" href="java-interfaces.html" tppabs="http://www.w3cschool.cc/java/java-interfaces.html"> Java 接口 </a> <a target="_top" title="Java 包(package)" href="java-package.html" tppabs="http://www.w3cschool.cc/java/java-package.html"> Java 包(package) </a> <br><h2 class="left">Java <span class="left_h2">高级教程</span></h2> <a target="_top" title="Java 数据结构" href="java-data-structures.html" tppabs="http://www.w3cschool.cc/java/java-data-structures.html"> Java 数据结构 </a> <a target="_top" title="Java 集合框架" href="java-collections.html" tppabs="http://www.w3cschool.cc/java/java-collections.html"> Java 集合框架 </a> <a target="_top" title="Java 泛型" href="java-generics.html" tppabs="http://www.w3cschool.cc/java/java-generics.html"> Java 泛型 </a> <a target="_top" title="Java序列化" href="java-serialization.html" tppabs="http://www.w3cschool.cc/java/java-serialization.html"> Java序列化 </a> <a target="_top" title="Java 网络编程" href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html"> Java 网络编程 </a> <a target="_top" title="Java 发送邮件" href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html"> Java 发送邮件 </a> <a target="_top" title="Java 多线程编程" href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html"> Java 多线程编程 </a> <a target="_top" title="Java Applet基础" href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html"> Java Applet基础 </a> <a target="_top" title="Java 文档注释" href="java-documentation.html" tppabs="http://www.w3cschool.cc/java/java-documentation.html"> Java 文档注释 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html" rel="prev"> Java 方法</a></div> <div class="next"><a href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html" rel="next">Java 异常处理</a> &raquo;</div> </div> <div id="content"> <h1>Java 流(Stream)、文件(File)和IO</h1> <p>Java.io包几乎包含了所有操作输入、输出需要的类。所有这些流类代表了输入源和输出目标。 </p><p>Java.io包中的流支持很多种格式，比如：基本类型、对象、本地化字符集等等。 </p><p>一个流可以理解为一个数据的序列。输入流表示从一个源读取数据，输出流表示向一个目标写数据。 </p><p>Java为I/O提供了强大的而灵活的支持，使其更广泛地应用到文件传输和网络编程中。 </p><p>但本节讲述最基本的和流与I/O相关的功能。我们将通过一个个例子来学习这些功能。 </p><hr><h2>读取控制台输入</h2> <p> Java的控制台输入由Sysem.in完成。 </p><p>为了获得一个绑定到控制台的字符流，你可以把System.in包装在一个BufferedReader 对象中来创建一个字符流。 </p><p>下面是创建BufferedReader的基本语法：</p> <pre>
+BufferedReader br = new BufferedReader(new 
+                      InputStreamReader(System.in));
+</pre> <p>BufferedReader对象创建后，我们便可以使用read()方法从控制台读取一个字符，或者用readLine()方法读取一个字符串。 </p><hr><h2>从控制台读取多字符输入</h2> <p> 从BufferedReader对象读取一个字符要使用read()方法，它的语法如下： </p> <pre>
+int read( ) throws IOException
+</pre> <p>每次调用read()方法，它从输入流读取一个字符并把该字符作为整数值返回。 当流结束的时候返回-1。该方法抛出IOException。 </p><p>下面的程序示范了用read()方法从控制台不断读取字符直到用户输入"q"。</p> <pre>
+// 使用 BufferedReader 在控制台读取字符
+
+import java.io.*;
+
+public class BRRead {
+   public static void main(String args[]) throws IOException
+   {
+      char c;
+      // 使用 System.in 创建 BufferedReader 
+      BufferedReader br = new BufferedReader(new 
+                         InputStreamReader(System.in));
+      System.out.println("Enter characters, 'q' to quit.");
+      // 读取字符
+      do {
+         c = (char) br.read();
+         System.out.println(c);
+      } while(c != 'q');
+   }
+}
+</pre> <p>以上实例编译运行结果如下:</p> <pre>
+Enter characters, 'q' to quit.
+123abcq
+1
+2
+3
+a
+b
+c
+q
+</pre> <hr><h2>从控制台读取字符串</h2> <p> 从标准输入读取一个字符串需要使用BufferedReader的readLine()方法。 </p><p>它的一般格式是： </p> <pre>
+String readLine( ) throws IOException
+</pre> <p> 下面的程序读取和显示字符行直到你输入了单词"end"。 </p> <pre>
+// 使用 BufferedReader 在控制台读取字符
+import java.io.*;
+public class BRReadLines {
+   public static void main(String args[]) throws IOException
+   {
+      // 使用 System.in 创建 BufferedReader 
+      BufferedReader br = new BufferedReader(new
+                              InputStreamReader(System.in));
+      String str;
+      System.out.println("Enter lines of text.");
+      System.out.println("Enter 'end' to quit.");
+      do {
+         str = br.readLine();
+         System.out.println(str);
+      } while(!str.equals("end"));
+   }
+}
+</pre> <p>以上实例编译运行结果如下:</p> <pre>
+Enter lines of text.
+Enter 'end' to quit.
+This is line one
+This is line one
+This is line two
+This is line two
+end
+end
+</pre> <h2>控制台输出</h2> <p> 在此前已经介绍过，控制台的输出由 print( ) 和println( )完成。这些方法都由类PrintStream 定义，System.out是该类对象的一个引用。 </p><p>PrintStream 继承了OutputStream类，并且实现了方法write()。这样，write()也可以用来往控制台写操作。 </p><p>PrintStream 定义write()的最简单格式如下所示：</p> <pre>
+void write(int byteval)
+</pre> <p>该方法将byteval的低八位字节写到流中。 </p> <h3>实例</h3> <p> 下面的例子用write()把字符"A"和紧跟着的换行符输出到屏幕： </p> <pre>
+import java.io.*;
+
+// 演示 System.out.write().
+public class WriteDemo {
+   public static void main(String args[]) {
+      int b; 
+      b = 'A';
+      System.out.write(b);
+      System.out.write('\n');
+   }
+}
+</pre> <p>运行以上实例在输出窗口输出"A"字符</p> <pre>
+A
+</pre> <p><strong>注意：</strong>write()方法不经常使用，因为print()和println()方法用起来更为方便。 </p> <hr><h2>读写文件</h2> <p> 如前所述，一个流被定义为一个数据序列。输入流用于从源读取数据，输出流用于向目标写数据。 </p><p>下图是一个描述输入流和输出流的类层次图。</p> <p> <img src="../wp-content/uploads/2013/12/try.php-filename=tryjs_timing2" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/12/12-130Q122402I57.jpg"/></p> <p>下面将要讨论的两个重要的流是FileInputStream 和FileOutputStream： </p><hr> <h2>FileInputStream</h2> <p>该流用于从文件读取数据，它的对象可以用关键字new来创建。 </p><p>有多种构造方法可用来创建对象。 </p><p>可以使用字符串类型的文件名来创建一个输入流对象来读取文件：</p> <pre>
+InputStream f = new FileInputStream("C:/java/hello");
+</pre> <p>也可以使用一个文件对象来创建一个输入流对象来读取文件。我们首先得使用File()方法来创建一个文件对象： </p> <pre>
+File f = new File("C:/java/hello");
+InputStream f = new FileInputStream(f);
+</pre> <p>创建了InputStream对象，就可以使用下面的方法来读取流或者进行其他的流操作。</p> <table class="reference"> <tbody> <tr> <th style="width:44px;"> <strong>序号</strong></th> <th style="width:533px;"> <strong>方法及描述</strong></th> </tr> <tr> <td style="width:44px;"> 1</td> <td style="width:533px;"> <strong>public void close() throws IOException{}</strong><br> 关闭此文件输入流并释放与此流有关的所有系统资源。抛出IOException异常。</td> </tr> <tr> <td style="width:44px;"> 2</td> <td style="width:533px;"> <strong>protected void finalize()throws IOException {}</strong><br> 这个方法清除与该文件的连接。确保在不再引用文件输入流时调用其 close 方法。抛出IOException异常。</td> </tr> <tr> <td style="width:44px;"> 3</td> <td style="width:533px;"> <strong>public int read(int r)throws IOException{}</strong><br> 这个方法从InputStream对象读取指定字节的数据。返回为整数值。返回下一字节数据，如果已经到结尾则返回-1。</td> </tr> <tr> <td style="width:44px;"> 4</td> <td style="width:533px;"> <strong>public int read(byte[] r) throws IOException{}</strong><br> 这个方法从输入流读取r.length长度的字节。返回读取的字节数。如果是文件结尾则返回-1。</td> </tr> <tr> <td style="width:44px;"> 5</td> <td style="width:533px;"> <strong>public int available() throws IOException{}</strong><br> 返回下一次对此输入流调用的方法可以不受阻塞地从此输入流读取的字节数。返回一个整数值。</td> </tr> </tbody> </table> <p>除了InputStream外，还有一些其他的输入流，更多的细节参考下面链接：</p> <ul> <li> <a href="javascript:if(confirm('http://www.w3cschool.cc/java/try.php?filename=tryjs_timing_infinite  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/java/try.php?filename=tryjs_timing_infinite'" tppabs="http://www.w3cschool.cc/java/java-bytearrayinputstream.html" target="_blank">ByteArrayInputStream</a></li><li> <a href="javascript:if(confirm('http://www.w3cschool.cc/java/try.php?filename=tryjs_timing_stop  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/java/try.php?filename=tryjs_timing_stop'" tppabs="http://www.w3cschool.cc/java/java-datainputstream.html" target="_blank">DataInputStream</a></li> </ul> <hr><h2> FileOutputStream</h2><p> 该类用来创建一个文件并向文件中写数据。</p><p> 如果该流在打开文件进行输出前，目标文件不存在，那么该流会创建该文件。</p><p> 有两个构造方法可以用来创建FileOutputStream 对象。</p><p> 使用字符串类型的文件名来创建一个输出流对象：</p> <pre>
+OutputStream f = new FileOutputStream("C:/java/hello") 
+</pre> <p>也可以使用一个文件对象来创建一个输出流来写文件。我们首先得使用File()方法来创建一个文件对象： </p> <pre>
+File f = new File("C:/java/hello");
+OutputStream f = new FileOutputStream(f);
+</pre> <p> 创建OutputStream 对象完成后，就可以使用下面的方法来写入流或者进行其他的流操作。 </p> <table class="reference"> <tbody> <tr> <th style="width:47px;"> <strong>序号</strong></th> <th style="width:529px;"> <strong>方法及描述</strong></th> </tr> <tr> <td style="width:47px;"> 1</td> <td style="width:529px;"> <strong>public void close() throws IOException{}</strong><br> 关闭此文件输入流并释放与此流有关的所有系统资源。抛出IOException异常。</td> </tr> <tr> <td style="width:47px;"> 2</td> <td style="width:529px;"> <strong>protected void finalize()throws IOException {}</strong><br> 这个方法清除与该文件的连接。确保在不再引用文件输入流时调用其 close 方法。抛出IOException异常。</td> </tr> <tr> <td style="width:47px;"> 3</td> <td style="width:529px;"> <strong>public void write(int w)throws IOException{}</strong><br> 这个方法把指定的字节写到输出流中。</td> </tr> <tr> <td style="width:47px;"> 4</td> <td style="width:529px;"> <strong>public void write(byte[] w)</strong><br> 把指定数组中w.length长度的字节写到OutputStream中。</td> </tr> </tbody> </table> <p>除了OutputStream外，还有一些其他的输出流，更多的细节参考下面链接：</p> <ul> <li> <a href="javascript:if(confirm('http://www.w3cschool.cc/java/try.php?filename=tryjs_timing_clock  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/java/try.php?filename=tryjs_timing_clock'" tppabs="http://www.w3cschool.cc/java/java-bytearrayoutputstream.html" target="_blank">ByteArrayOutputStream</a></li><li> <a href="javascript:if(confirm('http://www.w3cschool.cc/java/try.php?filename=tryjs_create_object1  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/java/try.php?filename=tryjs_create_object1'" tppabs="http://www.w3cschool.cc/java/java-dataoutputstream.html" target="_blank">DataOutputStream</a></li></ul> <h3>实例</h3> <p> 下面是一个演示InputStream和OutputStream用法的例子： </p> <pre>
+import java.io.*;
+
+public class fileStreamTest{
+
+   public static void main(String args[]){
+   
+   try{
+      byte bWrite [] = {11,21,3,40,5};
+      OutputStream os = new FileOutputStream("test.txt");
+      for(int x=0; x &lt; bWrite.length ; x++){
+         os.write( bWrite[x] ); // writes the bytes
+      }
+      os.close();
+     
+      InputStream is = new FileInputStream("test.txt");
+      int size = is.available();
+
+      for(int i=0; i&lt; size; i++){
+         System.out.print((char)is.read() + "  ");
+      }
+      is.close();
+   }catch(IOException e){
+      System.out.print("Exception");
+   }	
+   }
+}
+</pre> <p>上面的程序首先创建文件test.txt，并把给定的数字以二进制形式写进该文件，同时输出到控制台上。 </p> <p>以上代码由于是二进制写入，可能存在乱码，你可以使用以下代码实例来解决乱码问题：</p> <pre>
+//文件名 :fileStreamTest2.java
+import java.io.*;
+
+public class fileStreamTest2{
+	public static void main(String[] args) throws IOException {
+		
+		File f = new File("a.txt");
+		FileOutputStream fop = new FileOutputStream(f);
+		// 构建FileOutputStream对象,文件不存在会自动新建
+		
+		OutputStreamWriter writer = new OutputStreamWriter(fop, "UTF-8");
+		// 构建OutputStreamWriter对象,参数可以指定编码,默认为操作系统默认编码,windows上是gbk
+		
+		writer.append("中文输入");
+		// 写入到缓冲区
+		
+		writer.append("\r\n");
+		//换行
+		
+		writer.append("English");
+		// 刷新缓存冲,写入到文件,如果下面已经没有写入的内容了,直接close也会写入
+		
+		writer.close();
+		//关闭写入流,同时会把缓冲区内容写入文件,所以上面的注释掉
+		
+		fop.close();
+		// 关闭输出流,释放系统资源
+
+		FileInputStream fip = new FileInputStream(f);
+		// 构建FileInputStream对象
+		
+		InputStreamReader reader = new InputStreamReader(fip, "UTF-8");
+		// 构建InputStreamReader对象,编码与写入相同
+
+		StringBuffer sb = new StringBuffer();
+		while (reader.ready()) {
+			sb.append((char) reader.read());
+			// 转成char加到StringBuffer对象中
+		}
+		System.out.println(sb.toString());
+		reader.close();
+		// 关闭读取流
+		
+		fip.close();
+		// 关闭输入流,释放系统资源
+
+	}
+}
+</pre> <hr> <h2>文件和I/O</h2><p> 还有一些关于文件和I/O的类，我们也需要知道：</p> <ul> <li> <a href="javascript:if(confirm('http://www.w3cschool.cc/java/try.php?filename=tryjs_create_object2  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/java/try.php?filename=tryjs_create_object2'" tppabs="http://www.w3cschool.cc/java/java-file.html" target="_blank">File Class(类)</a></li><li> <a href="javascript:if(confirm('http://www.w3cschool.cc/java/try.php?filename=trycss_background-color_body  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/java/try.php?filename=trycss_background-color_body'" tppabs="http://www.w3cschool.cc/java/java-filereader.html" target="_blank">FileReader Class(类)</a></li><li> <a href="javascript:if(confirm('http://www.w3cschool.cc/java/try.php?filename=trycss_background-color_elements  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/java/try.php?filename=trycss_background-color_elements'" tppabs="http://www.w3cschool.cc/java/java-filewriter.html" target="_blank">FileWriter Class(类)</a></li></ul> <hr> <h2>Java中的目录</h2> <h3>创建目录：</h3><p> File类中有两个方法可以用来创建文件夹：</p> <ul> <li> <strong>mkdir( )</strong>方法创建一个文件夹，成功则返回true，失败则返回false。失败表明File对象指定的路径已经存在，或者由于整个路径还不存在，该文件夹不能被创建。</li> <li> <strong>mkdirs()</strong>方法创建一个文件夹和它的所有父文件夹。</li> </ul> <p> 下面的例子创建 "/tmp/user/java/bin"文件夹：</p> <pre>
+import java.io.File;
+
+public class CreateDir {
+   public static void main(String args[]) {
+      String dirname = "/tmp/user/java/bin";
+      File d = new File(dirname);
+      // 现在创建目录
+      d.mkdirs();
+  }
+}
+</pre> <p>编译并执行上面代码来创建目录"/tmp/user/java/bin"。 </p><p><strong>注意：</strong>Java在UNIX和Windows自动按约定分辨文件路径分隔符。如果你在Windows版本的Java中使用分隔符(/) ，路径依然能够被正确解析。 </p><hr> <h2>读取目录</h2> <p> 一个目录其实就是一个File对象，它包含其他文件和文件夹。 </p><p>如果创建一个File对象并且它是一个目录，那么调用isDirectory( )方法会返回true。 </p><p>可以通过调用该对象上的list()方法，来提取它包含的文件和文件夹的列表。 </p><p>下面展示的例子说明如何使用list()方法来检查一个文件夹中包含的内容：</p> <pre>
+import java.io.File;
+
+public class DirList {
+   public static void main(String args[]) {
+      String dirname = "/tmp";
+      File f1 = new File(dirname);
+      if (f1.isDirectory()) {
+         System.out.println( "Directory of " + dirname);
+         String s[] = f1.list();
+         for (int i=0; i &lt; s.length; i++) {
+            File f = new File(dirname + "/" + s[i]);
+            if (f.isDirectory()) {
+               System.out.println(s[i] + " is a directory");
+            } else {
+               System.out.println(s[i] + " is a file");
+            }
+         }
+      } else {
+         System.out.println(dirname + " is not a directory");
+    }
+  }
+}
+</pre> <p>以上实例编译运行结果如下：</p> <pre>
+Directory of /tmp
+bin is a directory
+lib is a directory
+demo is a directory
+test.txt is a file
+README is a file
+index.html is a file
+include is a directory
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html" rel="prev"> Java 方法</a></div> <div class="next"><a href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html" rel="next">Java 异常处理</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/java/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/java/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

@@ -1,0 +1,431 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>C# 类（Class） | w3cschool菜鸟教程</title> <link rel='prev' title='CSS :invalid选择器' href="/cssref/sel-invalid.html"/> <link rel='next' title='C# 继承' href="csharp-inheritance.html"/> <link rel='canonical' href='http://www.w3cschool.cc/csharp/csharp-class.html'/> <meta name="keywords" content="C# 类（Class）"> <meta name="description" content="C# 类（Class） 当您定义一个类时，您定义了一个数据类型的蓝图。这实际上并没有定义任何的数据，但它定义了类的名称意味着什么，也就是说，类的对象由什么组成及在这个对象上可执行什么操作。对象是类的实例。构成类的方法和变量成为类的成员。 类的定义 类的定义是以关键字 class 开始，后跟类的名称。类的主体，包含在一对花括号内。下面是类定义的一般形式： class class_name { // member v.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>C# 教程</strong></h2> <a target="_top" title="C# 教程" href="csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html"> C# 教程 </a> <a target="_top" title="C# 简介" href="csharp-intro.html" tppabs="http://www.w3cschool.cc/csharp/csharp-intro.html"> C# 简介 </a> <a target="_top" title="C# 环境" href="csharp-environment-setup.html" tppabs="http://www.w3cschool.cc/csharp/csharp-environment-setup.html"> C# 环境 </a> <a target="_top" title="C# 程序结构" href="csharp-program-structure.html" tppabs="http://www.w3cschool.cc/csharp/csharp-program-structure.html"> C# 程序结构 </a> <a target="_top" title="C# 基本语法" href="csharp-basic-syntax.html" tppabs="http://www.w3cschool.cc/csharp/csharp-basic-syntax.html"> C# 基本语法 </a> <a target="_top" title="C# 数据类型" href="csharp-data-types.html" tppabs="http://www.w3cschool.cc/csharp/csharp-data-types.html"> C# 数据类型 </a> <a target="_top" title="C# 类型转换" href="csharp-type-conversion.html" tppabs="http://www.w3cschool.cc/csharp/csharp-type-conversion.html"> C# 类型转换 </a> <a target="_top" title="C# 变量" href="csharp-variables.html" tppabs="http://www.w3cschool.cc/csharp/csharp-variables.html"> C# 变量 </a> <a target="_top" title="C# 常量" href="csharp-constants.html" tppabs="http://www.w3cschool.cc/csharp/csharp-constants.html"> C# 常量 </a> <a target="_top" title="C# 运算符" href="csharp-operators.html" tppabs="http://www.w3cschool.cc/csharp/csharp-operators.html"> C# 运算符 </a> <a target="_top" title="C# 判断" href="csharp-decision.html" tppabs="http://www.w3cschool.cc/csharp/csharp-decision.html"> C# 判断 </a> <a target="_top" title="C# 循环" href="csharp-loops.html" tppabs="http://www.w3cschool.cc/csharp/csharp-loops.html"> C# 循环 </a> <a target="_top" title="C# 封装" href="csharp-encapsulation.html" tppabs="http://www.w3cschool.cc/csharp/csharp-encapsulation.html"> C# 封装 </a> <a target="_top" title="C# 方法" href="csharp-methods.html" tppabs="http://www.w3cschool.cc/csharp/csharp-methods.html"> C# 方法 </a> <a target="_top" title="C# 可空类型" href="csharp-nullable.html" tppabs="http://www.w3cschool.cc/csharp/csharp-nullable.html"> C# 可空类型 </a> <a target="_top" title="C# 数组（Array）" href="csharp-array.html" tppabs="http://www.w3cschool.cc/csharp/csharp-array.html"> C# 数组（Array） </a> <a target="_top" title="C# 字符串（String）" href="csharp-string.html" tppabs="http://www.w3cschool.cc/csharp/csharp-string.html"> C# 字符串（String） </a> <a target="_top" title="C# 结构（Struct）" href="csharp-struct.html" tppabs="http://www.w3cschool.cc/csharp/csharp-struct.html"> C# 结构（Struct） </a> <a target="_top" title="C# 枚举（Enum）" href="csharp-enum.html" tppabs="http://www.w3cschool.cc/csharp/csharp-enum.html"> C# 枚举（Enum） </a> <a target="_top" title="C# 类（Class）" href="csharp-class.html" tppabs="http://www.w3cschool.cc/csharp/csharp-class.html"> C# 类（Class） </a> <a target="_top" title="C# 继承" href="csharp-inheritance.html" tppabs="http://www.w3cschool.cc/csharp/csharp-inheritance.html"> C# 继承 </a> <a target="_top" title="C# 多态性" href="csharp-polymorphism.html" tppabs="http://www.w3cschool.cc/csharp/csharp-polymorphism.html"> C# 多态性 </a> <a target="_top" title="C# 运算符重载" href="csharp-operator-overloading.html" tppabs="http://www.w3cschool.cc/csharp/csharp-operator-overloading.html"> C# 运算符重载 </a> <a target="_top" title="C# 接口（Interface）" href="csharp-interface.html" tppabs="http://www.w3cschool.cc/csharp/csharp-interface.html"> C# 接口（Interface） </a> <a target="_top" title="C# 命名空间（Namespace）" href="csharp-namespace.html" tppabs="http://www.w3cschool.cc/csharp/csharp-namespace.html"> C# 命名空间（Namespace） </a> <a target="_top" title="C# 预处理器指令" href="csharp-preprocessor-directives.html" tppabs="http://www.w3cschool.cc/csharp/csharp-preprocessor-directives.html"> C# 预处理器指令 </a> <a target="_top" title="C# 正则表达式" href="csharp-regular-expressions.html" tppabs="http://www.w3cschool.cc/csharp/csharp-regular-expressions.html"> C# 正则表达式 </a> <a target="_top" title="C# 异常处理" href="csharp-exception-handling.html" tppabs="http://www.w3cschool.cc/csharp/csharp-exception-handling.html"> C# 异常处理 </a> <a target="_top" title="C# 文件的输入与输出" href="csharp-file-io.html" tppabs="http://www.w3cschool.cc/csharp/csharp-file-io.html"> C# 文件的输入与输出 </a> <br><h2 class="left"><span class="left_h2">C#</span> 高级教程</h2> <a target="_top" title="C# 特性（Attribute）" href="csharp-attribute.html" tppabs="http://www.w3cschool.cc/csharp/csharp-attribute.html"> C# 特性（Attribute） </a> <a target="_top" title="C# 反射（Reflection）" href="csharp-reflection.html" tppabs="http://www.w3cschool.cc/csharp/csharp-reflection.html"> C# 反射（Reflection） </a> <a target="_top" title="C# 属性（Property）" href="csharp-property.html" tppabs="http://www.w3cschool.cc/csharp/csharp-property.html"> C# 属性（Property） </a> <a target="_top" title="C# 索引器（Indexer）" href="csharp-indexer.html" tppabs="http://www.w3cschool.cc/csharp/csharp-indexer.html"> C# 索引器（Indexer） </a> <a target="_top" title="C# 委托（Delegate）" href="csharp-delegate.html" tppabs="http://www.w3cschool.cc/csharp/csharp-delegate.html"> C# 委托（Delegate） </a> <a target="_top" title="C# 事件（Event）" href="csharp-event.html" tppabs="http://www.w3cschool.cc/csharp/csharp-event.html"> C# 事件（Event） </a> <a target="_top" title="C# 集合（Collection）" href="csharp-collection.html" tppabs="http://www.w3cschool.cc/csharp/csharp-collection.html"> C# 集合（Collection） </a> <a target="_top" title="C# 泛型（Generic）" href="csharp-generic.html" tppabs="http://www.w3cschool.cc/csharp/csharp-generic.html"> C# 泛型（Generic） </a> <a target="_top" title="C# 匿名方法" href="csharp-anonymous-methods.html" tppabs="http://www.w3cschool.cc/csharp/csharp-anonymous-methods.html"> C# 匿名方法 </a> <a target="_top" title="C# 不安全代码" href="csharp-unsafe-codes.html" tppabs="http://www.w3cschool.cc/csharp/csharp-unsafe-codes.html"> C# 不安全代码 </a> <a target="_top" title="C# 多线程" href="csharp-multithreading.html" tppabs="http://www.w3cschool.cc/csharp/csharp-multithreading.html"> C# 多线程 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="csharp-enum.html" tppabs="http://www.w3cschool.cc/csharp/csharp-enum.html" rel="prev"> C# 枚举（Enum）</a></div> <div class="next"><a href="csharp-inheritance.html" tppabs="http://www.w3cschool.cc/csharp/csharp-inheritance.html" rel="next">C# 继承</a> &raquo;</div> </div> <div id="content"> <h1>C# <span class="color_h1">类（Class）</span></h1> <div class="tutintro"> <p>当您定义一个类时，您定义了一个数据类型的蓝图。这实际上并没有定义任何的数据，但它定义了类的名称意味着什么，也就是说，类的对象由什么组成及在这个对象上可执行什么操作。对象是类的实例。构成类的方法和变量成为类的成员。</p> </div> <h2 class="tutheader">类的定义</h2> <p>类的定义是以关键字 <b>class</b> 开始，后跟类的名称。类的主体，包含在一对花括号内。下面是类定义的一般形式：</p> <pre class="prettyprint">
+&lt;access specifier&gt; class  class_name 
+{
+    // member variables
+    &lt;access specifier&gt; &lt;data type&gt; variable1;
+    &lt;access specifier&gt; &lt;data type&gt; variable2;
+    ...
+    &lt;access specifier&gt; &lt;data type&gt; variableN;
+    // member methods
+    &lt;access specifier&gt; &lt;return type&gt; method1(parameter_list) 
+    {
+        // method body 
+    }
+    &lt;access specifier&gt; &lt;return type&gt; method2(parameter_list) 
+    {
+        // method body 
+    }
+    ...
+    &lt;access specifier&gt; &lt;return type&gt; methodN(parameter_list) 
+    {
+        // method body 
+    }
+}
+</pre> <p>请注意：</p> <ul class="list"> <li>访问标识符 &lt;access specifier&gt; 指定了对类及其成员的访问规则。如果没有指定，则使用默认的访问标识符。类的默认访问标识符是 <b>internal</b>，成员的默认访问标识符是 <b>private</b>。</li> <li>数据类型 &lt;data type&gt; 指定了变量的类型，返回类型 &lt;return type&gt; 指定了返回的方法返回的数据类型。</li> <li>如果要访问类的成员，您要使用点（.）运算符。</li> <li>点运算符链接了对象的名称和成员的名称。</li> </ul> <p>下面的实例说明了目前为止所讨论的概念：</p> <pre class="prettyprint">
+using System;
+namespace BoxApplication
+{
+    class Box
+    {
+       public double length;   // 长度
+       public double breadth;  // 宽度
+       public double height;   // 高度
+    }
+    class Boxtester
+    {
+        static void Main(string[] args)
+        {
+            Box Box1 = new Box();        // 声明 Box1，类型为 Box
+            Box Box2 = new Box();        // 声明 Box2，类型为 Box
+            double volume = 0.0;         // 体积
+
+            // Box1 详述
+            Box1.height = 5.0;
+            Box1.length = 6.0;
+            Box1.breadth = 7.0;
+
+            // Box2 详述
+            Box2.height = 10.0;
+            Box2.length = 12.0;
+            Box2.breadth = 13.0;
+           
+            // Box1 的体积
+            volume = Box1.height * Box1.length * Box1.breadth;
+            Console.WriteLine("Box1 的体积： {0}",  volume);
+
+            // Box2 的体积
+            volume = Box2.height * Box2.length * Box2.breadth;
+            Console.WriteLine("Box2 的体积： {0}", volume);
+            Console.ReadKey();
+        }
+    }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+Box1 的体积： 210
+Box2 的体积： 1560
+</pre> <h2 class="tutheader">成员函数和封装</h2> <p>类的成员函数是一个在类定义中有它的定义或原型的函数，就像其他变量一样。作为类的一个成为，它能在类的任何对象上操作，且能访问该对象的类的所有成员。</p> <p>成员变量是对象的属性（从设计角度），且它们保持私有来实现封装。这些变量只能使用公共成员函数来访问。</p> <p>让我们使用上面的概念来设置和获取一个类中不同的类成员的值：</p> <pre class="prettyprint">
+using System;
+namespace BoxApplication
+{
+    class Box
+    {
+       private double length;   // 长度
+       private double breadth;  // 宽度
+       private double height;   // 高度
+       public void setLength( double len )
+       {
+            length = len;
+       }
+
+       public void setBreadth( double bre )
+       {
+            breadth = bre;
+       }
+
+       public void setHeight( double hei )
+       {
+            height = hei;
+       }
+       public double getVolume()
+       {
+           return length * breadth * height;
+       }
+    }
+    class Boxtester
+    {
+        static void Main(string[] args)
+        {
+            Box Box1 = new Box();        // 声明 Box1，类型为 Box
+            Box Box2 = new Box();		 // 声明 Box2，类型为 Box
+            double volume;				 // 体积
+
+
+            // Box1 详述
+            Box1.setLength(6.0);
+            Box1.setBreadth(7.0);
+            Box1.setHeight(5.0);
+
+            // Box2 详述
+            Box2.setLength(12.0);
+            Box2.setBreadth(13.0);
+            Box2.setHeight(10.0);
+       
+            // Box1 的体积
+            volume = Box1.getVolume();
+            Console.WriteLine("Box1 的体积： {0}" ,volume);
+
+            // Box2 的体积
+            volume = Box2.getVolume();
+            Console.WriteLine("Box2 的体积： {0}", volume);
+           
+            Console.ReadKey();
+        }
+    }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+Box1 的体积： 210
+Box2 的体积： 1560
+</pre> <h2 class="tutheader">C# 中的构造函数</h2> <p>类的 <b>构造函数</b> 是类的一个特殊的成员函数，当创建类的新对象时执行。</p> <p>构造函数的名称与类的名称完全相同，它没有任何返回类型。</p> <p>下面的实例说明了构造函数的概念：</p> <pre class="prettyprint">
+using System;
+namespace LineApplication
+{
+   class Line
+   {
+      private double length;   // 线条的长度
+      public Line()
+      {
+         Console.WriteLine("对象已创建");
+      }
+
+      public void setLength( double len )
+      {
+         length = len;
+      }
+      public double getLength()
+      {
+         return length;
+      }
+
+      static void Main(string[] args)
+      {
+         Line line = new Line();    
+         // 设置线条长度
+         line.setLength(6.0);
+         Console.WriteLine("线条的长度： {0}", line.getLength());
+         Console.ReadKey();
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+对象已创建
+线条的长度： 6
+</pre> <p><b>默认的构造函数</b>没有任何参数。但是如果您需要一个带有参数的构造函数可以有参数，这种构造函数叫做<b>参数化构造函数</b>。这种技术可以帮助您在创建对象的同时给对象赋初始值，具体请看下面实例：</p> <pre class="prettyprint">
+using System;
+namespace LineApplication
+{
+   class Line
+   {
+      private double length;   // 线条的长度
+      public Line(double len)  // 参数化构造函数
+      {
+         Console.WriteLine("对象已创建，length = {0}", len);
+         length = len;
+      }
+
+      public void setLength( double len )
+      {
+         length = len;
+      }
+      public double getLength()
+      {
+         return length;
+      }
+
+      static void Main(string[] args)
+      {
+         Line line = new Line(10.0);
+         Console.WriteLine("线条的长度： {0}", line.getLength()); 
+         // 设置线条长度
+         line.setLength(6.0);
+         Console.WriteLine("线条的长度： {0}", line.getLength()); 
+         Console.ReadKey();
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+对象已创建，length = 10
+线条的长度： 10
+线条的长度： 6
+</pre> <h2 class="tutheader">C# 中的析构函数</h2> <p>类的 <b>析构函数</b> 是类的一个特殊的成员函数，当类的对象超出范围时执行。</p> <p>析构函数的名称是在类的名称前加上一个波浪形（~）作为前缀，它不返回值，也不带任何参数。</p> <p>析构函数用于在结束程序（比如关闭文件、释放内存等）之前释放资源。析构函数不能继承或重载。</p> <p>下面的实例说明了析构函数的概念：</p> <pre class="prettyprint">
+using System;
+namespace LineApplication
+{
+   class Line
+   {
+      private double length;   // 线条的长度
+      public Line()  // 构造函数
+      {
+         Console.WriteLine("对象已创建");
+      }
+      ~Line() //析构函数
+      {
+         Console.WriteLine("对象已删除");
+      }
+
+      public void setLength( double len )
+      {
+         length = len;
+      }
+      public double getLength()
+      {
+         return length;
+      }
+
+      static void Main(string[] args)
+      {
+         Line line = new Line();
+         // 设置线条长度
+         line.setLength(6.0);
+         Console.WriteLine("线条的长度： {0}", line.getLength());           
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+对象已创建
+线条的长度： 6
+对象已删除
+</pre> <h2 class="tutheader">C# 类的静态成员</h2> <p>我们可以使用 <b>static</b> 关键字把类成员定义为静态的。当我们声明一个类成员为静态时，意味着无论有多少个类的对象被创建，只会有一个该静态成员的副本。</p> <p>关键字 <b>static</b> 意味着类中只有一个该成员的实例。静态变量用于定义常量，因为它们的值可以通过直接调用类而不需要创建类的实例来获取。静态变量可在成员函数或类的定义外部进行初始化。您也可以在类的定义内部初始化静态变量。</p> <p>下面的实例演示了<b>静态变量</b>的用法：</p> <pre class="prettyprint">
+using System;
+namespace StaticVarApplication
+{
+    class StaticVar
+    {
+       public static int num;
+        public void count()
+        {
+            num++;
+        }
+        public int getNum()
+        {
+            return num;
+        }
+    }
+    class StaticTester
+    {
+        static void Main(string[] args)
+        {
+            StaticVar s1 = new StaticVar();
+            StaticVar s2 = new StaticVar();
+            s1.count();
+            s1.count();
+            s1.count();
+            s2.count();
+            s2.count();
+            s2.count();         
+            Console.WriteLine("s1 的变量 num： {0}", s1.getNum());
+            Console.WriteLine("s2 的变量 num： {0}", s2.getNum());
+            Console.ReadKey();
+        }
+    }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+s1 的变量 num： 6
+s2 的变量 num： 6
+</pre> <p>您也可以把一个<b>成员函数</b>声明为 <b>static</b>。这样的函数只能访问静态变量。静态函数在对象被创建之前就已经存在。下面的实例演示了<b>静态函数</b>的用法：</p> <pre class="prettyprint">
+using System;
+namespace StaticVarApplication
+{
+    class StaticVar
+    {
+       public static int num;
+        public void count()
+        {
+            num++;
+        }
+        public static int getNum()
+        {
+            return num;
+        }
+    }
+    class StaticTester
+    {
+        static void Main(string[] args)
+        {
+            StaticVar s = new StaticVar();
+            s.count();
+            s.count();
+            s.count();                   
+            Console.WriteLine("变量 num： {0}", StaticVar.getNum());
+            Console.ReadKey();
+        }
+    }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+变量 num： 3
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="csharp-enum.html" tppabs="http://www.w3cschool.cc/csharp/csharp-enum.html" rel="prev"> C# 枚举（Enum）</a></div> <div class="next"><a href="csharp-inheritance.html" tppabs="http://www.w3cschool.cc/csharp/csharp-inheritance.html" rel="next">C# 继承</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/csharp/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/csharp/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

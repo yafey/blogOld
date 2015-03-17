@@ -1,0 +1,177 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>MongoDB Map Reduce | w3cschool菜鸟教程</title> <link rel='prev' title='MongoDB ObjectId' href="mongodb-objectid.html"/> <link rel='next' title='MongoDB 全文检索' href="mongodb-text-search.html"/> <link rel='canonical' href='http://www.w3cschool.cc/mongodb/mongodb-map-reduce.html'/> <meta name="keywords" content="MongoDB Map Reduce"> <meta name="description" content="MongoDB Map Reduce Map-Reduce是一种计算模型，简单的说就是将大批量的工作（数据）分解（MAP）执行，然后再将结果合并成最终结果（REDUCE）。 MongoDB提供的Map-Reduce非常灵活，对于大规模数据分析也相当实用。 MapReduce 命令 以下是MapReduce的基本语法： &gt;db.collection.mapReduce( function() {emit(key,va.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>MongoDB 教程</strong></h2> <a target="_top" title="MongoDB 教程" href="mongodb-tutorial.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-tutorial.html"> MongoDB 教程 </a> <a target="_top" title="NoSQL 简介" href="nosql.html" tppabs="http://www.w3cschool.cc/mongodb/nosql.html"> NoSQL 简介 </a> <a target="_top" title="MongoDB 简介" href="mongodb-intro.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-intro.html"> MongoDB 简介 </a> <a target="_top" title="window平台安装MongoDB" href="mongodb-window-install.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-window-install.html"> window平台安装MongoDB </a> <a target="_top" title="Linux平台安装MongoDB" href="mongodb-linux-install.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-linux-install.html"> Linux平台安装MongoDB </a> <a target="_top" title="MongoDB &#8211; 数据库，对象，集合" href="mongodb-databases-documents-collections.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-databases-documents-collections.html"> MongoDB - 数据库，对象，集合 </a> <a target="_top" title="MongoDB 连接" href="mongodb-connections.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-connections.html"> MongoDB 连接 </a> <a target="_top" title="PHP安装MongoDB扩展" href="mongodb-install-php-driver.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-install-php-driver.html"> PHP安装MongoDB扩展 </a> <a target="_top" title="MongoDB 数据插入" href="mongodb-insert.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-insert.html"> MongoDB 数据插入 </a> <a target="_top" title="MongoDB update()函数" href="mongodb-update.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-update.html"> MongoDB update()函数 </a> <a target="_top" title="MongoDB remove()函数" href="mongodb-remove.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-remove.html"> MongoDB remove()函数 </a> <a target="_top" title="MongoDB 查询" href="mongodb-query.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-query.html"> MongoDB 查询 </a> <a target="_top" title="MongoDB条件操作符" href="mongodb-operators.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-operators.html"> MongoDB条件操作符 </a> <a target="_top" title="MongoDB条件操作符 &#8211; $type" href="mongodb-operators-type.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-operators-type.html"> MongoDB条件操作符 - $type </a> <a target="_top" title="MongoDB Limit与Skip方法" href="mongodb-limit-skip.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-limit-skip.html"> MongoDB Limit与Skip方法 </a> <a target="_top" title="MongoDB 排序" href="mongodb-sort.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-sort.html"> MongoDB 排序 </a> <a target="_top" title="MongoDB 索引" href="mongodb-indexing.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-indexing.html"> MongoDB 索引 </a> <a target="_top" title="MongoDB 聚合" href="mongodb-aggregate.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-aggregate.html"> MongoDB 聚合 </a> <a target="_top" title="MongoDB 复制(副本集)" href="mongodb-replication.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-replication.html"> MongoDB 复制(副本集) </a> <a target="_top" title="MongoDB 分片" href="mongodb-sharding.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-sharding.html"> MongoDB 分片 </a> <a target="_top" title="MongoDB 备份(mongodump)与恢复(mongorerstore)" href="mongodb-mongodump-mongorerstore.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-mongodump-mongorerstore.html"> MongoDB 备份与恢复 </a> <a target="_top" title="MongoDB 监控" href="mongodb-mongostat-mongotop.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-mongostat-mongotop.html"> MongoDB 监控 </a> <a target="_top" title="MongoDB Java" href="mongodb-java.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-java.html"> MongoDB Java </a> <a target="_top" title="MongoDB PHP" href="mongodb-php.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-php.html"> MongoDB PHP </a> <br><h2 class="left"><span class="left_h2">MongoDB 高级教程</span></h2> <a target="_top" title="MongoDB 关系" href="mongodb-relationships.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-relationships.html"> MongoDB 关系 </a> <a target="_top" title="MongoDB 数据库引用" href="mongodb-database-references.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-database-references.html"> MongoDB 数据库引用 </a> <a target="_top" title="MongoDB 覆盖索引查询" href="mongodb-covered-queries.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-covered-queries.html"> MongoDB 覆盖索引查询 </a> <a target="_top" title="MongoDB 查询分析" href="mongodb-analyzing-queries.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-analyzing-queries.html"> MongoDB 查询分析 </a> <a target="_top" title="MongoDB 原子操作" href="mongodb-atomic-operations.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-atomic-operations.html"> MongoDB 原子操作 </a> <a target="_top" title="MongoDB 高级索引" href="mongodb-advanced-indexing.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-advanced-indexing.html"> MongoDB 高级索引 </a> <a target="_top" title="MongoDB 索引限制" href="mongodb-indexing-limitations.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-indexing-limitations.html"> MongoDB 索引限制 </a> <a target="_top" title="MongoDB ObjectId" href="mongodb-objectid.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-objectid.html"> MongoDB ObjectId </a> <a target="_top" title="MongoDB Map Reduce" href="mongodb-map-reduce.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-map-reduce.html"> MongoDB Map Reduce </a> <a target="_top" title="MongoDB 全文检索" href="mongodb-text-search.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-text-search.html"> MongoDB 全文检索 </a> <a target="_top" title="MongoDB 正则表达式" href="mongodb-regular-expression.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-regular-expression.html"> MongoDB 正则表达式 </a> <a target="_top" title="MongoDB 管理工具: Rockmongo" href="working-with-rockmongo.html" tppabs="http://www.w3cschool.cc/mongodb/working-with-rockmongo.html"> MongoDB 管理工具 </a> <a target="_top" title="MongoDB GridFS" href="mongodb-gridfs.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-gridfs.html"> MongoDB GridFS </a> <a target="_top" title="MongoDB 固定集合（Capped Collections）" href="mongodb-capped-collections.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-capped-collections.html"> MongoDB 固定集合 </a> <a target="_top" title="MongoDB 自动增长" href="mongodb-autoincrement-sequence.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-autoincrement-sequence.html"> MongoDB 自动增长 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="mongodb-objectid.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-objectid.html" rel="prev"> MongoDB ObjectId</a></div> <div class="next"><a href="mongodb-text-search.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-text-search.html" rel="next">MongoDB 全文检索</a> &raquo;</div> </div> <div id="content"> <h1>MongoDB Map Reduce</h1> <p>Map-Reduce是一种计算模型，简单的说就是将大批量的工作（数据）分解（MAP）执行，然后再将结果合并成最终结果（REDUCE）。</p> <p>MongoDB提供的Map-Reduce非常灵活，对于大规模数据分析也相当实用。 </p> <hr> <h2>MapReduce 命令</h2> <p>以下是MapReduce的基本语法：</p> <pre>
+&gt;db.collection.mapReduce(
+   function() {emit(key,value);},  //map 函数
+   function(key,values) {return reduceFunction},   //reduce 函数
+   {
+      out: collection,
+      query: document,
+      sort: document,
+      limit: number
+   }
+)
+</pre> <p><p>使用 MapReduce 要实现两个函数 Map 函数和 Reduce 函数,Map 函数调用 emit(key, value), 遍历 collection 中所有的记录, 将key 与 value 传递给 Reduce 函数进行处理。</p> <p>Map 函数必须调用 emit(key, value) 返回键值对。</p> <p>参数说明:</p> <ul> <li><b>map</b> ：映射函数 (生成键值对序列,作为 reduce 函数参数)。</li> <li> <b>reduce</b> 统计函数，reduce函数的任务就是将key-values变成key-value，也就是把values数组变成一个单一的值value。。</li> <li> <b>out</b> 统计结果存放集合 (不指定则使用临时集合,在客户端断开后自动删除)。</li> <li> <b>query</b> 一个筛选条件，只有满足条件的文档才会调用map函数。（query。limit，sort可以随意组合）</li> <li> <b>sort</b> 和limit结合的sort排序参数（也是在发往map函数前给文档排序），可以优化分组机制 </li> <li> <b>limit</b> 发往map函数的文档数量的上限（要是没有limit，单独使用sort的用处不大） </li> </ul> <hr> <h2>使用 MapReduce</h2> <p>考虑以下文档结构存储用户的文章，文档存储了用户的 user_name 和文章的 status字段：</p> <pre>
+{
+   "post_text": "w3cschool.cc 菜鸟教程，最全的技术文档。",
+   "user_name": "mark",
+   "status":"active"
+}
+</pre> <p> 现在，我们将在 posts 集合中使用 mapReduce 函数来选取已发布的文章，并通过user_name分组，计算每个用户的文章数： </p> <pre>
+&gt;db.posts.mapReduce( 
+   function() { emit(this.user_id,1); }, 
+   function(key, values) {return Array.sum(values)}, 
+      {  
+         query:{status:"active"},  
+         out:"post_total" 
+      }
+)
+</pre> <p>以上 mapReduce 输出结果为：</p> <pre>
+{
+   "result" : "post_total",
+   "timeMillis" : 9,
+   "counts" : {
+      "input" : 4,
+      "emit" : 4,
+      "reduce" : 2,
+      "output" : 2
+   },
+   "ok" : 1,
+}
+</pre> <p> 结果表明，共有4个符合查询条件（status:"active"）的文档， 在map函数中生成了4个键值对文档，最后使用reduce函数将相同的键值分为两组。</p> </p> <p>具体参数说明：</p> <ul> <li>result：储存结果的collection的名字,这是个临时集合，MapReduce的连接关闭后自动就被删除了。</li> <li>timeMillis：执行花费的时间，毫秒为单位</li> <li>input：满足条件被发送到map函数的文档个数</li> <li>emit：在map函数中emit被调用的次数，也就是所有集合中的数据总量</li> <li>ouput：结果集合中的文档个数<strong><span style="color:#ff0000">（count对调试非常有帮助）</span></strong></li> <li>ok：是否成功，成功为1</li><li>err：如果失败，这里可以有失败原因，不过从经验上来看，原因比较模糊，作用不大</li></ul> <p>使用 find 操作符来查看 mapReduce 的查询结果：</p> <pre>
+&gt;db.posts.mapReduce( 
+   function() { emit(this.user_id,1); }, 
+   function(key, values) {return Array.sum(values)}, 
+      {  
+         query:{status:"active"},  
+         out:"post_total" 
+      }
+).find()
+</pre> <p>以上查询显示如下结果，两个用户 tom 和 mark 有两个发布的文章:</p> <pre>
+{ "_id" : "tom", "value" : 2 }
+{ "_id" : "mark", "value" : 2 }
+</pre> <p> 用类似的方式，MapReduce可以被用来构建大型复杂的聚合查询。</p> <p> Map函数和Reduce函数可以使用 JavaScript 来实现，是的MapReduce的使用非常灵活和强大。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="mongodb-objectid.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-objectid.html" rel="prev"> MongoDB ObjectId</a></div> <div class="next"><a href="mongodb-text-search.html" tppabs="http://www.w3cschool.cc/mongodb/mongodb-text-search.html" rel="next">MongoDB 全文检索</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/mongodb/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/mongodb/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

@@ -1,0 +1,314 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Shell 流程控制 | w3cschool菜鸟教程</title> <link rel='prev' title='Shell test命令' href="linux-shell-test.html"/> <link rel='next' title='Shell 函数' href="linux-shell-func.html"/> <link rel='canonical' href='http://www.w3cschool.cc/linux/linux-shell-process-control.html'/> <meta name="keywords" content="Shell 流程控制"> <meta name="description" content="Shell 流程控制 和Java、PHP等语言不一样，sh的流程控制不可为空，如(以下为PHP流程控制写法)：.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Linux 教程</strong></h2> <a target="_top" title="Linux 教程" href="linux-tutorial.html" tppabs="http://www.w3cschool.cc/linux/linux-tutorial.html"> Linux 教程 </a> <a target="_top" title="Linux 简介" href="linux-intro.html" tppabs="http://www.w3cschool.cc/linux/linux-intro.html"> Linux 简介 </a> <a target="_top" title="Linux 安装" href="linux-install.html" tppabs="http://www.w3cschool.cc/linux/linux-install.html"> Linux 安装 </a> <a target="_top" title="Linux 系统启动过程" href="linux-system-boot.html" tppabs="http://www.w3cschool.cc/linux/linux-system-boot.html"> Linux 系统启动过程 </a> <a target="_top" title="Linux 系统目录结构" href="linux-system-contents.html" tppabs="http://www.w3cschool.cc/linux/linux-system-contents.html"> Linux 系统目录结构 </a> <a target="_top" title="Linux 忘记密码解决方法" href="linux-forget-password.html" tppabs="http://www.w3cschool.cc/linux/linux-forget-password.html"> Linux 忘记密码解决方法 </a> <a target="_top" title="Linux 远程登录" href="linux-remote-login.html" tppabs="http://www.w3cschool.cc/linux/linux-remote-login.html"> Linux 远程登录 </a> <a target="_top" title="Linux 文件基本属性" href="linux-file-attr-permission.html" tppabs="http://www.w3cschool.cc/linux/linux-file-attr-permission.html"> Linux 文件基本属性 </a> <a target="_top" title="Linux 文件与目录管理" href="linux-file-content-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-file-content-manage.html"> Linux 文件与目录管理 </a> <a target="_top" title="Linux 用户和用户组管理" href="linux-user-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-user-manage.html"> Linux 用户和用户组管理 </a> <a target="_top" title="Linux 磁盘管理" href="linux-filesystem.html" tppabs="http://www.w3cschool.cc/linux/linux-filesystem.html"> Linux 磁盘管理 </a> <a target="_top" title="Linux vi/vim" href="linux-vim.html" tppabs="http://www.w3cschool.cc/linux/linux-vim.html"> Linux vi/vim </a> <a target="_top" title="linux yum 命令" href="linux-yum.html" tppabs="http://www.w3cschool.cc/linux/linux-yum.html"> linux yum 命令 </a> <br><h2 class="left"><span class="left_h2">Shell</span> 编程</h2> <a target="_top" title="Shell 教程" href="linux-shell.html" tppabs="http://www.w3cschool.cc/linux/linux-shell.html"> Shell 教程 </a> <a target="_top" title="Shell 变量" href="linux-shell-variable.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-variable.html"> Shell 变量 </a> <a target="_top" title="Shell echo命令" href="linux-shell-echo.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-echo.html"> Shell echo命令 </a> <a target="_top" title="Shell test命令" href="linux-shell-test.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-test.html"> Shell test命令 </a> <a target="_top" title="Shell 流程控制" href="linux-shell-process-control.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-process-control.html"> Shell 流程控制 </a> <a target="_top" title="Shell 函数" href="linux-shell-func.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-func.html"> Shell 函数 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-shell-test.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-test.html" rel="prev"> Shell test命令</a></div> <div class="next"><a href="linux-shell-func.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-func.html" rel="next">Shell 函数</a> &raquo;</div> </div> <div id="content"> <h1>Shell 流程控制 </h1> <p> 和Java、PHP等语言不一样，sh的流程控制不可为空，如(以下为PHP流程控制写法)： </p> <pre>
+&lt;?php
+if (isset($_GET["q"])) {
+    search(q);
+}
+else {
+    //do nothing
+}
+</pre> <p> 在sh/bash里可不能这么写，如果else分支没有语句执行，就不要写这个else，就像这样 </p> <hr> <h2> if else </h2> <h3> if</h3> <p>if 语句语法格式：</p> <pre>
+if condition
+then
+    command1 
+    command2
+    ...
+    commandN 
+fi
+</pre> <p> 写成一行（适用于终端命令提示符）： </p> <pre>
+if `ps -ef | grep ssh`;  then echo hello; fi
+</pre> <p> 末尾的fi就是if倒过来拼写，后面还会遇到类似的。 </p> <h3>if else </h3> <p>if else 语法格式：</p> <pre>
+if condition
+then
+    command1 
+    command2
+    ...
+    commandN
+else
+    command
+fi
+</pre> <h3> if else-if else </h3> <p>if else-if else 语法格式：</p> <pre>
+if condition1
+then
+    command1
+elif condition2
+    command2
+else
+    commandN
+fi
+</pre> <p>if else语句经常与test命令结合使用，如下所示：</p> <pre>
+num1=$[2*3]
+num2=$[1+5]
+if test $[num1] -eq $[num2]
+then
+    echo 'The two numbers are equal!'
+else
+    echo 'The two numbers are not equal!'
+fi
+</pre> <p>输出结果：</p> <pre>
+The two numbers are equal!
+</pre> <hr> <h2> for 循环 </h2> <p>与其他编程语言类似，Shell支持for循环。 </p> <p> for循环一般格式为： </p> <pre>
+for var in item1 item2 ... itemN
+do
+    command1
+    command2
+    ...
+    commandN
+done
+</pre> <p> 写成一行： </p> <pre>
+for var in item1 item2 ... itemN; do command1; command2&hellip; done;
+</pre> <p>当变量值在列表里，for循环即执行一次所有命令，使用变量名获取列表中的当前取值。命令可为任何有效的shell命令和语句。in列表可以包含替换、字符串和文件名。 </p><p> in列表是可选的，如果不用它，for循环使用命令行的位置参数。 </p><p> 例如，顺序输出当前列表中的数字：</p> <pre>
+for loop in 1 2 3 4 5
+do
+    echo "The value is: $loop"
+done
+</pre> <p> 输出结果： </p> <pre>
+The value is: 1
+The value is: 2
+The value is: 3
+The value is: 4
+The value is: 5
+</pre> <p>顺序输出字符串中的字符：</p> <pre>
+for str in 'This is a string'
+do
+    echo $str
+done
+</pre><p> 输出结果：</p> <pre>
+This is a string
+</pre> <hr><h2> while 语句</h2> <p>while循环用于不断执行一系列命令，也用于从输入文件中读取数据；命令通常为测试条件。其格式为：</p> <pre>
+while condition
+do
+    command
+done
+</pre> <p>命令执行完毕，控制返回循环顶部，从头开始直至测试条件为假。</p> <p>以下是一个基本的while循环，测试条件是：如果COUNTER小于5，那么条件返回真。COUNTER从0开始，每次循环处理时，COUNTER加1。运行上述脚本，返回数字1到5，然后终止。 </p> <pre>
+COUNTER=0
+while [ $COUNTER -lt 5 ]
+do
+    COUNTER='expr $COUNTER+1'
+    echo $COUNTER
+done
+</pre> <p> 运行脚本，输出： </p> <pre>
+1
+2
+3
+4
+5
+</pre> <p> while循环可用于读取键盘信息。下面的例子中，输入信息被设置为变量FILM，按&lt;Ctrl-D&gt;结束循环。 </p> <pre>
+echo 'type &lt;CTRL-D&gt; to terminate'
+echo -n 'enter your most liked film: ''
+while read FILM
+do
+    echo "Yeah! great film the $FILM"
+done
+</pre> <p> 运行脚本，输出类似下面： </p> <pre>
+type &lt;CTRL-D&gt; to terminate
+enter your most liked film: Sound of Music
+Yeah! great film the Sound of Music
+</pre> <h3> 无限循环 </h3> <p>无限循环语法格式：</p> <pre>
+while :
+do
+    command
+done
+</pre> <p> 或者 </p><pre>
+while true
+do
+    command
+done</pre> <p> 或者 </p><pre>
+for (( ; ; ))
+</pre> <p> <hr> <h2> until 循环</h2><p> until循环执行一系列命令直至条件为真时停止。 </p><p>until循环与while循环在处理方式上刚好相反。</p><p>一般while循环优于until循环，但在某些时候—也只是极少数情况下，until循环更加有用。 </p> <p>until 语法格式:</p> <pre>
+until condition
+do
+    command
+done
+</pre> <p>条件可为任意测试条件，测试发生在循环末尾，因此循环至少执行一次—请注意这一点。</p> <hr> <h2> case </h2> <p> Shell case语句为多选择语句。可以用case语句匹配一个值与一个模式，如果匹配成功，执行相匹配的命令。case语句格式如下： </p> <pre>
+case 值 in
+模式1)
+    command1
+    command2
+    ...
+    commandN
+    ;;
+模式2）
+    command1
+    command2
+    ...
+    commandN
+    ;;
+esac
+</pre> <p>case工作方式如上所示。取值后面必须为单词in，每一模式必须以右括号结束。取值可以为变量或常数。匹配发现取值符合某一模式后，其间所有命令开始执行直至 ;;。 </p><p> 取值将检测匹配的每一个模式。一旦模式匹配，则执行完匹配模式相应命令后不再继续其他模式。如果无一匹配模式，使用星号 * 捕获该值，再执行后面的命令。 </p><p> 下面的脚本提示输入1到4，与每一种模式进行匹配： </p> <pre>
+echo 'Input a number between 1 to 4'
+echo 'Your number is:\c'
+read aNum
+case $aNum in
+    1)  echo 'You select 1'
+    ;;
+    2)  echo 'You select 2'
+    ;;
+    3)  echo 'You select 3'
+    ;;
+    4)  echo 'You select 4'
+    ;;
+    *)  echo 'You do not select a number between 1 to 4'
+    ;;
+esac
+</pre> <p> 输入不同的内容，会有不同的结果，例如： </p> <pre>
+Input a number between 1 to 4
+Your number is:3
+You select 3
+</pre> <hr><h2>跳出循环</h2> <p>在循环过程中，有时候需要在未达到循环结束条件时强制跳出循环，Shell使用两个命令来实现该功能：break和continue。 </p> <h3> break命令 </h3> <p> break命令允许跳出所有循环（终止执行后面的所有循环）。 </p> <p> 下面的例子中，脚本进入死循环直至用户输入数字大于5。要跳出这个循环，返回到shell提示符下，需要使用break命令。 </p> <pre>
+#!/bin/bash
+while :
+do
+    echo -n "Input a number between 1 to 5: "
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo "Your number is $aNum!"
+        ;;
+        *) echo "You do not select a number between 1 to 5, game is over!"
+            break
+        ;;
+    esac
+done
+</pre> <h3> continue </h3> <pre>
+continue命令与break命令类似，只有一点差别，它不会跳出所有循环，仅仅跳出当前循环。
+</pre> <p> 对上面的例子进行修改： </p> <pre>
+#!/bin/bash
+while :
+do
+    echo -n "Input a number between 1 to 5: "
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo "Your number is $aNum!"
+        ;;
+        *) echo "You do not select a number between 1 to 5!"
+            continue
+            echo "Game is over!"
+        ;;
+    esac
+done
+</pre> <p> 运行代码发现，当输入大于5的数字时，该例中的循环不会结束，语句 <strong> echo "Game is over!"</strong> 永远不会被执行。 </p><hr><h2> esac</h2> <p> case的语法和C family语言差别很大，它需要一个esac（就是case反过来）作为结束标记，每个case分支用右圆括号，用两个分号表示break。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-shell-test.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-test.html" rel="prev"> Shell test命令</a></div> <div class="next"><a href="linux-shell-func.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-func.html" rel="next">Shell 函数</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/linux/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/linux/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

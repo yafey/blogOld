@@ -1,0 +1,194 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Servlet 服务器 HTTP 响应 | w3cschool菜鸟教程</title> <link rel='prev' title='Servlet 客户端 HTTP 请求' href="servlet-client-request.html"/> <link rel='next' title='Servlet HTTP 状态码' href="servlet-http-status-codes.html"/> <link rel='canonical' href='http://www.w3cschool.cc/servlet/servlet-server-response.html'/> <meta name="keywords" content="Servlet 服务器 HTTP 响应"> <meta name="description" content="Servlet 服务器 HTTP 响应 正如前面的章节中讨论的那样，当一个 Web 服务器响应一个 HTTP 请求时，响应通常包括一个状态行、一些响应报头、一个空行和文档。一个典型的响应如下所示： HTTP/1.1 200 OK Content-Type: text/html Header2: ... ... HeaderN: ... (Blank Line) ... ... 状态行包括 HTTP 版本（在本例中为 .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Servlet 教程</strong></h2> <a target="_top" title="Servlet 教程" href="servlet-tutorial.html" tppabs="http://www.w3cschool.cc/servlet/servlet-tutorial.html"> Servlet 教程 </a> <a target="_top" title="Servlet 简介" href="servlet-intro.html" tppabs="http://www.w3cschool.cc/servlet/servlet-intro.html"> Servlet 简介 </a> <a target="_top" title="Servlet 环境设置" href="servlet-environment-setup.html" tppabs="http://www.w3cschool.cc/servlet/servlet-environment-setup.html"> Servlet 环境设置 </a> <a target="_top" title="Servlet 生命周期" href="servlet-life-cycle.html" tppabs="http://www.w3cschool.cc/servlet/servlet-life-cycle.html"> Servlet 生命周期 </a> <a target="_top" title="Servlet 实例" href="servlet-first-example.html" tppabs="http://www.w3cschool.cc/servlet/servlet-first-example.html"> Servlet 实例 </a> <a target="_top" title="Servlet 表单数据" href="servlet-form-data.html" tppabs="http://www.w3cschool.cc/servlet/servlet-form-data.html"> Servlet 表单数据 </a> <a target="_top" title="Servlet 客户端 HTTP 请求" href="servlet-client-request.html" tppabs="http://www.w3cschool.cc/servlet/servlet-client-request.html"> Servlet 客户端 HTTP 请求 </a> <a target="_top" title="Servlet 服务器 HTTP 响应" href="servlet-server-response.html" tppabs="http://www.w3cschool.cc/servlet/servlet-server-response.html"> Servlet 服务器 HTTP 响应 </a> <a target="_top" title="Servlet HTTP 状态码" href="servlet-http-status-codes.html" tppabs="http://www.w3cschool.cc/servlet/servlet-http-status-codes.html"> Servlet HTTP 状态码 </a> <a target="_top" title="Servlet 编写过滤器" href="servlet-writing-filters.html" tppabs="http://www.w3cschool.cc/servlet/servlet-writing-filters.html"> Servlet 编写过滤器 </a> <a target="_top" title="Servlet 异常处理" href="servlet-exception-handling.html" tppabs="http://www.w3cschool.cc/servlet/servlet-exception-handling.html"> Servlet 异常处理 </a> <a target="_top" title="Servlet Cookies 处理" href="servlet-cookies-handling.html" tppabs="http://www.w3cschool.cc/servlet/servlet-cookies-handling.html"> Servlet Cookies 处理 </a> <a target="_top" title="Servlet Session 跟踪" href="servlet-session-tracking.html" tppabs="http://www.w3cschool.cc/servlet/servlet-session-tracking.html"> Servlet Session 跟踪 </a> <a target="_top" title="Servlet 数据库访问" href="servlet-database-access.html" tppabs="http://www.w3cschool.cc/servlet/servlet-database-access.html"> Servlet 数据库访问 </a> <a target="_top" title="Servlet 文件上传" href="servlet-file-uploading.html" tppabs="http://www.w3cschool.cc/servlet/servlet-file-uploading.html"> Servlet 文件上传 </a> <a target="_top" title="Servlet 处理日期" href="servlet-handling-date.html" tppabs="http://www.w3cschool.cc/servlet/servlet-handling-date.html"> Servlet 处理日期 </a> <a target="_top" title="Servlet 网页重定向" href="servlet-page-redirect.html" tppabs="http://www.w3cschool.cc/servlet/servlet-page-redirect.html"> Servlet 网页重定向 </a> <a target="_top" title="Servlet 点击计数器" href="servlet-hits-counter.html" tppabs="http://www.w3cschool.cc/servlet/servlet-hits-counter.html"> Servlet 点击计数器 </a> <a target="_top" title="Servlet 自动刷新页面" href="servlet-auto-refresh.html" tppabs="http://www.w3cschool.cc/servlet/servlet-auto-refresh.html"> Servlet 自动刷新页面 </a> <a target="_top" title="Servlet 发送电子邮件" href="servlet-sending-email.html" tppabs="http://www.w3cschool.cc/servlet/servlet-sending-email.html"> Servlet 发送电子邮件 </a> <a target="_top" title="Servlet 包" href="servlet-packaging.html" tppabs="http://www.w3cschool.cc/servlet/servlet-packaging.html"> Servlet 包 </a> <a target="_top" title="Servlet 调试" href="servlet-debugging.html" tppabs="http://www.w3cschool.cc/servlet/servlet-debugging.html"> Servlet 调试 </a> <a target="_top" title="Servlet 国际化" href="servlet-internationalization.html" tppabs="http://www.w3cschool.cc/servlet/servlet-internationalization.html"> Servlet 国际化 </a> <br><h2 class="left">Servlet <span class="left_h2">其他</span></h2> <a target="_top" title="Servlet 有用的资源" href="servlet-useful-resources.html" tppabs="http://www.w3cschool.cc/servlet/servlet-useful-resources.html"> Servlet 有用的资源 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="servlet-client-request.html" tppabs="http://www.w3cschool.cc/servlet/servlet-client-request.html" rel="prev"> Servlet 客户端 HTTP 请求</a></div> <div class="next"><a href="servlet-http-status-codes.html" tppabs="http://www.w3cschool.cc/servlet/servlet-http-status-codes.html" rel="next">Servlet HTTP 状态码</a> &raquo;</div> </div> <div id="content"> <h1>Servlet <span class="color_h1">服务器 HTTP 响应</span></h1> <p>正如前面的章节中讨论的那样，当一个 Web 服务器响应一个 HTTP 请求时，响应通常包括一个状态行、一些响应报头、一个空行和文档。一个典型的响应如下所示：</p> <pre class="prettyprint">
+HTTP/1.1 200 OK
+Content-Type: text/html
+Header2: ...
+...
+HeaderN: ...
+  (Blank Line)
+&lt;!doctype ...&gt;
+&lt;html&gt;
+&lt;head&gt;...&lt;/head&gt;
+&lt;body&gt;
+...
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>状态行包括 HTTP 版本（在本例中为 HTTP/1.1）、一个状态码（在本例中为 200）和一个对应于状态码的短消息（在本例中为 OK）。</p> <p>下表总结了从 Web 服务器端返回到浏览器的最有用的 HTTP 1.1 响应报头，您会在 Web 编程中频繁地使用它们：</p> <table class="reference notranslate"> <tr><th style="width:30%">头信息</th><th>描述</th></tr> <tr><td>Allow</td><td>这个头信息指定服务器支持的请求方法（GET、POST 等）。</td></tr> <tr><td>Cache-Control</td><td>这个头信息指定响应文档在何种情况下可以安全地缓存。可能的值有：<b>public、private</b> 或 <b>no-cache</b> 等。Public 意味着文档是可缓存，Private 意味着文档是单个用户私用文档，且只能存储在私有（非共享）缓存中，no-cache 意味着文档不应被缓存。</td></tr> <tr><td>Connection</td><td>这个头信息指示浏览器是否使用持久 HTTP 连接。值 <b>close</b> 指示浏览器不使用持久 HTTP 连接，值 <b>keep-alive</b> 意味着使用持久连接。</td></tr> <tr><td>Content-Disposition</td><td>这个头信息可以让您请求浏览器要求用户以给定名称的文件把响应保存到磁盘。</td></tr> <tr><td>Content-Encoding</td><td>在传输过程中，这个头信息指定页面的编码方式。</td></tr> <tr><td>Content-Language</td><td>这个头信息表示文档编写所使用的语言。例如，en、en-us、ru 等。</td></tr> <tr><td>Content-Length</td><td>这个头信息指示响应中的字节数。只有当浏览器使用持久（keep-alive）HTTP 连接时才需要这些信息。</td></tr> <tr><td>Content-Type</td><td>这个头信息提供了响应文档的 MIME（Multipurpose Internet Mail Extension）类型。</td></tr> <tr><td>Expires</td><td>这个头信息指定内容过期的时间，在这之后内容不再被缓存。</td></tr> <tr><td>Last-Modified</td><td>这个头信息指示文档的最后修改时间。然后，客户端可以缓存文件，并在以后的请求中通过 <b>If-Modified-Since</b> 请求头信息提供一个日期。 </td></tr> <tr><td>Location</td><td>这个头信息应被包含在所有的带有状态码的响应中。在 300s 内，这会通知浏览器文档的地址。浏览器会自动重新连接到这个位置，并获取新的文档。</td></tr> <tr><td>Refresh</td><td>这个头信息指定浏览器应该如何尽快请求更新的页面。您可以指定页面刷新的秒数。</td></tr> <tr><td>Retry-After</td><td>这个头信息可以与 503（Service Unavailable 服务不可用）响应配合使用，这会告诉客户端多久就可以重复它的请求。</td></tr> <tr><td>Set-Cookie</td><td>个头信息指定一个与页面关联的 cookie。</td></tr> </table> <br/> <h2 class="tutheader">设置 HTTP 响应报头的方法</h2> <p>下面的方法可用于在 Servlet 程序中设置 HTTP 响应报头。这些方法通过 <i>HttpServletResponse</i> 对象可用。</p> <table class="reference notranslate"> <tr><th style="width:5%">序号</th><th>方法 &amp; 描述</th></tr> <tr><td>1</td><td><b>String encodeRedirectURL(String url)</b><br/>为 sendRedirect 方法中使用的指定的 URL 进行编码，或者如果编码不是必需的，则返回 URL 未改变。</td></tr> <tr><td>2</td><td><b>String encodeURL(String url)</b><br/>对包含 session 会话 ID 的指定 URL 进行编码，或者如果编码不是必需的，则返回 URL 未改变。</td></tr> <tr><td>3</td><td><b>boolean containsHeader(String name)</b><br/>返回一个布尔值，指示是否已经设置已命名的响应报头。</td></tr> <tr><td>4</td><td><b>boolean isCommitted()</b><br/>返回一个布尔值，指示响应是否已经提交。</td></tr> <tr><td>5</td><td><b>void addCookie(Cookie cookie)</b><br/>把指定的 cookie 添加到响应。</td></tr> <tr><td>6</td><td><b>void addDateHeader(String name, long date)</b><br/>添加一个带有给定的名称和日期值的响应报头。</td></tr> <tr><td>7</td><td><b>void addHeader(String name, String value)</b><br/>添加一个带有给定的名称和值的响应报头。</td></tr> <tr><td>8</td><td><b>void addIntHeader(String name, int value)</b><br/>添加一个带有给定的名称和整数值的响应报头。</td></tr> <tr><td>9</td><td><b>void flushBuffer()</b><br/>强制任何在缓冲区中的内容被写入到客户端。</td></tr> <tr><td>10</td><td><b>void reset()</b><br/>清除缓冲区中存在的任何数据，包括状态码和头。</td></tr> <tr><td>11</td><td><b>void resetBuffer()</b><br/>清除响应中基础缓冲区的内容，不清除状态码和头。</td></tr> <tr><td>12</td><td><b>void sendError(int sc)</b><br/>使用指定的状态码发送错误响应到客户端，并清除缓冲区。</td></tr> <tr><td>13</td><td><b>void sendError(int sc, String msg)</b><br/>使用指定的状态发送错误响应到客户端。</td></tr> <tr><td>14</td><td><b>void sendRedirect(String location)</b><br/>使用指定的重定向位置 URL 发送临时重定向响应到客户端。</td></tr> <tr><td>15</td><td><b>void setBufferSize(int size)</b><br/>为响应主体设置首选的缓冲区大小。</td></tr> <tr><td>16</td><td><b>void setCharacterEncoding(String charset)</b><br/>设置被发送到客户端的响应的字符编码（MIME 字符集）例如，UTF-8。</td></tr> <tr><td>17</td><td><b>void setContentLength(int len)</b><br/>设置在 HTTP Servlet 响应中的内容主体的长度，该方法设置 HTTP Content-Length 头。</td></tr> <tr><td>18</td><td><b>void setContentType(String type)</b><br/>如果响应还未被提交，设置被发送到客户端的响应的内容类型。</td></tr> <tr><td>19</td><td><b>void setDateHeader(String name, long date)</b><br/>设置一个带有给定的名称和日期值的响应报头。</td></tr> <tr><td>20</td><td><b>void setHeader(String name, String value)</b><br/>设置一个带有给定的名称和值的响应报头。</td></tr> <tr><td>21</td><td><b>void setIntHeader(String name, int value)</b><br/>设置一个带有给定的名称和整数值的响应报头。</td></tr> <tr><td>22</td><td><b>void setLocale(Locale loc)</b><br/>如果响应还未被提交，设置响应的区域。</td></tr> <tr><td>23</td><td><b>void setStatus(int sc)</b><br/>为该响应设置状态码。</td></tr> </table> <br/> <h2 class="tutheader">HTTP Header 响应实例</h2> <p>您已经在前面的实例中看到 setContentType() 方法，下面的实例也使用了同样的方法，此外，我们会用 <b>setIntHeader()</b> 方法来设置 <b>Refresh</b> 头。</p> <pre class="prettyprint">
+// 导入必需的 java 库
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.util.*;
+ 
+// 扩展 HttpServlet 类
+public class Refresh extends HttpServlet {
+ 
+  // 处理 GET 方法请求的方法
+  public void doGet(HttpServletRequest request,
+                    HttpServletResponse response)
+            throws ServletException, IOException
+  {
+      // 设置刷新自动加载时间为 5 秒
+      response.setIntHeader("Refresh", 5);
+ 
+      // 设置响应内容类型
+      response.setContentType("text/html");
+ 
+      // Get current time
+      Calendar calendar = new GregorianCalendar();
+      String am_pm;
+      int hour = calendar.get(Calendar.HOUR);
+      int minute = calendar.get(Calendar.MINUTE);
+      int second = calendar.get(Calendar.SECOND);
+      if(calendar.get(Calendar.AM_PM) == 0)
+        am_pm = "AM";
+      else
+        am_pm = "PM";
+ 
+      String CT = hour+":"+ minute +":"+ second +" "+ am_pm;
+    
+      PrintWriter out = response.getWriter();
+      String title = "自动刷新 Header 设置";
+      String docType =
+      "&lt;!doctype html public \"-//w3c//dtd html 4.0 " +
+      "transitional//en\"&gt;\n";
+      out.println(docType +
+        "&lt;html&gt;\n" +
+        "&lt;head&gt;&lt;title&gt;" + title + "&lt;/title&gt;&lt;/head&gt;\n"+
+        "&lt;body bgcolor=\"#f0f0f0\"&gt;\n" +
+        "&lt;h1 align=\"center\"&gt;" + title + "&lt;/h1&gt;\n" +
+        "&lt;p&gt;当前时间是：" + CT + "&lt;/p&gt;\n");
+  }
+  // 处理 POST 方法请求的方法
+  public void doPost(HttpServletRequest request,
+                     HttpServletResponse response)
+      throws ServletException, IOException {
+     doGet(request, response);
+  }
+}
+</pre> <p>现在，调用上面的 Servlet，每隔 5 秒会显示当前系统时间。只要运行 Servlet 并稍等片刻，即可看到如下的结果：</p> <table cellpadding="5" class="src" style="background-color: #f7f7f7;border: 1px solid #d6d6d6;border-collapse: collapse;width: 100%;"> <tr><td bgcolor="#f0f0f0"> <h1 align="center" style="margin-top:20px">自动刷新 Header 设置</h1> <p>当前时间是：9:44:50 PM</p> </td></tr> </table> </div> <div class="chapter"> <div class="prev">&laquo; <a href="servlet-client-request.html" tppabs="http://www.w3cschool.cc/servlet/servlet-client-request.html" rel="prev"> Servlet 客户端 HTTP 请求</a></div> <div class="next"><a href="servlet-http-status-codes.html" tppabs="http://www.w3cschool.cc/servlet/servlet-http-status-codes.html" rel="next">Servlet HTTP 状态码</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/servlet/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/servlet/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

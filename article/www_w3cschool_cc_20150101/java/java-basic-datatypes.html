@@ -1,0 +1,235 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Java基本数据类型 | w3cschool菜鸟教程</title> <link rel='prev' title='Java对象和类' href="java-object-classes.html"/> <link rel='next' title='jQuery EasyUI 布局插件 &#8211; Accordion 折叠面板' href="/jeasyui/plugins-layout-accordion.html"/> <link rel='canonical' href='http://www.w3cschool.cc/java/java-basic-datatypes.html'/> <meta name="keywords" content="Java基本数据类型"> <meta name="description" content="Java基本数据类型 变量就是申请内存来存储值。也就是说，当创建变量的时候，需要在内存中申请空间。 内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。因此，通过定义不同类型的变量，可以在内存中储存整数、小数或者字符。 Java的两大数据类型: 内置数据类型 引用数据类型 内置数据类型 Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。 byte： .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Java 教程</strong></h2> <a target="_top" title="Java 教程" href="java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html"> Java 教程 </a> <a target="_top" title="Java 简介" href="java-intro.html" tppabs="http://www.w3cschool.cc/java/java-intro.html"> Java 简介 </a> <a target="_top" title="Java开发环境配置" href="java-environment-setup.html" tppabs="http://www.w3cschool.cc/java/java-environment-setup.html"> Java开发环境配置 </a> <a target="_top" title="Java基础语法" href="java-basic-syntax.html" tppabs="http://www.w3cschool.cc/java/java-basic-syntax.html"> Java基础语法 </a> <a target="_top" title="Java对象和类" href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html"> Java对象和类 </a> <a target="_top" title="Java基本数据类型" href="java-basic-datatypes.html" tppabs="http://www.w3cschool.cc/java/java-basic-datatypes.html"> Java基本数据类型 </a> <a target="_top" title="Java变量类型" href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html"> Java变量类型 </a> <a target="_top" title="Java修饰符" href="java-modifier-types.html" tppabs="http://www.w3cschool.cc/java/java-modifier-types.html"> Java修饰符 </a> <a target="_top" title="Java运算符" href="java-operators.html" tppabs="http://www.w3cschool.cc/java/java-operators.html"> Java运算符 </a> <a target="_top" title="Java循环结构 &#8211; for, while 及 do&#8230;while" href="java-loop.html" tppabs="http://www.w3cschool.cc/java/java-loop.html"> Java循环结构 </a> <a target="_top" title="Java分支结构 &#8211; if&#8230;else/switch" href="java-if-else-switch.html" tppabs="http://www.w3cschool.cc/java/java-if-else-switch.html"> Java分支结构 </a> <a target="_top" title="Java Number类" href="java-number.html" tppabs="http://www.w3cschool.cc/java/java-number.html"> Java Number类 </a> <a target="_top" title="Java Character类" href="java-character.html" tppabs="http://www.w3cschool.cc/java/java-character.html"> Java Character类 </a> <a target="_top" title="Java String类" href="java-string.html" tppabs="http://www.w3cschool.cc/java/java-string.html"> Java String类 </a> <a target="_top" title="Java StringBuffer和StringBuilder类" href="java-stringbuffer.html" tppabs="http://www.w3cschool.cc/java/java-stringbuffer.html"> Java StringBuffer和StringBuilder类 </a> <a target="_top" title="Java 数组" href="java-array.html" tppabs="http://www.w3cschool.cc/java/java-array.html"> Java 数组 </a> <a target="_top" title="Java日期时间" href="java-date-time.html" tppabs="http://www.w3cschool.cc/java/java-date-time.html"> Java日期时间 </a> <a target="_top" title="Java正则表达式" href="java-regular-expressions.html" tppabs="http://www.w3cschool.cc/java/java-regular-expressions.html"> Java正则表达式 </a> <a target="_top" title="Java 方法" href="java-methods.html" tppabs="http://www.w3cschool.cc/java/java-methods.html"> Java 方法 </a> <a target="_top" title="Java 流(Stream)、文件(File)和IO" href="java-files-io.html" tppabs="http://www.w3cschool.cc/java/java-files-io.html"> Java 流(Stream)、文件(File)和IO </a> <a target="_top" title="Java 异常处理" href="java-exceptions.html" tppabs="http://www.w3cschool.cc/java/java-exceptions.html"> Java 异常处理 </a> <br><h2 class="left">Java <span class="left_h2">面向对象</span></h2> <a target="_top" title="Java 继承" href="java-inheritance.html" tppabs="http://www.w3cschool.cc/java/java-inheritance.html"> Java 继承 </a> <a target="_top" title="Java 重写(Override)与重载(Overload)" href="java-override-overload.html" tppabs="http://www.w3cschool.cc/java/java-override-overload.html"> Java 重写(Override)与重载(Overload) </a> <a target="_top" title="Java 多态" href="java-polymorphism.html" tppabs="http://www.w3cschool.cc/java/java-polymorphism.html"> Java 多态 </a> <a target="_top" title="Java 抽象类" href="java-abstraction.html" tppabs="http://www.w3cschool.cc/java/java-abstraction.html"> Java 抽象类 </a> <a target="_top" title="java 封装" href="java-encapsulation.html" tppabs="http://www.w3cschool.cc/java/java-encapsulation.html"> java 封装 </a> <a target="_top" title="Java 接口" href="java-interfaces.html" tppabs="http://www.w3cschool.cc/java/java-interfaces.html"> Java 接口 </a> <a target="_top" title="Java 包(package)" href="java-package.html" tppabs="http://www.w3cschool.cc/java/java-package.html"> Java 包(package) </a> <br><h2 class="left">Java <span class="left_h2">高级教程</span></h2> <a target="_top" title="Java 数据结构" href="java-data-structures.html" tppabs="http://www.w3cschool.cc/java/java-data-structures.html"> Java 数据结构 </a> <a target="_top" title="Java 集合框架" href="java-collections.html" tppabs="http://www.w3cschool.cc/java/java-collections.html"> Java 集合框架 </a> <a target="_top" title="Java 泛型" href="java-generics.html" tppabs="http://www.w3cschool.cc/java/java-generics.html"> Java 泛型 </a> <a target="_top" title="Java序列化" href="java-serialization.html" tppabs="http://www.w3cschool.cc/java/java-serialization.html"> Java序列化 </a> <a target="_top" title="Java 网络编程" href="java-networking.html" tppabs="http://www.w3cschool.cc/java/java-networking.html"> Java 网络编程 </a> <a target="_top" title="Java 发送邮件" href="java-sending-email.html" tppabs="http://www.w3cschool.cc/java/java-sending-email.html"> Java 发送邮件 </a> <a target="_top" title="Java 多线程编程" href="java-multithreading.html" tppabs="http://www.w3cschool.cc/java/java-multithreading.html"> Java 多线程编程 </a> <a target="_top" title="Java Applet基础" href="java-applet-basics.html" tppabs="http://www.w3cschool.cc/java/java-applet-basics.html"> Java Applet基础 </a> <a target="_top" title="Java 文档注释" href="java-documentation.html" tppabs="http://www.w3cschool.cc/java/java-documentation.html"> Java 文档注释 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html" rel="prev"> Java对象和类</a></div> <div class="next"><a href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html" rel="next">Java变量类型</a> &raquo;</div> </div> <div id="content"> <h1>Java基本数据类型</h1> <p>变量就是申请内存来存储值。也就是说，当创建变量的时候，需要在内存中申请空间。</p> <p>内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。</p><p>因此，通过定义不同类型的变量，可以在内存中储存整数、小数或者字符。</p> <p>Java的两大数据类型:</p> <ul><li>内置数据类型</li> <li>引用数据类型</li> </ul><hr> <h2>内置数据类型</h2> <p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。 </p> <p>byte：</p> <ul> <li> byte数据类型是8位、有符号的，以二进制补码表示的整数；</li> <li> 最小值是-128（-2^7）；</li> <li> 最大值是127（2^7-1）；</li> <li> 默认值是0；</li> <li> byte类型用在大型数组中节约空间，主要代替整数，因为byte变量占用的空间只有int类型的四分之一；</li> <li> 例子：byte a = 100，byte b = -50。</li> </ul> <p>short：</p> <ul> <li> short数据类型是16位、有符号的以二进制补码表示的整数</li> <li> 最小值是-32768（-2^15）；</li> <li> 最大值是32767（2^15 - 1）；</li> <li> Short数据类型也可以像byte那样节省空间。一个short变量是int型变量所占空间的二分之一；</li> <li> 默认值是0；</li> <li> 例子：short s = 1000，short r = -20000。</li> </ul> <p>int：</p> <ul> <li> int数据类型是32位、有符号的以二进制补码表示的整数；</li> <li> 最小值是-2,147,483,648（-2^31）；</li> <li> 最大值是2,147,485,647（2^31 - 1）；</li> <li> 一般地整型变量默认为int类型；</li> <li> 默认值是0；</li> <li> 例子：int a = 100000, int b = -200000。</li> </ul> <p>long：</p> <ul> <li> long数据类型是64位、有符号的以二进制补码表示的整数；</li> <li> 最小值是-9,223,372,036,854,775,808（-2^63）；</li> <li> 最大值是9,223,372,036,854,775,807（2^63 -1）；</li> <li> 这种类型主要使用在需要比较大整数的系统上；</li> <li> 默认值是0L；</li> <li> 例子： long a = 100000L，int b = -200000L。</li> </ul> <p>float：</p> <ul> <li> float数据类型是单精度、32位、符合IEEE 754标准的浮点数；</li> <li> float在储存大型浮点数组的时候可节省内存空间；</li> <li> 默认值是0.0f；</li> <li> 浮点数不能用来表示精确的值，如货币；</li> <li> 例子：float f1 = 234.5f。</li> </ul> <p>double：</p> <ul> <li> double数据类型是双精度、64位、符合IEEE 754标准的浮点数；</li> <li> 浮点数的默认类型为double类型；</li> <li> double类型同样不能表示精确的值，如货币；</li> <li> 默认值是0.0f；</li> <li> 例子：double d1 = 123.4。</li> </ul> <p>boolean：</p> <ul> <li> boolean数据类型表示一位的信息；</li> <li> 只有两个取值：true和false；</li> <li> 这种类型只作为一种标志来记录true/false情况；</li> <li> 默认值是false；</li> <li> 例子：boolean one = true。</li> </ul> <p>char：</p> <ul> <li> char类型是一个单一的16位Unicode字符；</li> <li> 最小值是&rsquo;\u0000&rsquo;（即为0）；</li> <li> 最大值是&rsquo;\uffff&rsquo;（即为65,535）；</li> <li> char数据类型可以储存任何字符；</li> <li> 例子：char letter = &lsquo;A&rsquo;。</li> </ul> <h3>实例</h3> <p>对于数值类型的基本类型的取值范围，我们无需强制去记忆，因为它们的值都已经以常量的形式定义在对应的包装类中了。请看下面的例子：</p> <pre>
+public class PrimitiveTypeTest {  
+    public static void main(String[] args) {  
+        // byte  
+        System.out.println("基本类型：byte 二进制位数：" + Byte.SIZE);  
+        System.out.println("包装类：java.lang.Byte");  
+        System.out.println("最小值：Byte.MIN_VALUE=" + Byte.MIN_VALUE);  
+        System.out.println("最大值：Byte.MAX_VALUE=" + Byte.MAX_VALUE);  
+        System.out.println();  
+  
+        // short  
+        System.out.println("基本类型：short 二进制位数：" + Short.SIZE);  
+        System.out.println("包装类：java.lang.Short");  
+        System.out.println("最小值：Short.MIN_VALUE=" + Short.MIN_VALUE);  
+        System.out.println("最大值：Short.MAX_VALUE=" + Short.MAX_VALUE);  
+        System.out.println();  
+  
+        // int  
+        System.out.println("基本类型：int 二进制位数：" + Integer.SIZE);  
+        System.out.println("包装类：java.lang.Integer");  
+        System.out.println("最小值：Integer.MIN_VALUE=" + Integer.MIN_VALUE);  
+        System.out.println("最大值：Integer.MAX_VALUE=" + Integer.MAX_VALUE);  
+        System.out.println();  
+  
+        // long  
+        System.out.println("基本类型：long 二进制位数：" + Long.SIZE);  
+        System.out.println("包装类：java.lang.Long");  
+        System.out.println("最小值：Long.MIN_VALUE=" + Long.MIN_VALUE);  
+        System.out.println("最大值：Long.MAX_VALUE=" + Long.MAX_VALUE);  
+        System.out.println();  
+  
+        // float  
+        System.out.println("基本类型：float 二进制位数：" + Float.SIZE);  
+        System.out.println("包装类：java.lang.Float");  
+        System.out.println("最小值：Float.MIN_VALUE=" + Float.MIN_VALUE);  
+        System.out.println("最大值：Float.MAX_VALUE=" + Float.MAX_VALUE);  
+        System.out.println();  
+  
+        // double  
+        System.out.println("基本类型：double 二进制位数：" + Double.SIZE);  
+        System.out.println("包装类：java.lang.Double");  
+        System.out.println("最小值：Double.MIN_VALUE=" + Double.MIN_VALUE);  
+        System.out.println("最大值：Double.MAX_VALUE=" + Double.MAX_VALUE);  
+        System.out.println();  
+  
+        // char  
+        System.out.println("基本类型：char 二进制位数：" + Character.SIZE);  
+        System.out.println("包装类：java.lang.Character");  
+        // 以数值形式而不是字符形式将Character.MIN_VALUE输出到控制台  
+        System.out.println("最小值：Character.MIN_VALUE="  
+                + (int) Character.MIN_VALUE);  
+        // 以数值形式而不是字符形式将Character.MAX_VALUE输出到控制台  
+        System.out.println("最大值：Character.MAX_VALUE="  
+                + (int) Character.MAX_VALUE);  
+    }  
+}  
+
+</pre> <p>编译以上代码输出结果如下所示：</p> <pre>
+基本类型：byte 二进制位数：8
+包装类：java.lang.Byte
+最小值：Byte.MIN_VALUE=-128
+最大值：Byte.MAX_VALUE=127
+
+基本类型：short 二进制位数：16
+包装类：java.lang.Short
+最小值：Short.MIN_VALUE=-32768
+最大值：Short.MAX_VALUE=32767
+
+基本类型：int 二进制位数：32
+包装类：java.lang.Integer
+最小值：Integer.MIN_VALUE=-2147483648
+最大值：Integer.MAX_VALUE=2147483647
+
+基本类型：long 二进制位数：64
+包装类：java.lang.Long
+最小值：Long.MIN_VALUE=-9223372036854775808
+最大值：Long.MAX_VALUE=9223372036854775807
+
+基本类型：float 二进制位数：32
+包装类：java.lang.Float
+最小值：Float.MIN_VALUE=1.4E-45
+最大值：Float.MAX_VALUE=3.4028235E38
+
+基本类型：double 二进制位数：64
+包装类：java.lang.Double
+最小值：Double.MIN_VALUE=4.9E-324
+最大值：Double.MAX_VALUE=1.7976931348623157E308
+
+基本类型：char 二进制位数：16
+包装类：java.lang.Character
+最小值：Character.MIN_VALUE=0
+最大值：Character.MAX_VALUE=65535
+</pre> <p>Float和Double的最小值和最大值都是以科学记数法的形式输出的，结尾的"E+数字"表示E之前的数字要乘以10的多少倍。比如3.14E3就是3.14×1000=3140，3.14E-3就是3.14/1000=0.00314。</p> <p>实际上，JAVA中还存在另外一种基本类型void，它也有对应的包装类 java.lang.Void，不过我们无法直接对它们进行操作。</p> <hr> <h2> 引用类型</h2> <ul> <li> 引用类型变量由类的构造函数创建，可以使用它们访问所引用的对象。这些变量在声明时被指定为一个特定的类型，比如Employee、Pubby等。变量一旦声明后，类型就不能被改变了。</li> <li> 对象、数组都是引用数据类型。</li> <li> 所有引用类型的默认值都是null。</li> <li> 一个引用变量可以用来引用与任何与之兼容的类型。</li> <li> 例子：Animal animal = new Animal(&ldquo;giraffe&rdquo;)。</li> </ul> <hr> <h2>Java常量</h2> <p>常量就是一个固定值。它们不需要计算，直接代表相应的值。</p> <p>常量指不能改变的量。 在Java中用final标志，声明方式和变量类似：</p> <pre>
+final double PI = 3.1415927;
+</pre> <p> 虽然常量名也可以用小写，但为了便于识别，通常使用大写字母表示常量。 </p> <p>字面量可以赋给任何内置类型的变量。例如：</p> <pre>
+byte a = 68;
+char a = 'A'
+</pre> <p>byte、int、long、和short都可以用十进制、16进制以及8进制的方式来表示。</p> <p>当使用常量的时候，前缀o表明是8进制，而前缀0x代表16进制。例如：</p> <pre>
+int decimal = 100;
+int octal = 0144;
+int hexa =  0x64;
+</pre> <p>和其他语言一样，Java的字符串常量也是包含在两个引号之间的字符序列。下面是字符串型字面量的例子：</p> <pre>
+"Hello World"
+"two\nlines"
+"\"This is in quotes\""
+</pre> <p>字符串常量和字符常量都可以包含任何Unicode字符。例如：</p> <pre>
+char a = '\u0001';
+String a = "\u0001";
+</pre> <p> Java语言支持一些特殊的转义字符序列。</p> <table class="reference"> <tbody> <tr> <th> 符号</th> <th> 字符含义</th> </tr> <tr> <td> \n</td> <td> 换行 (0x0a)</td> </tr> <tr> <td> \r</td> <td> 回车 (0x0d)</td> </tr> <tr> <td> \f</td> <td> 换页符(0x0c)</td> </tr> <tr> <td> \b</td> <td> 退格 (0x08)</td> </tr> <tr> <td> \s</td> <td> 空格 (0x20)</td> </tr> <tr> <td> \t</td> <td> 制表符</td> </tr> <tr> <td> \&quot;</td> <td> 双引号</td> </tr> <tr> <td> \&#39;</td> <td> 单引号</td> </tr> <tr> <td> \\</td> <td> 反斜杠</td> </tr> <tr> <td> \ddd</td> <td> 八进制字符 (ddd)</td> </tr> <tr> <td> \uxxxx</td> <td> 16进制Unicode字符 (xxxx)</td> </tr> </tbody> </table> <br/> <p> 这一节讲解了Java的基本数据类型。下一节将探讨不同的变量类型以及它们的用法。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="java-object-classes.html" tppabs="http://www.w3cschool.cc/java/java-object-classes.html" rel="prev"> Java对象和类</a></div> <div class="next"><a href="java-variable-types.html" tppabs="http://www.w3cschool.cc/java/java-variable-types.html" rel="next">Java变量类型</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/java/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/java/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

@@ -1,0 +1,535 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>jQuery UI å®ä¾‹ &#8211; æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ | w3cschoolèœé¸Ÿæ•™ç¨‹</title> <link rel='prev' title='jQuery UI å®ä¾‹ &#8211; æŒ‰é’®ï¼ˆButtonï¼‰' href="example-button.html"/> <link rel='next' title='jQuery UI å®ä¾‹ &#8211; å¯¹è¯æ¡†ï¼ˆDialogï¼‰' href="example-dialog.html"/> <link rel='canonical' href='http://www.w3cschool.cc/jqueryui/example-datepicker.html'/> <meta name="keywords" content="jQuery UI å®ä¾‹ &#8211; æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰"> <meta name="description" content="jQuery UI å®ä¾‹ - æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ ä»å¼¹å‡ºæ¡†æˆ–å†…è”æ—¥å†é€‰æ‹©ä¸€ä¸ªæ—¥æœŸã€‚ å¦‚éœ€äº†è§£æ›´å¤šæœ‰å…³ datepicker éƒ¨ä»¶çš„ç»†èŠ‚ï¼Œè¯·æŸ¥çœ‹ API æ–‡æ¡£ æ—¥æœŸé€‰æ‹©å™¨éƒ¨ä»¶ï¼ˆDatepicker Widgetï¼‰ã€‚ é»˜è®¤åŠŸèƒ½ æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ç»‘å®šåˆ°ä¸€ä¸ªæ ‡å‡†çš„è¡¨å• input å­—æ®µä¸Šã€‚æŠŠç„¦ç‚¹ç§»åˆ° input ä¸Šï¼ˆç‚¹å‡»æˆ–è€…ä½¿ç”¨ tab é”®ï¼‰ï¼Œåœ¨ä¸€ä¸ªå°çš„è¦†ç›–å±‚ä¸Šæ‰“å¼€ä¸€ä¸ªäº¤äº’æ—¥å†ã€‚é€‰æ‹©ä¸€ä¸ªæ—¥æœŸï¼Œç‚¹å‡»é¡µé¢ä¸Š.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschoolèœé¸Ÿæ•™ç¨‹"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="æœç´¢"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">é¦–é¡µ</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">å‰ç«¯å·¥å…·</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">æ›´å¤šâ€¦â€¦</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>jQuery UI æ•™ç¨‹</strong></h2> <a target="_top" title="jQuery UI æ•™ç¨‹" href="jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html"> jQuery UI æ•™ç¨‹ </a> <a target="_top" title="jQuery UI ç®€ä»‹" href="jqueryui-intro.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-intro.html"> jQuery UI ç®€ä»‹ </a> <a target="_top" title="jQuery UI ä¸‹è½½" href="jqueryui-download.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-download.html"> jQuery UI ä¸‹è½½ </a> <a target="_top" title="jQuery UI ä½¿ç”¨" href="jqueryui-use.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-use.html"> jQuery UI ä½¿ç”¨ </a> <a target="_top" title="jQuery UI å®šåˆ¶" href="jqueryui-custom.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-custom.html"> jQuery UI å®šåˆ¶ </a> <a target="_top" title="jQuery UI å·¥ä½œåŸç†" href="jqueryui-work.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-work.html"> jQuery UI å·¥ä½œåŸç† </a> <br><h2 class="left">jQuery UI <span class="left_h2">ä¸»é¢˜</span></h2> <a target="_top" title="jQuery UI ä¸»é¢˜" href="jqueryui-theme.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-theme.html"> jQuery UI ä¸»é¢˜ </a> <a target="_top" title="jQuery UI ThemeRoller" href="jqueryui-theme-themeroller.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-theme-themeroller.html"> jQuery UI ThemeRoller </a> <a target="_top" title="jQuery UI CSS æ¡†æ¶ API" href="jqueryui-theme-api.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-theme-api.html"> jQuery UI CSS æ¡†æ¶ API </a> <a target="_top" title="jQuery UI è®¾è®¡ä¸»é¢˜" href="jqueryui-theme-design.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-theme-design.html"> jQuery UI è®¾è®¡ä¸»é¢˜ </a> <br><h2 class="left">jQuery UI <span class="left_h2">éƒ¨ä»¶åº“</span></h2> <a target="_top" title="jQuery UI éƒ¨ä»¶åº“" href="jqueryui-widget-factory.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-factory.html"> jQuery UI éƒ¨ä»¶åº“ </a> <a target="_top" title="jQuery UI é€šè¿‡éƒ¨ä»¶åº“æ‰©å±•å°éƒ¨ä»¶" href="jqueryui-widget-extend.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-extend.html"> jQuery UI æ‰©å±•å°éƒ¨ä»¶ </a> <a target="_top" title="jQuery UI å°éƒ¨ä»¶æ–¹æ³•è°ƒç”¨" href="jqueryui-widget-method.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-method.html"> jQuery UI å°éƒ¨ä»¶æ–¹æ³•è°ƒç”¨ </a> <a target="_top" title="jQuery UI ä¸ºä»€ä¹ˆä½¿ç”¨éƒ¨ä»¶åº“" href="jqueryui-widget-factory-why.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-factory-why.html"> jQuery UI ä¸ºä»€ä¹ˆä½¿ç”¨éƒ¨ä»¶åº“ </a> <a target="_top" title="jQuery UI å¦‚ä½•ä½¿ç”¨éƒ¨ä»¶åº“" href="jqueryui-widget-factory-how.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-factory-how.html"> jQuery UI å¦‚ä½•ä½¿ç”¨éƒ¨ä»¶åº“ </a> <br><h2 class="left">jQuery UI <span class="left_h2">å‚è€ƒæ‰‹å†Œ</span></h2> <a target="_top" title="jQuery UI API æ–‡æ¡£" href="jqueryui-api.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-api.html"> jQuery UI API æ–‡æ¡£ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; ç‰¹æ•ˆ" href="ref-effects.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-effects.html"> API ç±»åˆ« - ç‰¹æ•ˆ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; ç‰¹æ•ˆæ ¸å¿ƒ" href="ref-effects-core.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-effects-core.html"> API ç±»åˆ« - ç‰¹æ•ˆæ ¸å¿ƒ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; äº¤äº’" href="ref-interactions.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-interactions.html"> API ç±»åˆ« - äº¤äº’ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; æ–¹æ³•é‡è½½" href="ref-overrides.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-overrides.html"> API ç±»åˆ« - æ–¹æ³•é‡è½½ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; æ–¹æ³•" href="ref-methods.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-methods.html"> API ç±»åˆ« - æ–¹æ³• </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; é€‰æ‹©å™¨" href="ref-selectors.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-selectors.html"> API ç±»åˆ« - é€‰æ‹©å™¨ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; ä¸»é¢˜" href="ref-theming.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-theming.html"> API ç±»åˆ« - ä¸»é¢˜ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; UI æ ¸å¿ƒ" href="ref-ui-core.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-ui-core.html"> API ç±»åˆ« - UI æ ¸å¿ƒ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; å®ç”¨å·¥å…·" href="ref-utilities.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-utilities.html"> API ç±»åˆ« - å®ç”¨å·¥å…· </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; å°éƒ¨ä»¶" href="ref-widgets.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-widgets.html"> API ç±»åˆ« - å°éƒ¨ä»¶ </a> <br><h2 class="left">jQuery UI <span class="left_h2">å®ä¾‹</span></h2> <a target="_top" title="jQuery UI å®ä¾‹" href="jqueryui-examples.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-examples.html"> jQuery UI å®ä¾‹ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ‹–åŠ¨ï¼ˆDraggableï¼‰" href="example-draggable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-draggable.html"> æ‹–åŠ¨ï¼ˆDraggableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ”¾ç½®ï¼ˆDroppableï¼‰" href="example-droppable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-droppable.html"> æ”¾ç½®ï¼ˆDroppableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; ç¼©æ”¾ï¼ˆResizableï¼‰" href="example-resizable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-resizable.html"> ç¼©æ”¾ï¼ˆResizableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; é€‰æ‹©ï¼ˆSelectableï¼‰" href="example-selectable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-selectable.html"> é€‰æ‹©ï¼ˆSelectableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ’åºï¼ˆSortableï¼‰" href="example-sortable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-sortable.html"> æ’åºï¼ˆSortableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æŠ˜å é¢æ¿ï¼ˆAccordionï¼‰" href="example-accordion.html" tppabs="http://www.w3cschool.cc/jqueryui/example-accordion.html"> æŠ˜å é¢æ¿ï¼ˆAccordionï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰" href="example-autocomplete.html" tppabs="http://www.w3cschool.cc/jqueryui/example-autocomplete.html"> è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æŒ‰é’®ï¼ˆButtonï¼‰" href="example-button.html" tppabs="http://www.w3cschool.cc/jqueryui/example-button.html"> æŒ‰é’®ï¼ˆButtonï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰" href="example-datepicker.html" tppabs="http://www.w3cschool.cc/jqueryui/example-datepicker.html"> æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; å¯¹è¯æ¡†ï¼ˆDialogï¼‰" href="example-dialog.html" tppabs="http://www.w3cschool.cc/jqueryui/example-dialog.html"> å¯¹è¯æ¡†ï¼ˆDialogï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; èœå•ï¼ˆMenuï¼‰" href="example-menu.html" tppabs="http://www.w3cschool.cc/jqueryui/example-menu.html"> èœå•ï¼ˆMenuï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; è¿›åº¦æ¡ï¼ˆProgressbarï¼‰" href="example-progressbar.html" tppabs="http://www.w3cschool.cc/jqueryui/example-progressbar.html"> è¿›åº¦æ¡ï¼ˆProgressbarï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ»‘å—ï¼ˆSliderï¼‰" href="example-slider.html" tppabs="http://www.w3cschool.cc/jqueryui/example-slider.html"> æ»‘å—ï¼ˆSliderï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ—‹è½¬å™¨ï¼ˆSpinnerï¼‰" href="example-spinner.html" tppabs="http://www.w3cschool.cc/jqueryui/example-spinner.html"> æ—‹è½¬å™¨ï¼ˆSpinnerï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ ‡ç­¾é¡µï¼ˆTabsï¼‰" href="example-tabs.html" tppabs="http://www.w3cschool.cc/jqueryui/example-tabs.html"> æ ‡ç­¾é¡µï¼ˆTabsï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; å·¥å…·æç¤ºæ¡†ï¼ˆTooltipï¼‰" href="example-tooltip.html" tppabs="http://www.w3cschool.cc/jqueryui/example-tooltip.html"> å·¥å…·æç¤ºæ¡†ï¼ˆTooltipï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; ç‰¹æ•ˆï¼ˆEffectï¼‰" href="example-effect.html" tppabs="http://www.w3cschool.cc/jqueryui/example-effect.html"> ç‰¹æ•ˆï¼ˆEffectï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ˜¾ç¤ºï¼ˆShowï¼‰" href="example-show.html" tppabs="http://www.w3cschool.cc/jqueryui/example-show.html"> æ˜¾ç¤ºï¼ˆShowï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; éšè—ï¼ˆHideï¼‰" href="example-hide.html" tppabs="http://www.w3cschool.cc/jqueryui/example-hide.html"> éšè—ï¼ˆHideï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; åˆ‡æ¢ï¼ˆToggleï¼‰" href="example-toggle.html" tppabs="http://www.w3cschool.cc/jqueryui/example-toggle.html"> åˆ‡æ¢ï¼ˆToggleï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ·»åŠ  Classï¼ˆAdd Classï¼‰" href="example-addclass.html" tppabs="http://www.w3cschool.cc/jqueryui/example-addclass.html"> .addClass() </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; ç§»é™¤ Classï¼ˆRemove Classï¼‰" href="example-removeclass.html" tppabs="http://www.w3cschool.cc/jqueryui/example-removeclass.html"> .removeClass() </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; åˆ‡æ¢ Classï¼ˆToggle Classï¼‰" href="example-toggleclass.html" tppabs="http://www.w3cschool.cc/jqueryui/example-toggleclass.html"> .toggleClass() </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; è½¬æ¢ Classï¼ˆSwitch Classï¼‰" href="example-switchclass.html" tppabs="http://www.w3cschool.cc/jqueryui/example-switchclass.html"> .switchClass() </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; é¢œè‰²åŠ¨ç”»ï¼ˆColor Animationï¼‰" href="example-animate.html" tppabs="http://www.w3cschool.cc/jqueryui/example-animate.html"> é¢œè‰²åŠ¨ç”» </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; å®šä½ï¼ˆPositionï¼‰" href="example-position.html" tppabs="http://www.w3cschool.cc/jqueryui/example-position.html"> å®šä½ï¼ˆPositionï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; éƒ¨ä»¶åº“ï¼ˆWidget Factoryï¼‰" href="example-widget.html" tppabs="http://www.w3cschool.cc/jqueryui/example-widget.html"> éƒ¨ä»¶åº“ï¼ˆWidget Factoryï¼‰ </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="example-button.html" tppabs="http://www.w3cschool.cc/jqueryui/example-button.html" rel="prev"> jQuery UI å®ä¾‹ &#8211; æŒ‰é’®ï¼ˆButtonï¼‰</a></div> <div class="next"><a href="example-dialog.html" tppabs="http://www.w3cschool.cc/jqueryui/example-dialog.html" rel="next">jQuery UI å®ä¾‹ &#8211; å¯¹è¯æ¡†ï¼ˆDialogï¼‰</a> &raquo;</div> </div> <div id="content"> <h1>jQuery UI å®ä¾‹ - <span class="color_h1">æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰</span></h1> <div class="tutintro"> <p>ä»å¼¹å‡ºæ¡†æˆ–å†…è”æ—¥å†é€‰æ‹©ä¸€ä¸ªæ—¥æœŸã€‚</p> <p>å¦‚éœ€äº†è§£æ›´å¤šæœ‰å…³ datepicker éƒ¨ä»¶çš„ç»†èŠ‚ï¼Œè¯·æŸ¥çœ‹ API æ–‡æ¡£ <a href="javascript:if(confirm('http://www.w3cschool.cc/jqueryui/tag-cite.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/jqueryui/tag-cite.html'" tppabs="http://www.w3cschool.cc/jqueryui/api-datepicker.html">æ—¥æœŸé€‰æ‹©å™¨éƒ¨ä»¶ï¼ˆDatepicker Widgetï¼‰</a>ã€‚</p> </div> <h2>é»˜è®¤åŠŸèƒ½</h2> <p>æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ç»‘å®šåˆ°ä¸€ä¸ªæ ‡å‡†çš„è¡¨å• input å­—æ®µä¸Šã€‚æŠŠç„¦ç‚¹ç§»åˆ° input ä¸Šï¼ˆç‚¹å‡»æˆ–è€…ä½¿ç”¨ tab é”®ï¼‰ï¼Œåœ¨ä¸€ä¸ªå°çš„è¦†ç›–å±‚ä¸Šæ‰“å¼€ä¸€ä¸ªäº¤äº’æ—¥å†ã€‚é€‰æ‹©ä¸€ä¸ªæ—¥æœŸï¼Œç‚¹å‡»é¡µé¢ä¸Šçš„ä»»æ„åœ°æ–¹ï¼ˆè¾“å…¥æ¡†å³å¤±å»ç„¦ç‚¹ï¼‰ï¼Œæˆ–è€…ç‚¹å‡» Esc é”®æ¥å…³é—­ã€‚å¦‚æœé€‰æ‹©äº†ä¸€ä¸ªæ—¥æœŸï¼Œåˆ™åé¦ˆæ˜¾ç¤ºä¸º input çš„å€¼ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - é»˜è®¤åŠŸèƒ½&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-thead.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-thead.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>åŠ¨ç”»</h2> <p>å½“æ‰“å¼€æˆ–å…³é—­ datepicker æ—¶ä½¿ç”¨ä¸åŒçš„åŠ¨ç”»ã€‚ä»ä¸‹æ‹‰æ¡†ä¸­é€‰æ‹©ä¸€ä¸ªåŠ¨ç”»ï¼Œç„¶ååœ¨è¾“å…¥æ¡†ä¸­ç‚¹å‡»æ¥æŸ¥çœ‹å®ƒçš„æ•ˆæœã€‚æ‚¨å¯ä»¥ä½¿ç”¨ä¸‰ä¸ªæ ‡å‡†åŠ¨ç”»ä¸­ä»»æ„ä¸€ä¸ªï¼Œæˆ–è€…ä½¿ç”¨ UI ç‰¹æ•ˆä¸­çš„ä»»æ„ä¸€ä¸ªã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+	&lt;meta charset="utf-8"&gt;
+	&lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - åŠ¨ç”»&lt;/title&gt;
+	&lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+	&lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+	&lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+	&lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+	&lt;script&gt;
+	$(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#anim" ).change(function() {
+			$( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+		});
+	});
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker" size="30"&gt;&lt;/p&gt;
+
+&lt;p&gt;åŠ¨ç”»ï¼š&lt;br&gt;
+	&lt;select id="anim"&gt;
+		&lt;option value="show"&gt;Show (é»˜è®¤)&lt;/option&gt;
+		&lt;option value="slideDown"&gt;æ»‘ä¸‹&lt;/option&gt;
+		&lt;option value="fadeIn"&gt;æ·¡å…¥&lt;/option&gt;
+		&lt;option value="blind"&gt;Blind (UI ç™¾å¶çª—ç‰¹æ•ˆ)&lt;/option&gt;
+		&lt;option value="bounce"&gt;Bounce (UI åå¼¹ç‰¹æ•ˆ)&lt;/option&gt;
+		&lt;option value="clip"&gt;Clip (UI å‰ªè¾‘ç‰¹æ•ˆ)&lt;/option&gt;
+		&lt;option value="drop"&gt;Drop (UI é™è½ç‰¹æ•ˆ)&lt;/option&gt;
+		&lt;option value="fold"&gt;Fold (UI æŠ˜å ç‰¹æ•ˆ)&lt;/option&gt;
+		&lt;option value="slide"&gt;Slide (UI æ»‘åŠ¨ç‰¹æ•ˆ)&lt;/option&gt;
+		&lt;option value=""&gt;æ— &lt;/option&gt;
+	&lt;/select&gt;
+&lt;/p&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-time.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-time.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-animation" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>å…¶ä»–æœˆä»½çš„æ—¥æœŸ</h2> <p>datepicker å¯ä»¥æ˜¾ç¤ºå…¶ä»–æœˆä»½çš„æ—¥æœŸï¼Œè¿™äº›æ—¥æœŸä¹Ÿå¯ä»¥è®¾ç½®æˆå¯é€‰æ‹©çš„ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - å…¶ä»–æœˆä»½çš„æ—¥æœŸ&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      showOtherMonths: true,
+      selectOtherMonths: true
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-title.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-title.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-other-months" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>æ˜¾ç¤ºæŒ‰é’®æ </h2> <p>é€šè¿‡å¸ƒå°”å€¼çš„ <code>showButtonPanel</code> é€‰é¡¹ä¸ºé€‰æ‹©å½“å¤©æ—¥æœŸæ˜¾ç¤ºä¸€ä¸ª"Today"æŒ‰é’®ï¼Œä¸ºå…³é—­æ—¥å†æ˜¾ç¤ºä¸€ä¸ª"Done"æŒ‰é’®ã€‚é»˜è®¤æƒ…å†µä¸‹ï¼Œå½“æŒ‰é’®æ æ˜¾ç¤ºæ—¶ä¼šå¯ç”¨æ¯ä¸ªæŒ‰é’®ï¼Œä½†æ˜¯æŒ‰é’®å¯é€šè¿‡å…¶ä»–çš„é€‰é¡¹è¿›è¡Œå…³é—­ã€‚æŒ‰é’®æ–‡æœ¬å¯è‡ªå®šä¹‰ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - æ˜¾ç¤ºæŒ‰é’®æ &lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      showButtonPanel: true
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-tr.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-tr.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-buttonbar" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>å†…è”æ˜¾ç¤º</h2> <p>datepicker æ˜¯åµŒå¥—åœ¨é¡µé¢ä¸­æ˜¾ç¤ºï¼Œè€Œä¸æ˜¯æ˜¾ç¤ºåœ¨ä¸€ä¸ªè¦†ç›–å±‚ä¸­ã€‚åªéœ€è¦ç®€å•åœ°åœ¨ div ä¸Šè°ƒç”¨ .datepicker() å³å¯ï¼Œè€Œä¸æ˜¯åœ¨ input ä¸Šè°ƒç”¨ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - å†…è”æ˜¾ç¤º&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+æ—¥æœŸï¼š&lt;div id="datepicker"&gt;&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-track.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-track.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-inline" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>æ˜¾ç¤ºæœˆä»½ &amp; å¹´ä»½èœå•</h2> <p>æ˜¾ç¤ºæœˆä»½å’Œå¹´ä»½çš„ä¸‹æ‹‰æ¡†ï¼Œè€Œä¸æ˜¯æ˜¾ç¤ºé™æ€çš„æœˆä»½/å¹´ä»½æ ‡é¢˜ï¼Œè¿™æ ·ä¾¿äºåœ¨å¤§èŒƒå›´çš„æ—¶é—´è·¨åº¦ä¸Šå¯¼èˆªã€‚æ·»åŠ å¸ƒå°”å€¼ <code>changeMonth</code> å’Œ <code>changeYear</code> é€‰é¡¹å³å¯ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - æ˜¾ç¤ºæœˆä»½ &amp;amp; å¹´ä»½èœå•&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-tt.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-tt.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-dropdown-month-year" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>æ˜¾ç¤ºå¤šä¸ªæœˆä»½</h2> <p>è®¾ç½® <code>numberOfMonths</code> é€‰é¡¹ä¸ºä¸€ä¸ªæ•´æ•° 2ï¼Œæˆ–è€…å¤§äº 2 çš„æ•´æ•°ï¼Œæ¥åœ¨ä¸€ä¸ª datepicker ä¸­æ˜¾ç¤ºå¤šä¸ªæœˆä»½ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - æ˜¾ç¤ºå¤šä¸ªæœˆä»½&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      numberOfMonths: 3,
+      showButtonPanel: true
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-u.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-u.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-multiple-calendars" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>æ ¼å¼åŒ–æ—¥æœŸ</h2> <p>ä»¥å„ç§æ–¹å¼æ˜¾ç¤ºæ—¥æœŸåé¦ˆã€‚ä»ä¸‹æ‹‰æ¡†ä¸­é€‰æ‹©ä¸€ç§æ—¥æœŸæ ¼å¼ï¼Œç„¶ååœ¨è¾“å…¥æ¡†ä¸­ç‚¹å‡»å¹¶é€‰æ‹©ä¸€ä¸ªæ—¥æœŸï¼ŒæŸ¥çœ‹æ‰€é€‰æ ¼å¼çš„æ—¥æœŸæ˜¾ç¤ºã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - æ ¼å¼åŒ–æ—¥æœŸ&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    $( "#format" ).change(function() {
+      $( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker" size="30"&gt;&lt;/p&gt;
+ 
+&lt;p&gt;æ ¼å¼é€‰é¡¹ï¼š&lt;br&gt;
+  &lt;select id="format"&gt;
+    &lt;option value="mm/dd/yy"&gt;Default - mm/dd/yy&lt;/option&gt;
+    &lt;option value="yy-mm-dd"&gt;ISO 8601 - yy-mm-dd&lt;/option&gt;
+    &lt;option value="d M, y"&gt;Short - d M, y&lt;/option&gt;
+    &lt;option value="d MM, y"&gt;Medium - d MM, y&lt;/option&gt;
+    &lt;option value="DD, d MM, yy"&gt;Full - DD, d MM, yy&lt;/option&gt;
+    &lt;option value="&amp;apos;day&amp;apos; d &amp;apos;of&amp;apos; MM &amp;apos;in the year&amp;apos; yy"&gt;With text - 'day' d 'of' MM 'in the year' yy&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-ul.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-ul.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-date-formats" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>å›¾æ ‡è§¦å‘å™¨</h2> <p>ç‚¹å‡»è¾“å…¥æ¡†æ—è¾¹çš„å›¾æ ‡æ¥æ˜¾ç¤º datepickerã€‚è®¾ç½® datepicker åœ¨è·å¾—ç„¦ç‚¹æ—¶æ‰“å¼€ï¼ˆé»˜è®¤è¡Œä¸ºï¼‰ï¼Œæˆ–è€…åœ¨ç‚¹å‡»å›¾æ ‡æ—¶æ‰“å¼€ï¼Œæˆ–è€…åœ¨è·å¾—ç„¦ç‚¹/ç‚¹å‡»å›¾æ ‡æ—¶æ‰“å¼€ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - å›¾æ ‡è§¦å‘å™¨&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      showOn: "button",
+      buttonImage: "images/calendar.gif",
+      buttonImageOnly: true
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-var.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-var.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-icon-trigger" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>æœ¬åœ°åŒ–æ—¥å†</h2> <p>æœ¬åœ°åŒ– datepicker æ—¥å†è¯­è¨€å’Œæ ¼å¼ï¼ˆé»˜è®¤ä¸º English / Western æ ¼å¼ï¼‰ã€‚datepicker åŒ…å«å¯¹ä»å³åˆ°å·¦è¯»å–çš„è¯­è¨€çš„å†…å»ºæ”¯æŒï¼Œæ¯”å¦‚ Arabic å’Œ Hebrewã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - æœ¬åœ°åŒ–æ—¥å†&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;script src="http://jqueryui.com/resources/demos/datepicker/jquery.ui.datepicker-ar.js"&gt;&lt;/script&gt;
+  &lt;script src="http://jqueryui.com/resources/demos/datepicker/jquery.ui.datepicker-fr.js"&gt;&lt;/script&gt;
+  &lt;script src="http://jqueryui.com/resources/demos/datepicker/jquery.ui.datepicker-he.js"&gt;&lt;/script&gt;
+  &lt;script src="http://jqueryui.com/resources/demos/datepicker/jquery.ui.datepicker-zh-TW.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker( $.datepicker.regional[ "fr" ] );
+    $( "#locale" ).change(function() {
+      $( "#datepicker" ).datepicker( "option",
+        $.datepicker.regional[ $( this ).val() ] );
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&amp;nbsp;
+  &lt;select id="locale"&gt;
+    &lt;option value="ar"&gt;Arabic (&amp;#8235;(&amp;#1575;&amp;#1604;&amp;#1593;&amp;#1585;&amp;#1576;&amp;#1610;&amp;#1577;&lt;/option&gt;
+    &lt;option value="zh-TW"&gt;Chinese Traditional (&amp;#32321;&amp;#39636;&amp;#20013;&amp;#25991;)&lt;/option&gt;
+    &lt;option value=""&gt;English&lt;/option&gt;
+    &lt;option value="fr" selected="selected"&gt;French (Fran&amp;ccedil;ais)&lt;/option&gt;
+    &lt;option value="he"&gt;Hebrew (&amp;#8235;(&amp;#1506;&amp;#1489;&amp;#1512;&amp;#1497;&amp;#1514;&lt;/option&gt;
+  &lt;/select&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-video.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-video.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-localization" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>å¡«å……å¦ä¸€ä¸ªè¾“å…¥æ¡†</h2> <p>ä½¿ç”¨ <code>altField</code> å’Œ <code>altFormat</code> é€‰é¡¹ï¼Œæ— è®ºä½•æ—¶é€‰æ‹©æ—¥æœŸï¼Œä¼šåœ¨å¦ä¸€ä¸ªè¾“å…¥æ¡†ä¸­å¡«å……å¸¦æœ‰ä¸€å®šæ ¼å¼çš„æ—¥æœŸã€‚è¿™ä¸ªåŠŸèƒ½é€šè¿‡å¯¹ç”µè„‘å‹å¥½æ€§çš„æ—¥æœŸè¿›ä¸€æ­¥åŠ å·¥åï¼Œå‘ç”¨æˆ·å‘ˆç°ä¸€ä¸ªç”¨æˆ·å‹å¥½æ€§çš„æ—¥æœŸã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - å¡«å……å¦ä¸€ä¸ªè¾“å…¥æ¡†&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      altField: "#alternate",
+      altFormat: "DD, d MM, yy"
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&amp;nbsp;&lt;input type="text" id="alternate" size="30"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-wbr.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-wbr.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-alt-field" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>é™åˆ¶æ—¥æœŸèŒƒå›´</h2> <p>é€šè¿‡ <code>minDate</code> å’Œ <code>maxDate</code> é€‰é¡¹é™åˆ¶å¯é€‰æ‹©çš„æ—¥æœŸèŒƒå›´ã€‚è®¾ç½®èµ·æ­¢æ—¥æœŸä¸ºå®é™…çš„æ—¥æœŸï¼ˆnew Date(2009, 1 - 1, 26)ï¼‰ï¼Œæˆ–è€…ä¸ºä¸ä»Šå¤©çš„ä¸€ä¸ªæ•°å€¼åç§»ï¼ˆ-20ï¼‰ï¼Œæˆ–è€…ä¸ºä¸€ä¸ªå‘¨æœŸå’Œå•ä½çš„å­—ç¬¦ä¸²ï¼ˆ'+1M +10D'ï¼‰ã€‚å¦‚æœè®¾ç½®ä¸ºå­—ç¬¦ä¸²ï¼Œä½¿ç”¨ 'D' è¡¨ç¤ºå¤©ï¼Œä½¿ç”¨ 'W' è¡¨ç¤ºå‘¨ï¼Œä½¿ç”¨ 'M' è¡¨ç¤ºæœˆï¼Œä½¿ç”¨ 'Y' è¡¨ç¤ºå¹´ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - é™åˆ¶æ—¥æœŸèŒƒå›´&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker({ minDate: -20, maxDate: "+1M +10D" });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/ref-html-ascii.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/ref-html-ascii.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-min-max" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>é€‰æ‹©ä¸€ä¸ªæ—¥æœŸèŒƒå›´</h2> <p>é€‰æ‹©è¦æœç´¢çš„æ—¥æœŸèŒƒå›´ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - é€‰æ‹©ä¸€ä¸ªæ—¥æœŸèŒƒå›´&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#from" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 3,
+      onClose: function( selectedDate ) {
+        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $( "#to" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 3,
+      onClose: function( selectedDate ) {
+        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;label for="from"&gt;ä»&lt;/label&gt;
+&lt;input type="text" id="from" name="from"&gt;
+&lt;label for="to"&gt;åˆ°&lt;/label&gt;
+&lt;input type="text" id="to" name="to"&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/ref-html-ansi.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/ref-html-ansi.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-date-range" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>æ˜¾ç¤ºä¸€å¹´ä¸­çš„ç¬¬å‡ å‘¨</h2> <p>datepicker å¯ä»¥æ˜¾ç¤ºä¸€å¹´ä¸­çš„ç¬¬å‡ å‘¨ã€‚é»˜è®¤çš„è®¡ç®—æ˜¯æŒ‰ç…§ ISO 8601 å®šä¹‰ï¼šæ¯å‘¨ä»æ˜ŸæœŸä¸€å¼€å§‹ï¼Œæ¯å¹´çš„ç¬¬ä¸€å‘¨åŒ…å«è¯¥å¹´çš„ç¬¬ä¸€ä¸ªæ˜ŸæœŸå››ã€‚è¿™å°±æ„å‘³ç€ä¸€å¹´ä¸­çš„ä¸€äº›å¤©å¯èƒ½æ˜¯å±äºå¦ä¸€å¹´ä¸­çš„å‘¨ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ - æ˜¾ç¤ºä¸€å¹´ä¸­çš„ç¬¬å‡ å‘¨&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;p&gt;æ—¥æœŸï¼š&lt;input type="text" id="datepicker"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/ref-html-8859.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/ref-html-8859.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-datepicker-show-week" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="example-button.html" tppabs="http://www.w3cschool.cc/jqueryui/example-button.html" rel="prev"> jQuery UI å®ä¾‹ &#8211; æŒ‰é’®ï¼ˆButtonï¼‰</a></div> <div class="next"><a href="example-dialog.html" tppabs="http://www.w3cschool.cc/jqueryui/example-dialog.html" rel="next">jQuery UI å®ä¾‹ &#8211; å¯¹è¯æ¡†ï¼ˆDialogï¼‰</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">å…³æ³¨å¾®ä¿¡ä¸‹è½½ç¦»çº¿æ‰‹å†Œ</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschoolç§»åŠ¨ç‰ˆ"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.ccèœé¸Ÿå®¶æ—" title="w3cschool.ccèœé¸Ÿå®¶æ—"></a> </div> <div class="rightad"> <h2>å‚è€ƒæ‰‹å†Œ</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML å‚è€ƒæ‰‹å†Œ</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS å‚è€ƒæ‰‹å†Œ">JS å‚è€ƒæ‰‹å†Œ</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS å‚è€ƒæ‰‹å†Œ">CSS å‚è€ƒæ‰‹å†Œ</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>HTML/CSS/JS åœ¨çº¿å·¥å…·</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>JSON æ ¼å¼å·¥å…·</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>ç¨‹åºçŒ¿å­¦ä¹ è·¯çº¿</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>æ‰“å¼€CHMæ–‡æ¡£é‡åˆ°é—®é¢˜â€¦â€¦</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="é—®é¢˜/æ„è§åé¦ˆ"/>é—®é¢˜/æ„è§åé¦ˆ</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3Cèœé¸Ÿç¬”è®°</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">å…è´£å£°æ˜</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">å…³äºæˆ‘ä»¬</a> </ul> </div> <div id="footerText"> æä¾›çš„å†…å®¹ä»…ç”¨äºåŸ¹è®­ã€‚æˆ‘ä»¬ä¸ä¿è¯å†…å®¹çš„æ­£ç¡®æ€§ã€‚é€šè¿‡ä½¿ç”¨æœ¬ç«™å†…å®¹éšä¹‹è€Œæ¥çš„é£é™©ä¸æœ¬ç«™æ— å…³ã€‚å½“ä½¿ç”¨æœ¬ç«™æ—¶ï¼Œä»£è¡¨æ‚¨å·²æ¥å—äº†æœ¬ç«™çš„ä½¿ç”¨æ¡æ¬¾å’Œéšç§æ¡æ¬¾ã€‚ ç‰ˆæƒæ‰€æœ‰ï¼Œä¿ç•™ä¸€åˆ‡æƒåˆ©ã€‚W3CSchool ç®€ä½“ä¸­æ–‡ç‰ˆçš„æ‰€æœ‰å†…å®¹ä»…ä¾›æµ‹è¯•ï¼Œå¯¹ä»»ä½•æ³•å¾‹é—®é¢˜åŠé£é™©ä¸æ‰¿æ‹…ä»»ä½•è´£ä»»ã€‚ </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">åˆ†äº«åˆ°</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="åˆ†äº«åˆ°QQç©ºé—´" href="#"></a> <a class="bds_tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš" href="#"></a> <a class="bds_tqq" title="åˆ†äº«åˆ°äººäººç½‘" href="#"></a> <a class="bds_baidu" title="ç™¾åº¦æ”¶è—" href="#"></a> <span class="bds_more">æ›´å¤š</span> <a class="shareCount" id="shareCount" href="#" title="ç´¯è®¡åˆ†äº«0æ¬¡">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //é…è‰²æ ‡è®°
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //ç»“æŸå¾ªç¯
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //ç¬¬äºŒé‡åˆ¤æ–­
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/jqueryui/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/jqueryui/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

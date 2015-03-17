@@ -1,0 +1,221 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>HTML5 Video(视频) | w3cschool菜鸟教程</title> <link rel='prev' title='HTML5 地理定位' href="html5-geolocation.html"/> <link rel='next' title='ASP.NET 教程' href="/aspnet/aspnet-tutorial.html"/> <link rel='canonical' href='http://www.w3cschool.cc/html/html5-video.html'/> <meta name="keywords" content="HTML5 Video(视频)"> <meta name="description" content="function checkVideo() { if(!!document.createElement(&#039;video&#039;).canPlayType) { var vidTest=document.createElement(&#039;video&#039;); oggTest=vidTest.canPlayType(&#039;video/ogg; codecs=&#039;theora, vorbis&.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>HTML 教程</strong></h2> <a target="_top" title="HTML 教程" href="html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html"> HTML 教程 </a> <a target="_top" title="HTML 简介" href="html-intro.html" tppabs="http://www.w3cschool.cc/html/html-intro.html"> HTML 简介 </a> <a target="_top" title="HTML 编辑器" href="html-editors.html" tppabs="http://www.w3cschool.cc/html/html-editors.html"> HTML 编辑器 </a> <a target="_top" title="HTML 基础" href="html-basic.html" tppabs="http://www.w3cschool.cc/html/html-basic.html"> HTML 基础 </a> <a target="_top" title="HTML 元素" href="html-elements.html" tppabs="http://www.w3cschool.cc/html/html-elements.html"> HTML 元素 </a> <a target="_top" title="HTML 属性" href="html-attributes.html" tppabs="http://www.w3cschool.cc/html/html-attributes.html"> HTML 属性 </a> <a target="_top" title="HTML 标题" href="html-headings.html" tppabs="http://www.w3cschool.cc/html/html-headings.html"> HTML 标题 </a> <a target="_top" title="HTML 段落" href="html-paragraphs.html" tppabs="http://www.w3cschool.cc/html/html-paragraphs.html"> HTML 段落 </a> <a target="_top" title="HTML 文本格式化" href="html-formatting.html" tppabs="http://www.w3cschool.cc/html/html-formatting.html"> HTML 文本格式化 </a> <a target="_top" title="HTML 链接" href="html-links.html" tppabs="http://www.w3cschool.cc/html/html-links.html"> HTML 链接 </a> <a target="_top" title="HTML 头部" href="html-head.html" tppabs="http://www.w3cschool.cc/html/html-head.html"> HTML 头部 </a> <a target="_top" title="HTML CSS" href="html-css.html" tppabs="http://www.w3cschool.cc/html/html-css.html"> HTML CSS </a> <a target="_top" title="HTML 图像" href="html-images.html" tppabs="http://www.w3cschool.cc/html/html-images.html"> HTML 图像 </a> <a target="_top" title="HTML 表格" href="html-tables.html" tppabs="http://www.w3cschool.cc/html/html-tables.html"> HTML 表格 </a> <a target="_top" title="HTML 列表" href="html-lists.html" tppabs="http://www.w3cschool.cc/html/html-lists.html"> HTML 列表 </a> <a target="_top" title="HTML 区块" href="html-blocks.html" tppabs="http://www.w3cschool.cc/html/html-blocks.html"> HTML 区块 </a> <a target="_top" title="HTML 布局" href="html-layouts.html" tppabs="http://www.w3cschool.cc/html/html-layouts.html"> HTML 布局 </a> <a target="_top" title="HTML 表单" href="html-forms.html" tppabs="http://www.w3cschool.cc/html/html-forms.html"> HTML 表单 </a> <a target="_top" title="HTML 框架" href="html-iframes.html" tppabs="http://www.w3cschool.cc/html/html-iframes.html"> HTML 框架 </a> <a target="_top" title="HTML 颜色" href="html-colors.html" tppabs="http://www.w3cschool.cc/html/html-colors.html"> HTML 颜色 </a> <a target="_top" title="HTML 颜色名" href="html-colornames.html" tppabs="http://www.w3cschool.cc/html/html-colornames.html"> HTML 颜色名 </a> <a target="_top" title="HTML 颜色值" href="html-colorvalues.html" tppabs="http://www.w3cschool.cc/html/html-colorvalues.html"> HTML 颜色值 </a> <a target="_top" title="HTML 脚本" href="html-scripts.html" tppabs="http://www.w3cschool.cc/html/html-scripts.html"> HTML 脚本 </a> <a target="_top" title="HTML 字符实体" href="html-entities.html" tppabs="http://www.w3cschool.cc/html/html-entities.html"> HTML 字符实体 </a> <a target="_top" title="HTML URL" href="html-ur.html" tppabs="http://www.w3cschool.cc/html/html-ur.html"> HTML URL </a> <a target="_top" title="HTML 速查列表" href="html-quicklist.html" tppabs="http://www.w3cschool.cc/html/html-quicklist.html"> HTML 速查列表 </a> <a target="_top" title="HTML 总结" href="html-summary.html" tppabs="http://www.w3cschool.cc/html/html-summary.html"> HTML 总结 </a> <a target="_top" title="XHTML 简介" href="html-xhtml.html" tppabs="http://www.w3cschool.cc/html/html-xhtml.html"> XHTML 简介 </a> <br/><h2 class="left"><span class="left_h2">HTML5</span></h2> <a target="_top" title="HTML5 简介" href="html5-intro.html" tppabs="http://www.w3cschool.cc/html/html5-intro.html"> HTML5 简介 </a> <a target="_top" title="HTML5 新元素" href="html5-new-element.html" tppabs="http://www.w3cschool.cc/html/html5-new-element.html"> HTML5 新元素 </a> <a target="_top" title="HTML5 Canvas" href="html5-canvas.html" tppabs="http://www.w3cschool.cc/html/html5-canvas.html"> HTML5 Canvas </a> <a target="_top" title="HTML5 内联 SVG" href="html5-svg.html" tppabs="http://www.w3cschool.cc/html/html5-svg.html"> HTML5 内联 SVG </a> <a target="_top" title="HTML5 拖放" href="html5-draganddrop.html" tppabs="http://www.w3cschool.cc/html/html5-draganddrop.html"> HTML5 拖放 </a> <a target="_top" title="HTML5 地理定位" href="html5-geolocation.html" tppabs="http://www.w3cschool.cc/html/html5-geolocation.html"> HTML5 地理定位 </a> <a target="_top" title="HTML5 Video(视频)" href="html5-video.html" tppabs="http://www.w3cschool.cc/html/html5-video.html"> HTML5 Video(视频) </a> <a target="_top" title="HTML5 Audio(音频)" href="html5-audio.html" tppabs="http://www.w3cschool.cc/html/html5-audio.html"> HTML5 Audio(音频) </a> <a target="_top" title="HTML5 Input 类型" href="html5-form-input-types.html" tppabs="http://www.w3cschool.cc/html/html5-form-input-types.html"> HTML5 Input 类型 </a> <a target="_top" title="HTML5 表单元素" href="html5-form-elements.html" tppabs="http://www.w3cschool.cc/html/html5-form-elements.html"> HTML5 表单元素 </a> <a target="_top" title="HTML5 表单属性" href="html5-form-attributes.html" tppabs="http://www.w3cschool.cc/html/html5-form-attributes.html"> HTML5 表单属性 </a> <a target="_top" title="HTML5 语义元素" href="html5-semantic-elements.html" tppabs="http://www.w3cschool.cc/html/html5-semantic-elements.html"> HTML5 语义元素 </a> <a target="_top" title="HTML5 Web 存储" href="html5-webstorage.html" tppabs="http://www.w3cschool.cc/html/html5-webstorage.html"> HTML5 Web 存储 </a> <a target="_top" title="HTML5 应用程序缓存" href="html5-app-cache.html" tppabs="http://www.w3cschool.cc/html/html5-app-cache.html"> HTML5 应用程序缓存 </a> <a target="_top" title="HTML5 Web Workers" href="html5-webworkers.html" tppabs="http://www.w3cschool.cc/html/html5-webworkers.html"> HTML5 Web Workers </a> <a target="_top" title="HTML5 服务器发送事件(Server-Sent Events)" href="html5-serversentevents.html" tppabs="http://www.w3cschool.cc/html/html5-serversentevents.html"> HTML5 SSE </a> <a target="_top" title="HTML5 测验" href="../quiz/html5-quiz.html" tppabs="http://www.w3cschool.cc/quiz/html5-quiz.html"> HTML5 测验 </a> <br/><h2 class="left"><span class="left_h2">HTML</span> 媒体</h2> <a target="_top" title="HTML 媒体(Media)" href="html-media.html" tppabs="http://www.w3cschool.cc/html/html-media.html"> HTML 媒体(Media) </a> <a target="_top" title="HTML 对象" href="html-object.html" tppabs="http://www.w3cschool.cc/html/html-object.html"> HTML 对象 </a> <a target="_top" title="HTML 音频(Audio)" href="html-sounds.html" tppabs="http://www.w3cschool.cc/html/html-sounds.html"> HTML 音频(Audio) </a> <a target="_top" title="HTML视频（Videos）播放" href="html-videos.html" tppabs="http://www.w3cschool.cc/html/html-videos.html"> HTML视频（Videos）播放 </a> <a target="_top" title="HTML 实例" href="html-examples.html" tppabs="http://www.w3cschool.cc/html/html-examples.html"> HTML 实例 </a> <br><h2 class="left"><span class="left_h2">HTML</span> 参考手册</h2> <a target="_top" href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html"> HTML 标签列表(字母排序) </a> <a target="_top" href="../tags/ref-byfunc.html" tppabs="http://www.w3cschool.cc/tags/ref-byfunc.html"> HTML 标签列表（功能排序） </a> <a target="_top" href="../tags/ref-standardattributes.html" tppabs="http://www.w3cschool.cc/tags/ref-standardattributes.html"> HTML 属性 </a> <a target="_top" href="../tags/ref-eventattributes.html" tppabs="http://www.w3cschool.cc/tags/ref-eventattributes.html"> HTML 事件 </a> <a target="_top" href="../tags/ref-canvas.html" tppabs="http://www.w3cschool.cc/tags/ref-canvasreference.html"> HTML 画布 </a> <a target="_top" href="../tags/ref-av-dom.html" tppabs="http://www.w3cschool.cc/tags/html-audiovideo.html"> HTML 音频/视频 </a> <a target="_top" href="../tags/html-elementsdoctypes.html" tppabs="http://www.w3cschool.cc/tags/html-elementsdoctypes.html"> HTML 有效DOCTYPES </a> <a target="_top" href="../tags/html-colorname.html" tppabs="http://www.w3cschool.cc/tags/html-colorname.html"> HTML 颜色名 </a> <a target="_top" href="../tags/html-colorpicker.html" tppabs="http://www.w3cschool.cc/tags/html-colorpicker.html"> HTML 拾色器 </a> <a target="_top" href="../tags/ref-charactersets.html" tppabs="http://www.w3cschool.cc/tags/html-charactersets.html"> HTML 字符集 </a> <a target="_top" href="../tags/html-ascii.html" tppabs="http://www.w3cschool.cc/tags/html-ascii.html"> HTML ASCII </a> <a target="_top" href="../tags/ref-entities.html" tppabs="http://www.w3cschool.cc/tags/ref-entities.html"> HTML ISO-8859-1 </a> <a target="_top" href="../tags/html-symbols.html" tppabs="http://www.w3cschool.cc/tags/html-symbols.html"> HTML 符号 </a> <a target="_top" href="../tags/html-urlencode.html" tppabs="http://www.w3cschool.cc/tags/html-urlencode.html"> HTML URL 编码 </a> <a target="_top" href="../tags/html-language-codes.html" tppabs="http://www.w3cschool.cc/tags/html-language-codes.html"> HTML 语言代码 </a> <a target="_top" href="../tags/html-httpmessages.html" tppabs="http://www.w3cschool.cc/tags/html-httpmessages.html"> HTTP 消息 </a> <a target="_top" href="../tags/html-httpmethods.html" tppabs="http://www.w3cschool.cc/tags/html-httpmethods.html"> HTTP 方法 </a> <a target="_top" href="../tags/html-keyboardshortcuts.html" tppabs="http://www.w3cschool.cc/tags/html-keyboardshortcuts.html"> 键盘快捷键 </a></div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="html5-geolocation.html" tppabs="http://www.w3cschool.cc/html/html5-geolocation.html" rel="prev"> HTML5 地理定位</a></div> <div class="next"><a href="html5-audio.html" tppabs="http://www.w3cschool.cc/html/html5-audio.html" rel="next">HTML5 Audio(音频)</a> &raquo;</div> </div> <div id="content"> <script>
+function checkVideo()
+{
+if(!!document.createElement('video').canPlayType)
+  {
+  var vidTest=document.createElement("video");
+  oggTest=vidTest.canPlayType('video/ogg; codecs="theora, vorbis"');
+  if (!oggTest)
+    {
+    h264Test=vidTest.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+    if (!h264Test)
+      {
+      document.getElementById("checkVideoResult").innerHTML="抱歉你的浏览器不支持HTML5 video标签！."
+      }
+    else
+      {
+      if (h264Test=="probably")
+        {
+        document.getElementById("checkVideoResult").innerHTML="非常棒！你的浏览器支持HTML5 video标签！";
+        }
+      else
+        {
+        document.getElementById("checkVideoResult").innerHTML="Meh. Some support.";
+        }
+      }
+    }
+  else
+    {
+    if (oggTest=="probably")
+      {
+      document.getElementById("checkVideoResult").innerHTML="非常棒！你的浏览器支持HTML5 video标签！";
+      }
+    else
+      {
+      document.getElementById("checkVideoResult").innerHTML="Meh. Some support.";
+      }
+    }
+  }
+else
+  {
+  document.getElementById("checkVideoResult").innerHTML="Sorry. No video support."
+  }
+}
+</script> <h1>HTML5 <span class="color_h1">Video(视频)</span> </h1> <hr> <p class="intro">很多站点都会使用到视频. HTML5 提供了展示视频的标准。</p> <div class="example"> <h2 class="example">检测您的浏览器是否支持 HTML5 视频：</h2> <div class="example_code notranslate"> <div id="checkVideoResult"><button onclick="checkVideo()">检测</button></div> </div> </div> <br><hr> <h2>Web站点上的视频</h2> <p>直到现在，仍然不存在一项旨在网页上显示视频的标准。</p> <p>今天，大多数视频是通过插件（比如 Flash）来显示的。然而，并非所有浏览器都拥有同样的插件。</p> <p>HTML5 规定了一种通过 video 元素来包含视频的标准方法。</p> <hr> <h2>浏览器支持</h2> <p> <img src="../images/compatible_ie.gif" tppabs="http://www.w3cschool.cc/images/compatible_ie.gif" width="31" height="30" alt="Internet Explorer" title="Internet Explorer"><img src="../images/compatible_firefox.gif" tppabs="http://www.w3cschool.cc/images/compatible_firefox.gif" width="31" height="30" alt="Firefox" title="Firefox"><img src="../images/compatible_opera.gif" tppabs="http://www.w3cschool.cc/images/compatible_opera.gif" width="28" height="30" alt="Opera" title="Opera"><img src="../images/compatible_chrome.gif" tppabs="http://www.w3cschool.cc/images/compatible_chrome.gif" width="31" height="30" alt="Google Chrome" title="Google Chrome"><img src="../images/compatible_safari.gif" tppabs="http://www.w3cschool.cc/images/compatible_safari.gif" width="28" height="30" alt="Safari" title="Safari"></p> <p>Internet Explorer 9+, Firefox, Opera, Chrome, 和 Safari 支持 &lt;video&gt; 元素.</p> <p><b>注意:</b> Internet Explorer 8 或者更早的IE版本不支持 &lt;video&gt; 元素。</p> <hr> <h2>HTML5 (视频)- 如何工作</h2> <p>如需在 HTML5 中显示视频，您所有需要的是：</p> <div class="example"> <h2 class="example">实例</h2> <div class="example_code notranslate"> &lt;video width="320" height="240" controls&gt;<br>   &lt;source src="movie.mp4" type="video/mp4"&gt;<br>   &lt;source src="movie.ogg" type="video/ogg"&gt;<br> 您的浏览器不支持Video标签。<br> &lt;/video&gt; </div> <br><a class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/html5-canvas.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/html5-canvas.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_video_all" target="_blank">尝试一下 »</a> </div> <p> &lt;video&gt; 元素提供了 播放、暂停和音量控件来控制视频。</p> <p>同时&lt;video&gt; 元素元素也提供了 width 和 height 属性控制视频的尺寸.如果设置的高度和宽度，所需的视频空间会在页面加载时保留。。如果没有设置这些属性，浏览器不知道大小的视频，浏览器就不能再加载时保留特定的空间，页面就会更加原始视频的大小而改变。</p> <p>&lt;video&gt; 与&lt;/video&gt; 标签之间插入的内容是提供给不支持 video 元素的浏览器显示的。</p> <p>&lt;video&gt; 元素支持多个 &lt;source&gt; 元素. &lt;source&gt; 元素可以链接不同的视频文件。浏览器将使用第一个可识别的格式：</p> <hr> <h2>视频格式与浏览器的支持</h2> <p>当前， &lt;video&gt; 元素支持三种视频格式： MP4, WebM, 和 Ogg:</p> <table class="reference notranslate"> <tr> <th width="25%">浏览器</th> <th width="25%">MP4</th> <th width="25%">WebM</th> <th width="25%">Ogg</th> </tr> <tr> <td>Internet Explorer 9+</td> <td>YES</td> <td>NO</td> <td>NO</td> </tr> <tr> <td>Chrome 6+</td> <td>YES</td> <td>YES</td> <td>YES</td> </tr> <tr> <td>Firefox 3.6+</td> <td>NO</td> <td>YES</td> <td>YES</td> </tr> <tr> <td>Safari 5+</td> <td>YES</td> <td>NO</td> <td>NO</td> </tr> <tr> <td>Opera 10.6+</td> <td>NO</td> <td>YES</td> <td>YES</td> </tr> </table> <ul> <li>MP4 = 带有 H.264 视频编码和 AAC 音频编码的 MPEG 4 文件</li> <li>WebM = 带有 VP8 视频编码和 Vorbis 音频编码的 WebM 文件</li> <li>Ogg = 带有 Theora 视频编码和 Vorbis 音频编码的 Ogg 文件</li> </ul> <hr> <h2>视频格式</h2> <table class="reference notranslate" id="table1"> <tr> <th width="50%">格式</th> <th width="50%">MIME-type</th> </tr> <tr> <td>MP4</td> <td>video/mp4</td> </tr> <tr> <td>WebM</td> <td>video/webm</td> </tr> <tr> <td>Ogg</td> <td>video/ogg</td> </tr> </table> <br><hr> <h2>HTML5 &lt;video&gt; - 使用 DOM 进行控制</h2> <p>HTML5 &lt;video&gt; 和 &lt;audio&gt; 元素同样拥有方法、属性和事件。</p> <p>&lt;video&gt; 和 &lt;audio&gt;元素的方法、属性和事件可以使用JavaScript进行控制.</p> <p>其中的方法有用于播放、暂停以及加载等。其中的属性（比如时长、音量等）可以被读取或设置。其中的 DOM 事件能够通知您，比方说，&lt;video&gt; 元素开始播放、已暂停，已停止，等等。</p> <p>例中简单的方法，向我们演示了如何使用 &lt;video&gt; 元素，读取并设置属性，以及如何调用方法。</p> <div class="example"> <h2 class="example">实例 1</h2> <p class="example">为视频创建简单的播放/暂停以及调整尺寸控件：</p> <div class="example_code notranslate"> <br> <div style="text-align:center"> <button onclick="playPause()">播放/暂停</button> <button onclick="makeBig()">放大</button> <button onclick="makeSmall()">缩小</button> <button onclick="makeNormal()">普通</button> <br><br> <video id="video1" width="480"> <source src="../try/demosource/mov_bbb.mp4" tppabs="http://www.w3cschool.cc/try/demosource/mov_bbb.mp4" type="video/mp4"><source src="../try/demo_source/mov_bbb.ogg" tppabs="http://www.w3cschool.cc/try/demo_source/mov_bbb.ogg" type="video/ogg">你的浏览器不支持 HTML5 video. </video> </div> <script> 
+var myVideo=document.getElementById("video1"); 
+
+function playPause()
+{ 
+if (myVideo.paused) 
+  myVideo.play(); 
+else 
+  myVideo.pause(); 
+} 
+
+function makeBig()
+{ 
+myVideo.width=600; 
+} 
+
+function makeSmall()
+{ 
+myVideo.width=320; 
+} 
+
+function makeNormal()
+{ 
+myVideo.width=480; 
+} 
+</script> </div> <p>上面的例子调用了两个方法：play() 和 pause()。它同时使用了两个属性：paused 和 width。</p> <a class="tryitbtn" target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/html5-svg.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/html5-svg.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml5_video_js_prop">尝试一下 »</a> </div> <script>
+ 
+var myVideo=document.getElementById("video1"); 
+
+function playPause()
+{ 
+if (myVideo.paused) 
+  myVideo.play(); 
+else 
+  myVideo.pause(); 
+} 
+
+function makeBig()
+{ 
+myVideo.width=600; 
+} 
+
+function makeSmall()
+{ 
+myVideo.width=320; 
+} 
+
+function makeNormal()
+{ 
+myVideo.width=480; 
+} 
+</script> <p>更多参考请查看 <a href="../tags/ref-av-dom.html" tppabs="http://www.w3cschool.cc/tags/html-audiovideo.html">HTML5 Audio/Video DOM 参考手册</a>.</p> <hr> <h2>HTML5 Video 标签</h2> <table class="reference notranslate"> <tr> <th width="20%">标签</th> <th width="80%">描述</th> </tr> <tr> <td><a href="../tags/tag-video.html" tppabs="http://www.w3cschool.cc/tags/tag-video.html">&lt;video&gt;</a></td> <td>定义一个视频</td> </tr> <tr> <td><a href="../tags/tag-source.html" tppabs="http://www.w3cschool.cc/tags/tag-source.html">&lt;source&gt;</a></td> <td>定义多种媒体资源,比如 &lt;video&gt; 和&lt;audio&gt;</td> </tr> <tr> <td><a href="../tags/tag-track.html" tppabs="http://www.w3cschool.cc/tags/tag-track.html">&lt;track&gt;</a></td> <td>定义在媒体播放器文本轨迹</td> </tr> </table> </div> <div class="chapter"> <div class="prev">&laquo; <a href="html5-geolocation.html" tppabs="http://www.w3cschool.cc/html/html5-geolocation.html" rel="prev"> HTML5 地理定位</a></div> <div class="next"><a href="html5-audio.html" tppabs="http://www.w3cschool.cc/html/html5-audio.html" rel="next">HTML5 Audio(音频)</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/html/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/html/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

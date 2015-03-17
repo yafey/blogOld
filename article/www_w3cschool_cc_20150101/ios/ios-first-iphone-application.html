@@ -1,0 +1,227 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>创建第一款iPhone应用程序 | w3cschool菜鸟教程</title> <link rel='prev' title='HTML link type 属性' href="/tags/att-link-type.html"/> <link rel='next' title='iOS操作（action）和输出口（Outlet）' href="ios-action-outlet.html"/> <link rel='canonical' href='http://www.w3cschool.cc/ios/ios-first-iphone-application.html'/> <meta name="keywords" content="创建第一款iPhone应用程序"> <meta name="description" content="创建第一款iPhone应用程序 现在让我们来创建一个在iOS模拟器上运行的简单视图应用（空白的应用程序）。 操作步骤如下： 1、打开Xcode并选择创建一个新的Xcode项目。 2. 然后选择单一视图应用程序 3. 接下来输入产品名称即应用程序名称、组织名称和公司标识符。 4. 确定已经选择自动应用计数，以自动释放超出范围的资源。单击下一步。 5.选择项目目录并选择创建 6. 你将看到如下所示的页面 .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>iOS 教程</strong></h2> <a target="_top" title="iOS 教程" href="ios-tutorial.html" tppabs="http://www.w3cschool.cc/ios/ios-tutorial.html"> iOS 教程 </a> <a target="_top" title="iOS 简介" href="ios-intro.html" tppabs="http://www.w3cschool.cc/ios/ios-intro.html"> iOS 简介 </a> <a target="_top" title="iOS环境搭建" href="ios-setup.html" tppabs="http://www.w3cschool.cc/ios/ios-setup.html"> iOS环境搭建 </a> <a target="_top" title="Objective C 基础知识" href="ios-objective-c.html" tppabs="http://www.w3cschool.cc/ios/ios-objective-c.html"> Objective C 基础知识 </a> <a target="_top" title="创建第一款iPhone应用程序" href="ios-first-iphone-application.html" tppabs="http://www.w3cschool.cc/ios/ios-first-iphone-application.html"> 创建第一款iPhone应用程序 </a> <a target="_top" title="iOS操作（action）和输出口（Outlet）" href="ios-action-outlet.html" tppabs="http://www.w3cschool.cc/ios/ios-action-outlet.html"> iOS操作（action）和输出口（Outlet） </a> <a target="_top" title="iOS &#8211; 委托（Delegates）" href="ios-delegates.html" tppabs="http://www.w3cschool.cc/ios/ios-delegates.html"> iOS - 委托（Delegates） </a> <a target="_top" title="iOS UI元素" href="ios-ui.html" tppabs="http://www.w3cschool.cc/ios/ios-ui.html"> iOS UI元素 </a> <a target="_top" title="iOS加速度传感器(accelerometer)" href="ios-accelerometer.html" tppabs="http://www.w3cschool.cc/ios/ios-accelerometer.html"> iOS加速度传感器(accelerometer) </a> <a target="_top" title="iOS通用应用程序" href="ios-universal-applications.html" tppabs="http://www.w3cschool.cc/ios/ios-universal-applications.html"> iOS通用应用程序 </a> <a target="_top" title="iOS相机管理" href="ios-camera.html" tppabs="http://www.w3cschool.cc/ios/ios-camera.html"> iOS相机管理 </a> <a target="_top" title="iOS定位操作" href="ios-location.html" tppabs="http://www.w3cschool.cc/ios/ios-location.html"> iOS定位操作 </a> <a target="_top" title="iOS SQLite数据库" href="ios-sqlite.html" tppabs="http://www.w3cschool.cc/ios/ios-sqlite.html"> iOS SQLite数据库 </a> <a target="_top" title="iOS发送电子邮件" href="ios-sending-email.html" tppabs="http://www.w3cschool.cc/ios/ios-sending-email.html"> iOS发送电子邮件 </a> <a target="_top" title="iOS音频和视频(Audio &#038; Video)" href="ios-audio-video.html" tppabs="http://www.w3cschool.cc/ios/ios-audio-video.html"> iOS音频和视频(Audio & Video) </a> <a target="_top" title="iOS文件处理" href="ios-file.html" tppabs="http://www.w3cschool.cc/ios/ios-file.html"> iOS文件处理 </a> <a target="_top" title="iOS地图开发" href="ios-maps.html" tppabs="http://www.w3cschool.cc/ios/ios-maps.html"> iOS地图开发 </a> <a target="_top" title="iOS应用内购买" href="ios-in-app-purchase.html" tppabs="http://www.w3cschool.cc/ios/ios-in-app-purchase.html"> iOS应用内购买 </a> <a target="_top" title="iOS整合iAD" href="ios-iad.html" tppabs="http://www.w3cschool.cc/ios/ios-iad.html"> iOS整合iAD </a> <a target="_top" title="iOS GameKit" href="ios-gamekit.html" tppabs="http://www.w3cschool.cc/ios/ios-gamekit.html"> iOS GameKit </a> <a target="_top" title="iOS 故事板(Storyboards)" href="ios-storyboards.html" tppabs="http://www.w3cschool.cc/ios/ios-storyboards.html"> iOS 故事板(Storyboards) </a> <a target="_top" title="iOS自动布局" href="ios-auto-layouts.html" tppabs="http://www.w3cschool.cc/ios/ios-auto-layouts.html"> iOS自动布局 </a> <a target="_top" title="iOS Twitter和Facebook" href="ios-twitter-facebook.html" tppabs="http://www.w3cschool.cc/ios/ios-twitter-facebook.html"> iOS Twitter和Facebook </a> <a target="_top" title="iOS内存管理" href="ios-memory.html" tppabs="http://www.w3cschool.cc/ios/ios-memory.html"> iOS内存管理 </a> <a target="_top" title="iOS应用程序调试" href="ios-application-debugging.html" tppabs="http://www.w3cschool.cc/ios/ios-application-debugging.html"> iOS应用程序调试 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ios-objective-c.html" tppabs="http://www.w3cschool.cc/ios/ios-objective-c.html" rel="prev"> Objective C 基础知识</a></div> <div class="next"><a href="ios-action-outlet.html" tppabs="http://www.w3cschool.cc/ios/ios-action-outlet.html" rel="next">iOS操作（action）和输出口（Outlet）</a> &raquo;</div> </div> <div id="content"> <h1>创建第一款iPhone应用程序</h1> <p>现在让我们来创建一个在iOS模拟器上运行的简单视图应用（空白的应用程序）。</p> <p>操作步骤如下：</p> <p>1、打开Xcode并选择创建一个新的Xcode项目。</p> <p><img class="attachment-full" alt="XcodeWelcomePage" src="../wp-content/uploads/2013/11/css3-pr-text-align-last.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/XcodeWelcomePage.jpg" width="560" height="363"/></p> <p>2. 然后选择单一视图应用程序</p> <p><img class="attachment-full" alt="CreateProject" src="../wp-content/uploads/2013/11/pr-text-text-decoration.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/CreateProject.jpg" width="560" height="379"/></p> <p>3. 接下来输入产品名称即应用程序名称、组织名称和公司标识符。</p> <p><img class="attachment-full" alt="NewProjectCreateOptions" src="../wp-content/uploads/2013/11/css3-pr-text-decoration-color.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/NewProjectCreateOptions.jpg" width="560" height="375"/></p> <p>4. 确定已经选择自动应用计数，以自动释放超出范围的资源。单击下一步。</p> <p>5.选择项目目录并选择创建</p> <p><img class="attachment-full" alt="CreateProjectSelectFolder" src="../wp-content/uploads/2013/11/css3-pr-text-decoration-line.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/CreateProjectSelectFolder.jpg" width="560" height="500"/></p> <p>6. 你将看到如下所示的页面</p> <p><img class="attachment-full" alt="XcodeProjectPage" src="../wp-content/uploads/2013/11/css3-pr-text-decoration-style.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/XcodeProjectPage.jpg" width="560" height="401"/></p> <p>屏幕上方能够设置方向、生成和释放。有一个部署目标，设备支持4.3及以上版本的部署目标，这些不是必须的，现在只要专注于运行该应用程序。</p> <p>7. 在下拉菜单中选择iPhone Simulator并运行。</p> <p><img class="attachment-full" alt="runProject" src="../wp-content/uploads/2013/11/pr-text-text-indent.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/runProject.jpg" width="225" height="75"/></p> <p>8. 成功运行第一个应用程序，将得到的输出，如下所示。</p> <p><img class="attachment-full" alt="iPhoneSimulator1" src="../wp-content/uploads/2013/11/css3-pr-text-justify.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/iPhoneSimulator1.jpg" width="168" height="334"/></p> <p>更改背景颜色使之有开始的界面生成器。选择ViewController.xib。在右侧选择背景选项，更改颜色并运行。</p> <p><img class="attachment-full" alt="InterfaceBuilder1" src="../wp-content/uploads/2013/11/css3-pr-text-outline.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/InterfaceBuilder1.jpg" width="560" height="360"/></p> <p>在上述项目中，默认情况下，部署目标已设置为iOS6.0且自动布局将被启用。</p><p>为确保应用程序能iOS4.3设备上正常运行，我们已经在开始创建应用程序时修改了部署目标，但我们不禁用自动布局，要取消自动布局，我们需要取消选择自动班上复选框在文件查看器的每个nib，也就是xib文件。</p><p>Xcode项目IDE的各部分显示如下（苹果Xcode4用户文档）</p> <p><img class="attachment-full" alt="Xcode4Workspace" src="../wp-content/uploads/2013/11/css3-pr-text-overflow.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/Xcode4Workspace.jpg" width="560" height="334"/></p> <p>在上面所示的检查器选择器栏中可以找到文件检查器，且可以取消选择自动布局。当你想要的目标只有iOS6.0的设备时，可以使用自动布局。</p><p>当然，也可以使用新功能，如当加注到iOS6时，就可以使用passbook这一功能。现在，以Ios4.3作为部署目标。</p><br><hr> <h2>深入了解第一款IOS应用程序代码</h2> 5个不同文件生成应用程序，如下所示 <ul> <li>AppDelegate.h</li> <li>AppDelegate.m</li> <li>ViewController.h</li> <li>ViewController.m</li> <li>ViewController.xib</li> </ul> <p>我们使用单行注释（//）来解释简单代码，重要的项目代码解释在代码下方。</p> <h4>AppDelegate.h</h4> <pre>// Header File that provides all UI related items. 
+#import &amp;lt;UIKit/UIKit.h&amp;gt; 
+ // Forward declaration (Used when class will be defined /imported in future)
+@class ViewController;  
+
+ // Interface for Appdelegate
+@interface AppDelegate : UIResponder &amp;lt;UIApplicationDelegate&amp;gt;
+// Property window 
+@property (strong, nonatomic) UIWindow *window; 
+ // Property Viewcontroller
+@property (strong, nonatomic) ViewController *viewController;
+//this marks end of interface 
+@end</pre> <h6>代码说明</h6> <ul> <li>AppDelegate调用UIResponder来处理Ios事件。</li> <li>完成UIApplication的命令，提供关键应用程序事件，如启动完毕，终止，等等</li> <li>在iOS设备的屏幕上用UIWindow对象来管理和协调各种视角，它就像其它加载视图的基本视图一样。通常一个应用程序只有一个窗口。</li> <li>UIViewController来处理屏幕流</li> </ul> <h4>AppDelegate.m</h4> <pre>// Imports the class Appdelegate's interface
+import "AppDelegate.h" 
+
+// Imports the viewcontroller to be loaded
+#import "ViewController.h" 
+
+// Class definition starts here
+@implementation AppDelegate 
+
+// Following method intimates us the application launched  successfully 
+- (BOOL)application:(UIApplication *)application 
+ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
+{
+    self.window = [[UIWindow alloc] initWithFrame:
+	[[UIScreen mainScreen] bounds]]; 
+    // Override point for customization after application launch.
+    self.viewController = [[ViewController alloc] 
+	 initWithNibName:@"ViewController" bundle:nil];
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    /* Sent when the application is about to move from active to inactive state.
+    This can occur for certain types of temporary interruptions
+    (such as an incoming phone call or SMS message)
+    or when the user quits the application and it begins the transition to the 
+    background state. Use this method to pause ongoing tasks, disable timers, 
+    and throttle down OpenGL ES frame rates. Games should use this method 
+    to pause the game.*/
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    /* Use this method to release shared resources, save user data, invalidate 
+    timers, and store enough application state information	to restore your
+    application to its current state in case it is terminated later. If your 
+    application supports background execution, this method is called instead 
+    of applicationWillTerminate: when the user quits.*/
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    /* Called as part of the transition from the background to the inactive state;
+    here you can undo many of the changes made on entering the background.*/
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    /* Restart any tasks that were paused (or not yet started) while the
+    application was inactive. If the application was previously in the background, 
+	optionally refresh the user interface.*/
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    /* Called when the application is about to terminate. Save data if appropriate.
+    See also applicationDidEnterBackground:. */
+}
+
+@end</pre> <h6>代码说明</h6> <ul> <li>此处定义UIApplication。上面定义的所有方法都是应用程序UI调动和不包含任何用户定义的方法。</li> <li>UIWindow对象被分配用来保存应用程序分配对象。</li> <li>UIController作为窗口初始视图控制器</li> <li>调用makeKeyAndVisible能使窗口可见</li> </ul> <h4>ViewController.h</h4> <pre>#import  
+
+// Interface for class ViewController
+@interface ViewController : UIViewController 
+
+@end</pre> <h6>代码说明</h6> <ul> <li>ViewController类继承UIViewController，为iOS应用程序提供基本视图管理模型。</li> </ul> <h4>ViewController.m</h4> <pre>#import "ViewController.h"
+
+// Category, an extension of ViewController class
+@interface ViewController ()
+
+@end
+
+@implementation ViewController  
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end</pre> <h6>代码说明</h6> <ul> <li>在这里两种方法实现UIViewController类的基类中定义</li> <li>初始视图加载后调用viewDidLoad中的安装程序</li> <li>在内存警告的情况下调用didReceviveMemoryWarning</li> </ul> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ios-objective-c.html" tppabs="http://www.w3cschool.cc/ios/ios-objective-c.html" rel="prev"> Objective C 基础知识</a></div> <div class="next"><a href="ios-action-outlet.html" tppabs="http://www.w3cschool.cc/ios/ios-action-outlet.html" rel="next">iOS操作（action）和输出口（Outlet）</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/ios/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/ios/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

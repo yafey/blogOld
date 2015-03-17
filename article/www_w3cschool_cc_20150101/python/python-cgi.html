@@ -1,0 +1,453 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Python CGI编程 | w3cschool菜鸟教程</title> <link rel='prev' title='Python正则表达式' href="python-reg-expressions.html"/> <link rel='next' title='Python replace()方法' href="att-string-replace.html"/> <link rel='canonical' href='http://www.w3cschool.cc/python/python-cgi.html'/> <meta name="keywords" content="Python CGI编程"> <meta name="description" content="Python CGI编程 什么是CGI CGI 目前由NCSA维护，NCSA定义CGI如下： CGI(Common Gateway Interface),通用网关接口,它是一段程序,运行在服务器上如：HTTP服务器，提供同客户端HTML页面的接口。 网页浏览 为了更好的了解CGI是如何工作的，我们可以从在网页上点击一个链接或URL的流程： 1、使用你的浏览器访问URL并连接到HTTP web 服务器。 2、Web服务器接收到请求.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Python 基础教程</strong></h2> <a target="_top" title="Python 基础教程" href="python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html"> Python 基础教程 </a> <a target="_top" title="Python 简介" href="python-intro.html" tppabs="http://www.w3cschool.cc/python/python-intro.html"> Python 简介 </a> <a target="_top" title="Python环境搭建" href="python-install.html" tppabs="http://www.w3cschool.cc/python/python-install.html"> Python环境搭建 </a> <a target="_top" title="Python 基础语法" href="python-basic-syntax.html" tppabs="http://www.w3cschool.cc/python/python-basic-syntax.html"> Python 基础语法 </a> <a target="_top" title="Python 变量类型" href="python-variable-types.html" tppabs="http://www.w3cschool.cc/python/python-variable-types.html"> Python 变量类型 </a> <a target="_top" title="Python 运算符" href="python-operators.html" tppabs="http://www.w3cschool.cc/python/python-operators.html"> Python 运算符 </a> <a target="_top" title="Python 条件语句" href="python-if-statement.html" tppabs="http://www.w3cschool.cc/python/python-if-statement.html"> Python 条件语句 </a> <a target="_top" title="Python 循环语句" href="python-loops.html" tppabs="http://www.w3cschool.cc/python/python-loops.html"> Python 循环语句 </a> <a target="_top" title="Python While循环语句" href="python-while-loop.html" tppabs="http://www.w3cschool.cc/python/python-while-loop.html"> Python While循环语句 </a> <a target="_top" title="Python for 循环语句" href="python-for-loop.html" tppabs="http://www.w3cschool.cc/python/python-for-loop.html"> Python for 循环语句 </a> <a target="_top" title="Python 循环嵌套" href="python-nested-loops.html" tppabs="http://www.w3cschool.cc/python/python-nested-loops.html"> Python 循环嵌套 </a> <a target="_top" title="Python break 语句" href="python-break-statement.html" tppabs="http://www.w3cschool.cc/python/python-break-statement.html"> Python break 语句 </a> <a target="_top" title="Python continue 语句" href="python-continue-statement.html" tppabs="http://www.w3cschool.cc/python/python-continue-statement.html"> Python continue 语句 </a> <a target="_top" title="Python pass 语句" href="python-pass-statement.html" tppabs="http://www.w3cschool.cc/python/python-pass-statement.html"> Python pass 语句 </a> <a target="_top" title="Python 数字" href="python-numbers.html" tppabs="http://www.w3cschool.cc/python/python-numbers.html"> Python 数字 </a> <a target="_top" title="Python 字符串" href="python-strings.html" tppabs="http://www.w3cschool.cc/python/python-strings.html"> Python 字符串 </a> <a target="_top" title="Python 列表(Lists)" href="python-lists.html" tppabs="http://www.w3cschool.cc/python/python-lists.html"> Python 列表(Lists) </a> <a target="_top" title="Python 元组" href="python-tuples.html" tppabs="http://www.w3cschool.cc/python/python-tuples.html"> Python 元组 </a> <a target="_top" title="Python 字典(Dictionary)" href="python-dictionary.html" tppabs="http://www.w3cschool.cc/python/python-dictionary.html"> Python 字典(Dictionary) </a> <a target="_top" title="Python 日期和时间" href="python-date-time.html" tppabs="http://www.w3cschool.cc/python/python-date-time.html"> Python 日期和时间 </a> <a target="_top" title="Python函数" href="python-functions.html" tppabs="http://www.w3cschool.cc/python/python-functions.html"> Python函数 </a> <a target="_top" title="Python模块" href="python-modules.html" tppabs="http://www.w3cschool.cc/python/python-modules.html"> Python模块 </a> <a target="_top" title="Python 文件I/O" href="python-files-io.html" tppabs="http://www.w3cschool.cc/python/python-files-io.html"> Python 文件I/O </a> <a target="_top" title="Python 异常处理" href="python-exceptions.html" tppabs="http://www.w3cschool.cc/python/python-exceptions.html"> Python 异常处理 </a> <br><h2 class="left"><span class="left_h2">Python</span> 高级教程</h2> <a target="_top" title="Python面向对象" href="python-object.html" tppabs="http://www.w3cschool.cc/python/python-object.html"> Python面向对象 </a> <a target="_top" title="Python正则表达式" href="python-reg-expressions.html" tppabs="http://www.w3cschool.cc/python/python-reg-expressions.html"> Python正则表达式 </a> <a target="_top" title="Python CGI编程" href="python-cgi.html" tppabs="http://www.w3cschool.cc/python/python-cgi.html"> Python CGI编程 </a> <a target="_top" title="python操作mysql数据库" href="python-mysql.html" tppabs="http://www.w3cschool.cc/python/python-mysql.html"> python操作mysql数据库 </a> <a target="_top" title="Python使用SMTP发送邮件" href="python-email.html" tppabs="http://www.w3cschool.cc/python/python-email.html"> Python使用SMTP发送邮件 </a> <a target="_top" title="Python多线程" href="python-multithreading.html" tppabs="http://www.w3cschool.cc/python/python-multithreading.html"> Python多线程 </a> <a target="_top" title="python XML解析" href="python-xml.html" tppabs="http://www.w3cschool.cc/python/python-xml.html"> python XML解析 </a> <a target="_top" title="python GUI编程(Tkinter)" href="python-gui-tkinter.html" tppabs="http://www.w3cschool.cc/python/python-gui-tkinter.html"> python GUI编程(Tkinter) </a> <a target="_top" title="Python2.x与3​​.x版本区别" href="python-2x-3x.html" tppabs="http://www.w3cschool.cc/python/python-2x-3x.html"> Python2.x与3​​.x版本区别 </a> <a target="_top" title="Python IDE" href="python-ide.html" tppabs="http://www.w3cschool.cc/python/python-ide.html"> Python IDE </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="python-reg-expressions.html" tppabs="http://www.w3cschool.cc/python/python-reg-expressions.html" rel="prev"> Python正则表达式</a></div> <div class="next"><a href="javascript:if(confirm('http://www.w3cschool.cc/python/try.php?filename=tryjsref_form_length  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/python/try.php?filename=tryjsref_form_length'" tppabs="http://www.w3cschool.cc/python/att-string-replace.html" rel="next">Python replace()方法</a> &raquo;</div> </div> <div id="content"> <h1>Python CGI编程</h1> <hr> <h2>什么是CGI</h2> <p>CGI 目前由NCSA维护，NCSA定义CGI如下：</p><p> CGI(Common Gateway Interface),通用网关接口,它是一段程序,运行在服务器上如：HTTP服务器，提供同客户端HTML页面的接口。</p> <hr><h2>网页浏览</h2> <p>为了更好的了解CGI是如何工作的，我们可以从在网页上点击一个链接或URL的流程：</p> <ul> <li> 1、使用你的浏览器访问URL并连接到HTTP web 服务器。</li><li> 2、Web服务器接收到请求信息后会解析URL，并查找访问的文件在服务器上是否存在，如果存在返回文件的内容，否则返回错误信息。</li><li> 3、浏览器从服务器上接收信息，并显示接收的文件或者错误信息。</li></ul> <p>CGI程序可以是Python脚本，PERL脚本，SHELL脚本，C或者C++程序等。</p> <hr> <h2> CGI架构图 </h2> <p><img src="../wp-content/uploads/2013/11/try.php-filename=try_dom_table_createcaption" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/cgiarch1.gif" alt="cgiarch" width="411" height="473" class="alignnone size-full wp-image-4561"/></p> <hr> <h2>Web服务器支持及配置</h2> <p>在你进行CGI编程前，确保您的Web服务器支持CGI及已经配置了CGI的处理程序。</p><p> 所有的HTTP服务器执行CGI程序都保存在一个预先配置的目录。这个目录被称为CGI目录，并按照惯例，它被命名为/var/www/cgi-bin目录。</p><p> CGI文件的扩展名为.cgi，python也可以使用.py扩展名。</p><p> 默认情况下，Linux服务器配置运行的cgi-bin目录中为/var/www。</p><p> 如果你想指定其他运行CGI脚本的目录，可以修改httpd.conf配置文件，如下所示：</p> <pre>
+&lt;Directory "/var/www/cgi-bin"&gt;
+   AllowOverride None
+   Options ExecCGI
+   Order allow,deny
+   Allow from all
+&lt;/Directory&gt;
+
+&lt;Directory "/var/www/cgi-bin"&gt;
+Options All
+&lt;/Directory&gt;
+</pre> <hr><h2>第一个CGI程序</h2> <p>我们使用Python创建第一个CGI程序，文件名为hellp.py，文件位于/var/www/cgi-bin目录中，内容如下，修改文件的权限为755：</p> <pre>
+#!/usr/bin/python
+
+print "Content-type:text/html\r\n\r\n"
+print '&lt;html&gt;'
+print '&lt;head&gt;'
+print '&lt;title&gt;Hello Word - First CGI Program&lt;/title&gt;'
+print '&lt;/head&gt;'
+print '&lt;body&gt;'
+print '&lt;h2&gt;Hello Word! This is my first CGI program&lt;/h2&gt;'
+print '&lt;/body&gt;'
+print '&lt;/html&gt;'
+</pre> <p>以上程序在浏览器访问显示结果如下：</p> <pre>
+Hello Word! This is my first CGI program
+</pre> <p>这个的hello.py脚本是一个简单的Python脚本，脚本第一的输出内容"Content-type:text/html\r\n\r\n"发送到浏览器并告知浏览器显示的内容类型为"text/html"。</p> <hr><h2>HTTP头部</h2> <p>hello.py文件内容中的" Content-type:text/html\r\n\r\n"即为HTTP头部的一部分，它会发送给浏览器告诉浏览器文件的内容类型。</p> <p>HTTP头部的格式如下：</p> <pre>
+HTTP 字段名: 字段内容
+
+例如
+Content-type: text/html\r\n\r\n
+</pre> <p>以下表格介绍了CGI程序中HTTP头部经常使用的信息：</p> <table class="reference"> <tbody><tr> <th style="width:30%">头</th><th>描述</th> </tr> <tr> <td>Content-type: </td><td>请求的与实体对应的MIME信息。例如: Content-type:text/html</td></tr> <tr> <td>Expires: Date </td><td>响应过期的日期和时间</td> </tr> <tr> <td>Location: URL </td><td>用来重定向接收方到非请求URL的位置来完成请求或标识新的资源</td> </tr> <tr> <td>Last-modified: Date</td><td>请求资源的最后修改时间</td> </tr> <tr> <td>Content-length: N</td><td>请求的内容长度</td> </tr> <tr> <td>Set-Cookie: String </td><td>设置Http Cookie</td> </tr> </tbody></table> <hr> <h2>CGI环境变量</h2> <p>所有的CGI程序都接收以下的环境变量，这些变量在CGI程序中发挥了重要的作用：</p> <table class="reference"> <tbody><tr><th style="width:30%;">变量名</th><th>描述</th></tr> <tr> <td>CONTENT_TYPE</td><td>这个环境变量的值指示所传递来的信息的MIME类型。目前，环境变量CONTENT_TYPE一般都是：application/x-www-form-urlencoded,他表示数据来自于HTML表单。</td> </tr> <tr> <td>CONTENT_LENGTH</td><td>如果服务器与CGI程序信息的传递方式是POST，这个环境变量即使从标准输入STDIN中可以读到的有效数据的字节数。这个环境变量在读取所输入的数据时必须使用。</td> </tr> <tr> <td>HTTP_COOKIE</td><td>客户机内的 COOKIE 内容。</td> </tr> <tr> <td>HTTP_USER_AGENT</td><td>提供包含了版本数或其他专有数据的客户浏览器信息。</td> </tr> <tr> <td>PATH_INFO</td><td>这个环境变量的值表示紧接在CGI程序名之后的其他路径信息。它常常作为CGI程序的参数出现。</td> </tr> <tr> <td>QUERY_STRING</td><td>如果服务器与CGI程序信息的传递方式是GET，这个环境变量的值即使所传递的信息。这个信息经跟在CGI程序名的后面，两者中间用一个问号'?'分隔。</td> </tr> <tr> <td>REMOTE_ADDR</td><td>这个环境变量的值是发送请求的客户机的IP地址，例如上面的192.168.1.67。这个值总是存在的。而且它是Web客户机需要提供给Web服务器的唯一标识，可以在CGI程序中用它来区分不同的Web客户机。</td> </tr> <tr> <td>REMOTE_HOST</td><td>这个环境变量的值包含发送CGI请求的客户机的主机名。如果不支持你想查询，则无需定义此环境变量。</td> </tr> <tr> <td>REQUEST_METHOD</td><td>提供脚本被调用的方法。对于使用 HTTP/1.0 协议的脚本，仅 GET 和 POST 有意义。</td></tr> <tr> <td>SCRIPT_FILENAME</td><td>CGI脚本的完整路径</td></tr> <tr> <td>SCRIPT_NAME</td><td>CGI脚本的的名称</td></tr> <tr> <td>SERVER_NAME</td><td>这是你的 WEB 服务器的主机名、别名或IP地址。</td></tr> <tr> <td>SERVER_SOFTWARE</td><td>这个环境变量的值包含了调用CGI程序的HTTP服务器的名称和版本号。例如，上面的值为Apache/2.2.14(Unix)</td></tr> </tbody></table> <p>以下是一个简单的CGI脚本输出CGI的环境变量：</p> <pre>
+#!/usr/bin/python
+
+import os
+
+print "Content-type: text/html\r\n\r\n";
+print "&lt;font size=+1&gt;Environment&lt;/font&gt;&lt;\br&gt;";
+for param in os.environ.keys():
+  print "&lt;b&gt;%20s&lt;/b&gt;: %s&lt;\br&gt;" % (param, os.environ[param])
+</pre> <hr><h2>GET和POST方法</h2> <p>浏览器客户端通过两种方法向服务器传递信息，这两种方法就是 GET 方法和 POST 方法。</p> <h3>使用GET方法传输数据</h3> <p>GET方法发送编码后的用户信息到服务端，数据信息包含在请求页面的URL上，以"?"号分割, 如下所示：</p> <pre>
+
+http://www.test.com/cgi-bin/hello.py?key1=value1&amp;key2=value2
+
+</pre> 有关 GET 请求的其他一些注释： <ul> <li>GET 请求可被缓存</li> <li>GET 请求保留在浏览器历史记录中</li> <li>GET 请求可被收藏为书签</li> <li>GET 请求不应在处理敏感数据时使用</li> <li>GET 请求有长度限制</li> <li>GET 请求只应当用于取回数据</li> </ul> <h3>简单的url实例：GET方法</h3> <p>以下是一个简单的URL，使用GET方法向hello_get.py程序发送两个参数：</p> <pre>
+/cgi-bin/hello_get.py?first_name=ZARA&amp;last_name=ALI
+</pre> <p>以下为hello_get.py文件的代码：</p> <pre>
+#!/usr/bin/python
+
+# CGI处理模块
+import cgi, cgitb 
+
+# 创建 FieldStorage 的实例化
+form = cgi.FieldStorage() 
+
+# 获取数据
+first_name = form.getvalue('first_name')
+last_name  = form.getvalue('last_name')
+
+print "Content-type:text/html\r\n\r\n"
+print "&lt;html&gt;"
+print "&lt;head&gt;"
+print "&lt;title&gt;Hello - Second CGI Program&lt;/title&gt;"
+print "&lt;/head&gt;"
+print "&lt;body&gt;"
+print "&lt;h2&gt;Hello %s %s&lt;/h2&gt;" % (first_name, last_name)
+print "&lt;/body&gt;"
+print "&lt;/html&gt;"
+</pre> <p>浏览器请求输出结果：</p> <pre>
+Hello ZARA ALI
+</pre> <h3>简单的表单实例：GET方法</h3> <p>以下是一个通过HTML的表单使用GET方法向服务器发送两个数据，提交的服务器脚本同样是hello_get.py文件，代码如下：</p> <pre>
+&lt;form action="/cgi-bin/hello_get.py" method="get"&gt;
+First Name: &lt;input type="text" name="first_name"&gt;  &lt;br /&gt;
+
+Last Name: &lt;input type="text" name="last_name" /&gt;
+&lt;input type="submit" value="Submit" /&gt;
+&lt;/form&gt;
+</pre> <h3>使用POST方法传递数据</h3> <p>使用POST方法向服务器传递数据是更安全可靠的，像一些敏感信息如用户密码等需要使用POST传输数据。</p> <p>以下同样是hello_get.py ，它也可以处理浏览器提交的POST表单数据:</p> <pre>
+#!/usr/bin/python
+
+# 引入 CGI 模块 
+import cgi, cgitb 
+
+# 创建 FieldStorage 实例
+form = cgi.FieldStorage() 
+
+# 获取表单数据
+first_name = form.getvalue('first_name')
+last_name  = form.getvalue('last_name')
+
+print "Content-type:text/html\r\n\r\n"
+print "&lt;html&gt;"
+print "&lt;head&gt;"
+print "&lt;title&gt;Hello - Second CGI Program&lt;/title&gt;"
+print "&lt;/head&gt;"
+print "&lt;body&gt;"
+print "&lt;h2&gt;Hello %s %s&lt;/h2&gt;" % (first_name, last_name)
+print "&lt;/body&gt;"
+print "&lt;/html&gt;"
+</pre> <p>以下为表单通过POST方法向服务器脚本hello_get.py提交数据:</p> <pre>
+&lt;form action="/cgi-bin/hello_get.py" method="post"&gt;
+First Name: &lt;input type="text" name="first_name"&gt;&lt;br /&gt;
+Last Name: &lt;input type="text" name="last_name" /&gt;
+
+&lt;input type="submit" value="Submit" /&gt;
+&lt;/form&gt;
+</pre> <h3>通过CGI程序传递checkbox数据</h3> <p>checkbox用于提交一个或者多个选项数据，HTML代码如下：</p> <pre>
+&lt;form action="/cgi-bin/checkbox.cgi" method="POST" target="_blank"&gt;
+&lt;input type="checkbox" name="maths" value="on" /&gt; Maths
+&lt;input type="checkbox" name="physics" value="on" /&gt; Physics
+&lt;input type="submit" value="Select Subject" /&gt;
+&lt;/form&gt;
+</pre> <p>以下为 checkbox.cgi 文件的代码：</p> <pre>
+#!/usr/bin/python
+
+# 引入 CGI 处理模块 
+import cgi, cgitb 
+
+# 创建 FieldStorage的实例 
+form = cgi.FieldStorage() 
+
+# 接收字段数据
+if form.getvalue('maths'):
+   math_flag = "ON"
+else:
+   math_flag = "OFF"
+
+if form.getvalue('physics'):
+   physics_flag = "ON"
+else:
+   physics_flag = "OFF"
+
+print "Content-type:text/html\r\n\r\n"
+print "&lt;html&gt;"
+print "&lt;head&gt;"
+print "&lt;title&gt;Checkbox - Third CGI Program&lt;/title&gt;"
+print "&lt;/head&gt;"
+print "&lt;body&gt;"
+print "&lt;h2&gt; CheckBox Maths is : %s&lt;/h2&gt;" % math_flag
+print "&lt;h2&gt; CheckBox Physics is : %s&lt;/h2&gt;" % physics_flag
+print "&lt;/body&gt;"
+print "&lt;/html&gt;"
+</pre> <h3>通过CGI程序传递Radio数据</h3> <p>Radio只向服务器传递一个数据，HTML代码如下：</p> <pre>
+&lt;form action="/cgi-bin/radiobutton.py" method="post" target="_blank"&gt;
+&lt;input type="radio" name="subject" value="maths" /&gt; Maths
+&lt;input type="radio" name="subject" value="physics" /&gt; Physics
+&lt;input type="submit" value="Select Subject" /&gt;
+&lt;/form&gt;
+</pre> <p>radiobutton.py 脚本代码如下：</p> <pre>
+#!/usr/bin/python
+
+# Import modules for CGI handling 
+import cgi, cgitb 
+
+# Create instance of FieldStorage 
+form = cgi.FieldStorage() 
+
+# Get data from fields
+if form.getvalue('subject'):
+   subject = form.getvalue('subject')
+else:
+   subject = "Not set"
+
+print "Content-type:text/html\r\n\r\n"
+print "&lt;html&gt;"
+print "&lt;head&gt;"
+print "&lt;title&gt;Radio - Fourth CGI Program&lt;/title&gt;"
+print "&lt;/head&gt;"
+print "&lt;body&gt;"
+print "&lt;h2&gt; Selected Subject is %s&lt;/h2&gt;" % subject
+print "&lt;/body&gt;"
+print "&lt;/html&gt;"
+</pre> <h3>通过CGI程序传递 Textarea 数据</h3> <p>Textarea向服务器传递多行数据，HTML代码如下：</p> <pre>
+&lt;form action="/cgi-bin/textarea.py" method="post" target="_blank"&gt;
+&lt;textarea name="textcontent" cols="40" rows="4"&gt;
+Type your text here...
+&lt;/textarea&gt;
+&lt;input type="submit" value="Submit" /&gt;
+&lt;/form&gt;
+</pre> <p>textarea.cgi脚本代码如下：</p> <pre>
+#!/usr/bin/python
+
+# Import modules for CGI handling 
+import cgi, cgitb 
+
+# Create instance of FieldStorage 
+form = cgi.FieldStorage() 
+
+# Get data from fields
+if form.getvalue('textcontent'):
+   text_content = form.getvalue('textcontent')
+else:
+   text_content = "Not entered"
+
+print "Content-type:text/html\r\n\r\n"
+print "&lt;html&gt;"
+print "&lt;head&gt;";
+print "&lt;title&gt;Text Area - Fifth CGI Program&lt;/title&gt;"
+print "&lt;/head&gt;"
+print "&lt;body&gt;"
+print "&lt;h2&gt; Entered Text Content is %s&lt;/h2&gt;" % text_content
+print "&lt;/body&gt;"
+</pre> <h3>通过CGI程序传递下拉数据</h3> <p>HTML下拉框代码如下：</p> <pre>
+&lt;form action="/cgi-bin/dropdown.py" method="post" target="_blank"&gt;
+&lt;select name="dropdown"&gt;
+&lt;option value="Maths" selected&gt;Maths&lt;/option&gt;
+&lt;option value="Physics"&gt;Physics&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type="submit" value="Submit"/&gt;
+&lt;/form&gt;
+</pre> <p>dropdown.py 脚本代码如下所示：</p> <pre>
+#!/usr/bin/python
+
+# Import modules for CGI handling 
+import cgi, cgitb 
+
+# Create instance of FieldStorage 
+form = cgi.FieldStorage() 
+
+# Get data from fields
+if form.getvalue('dropdown'):
+   subject = form.getvalue('dropdown')
+else:
+   subject = "Not entered"
+
+print "Content-type:text/html\r\n\r\n"
+print "&lt;html&gt;"
+print "&lt;head&gt;"
+print "&lt;title&gt;Dropdown Box - Sixth CGI Program&lt;/title&gt;"
+print "&lt;/head&gt;"
+print "&lt;body&gt;"
+print "&lt;h2&gt; Selected Subject is %s&lt;/h2&gt;" % subject
+print "&lt;/body&gt;"
+print "&lt;/html&gt;"
+</pre> <hr> <h2>CGI中使用Cookie</h2> <p>在http协议一个很大的缺点就是不作用户身份的判断，这样给编程人员带来很大的不便， </p> 而cookie功能的出现弥补了这个缺憾。</p><p> 所有cookie就是在客户访问脚本的同时，通过客户的浏览器，在客户硬盘上写入纪录数据 ，当下次客户访问脚本时取回数据信息，从而达到身份判别的功能，cookie常用在密码判断中 。</p> 　 <h3>cookie的语法</h3> <p>http cookie的发送是通过http头部来实现的，他早于文件的传递，头部set-cookie的语法如下：</p> <pre>
+Set-cookie:name=name;expires=date;path=path;domain=domain;secure 
+</pre> <ul> <li> name=name: 需要设置cookie的值(name不能使用"；"和"，"号),有多个name值时用"；"分隔例如：name1=name1;name2=name2;name3=name3。 </li> <li> expires=date: cookie的有效期限,格式： expires="Wdy,DD-Mon-YYYY HH:MM:SS"</li> <li> </li> <li>path=path: 设置cookie支持的路径,如果path是一个路径，则cookie对这个目录下的所有文件及子目录生效，例如： path="/cgi-bin/"，如果path是一个文件，则cookie指对这个文件生效，例如：path="/cgi-bin/cookie.cgi"。 </li> <li>domain=domain: 对cookie生效的域名，例如：domain="www.chinalb.com" </li> <li>secure: 如果给出此标志，表示cookie只能通过SSL协议的https服务器来传递。 </li> <li>cookie的接收是通过设置环境变量HTTP_COOKIE来实现的，CGI程序可以通过检索该变量获取cookie信息。</li></ul> <hr><h2>Cookie设置 </h2> <p>Cookie的设置非常简单，cookie会在http头部单独发送。以下实例在cookie中设置了UserID 和 Password：</p> <pre>
+&lt;pre&gt;
+#!/usr/bin/python
+
+print "Set-Cookie:UserID=XYZ;\r\n"
+print "Set-Cookie:Password=XYZ123;\r\n"
+print "Set-Cookie:Expires=Tuesday, 31-Dec-2007 23:12:40 GMT";\r\n"
+print "Set-Cookie:Domain=www.w3cschool.cc;\r\n"
+print "Set-Cookie:Path=/perl;\n"
+print "Content-type:text/html\r\n\r\n"
+...........Rest of the HTML Content....
+</pre> <p>以上实例使用了 Set-Cookie 头信息来设置Cookie信息，可选项中设置了Cookie的其他属性，如过期时间Expires，域名Domain，路径Path。这些信息设置在 "Content-type:text/html\r\n\r\n"之前。 </p> <hr> <h2> 检索Cookie信息</h2><p> Cookie信息检索页非常简单，Cookie信息存储在CGI的环境变量HTTP_COOKIE中，存储格式如下：</p> <pre>
+key1=value1;key2=value2;key3=value3....
+</pre> <p>以下是一个简单的CGI检索cookie信息的程序：</p> <pre>
+#!/usr/bin/python
+
+# Import modules for CGI handling 
+from os import environ
+import cgi, cgitb
+
+if environ.has_key('HTTP_COOKIE'):
+   for cookie in map(strip, split(environ['HTTP_COOKIE'], ';')):
+      (key, value ) = split(cookie, '=');
+      if key == "UserID":
+         user_id = value
+
+      if key == "Password":
+         password = value
+
+print "User ID  = %s" % user_id
+print "Password = %s" % password
+</pre> <p>以上脚本输出结果如下：</p> <pre>
+User ID = XYZ
+Password = XYZ123
+</pre> <p>文件上传实例：</p> <p>HTML设置上传文件的表单需要设置enctype 属性为multipart/form-data，代码如下所示：</p> <pre>
+&lt;html&gt;
+&lt;body&gt;
+   &lt;form enctype="multipart/form-data" 
+                     action="save_file.py" method="post"&gt;
+   &lt;p&gt;File: &lt;input type="file" name="filename" /&gt;&lt;/p&gt;
+   &lt;p&gt;&lt;input type="submit" value="Upload" /&gt;&lt;/p&gt;
+   &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>save_file.py脚本文件代码如下：</p> <pre>
+#!/usr/bin/python
+
+import cgi, os
+import cgitb; cgitb.enable()
+
+form = cgi.FieldStorage()
+
+# 获取文件名
+fileitem = form['filename']
+
+# 检测文件是否上传
+if fileitem.filename:
+   # 设置文件路径 
+   fn = os.path.basename(fileitem.filename)
+   open('/tmp/' + fn, 'wb').write(fileitem.file.read())
+
+   message = 'The file "' + fn + '" was uploaded successfully'
+   
+else:
+   message = 'No file was uploaded'
+   
+print """\
+Content-Type: text/html\n
+&lt;html&gt;
+&lt;body&gt;
+   &lt;p&gt;%s&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+""" % (message,)
+</pre> <p>如果你使用的系统是Unix/Linux，你必须替换文件分隔符，在window下只需要使用open()语句即可：</p> <pre>
+fn = os.path.basename(fileitem.filename.replace("\\", "/" ))
+</pre> <hr><h2>文件下载对话框</h2> <p>如果我们需要为用户提供文件下载链接，并在用户点击链接后弹出文件下载对话框，我们通过设置HTTP头信息来实现这些功能，功能代码如下：</p> <pre>
+#!/usr/bin/python
+
+# HTTP Header
+print "Content-Type:application/octet-stream; name=\"FileName\"\r\n";
+print "Content-Disposition: attachment; filename=\"FileName\"\r\n\n";
+
+# Actual File Content will go hear.
+fo = open("foo.txt", "rb")
+
+str = fo.read();
+print str
+
+# Close opend file
+fo.close()
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="python-reg-expressions.html" tppabs="http://www.w3cschool.cc/python/python-reg-expressions.html" rel="prev"> Python正则表达式</a></div> <div class="next"><a href="javascript:if(confirm('http://www.w3cschool.cc/python/try.php?filename=tryjsref_form_length  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/python/try.php?filename=tryjsref_form_length'" tppabs="http://www.w3cschool.cc/python/att-string-replace.html" rel="next">Python replace()方法</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/python/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/python/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

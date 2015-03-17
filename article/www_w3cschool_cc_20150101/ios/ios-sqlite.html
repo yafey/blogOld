@@ -1,0 +1,362 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>iOS SQLite数据库 | w3cschool菜鸟教程</title> <link rel='prev' title='HTTP 教程' href="/http/http-tutorial.html"/> <link rel='next' title='HTML textarea autofocus 属性' href="/tags/att-textarea-autofocus.html"/> <link rel='canonical' href='http://www.w3cschool.cc/ios/ios-sqlite.html'/> <meta name="keywords" content="iOS SQLite数据库"> <meta name="description" content="IOS SQLite数据库 简介 在IOS中使用Sqlite来处理数据。如果你已经了解了SQL，那你可以很容易的掌握SQLite数据库的操作。 实例步骤 1、创建一个简单的View based application 2、选择项目文件，然后选择目标，添加libsqlite3.dylib库到选择框架 3、通过选择“ File-&amp;gt; New -&amp;gt; File... -&amp;gt; ”选择 Objective.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>iOS 教程</strong></h2> <a target="_top" title="iOS 教程" href="ios-tutorial.html" tppabs="http://www.w3cschool.cc/ios/ios-tutorial.html"> iOS 教程 </a> <a target="_top" title="iOS 简介" href="ios-intro.html" tppabs="http://www.w3cschool.cc/ios/ios-intro.html"> iOS 简介 </a> <a target="_top" title="iOS环境搭建" href="ios-setup.html" tppabs="http://www.w3cschool.cc/ios/ios-setup.html"> iOS环境搭建 </a> <a target="_top" title="Objective C 基础知识" href="ios-objective-c.html" tppabs="http://www.w3cschool.cc/ios/ios-objective-c.html"> Objective C 基础知识 </a> <a target="_top" title="创建第一款iPhone应用程序" href="ios-first-iphone-application.html" tppabs="http://www.w3cschool.cc/ios/ios-first-iphone-application.html"> 创建第一款iPhone应用程序 </a> <a target="_top" title="iOS操作（action）和输出口（Outlet）" href="ios-action-outlet.html" tppabs="http://www.w3cschool.cc/ios/ios-action-outlet.html"> iOS操作（action）和输出口（Outlet） </a> <a target="_top" title="iOS &#8211; 委托（Delegates）" href="ios-delegates.html" tppabs="http://www.w3cschool.cc/ios/ios-delegates.html"> iOS - 委托（Delegates） </a> <a target="_top" title="iOS UI元素" href="ios-ui.html" tppabs="http://www.w3cschool.cc/ios/ios-ui.html"> iOS UI元素 </a> <a target="_top" title="iOS加速度传感器(accelerometer)" href="ios-accelerometer.html" tppabs="http://www.w3cschool.cc/ios/ios-accelerometer.html"> iOS加速度传感器(accelerometer) </a> <a target="_top" title="iOS通用应用程序" href="ios-universal-applications.html" tppabs="http://www.w3cschool.cc/ios/ios-universal-applications.html"> iOS通用应用程序 </a> <a target="_top" title="iOS相机管理" href="ios-camera.html" tppabs="http://www.w3cschool.cc/ios/ios-camera.html"> iOS相机管理 </a> <a target="_top" title="iOS定位操作" href="ios-location.html" tppabs="http://www.w3cschool.cc/ios/ios-location.html"> iOS定位操作 </a> <a target="_top" title="iOS SQLite数据库" href="ios-sqlite.html" tppabs="http://www.w3cschool.cc/ios/ios-sqlite.html"> iOS SQLite数据库 </a> <a target="_top" title="iOS发送电子邮件" href="ios-sending-email.html" tppabs="http://www.w3cschool.cc/ios/ios-sending-email.html"> iOS发送电子邮件 </a> <a target="_top" title="iOS音频和视频(Audio &#038; Video)" href="ios-audio-video.html" tppabs="http://www.w3cschool.cc/ios/ios-audio-video.html"> iOS音频和视频(Audio & Video) </a> <a target="_top" title="iOS文件处理" href="ios-file.html" tppabs="http://www.w3cschool.cc/ios/ios-file.html"> iOS文件处理 </a> <a target="_top" title="iOS地图开发" href="ios-maps.html" tppabs="http://www.w3cschool.cc/ios/ios-maps.html"> iOS地图开发 </a> <a target="_top" title="iOS应用内购买" href="ios-in-app-purchase.html" tppabs="http://www.w3cschool.cc/ios/ios-in-app-purchase.html"> iOS应用内购买 </a> <a target="_top" title="iOS整合iAD" href="ios-iad.html" tppabs="http://www.w3cschool.cc/ios/ios-iad.html"> iOS整合iAD </a> <a target="_top" title="iOS GameKit" href="ios-gamekit.html" tppabs="http://www.w3cschool.cc/ios/ios-gamekit.html"> iOS GameKit </a> <a target="_top" title="iOS 故事板(Storyboards)" href="ios-storyboards.html" tppabs="http://www.w3cschool.cc/ios/ios-storyboards.html"> iOS 故事板(Storyboards) </a> <a target="_top" title="iOS自动布局" href="ios-auto-layouts.html" tppabs="http://www.w3cschool.cc/ios/ios-auto-layouts.html"> iOS自动布局 </a> <a target="_top" title="iOS Twitter和Facebook" href="ios-twitter-facebook.html" tppabs="http://www.w3cschool.cc/ios/ios-twitter-facebook.html"> iOS Twitter和Facebook </a> <a target="_top" title="iOS内存管理" href="ios-memory.html" tppabs="http://www.w3cschool.cc/ios/ios-memory.html"> iOS内存管理 </a> <a target="_top" title="iOS应用程序调试" href="ios-application-debugging.html" tppabs="http://www.w3cschool.cc/ios/ios-application-debugging.html"> iOS应用程序调试 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ios-location.html" tppabs="http://www.w3cschool.cc/ios/ios-location.html" rel="prev"> iOS定位操作</a></div> <div class="next"><a href="ios-sending-email.html" tppabs="http://www.w3cschool.cc/ios/ios-sending-email.html" rel="next">iOS发送电子邮件</a> &raquo;</div> </div> <div id="content"> <h1>IOS SQLite数据库</h1> <hr/> <h2>简介</h2> <p>在IOS中使用Sqlite来处理数据。如果你已经了解了SQL，那你可以很容易的掌握SQLite数据库的操作。</p> <h3>实例步骤</h3> <p>1、创建一个简单的View based application</p> <p>2、选择项目文件，然后选择目标，添加libsqlite3.dylib库到选择框架</p> <p>3、通过选择" File-&gt; New -&gt; File... -&gt; "选择 Objective C class 创建新文件，单击下一步</p> <p>4、"sub class of"为NSObject"，类命名为DBManager</p> <p>5、选择创建</p> <p>6、更新DBManager.h,如下所示</p> <pre>
+#import &lt;Foundation/Foundation.h&gt;
+#import &lt;sqlite3.h&gt;
+
+@interface DBManager : NSObject
+{
+    NSString *databasePath;
+}
+
++(DBManager*)getSharedInstance;
+-(BOOL)createDB;
+-(BOOL) saveData:(NSString*)registerNumber name:(NSString*)name 
+  department:(NSString*)department year:(NSString*)year;
+-(NSArray*) findByRegisterNumber:(NSString*)registerNumber;
+
+@end
+</pre> <p>7、更新DBManager.m,如下所示</p> <pre>
+#import "DBManager.h"
+static DBManager *sharedInstance = nil;
+static sqlite3 *database = nil;
+static sqlite3_stmt *statement = nil;
+
+@implementation DBManager
+
++(DBManager*)getSharedInstance{
+    if (!sharedInstance) {
+        sharedInstance = [[super allocWithZone:NULL]init];
+        [sharedInstance createDB];
+    }
+    return sharedInstance;
+}
+
+-(BOOL)createDB{
+    NSString *docsDir;
+    NSArray *dirPaths;    
+    // Get the documents directory
+    dirPaths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);    
+    docsDir = dirPaths[0];
+    // Build the path to the database file
+    databasePath = [[NSString alloc] initWithString: 
+    [docsDir stringByAppendingPathComponent: @"student.db"]];
+    BOOL isSuccess = YES;
+    NSFileManager *filemgr = [NSFileManager defaultManager];    
+    if ([filemgr fileExistsAtPath: databasePath ] == NO)
+    {
+        const char *dbpath = [databasePath UTF8String];        
+        if (sqlite3_open(dbpath, &amp;database) == SQLITE_OK)
+        {
+            char *errMsg;
+            const char *sql_stmt =
+            "create table if not exists studentsDetail (regno integer 
+            primary key, name text, department text, year text)";            
+            if (sqlite3_exec(database, sql_stmt, NULL, NULL, &amp;errMsg) 
+               != SQLITE_OK)
+            {
+                isSuccess = NO;
+                NSLog(@"Failed to create table");
+            }
+            sqlite3_close(database);
+            return  isSuccess;
+        }
+        else {
+            isSuccess = NO;
+            NSLog(@"Failed to open/create database");
+        }
+    }    
+    return isSuccess;
+}
+
+- (BOOL) saveData:(NSString*)registerNumber name:(NSString*)name 
+  department:(NSString*)department year:(NSString*)year;
+{
+    const char *dbpath = [databasePath UTF8String];    
+    if (sqlite3_open(dbpath, &amp;database) == SQLITE_OK)
+    {        
+        NSString *insertSQL = [NSString stringWithFormat:@"insert into
+        studentsDetail (regno,name, department, year) values
+        (\"%d\",\"%@\", \"%@\", \"%@\")",[registerNumber integerValue],
+        name, department, year];        
+        const char *insert_stmt = [insertSQL UTF8String];
+        sqlite3_prepare_v2(database, insert_stmt,-1, &amp;statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            return YES;
+        } 
+        else {
+            return NO;
+        }
+        sqlite3_reset(statement);
+    }
+    return NO;
+}
+
+- (NSArray*) findByRegisterNumber:(NSString*)registerNumber
+{
+    const char *dbpath = [databasePath UTF8String];    
+    if (sqlite3_open(dbpath, &amp;database) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat:
+        @"select name, department, year from studentsDetail where 
+        regno=\"%@\"",registerNumber];        
+        const char *query_stmt = [querySQL UTF8String];
+        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        if (sqlite3_prepare_v2(database,
+           query_stmt, -1, &amp;statement, NULL) == SQLITE_OK)
+        {
+            if (sqlite3_step(statement) == SQLITE_ROW)
+            {                
+                NSString *name = [[NSString alloc] initWithUTF8String:
+                 (const char *) sqlite3_column_text(statement, 0)];
+                [resultArray addObject:name];
+                NSString *department = [[NSString alloc] initWithUTF8String:
+                (const char *) sqlite3_column_text(statement, 1)];
+                [resultArray addObject:department];
+                NSString *year = [[NSString alloc]initWithUTF8String:
+                (const char *) sqlite3_column_text(statement, 2)];
+                [resultArray addObject:year];
+                return resultArray;
+            }
+            else{
+                NSLog(@"Not found");
+                return nil;
+            }
+            sqlite3_reset(statement);
+        }
+    }
+    return nil;
+}
+</pre> <p>8、如图所示，更新ViewController.xib文件</p> <p><img class="attachment-full" alt="Sqlite_Interface" src="../wp-content/uploads/2013/11/color.php-color=Bisque" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/Sqlite_Interface.jpg" width="560" height="609" data-pinit="registered"/></p> <p>9、为上述文本字段创建IBOutlets</p> <p>10、为上述按钮创建IBAction</p> <p>11、如下所示，更新ViewController.h</p> <pre>
+#import &lt;UIKit/UIKit.h&gt;
+#import "DBManager.h"
+
+@interface ViewController : UIViewController&lt;UITextFieldDelegate&gt;
+{
+    IBOutlet UITextField *regNoTextField;
+    IBOutlet UITextField *nameTextField;
+    IBOutlet UITextField *departmentTextField;
+    IBOutlet UITextField *yearTextField;
+    IBOutlet UITextField *findByRegisterNumberTextField;
+    IBOutlet UIScrollView *myScrollView;
+}
+
+-(IBAction)saveData:(id)sender;
+-(IBAction)findData:(id)sender;
+
+@end
+</pre> <p>12、更新ViewController.m,如下所示</p> <pre>
+#import "ViewController.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)
+  nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)saveData:(id)sender{
+    BOOL success = NO;
+    NSString *alertString = @"Data Insertion failed";
+    if (regNoTextField.text.length&gt;0 &amp;&amp;nameTextField.text.length&gt;0 &amp;&amp;
+    departmentTextField.text.length&gt;0 &amp;&amp;yearTextField.text.length&gt;0 )
+    {
+        success = [[DBManager getSharedInstance]saveData:
+        regNoTextField.text name:nameTextField.text department:
+        departmentTextField.text year:yearTextField.text];
+    }
+    else{
+        alertString = @"Enter all fields";
+    }     
+    if (success == NO) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:
+        alertString message:nil
+        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(IBAction)findData:(id)sender{
+    NSArray *data = [[DBManager getSharedInstance]findByRegisterNumber:
+    findByRegisterNumberTextField.text];
+    if (data == nil) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:
+        @"Data not found" message:nil delegate:nil cancelButtonTitle:
+        @"OK" otherButtonTitles:nil];
+        [alert show];
+        regNoTextField.text = @"";
+        nameTextField.text =@"";
+        departmentTextField.text = @"";
+        yearTextField.text =@"";
+    }
+    else{
+        regNoTextField.text = findByRegisterNumberTextField.text;
+        nameTextField.text =[data objectAtIndex:0];
+        departmentTextField.text = [data objectAtIndex:1];
+        yearTextField.text =[data objectAtIndex:2];
+    }
+}
+
+#pragma mark - Text field delegate
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    [myScrollView setFrame:CGRectMake(10, 50, 300, 200)];
+    [myScrollView setContentSize:CGSizeMake(300, 350)];
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [myScrollView setFrame:CGRectMake(10, 50, 300, 350)];
+
+}
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+@end
+</pre> <h3>输出</h3> <p>现在当我们运行应用程序时，我们就会获得下面的输出，我们可以在其中添加及查找学生的详细信息</p> <p><img class="attachment-full" alt="Sqlite_Output" src="../wp-content/uploads/2013/11/color.php-hex=FFE4C4" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/11/Sqlite_Output.jpg" width="250" height="496" data-pinit="registered"/></p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ios-location.html" tppabs="http://www.w3cschool.cc/ios/ios-location.html" rel="prev"> iOS定位操作</a></div> <div class="next"><a href="ios-sending-email.html" tppabs="http://www.w3cschool.cc/ios/ios-sending-email.html" rel="next">iOS发送电子邮件</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/ios/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/ios/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

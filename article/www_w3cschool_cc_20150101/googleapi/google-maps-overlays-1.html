@@ -1,0 +1,150 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Google åœ°å›¾å åŠ å±‚ | w3cschoolèœé¸Ÿæ•™ç¨‹</title> <link rel='prev' title='Google åœ°å›¾åŸºç¡€' href="google-maps-basic.html"/> <link rel='next' title='Google åœ°å›¾äº‹ä»¶' href="google-maps-events.html"/> <link rel='canonical' href='http://www.w3cschool.cc/googleapi/google-maps-overlays.html'/> <meta name="keywords" content="Google åœ°å›¾å åŠ å±‚"> <meta name="description" content="var myCenter=new google.maps.LatLng(51.508742,-0.120850); function initialize() { var mapProp = { center: myCenter, zoom:5, mapTypeId: google.maps.MapTypeId.ROADMAP }; var map = new google.maps.Map(document.get.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschoolèœé¸Ÿæ•™ç¨‹"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="æœç´¢"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">é¦–é¡µ</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">å‰ç«¯å·¥å…·</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">æ›´å¤šâ€¦â€¦</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Google åœ°å›¾ API æ•™ç¨‹</strong></h2> <a target="_top" title="Google API æ•™ç¨‹" href="googleapi-tutorial-1.html" tppabs="http://www.w3cschool.cc/googleAPI/googleapi-tutorial.html"> Google API æ•™ç¨‹ </a> <a target="_top" title="Google åœ°å›¾ API" href="google-maps-api-key-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-api-key.html"> Google åœ°å›¾ API </a> <a target="_top" title="Google åœ°å›¾åŸºç¡€" href="google-maps-basic-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-basic.html"> Google åœ°å›¾åŸºç¡€ </a> <a target="_top" title="Google åœ°å›¾å åŠ å±‚" href="google-maps-overlays-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-overlays.html"> Google åœ°å›¾å åŠ å±‚ </a> <a target="_top" title="Google åœ°å›¾äº‹ä»¶" href="google-maps-events-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-events.html"> Google åœ°å›¾äº‹ä»¶ </a> <a target="_top" title="Google åœ°å›¾æ§ä»¶é›†" href="google-maps-controls-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-controls.html"> Google åœ°å›¾æ§ä»¶é›† </a> <a target="_top" title="Google åœ°å›¾ç±»å‹" href="google-maps-types-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-types.html"> Google åœ°å›¾ç±»å‹ </a> <a target="_top" title="Google åœ°å›¾å‚è€ƒæ‰‹å†Œ" href="google-maps-ref-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-ref.html"> Google åœ°å›¾å‚è€ƒæ‰‹å†Œ </a> <a target="_top" title="åœ°å›¾ API Map() æ„é€ å™¨" href="ref-map-1.html" tppabs="http://www.w3cschool.cc/googleAPI/ref-map.html"> åœ°å›¾ API Map() æ„é€ å™¨ </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="google-maps-basic-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-basic.html" rel="prev"> Google åœ°å›¾åŸºç¡€</a></div> <div class="next"><a href="google-maps-events-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-events.html" rel="next">Google åœ°å›¾äº‹ä»¶</a> &raquo;</div> </div> <div id="content"> <script src="../../maps.googleapis.com/maps/api/js-key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false" tppabs="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+</script> <script>
+var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+
+function initialize()
+{
+var mapProp = {
+  center: myCenter,
+  zoom:5,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position: myCenter,
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script> <style>a.menu_google_maps_overlays{font-weight:bold;}</style> <h1>Google åœ°å›¾ <span class="color_h1"å åŠ å±‚</span> </h1> <hr> <p class="intro">åœ¨Googleåœ°å›¾ä¸­æ·»åŠ ä¸€ä¸ªæ ‡è®°</p> <div id="googleMap" style="width:100%;height:380px"></div> <hr> <h2>Google åœ°å›¾ - å åŠ å±‚</h2> <p>å åŠ å±‚æ˜¯åœ°å›¾ä¸Šç»‘å®šåˆ°ç»åº¦/çº¬åº¦åæ ‡çš„å¯¹è±¡ï¼Œä¼šéšæ‚¨æ‹–åŠ¨æˆ–ç¼©æ”¾åœ°å›¾è€Œç§»åŠ¨ã€‚</p> <p>Google åœ°å›¾ API æœ‰å¦‚ä¸‹å‡ ç§å åŠ å±‚ï¼š</p> <ul> <li>åœ°å›¾ä¸Šçš„ç‚¹ä½¿ç”¨æ ‡è®°æ¥æ˜¾ç¤ºï¼Œé€šå¸¸æ˜¾ç¤ºè‡ªå®šä¹‰å›¾æ ‡ã€‚æ ‡è®°æ˜¯ GMarker ç±»å‹çš„å¯¹è±¡ï¼Œå¹¶ä¸”å¯ä»¥åˆ©ç”¨ GIcon ç±»å‹çš„å¯¹è±¡æ¥è‡ªå®šä¹‰å›¾æ ‡ã€‚</li> <li>åœ°å›¾ä¸Šçš„çº¿ä½¿ç”¨æŠ˜çº¿ï¼ˆè¡¨ç¤ºç‚¹çš„é›†åˆï¼‰æ¥æ˜¾ç¤ºã€‚çº¿æ˜¯ç±»å‹ä¸º GPolyline çš„å¯¹è±¡ã€‚</li> <li>åœ°å›¾ä¸Šçš„åŒºåŸŸæ˜¾ç¤ºä¸ºå¤šè¾¹å½¢ï¼ˆå¦‚æœæ˜¯ä»»æ„å½¢çŠ¶çš„åŒºåŸŸï¼‰æˆ–åº•é¢å åŠ å±‚ï¼ˆå¦‚æœæ˜¯çŸ©å½¢åŒºåŸŸï¼‰ã€‚å¤šè¾¹å½¢ç±»ä¼¼äºé—­åˆçš„æŠ˜çº¿ï¼Œå› æ­¤å¯ä»¥æ˜¯ä»»ä½•å½¢çŠ¶ã€‚åœ°é¢å åŠ å±‚é€šå¸¸ç”¨äºåœ°å›¾ä¸Šä¸å›¾å—æœ‰ç›´æ¥æˆ–é—´æ¥å…³è”çš„åŒºåŸŸã€‚</li> <li>åœ°å›¾æœ¬èº«ä½¿ç”¨å›¾å—å åŠ å±‚æ˜¾ç¤ºã€‚å¦‚æœæ‚¨æœ‰è‡ªå·±çš„ç³»åˆ—å›¾å—ï¼Œå¯ä»¥ä½¿ç”¨ GTileLayerOverlay ç±»æ¥æ”¹å˜åœ°å›¾ä¸Šå·²æœ‰çš„å›¾å—ï¼Œç”šè‡³å¯ä»¥ä½¿ç”¨ GMapType æ¥åˆ›å»ºæ‚¨è‡ªå·±çš„åœ°å›¾ç±»å‹ã€‚</li> <li>ä¿¡æ¯çª—å£ä¹Ÿæ˜¯ä¸€ç§ç‰¹æ®Šçš„å åŠ å±‚ã€‚ä½†æ˜¯è¯·æ³¨æ„ï¼Œä¿¡æ¯çª—å£ä¼šè‡ªåŠ¨æ·»åŠ åˆ°åœ°å›¾ä¸­ï¼Œå¹¶ä¸”åœ°å›¾åªèƒ½æ·»åŠ ä¸€ä¸ªç±»å‹ä¸º GInfoWindow çš„å¯¹è±¡ã€‚</li> </ul> <hr> <h2>Google åœ°å›¾ - æ·»åŠ æ ‡è®°</h2> <p>è®°æ ‡è¯†åœ°å›¾ä¸Šçš„ç‚¹ã€‚é»˜è®¤æƒ…å†µä¸‹ï¼Œå®ƒä»¬ä½¿ç”¨ G_DEFAULT_ICONï¼ˆæ‚¨ä¹Ÿå¯ä»¥æŒ‡å®šè‡ªå®šä¹‰å›¾æ ‡ï¼‰ã€‚GMarker æ„é€ å‡½æ•°å°† GLatLng å’Œ GMarkerOptionsï¼ˆå¯é€‰ï¼‰å¯¹è±¡ä½œä¸ºå‚æ•°ã€‚<p></p> æ ‡è®°è®¾è®¡ä¸ºå¯äº¤äº’ã€‚ä¾‹å¦‚ï¼Œé»˜è®¤æƒ…å†µä¸‹å®ƒä»¬æ¥æ”¶ "click" äº‹ä»¶ï¼Œå¸¸ç”¨äºåœ¨äº‹ä»¶ä¾¦å¬å™¨ä¸­æ‰“å¼€ä¿¡æ¯çª—å£ã€‚</p> <p>é€šè¿‡ setMap() æ–¹æ³•åœ¨åœ°å›¾ä¸Šæ·»åŠ æ ‡è®°:</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> var marker=new google.maps.Marker({<br> Â  position:myCenter,<br> Â  });<br><br> marker.setMap(map);</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/pr-border-bottom_color.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/pr-border-bottom_color.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml_map_overlays_marker">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Google åœ°å›¾ - å¯æ‹–åŠ¨çš„æ ‡è®°</h2> <p>ä»¥ä¸‹å®ä¾‹å°†å‡å°‘å¦‚ä½•ä½¿ç”¨ animation å±æ€§æ¥æ‹–åŠ¨æ ‡è®°:</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> marker=new google.maps.Marker({<br> Â  position:myCenter,<br> Â  animation:google.maps.Animation.BOUNCE<br> Â  });<br><br> marker.setMap(map);</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/css3-pr-border-bottom-left-radius.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/css3-pr-border-bottom-left-radius.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml_map_overlays_animate">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Google åœ°å›¾ - å›¾æ ‡</h2> <p>æ ‡è®°å¯ä»¥ç”¨è‡ªå®šä¹‰çš„æ–°å›¾æ ‡æ¥æ˜¾ç¤ºï¼Œä»¥æ›¿ä»£é»˜è®¤å›¾æ ‡:</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> var marker=new google.maps.Marker({<br> Â  position:myCenter,<br> Â  icon:'pinkball.png'<br> Â  });<br><br> marker.setMap(map);</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/css3-pr-border-bottom-right-radius.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/css3-pr-border-bottom-right-radius.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml_map_overlays_icon">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Google åœ°å›¾ - æŠ˜çº¿</h2> <p>GPolyline å¯¹è±¡å¯åœ¨åœ°å›¾ä¸Šåˆ›å»ºçº¿æ€§å åŠ å±‚ã€‚GPolyline åŒ…æ‹¬ä¸€ç³»åˆ—ç‚¹ï¼Œå¹¶åˆ›å»ºä¸€ç³»åˆ—æœ‰åºè¿æ¥è¿™äº›ç‚¹çš„çº¿æ®µã€‚</p> <p>æŠ˜çº¿æ”¯æŒä»¥ä¸‹å±æ€§ï¼š</p> <ul> <li>path - æŒ‡å®šäº†å¤šä¸ªç›´çº¿çš„çº¬åº¦/ç»åº¦åæ ‡ </li> <li>strokeColor - æŒ‡å®šç›´çº¿çš„åå…­è¿›åˆ¶é¢œè‰²å€¼(æ ¼å¼: "#FFFFFF")</li> <li>strokeOpacity - æŒ‡å®šç›´çº¿çš„é€æ˜åº¦(è¯¥å€¼ä¸º 0.0 åˆ° 1.0)</li> <li>strokeWeight - å®šä¹‰çº¿çš„å®½åº¦,ä»¥åƒç´ ä¸ºå•ä½ã€‚</li> <li>editable - å®šä¹‰ç”¨æˆ·æ˜¯å¦å¯ç¼–è¾‘ç›´çº¿(true/false)</li> </ul> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> var myTrip = [stavanger,amsterdam,london];<br> var flightPath = new google.maps.Polyline({<br> Â  path:myTrip,<br> Â  strokeColor:"#0000FF",<br> Â  strokeOpacity:0.8,<br> Â  strokeWeight:2<br> });</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/pr-border-bottom-style.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/pr-border-bottom-style.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml_map_overlays_polyline">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Google åœ°å›¾ - å¤šè¾¹å½¢</h2> <p>GPolygon å¯¹è±¡ç±»ä¼¼äº GPolyline å¯¹è±¡ï¼Œå› ä¸ºå®ƒä»¬éƒ½åŒ…æ‹¬ä¸€ç³»åˆ—æœ‰åºçš„ç‚¹ã€‚ä½†æ˜¯ï¼Œå¤šè¾¹å½¢ä¸åƒæŠ˜çº¿ä¸€æ ·æœ‰ä¸¤ä¸ªç«¯ç‚¹ï¼Œè€Œæ˜¯è®¾è®¡ä¸ºå®šä¹‰å½¢æˆé—­ç¯çš„åŒºåŸŸã€‚</p> <p>å’ŒæŠ˜çº¿ä¸€æ ·ï¼Œæ‚¨å¯ä»¥è‡ªå®šä¹‰å¤šè¾¹å½¢è¾¹ï¼ˆçº¿ï¼‰çš„é¢œè‰²ã€ç²—ç»†å’Œé€æ˜åº¦ï¼Œä»¥åŠå°é—­çš„å¡«å……åŒºåŸŸçš„é¢œè‰²å’Œé€æ˜åº¦ã€‚é¢œè‰²åº”æ˜¯åå…­è¿›åˆ¶æ•°å­— HTML æ ·å¼ã€‚</p> <p>å¤šè¾¹å½¢æ”¯æŒä»¥ä¸‹å±æ€§ï¼š</p> <ul> <li>path - æŒ‡å®šå¤šä¸ªç›´çº¿çº¬åº¦çš„åæ ‡ (ç¬¬ä¸€ä¸ªå’Œæœ€åä¸€ä¸ªåæ ‡æ˜¯ç›¸ç­‰çš„)</li> <li>strokeColor - æŒ‡å®šç›´çº¿çš„åå…­è¿›åˆ¶é¢œè‰²å€¼(æ ¼å¼: "#FFFFFF")</li> <li>strokeOpacity -æŒ‡å®šç›´çº¿çš„é€æ˜åº¦(è¯¥å€¼ä¸º 0.0 åˆ° 1.0)</li> <li>strokeWeight - å®šä¹‰çº¿çš„å®½åº¦,ä»¥åƒç´ ä¸ºå•ä½ã€‚</li> <li>fillColor - æŒ‡å®šé—­åˆåŒºåŸŸçš„åå…­è¿›åˆ¶é¢œè‰²å€¼ (æ ¼å¼: "#FFFFFF")</li> <li>fillOpacity - æŒ‡å®šå¡«å……é¢œè‰²çš„é€æ˜åº¦ (è¯¥å€¼ä¸º 0.0 åˆ° 1.0)</li> <li>editable - å®šä¹‰ç”¨æˆ·æ˜¯å¦å¯ç¼–è¾‘ç›´çº¿(true/false)</li> </ul> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> var myTrip = [stavanger,amsterdam,london,stavanger];<br> var flightPath = new google.maps.Polygon({<br> Â  path:myTrip,<br> Â  strokeColor:"#0000FF",<br> Â  strokeOpacity:0.8,<br> Â  strokeWeight:2,<br> Â  fillColor:"#0000FF",<br> Â  fillOpacity:0.4<br> });</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/pr-border-bottom-width.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/pr-border-bottom-width.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml_map_overlays_polygon">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Google åœ°å›¾ - åœ†</h2> <p>åœ†æ”¯æŒä»¥ä¸‹å±æ€§ï¼š</p> <ul> <li>center - æŒ‡å®šåœ†çš„ä¸­å¿ƒç‚¹å‚æ•° google.maps.LatLng </li> <li>radius - æŒ‡å®šåœ†çš„åŠå¾„ï¼Œä»¥ç±³ä¸ºå•ä½</li> <li>strokeColor - æŒ‡å®šå¼§çº¿çš„åå…­è¿›åˆ¶é¢œè‰²å€¼(æ ¼å¼: "#FFFFFF")</li> <li>strokeOpacity - æŒ‡å®šå¼§çº¿çš„é€æ˜åº¦(è¯¥å€¼ä¸º 0.0 åˆ° 1.0)</li> <li>strokeWeight -å®šä¹‰çº¿çš„å®½åº¦,ä»¥åƒç´ ä¸ºå•ä½ã€‚</li> <li>fillColor - æŒ‡å®šåœ†çš„åå…­è¿›åˆ¶é¢œè‰²å€¼å¡«å……å€¼ (æ ¼å¼: "#FFFFFF")</li> <li>fillOpacity - æŒ‡å®šå¡«å……é¢œè‰²çš„é€æ˜åº¦ (è¯¥å€¼ä¸º 0.0 åˆ° 1.0)</li> <li>å®šä¹‰ç”¨æˆ·æ˜¯å¦å¯ç¼–è¾‘ç›´çº¿(true/false)</li> </ul> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> var myCity = new google.maps.Circle({<br> Â  center:amsterdam,<br> Â  radius:20000,<br> Â  strokeColor:"#0000FF",<br> Â  strokeOpacity:0.8,<br> Â  strokeWeight:2,<br> Â  fillColor:"#0000FF",<br> Â  fillOpacity:0.4<br> });</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/pr-border-collapse.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/pr-border-collapse.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml_map_overlays_circle">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Google åœ°å›¾ - ä¿¡æ¯çª—å£</h2> <p>åœ¨ä¸€ä¸ªæ ‡è®°ä¸Šæ˜¾ç¤ºä¸€ä¸ªæ–‡æœ¬ä¿¡æ¯çª—å£ï¼š</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> var infowindow = new google.maps.InfoWindow({<br> Â  content:"Hello World!"<br> Â  });<br><br> infowindow.open(map,marker);</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/pr-border-color.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/pr-border-color.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtml_map_overlays_infowindow">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>Google åœ°å›¾ - å åŠ å±‚å‚è€ƒæ‰‹å†Œ</h2> <p><a href="google-maps-ref-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-ref.html">Google Maps API å‚è€ƒæ‰‹å†Œ</a>.</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="google-maps-basic-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-basic.html" rel="prev"> Google åœ°å›¾åŸºç¡€</a></div> <div class="next"><a href="google-maps-events-1.html" tppabs="http://www.w3cschool.cc/googleAPI/google-maps-events.html" rel="next">Google åœ°å›¾äº‹ä»¶</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">å…³æ³¨å¾®ä¿¡ä¸‹è½½ç¦»çº¿æ‰‹å†Œ</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschoolç§»åŠ¨ç‰ˆ"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.ccèœé¸Ÿå®¶æ—" title="w3cschool.ccèœé¸Ÿå®¶æ—"></a> </div> <div class="rightad"> <h2>å‚è€ƒæ‰‹å†Œ</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML å‚è€ƒæ‰‹å†Œ</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS å‚è€ƒæ‰‹å†Œ">JS å‚è€ƒæ‰‹å†Œ</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS å‚è€ƒæ‰‹å†Œ">CSS å‚è€ƒæ‰‹å†Œ</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>HTML/CSS/JS åœ¨çº¿å·¥å…·</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>JSON æ ¼å¼å·¥å…·</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>ç¨‹åºçŒ¿å­¦ä¹ è·¯çº¿</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>æ‰“å¼€CHMæ–‡æ¡£é‡åˆ°é—®é¢˜â€¦â€¦</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="é—®é¢˜/æ„è§åé¦ˆ"/>é—®é¢˜/æ„è§åé¦ˆ</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3Cèœé¸Ÿç¬”è®°</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">å…è´£å£°æ˜</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">å…³äºæˆ‘ä»¬</a> </ul> </div> <div id="footerText"> æä¾›çš„å†…å®¹ä»…ç”¨äºåŸ¹è®­ã€‚æˆ‘ä»¬ä¸ä¿è¯å†…å®¹çš„æ­£ç¡®æ€§ã€‚é€šè¿‡ä½¿ç”¨æœ¬ç«™å†…å®¹éšä¹‹è€Œæ¥çš„é£é™©ä¸æœ¬ç«™æ— å…³ã€‚å½“ä½¿ç”¨æœ¬ç«™æ—¶ï¼Œä»£è¡¨æ‚¨å·²æ¥å—äº†æœ¬ç«™çš„ä½¿ç”¨æ¡æ¬¾å’Œéšç§æ¡æ¬¾ã€‚ ç‰ˆæƒæ‰€æœ‰ï¼Œä¿ç•™ä¸€åˆ‡æƒåˆ©ã€‚W3CSchool ç®€ä½“ä¸­æ–‡ç‰ˆçš„æ‰€æœ‰å†…å®¹ä»…ä¾›æµ‹è¯•ï¼Œå¯¹ä»»ä½•æ³•å¾‹é—®é¢˜åŠé£é™©ä¸æ‰¿æ‹…ä»»ä½•è´£ä»»ã€‚ </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">åˆ†äº«åˆ°</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="åˆ†äº«åˆ°QQç©ºé—´" href="#"></a> <a class="bds_tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš" href="#"></a> <a class="bds_tqq" title="åˆ†äº«åˆ°äººäººç½‘" href="#"></a> <a class="bds_baidu" title="ç™¾åº¦æ”¶è—" href="#"></a> <span class="bds_more">æ›´å¤š</span> <a class="shareCount" id="shareCount" href="#" title="ç´¯è®¡åˆ†äº«0æ¬¡">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //é…è‰²æ ‡è®°
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //ç»“æŸå¾ªç¯
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //ç¬¬äºŒé‡åˆ¤æ–­
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/googleAPI/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/googleAPI/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

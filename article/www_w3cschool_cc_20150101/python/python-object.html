@@ -1,0 +1,366 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Python面向对象 | w3cschool菜鸟教程</title> <link rel='prev' title='ASP.NET HyperLink Text 属性' href="/aspnet/prop-webcontrol-hyperlink-text.html"/> <link rel='next' title='Python正则表达式' href="python-reg-expressions.html"/> <link rel='canonical' href='http://www.w3cschool.cc/python/python-object.html'/> <meta name="keywords" content="Python面向对象"> <meta name="description" content="Python面向对象 Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。 如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。 接下来我们先来简单的了解下面向对象的一些基本特征。 面向.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Python 基础教程</strong></h2> <a target="_top" title="Python 基础教程" href="python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html"> Python 基础教程 </a> <a target="_top" title="Python 简介" href="python-intro.html" tppabs="http://www.w3cschool.cc/python/python-intro.html"> Python 简介 </a> <a target="_top" title="Python环境搭建" href="python-install.html" tppabs="http://www.w3cschool.cc/python/python-install.html"> Python环境搭建 </a> <a target="_top" title="Python 基础语法" href="python-basic-syntax.html" tppabs="http://www.w3cschool.cc/python/python-basic-syntax.html"> Python 基础语法 </a> <a target="_top" title="Python 变量类型" href="python-variable-types.html" tppabs="http://www.w3cschool.cc/python/python-variable-types.html"> Python 变量类型 </a> <a target="_top" title="Python 运算符" href="python-operators.html" tppabs="http://www.w3cschool.cc/python/python-operators.html"> Python 运算符 </a> <a target="_top" title="Python 条件语句" href="python-if-statement.html" tppabs="http://www.w3cschool.cc/python/python-if-statement.html"> Python 条件语句 </a> <a target="_top" title="Python 循环语句" href="python-loops.html" tppabs="http://www.w3cschool.cc/python/python-loops.html"> Python 循环语句 </a> <a target="_top" title="Python While循环语句" href="python-while-loop.html" tppabs="http://www.w3cschool.cc/python/python-while-loop.html"> Python While循环语句 </a> <a target="_top" title="Python for 循环语句" href="python-for-loop.html" tppabs="http://www.w3cschool.cc/python/python-for-loop.html"> Python for 循环语句 </a> <a target="_top" title="Python 循环嵌套" href="python-nested-loops.html" tppabs="http://www.w3cschool.cc/python/python-nested-loops.html"> Python 循环嵌套 </a> <a target="_top" title="Python break 语句" href="python-break-statement.html" tppabs="http://www.w3cschool.cc/python/python-break-statement.html"> Python break 语句 </a> <a target="_top" title="Python continue 语句" href="python-continue-statement.html" tppabs="http://www.w3cschool.cc/python/python-continue-statement.html"> Python continue 语句 </a> <a target="_top" title="Python pass 语句" href="python-pass-statement.html" tppabs="http://www.w3cschool.cc/python/python-pass-statement.html"> Python pass 语句 </a> <a target="_top" title="Python 数字" href="python-numbers.html" tppabs="http://www.w3cschool.cc/python/python-numbers.html"> Python 数字 </a> <a target="_top" title="Python 字符串" href="python-strings.html" tppabs="http://www.w3cschool.cc/python/python-strings.html"> Python 字符串 </a> <a target="_top" title="Python 列表(Lists)" href="python-lists.html" tppabs="http://www.w3cschool.cc/python/python-lists.html"> Python 列表(Lists) </a> <a target="_top" title="Python 元组" href="python-tuples.html" tppabs="http://www.w3cschool.cc/python/python-tuples.html"> Python 元组 </a> <a target="_top" title="Python 字典(Dictionary)" href="python-dictionary.html" tppabs="http://www.w3cschool.cc/python/python-dictionary.html"> Python 字典(Dictionary) </a> <a target="_top" title="Python 日期和时间" href="python-date-time.html" tppabs="http://www.w3cschool.cc/python/python-date-time.html"> Python 日期和时间 </a> <a target="_top" title="Python函数" href="python-functions.html" tppabs="http://www.w3cschool.cc/python/python-functions.html"> Python函数 </a> <a target="_top" title="Python模块" href="python-modules.html" tppabs="http://www.w3cschool.cc/python/python-modules.html"> Python模块 </a> <a target="_top" title="Python 文件I/O" href="python-files-io.html" tppabs="http://www.w3cschool.cc/python/python-files-io.html"> Python 文件I/O </a> <a target="_top" title="Python 异常处理" href="python-exceptions.html" tppabs="http://www.w3cschool.cc/python/python-exceptions.html"> Python 异常处理 </a> <br><h2 class="left"><span class="left_h2">Python</span> 高级教程</h2> <a target="_top" title="Python面向对象" href="python-object.html" tppabs="http://www.w3cschool.cc/python/python-object.html"> Python面向对象 </a> <a target="_top" title="Python正则表达式" href="python-reg-expressions.html" tppabs="http://www.w3cschool.cc/python/python-reg-expressions.html"> Python正则表达式 </a> <a target="_top" title="Python CGI编程" href="python-cgi.html" tppabs="http://www.w3cschool.cc/python/python-cgi.html"> Python CGI编程 </a> <a target="_top" title="python操作mysql数据库" href="python-mysql.html" tppabs="http://www.w3cschool.cc/python/python-mysql.html"> python操作mysql数据库 </a> <a target="_top" title="Python使用SMTP发送邮件" href="python-email.html" tppabs="http://www.w3cschool.cc/python/python-email.html"> Python使用SMTP发送邮件 </a> <a target="_top" title="Python多线程" href="python-multithreading.html" tppabs="http://www.w3cschool.cc/python/python-multithreading.html"> Python多线程 </a> <a target="_top" title="python XML解析" href="python-xml.html" tppabs="http://www.w3cschool.cc/python/python-xml.html"> python XML解析 </a> <a target="_top" title="python GUI编程(Tkinter)" href="python-gui-tkinter.html" tppabs="http://www.w3cschool.cc/python/python-gui-tkinter.html"> python GUI编程(Tkinter) </a> <a target="_top" title="Python2.x与3​​.x版本区别" href="python-2x-3x.html" tppabs="http://www.w3cschool.cc/python/python-2x-3x.html"> Python2.x与3​​.x版本区别 </a> <a target="_top" title="Python IDE" href="python-ide.html" tppabs="http://www.w3cschool.cc/python/python-ide.html"> Python IDE </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="javascript:if(confirm('http://www.w3cschool.cc/python/try.php?filename=tryjsref_form_action  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/python/try.php?filename=tryjsref_form_action'" tppabs="http://www.w3cschool.cc/python/att-string-min.html" rel="prev"> Python min()方法</a></div> <div class="next"><a href="python-reg-expressions.html" tppabs="http://www.w3cschool.cc/python/python-reg-expressions.html" rel="next">Python正则表达式</a> &raquo;</div> </div> <div id="content"> <h1>Python面向对象</h1> <div class="tutintro"> <p> Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。 </p> <p> 如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。 </p> <p> 接下来我们先来简单的了解下面向对象的一些基本特征。 </p> </div> <hr> <h2>面向对象技术简介</h2> <ul> <li><strong>类(Class): </strong>用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。</li> <li><strong>类变量：</strong>类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。</li> <li><strong>数据成员：</strong>类变量或者实例变量用于处理类及其实例对象的相关的数据。</li> <li><strong>方法重载：</strong>如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重载。</li> <li><strong>实例变量：</strong>定义在方法中的变量，只作用于当前实例的类。</li> <li><strong>继承：</strong>即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟"是一个（is-a）"关系（例图，Dog是一个Animal）。</li> <li><strong>实例化：</strong>创建一个类的实例，类的具体对象。</li> <li><strong>方法：</strong>类中定义的函数。</li> <li><strong>对象：</strong>通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。</li> </ul> <hr> <h2>创建类</h2> <p> 使用class语句来创建一个新类，class之后为类的名称并以冒号结尾，如下实例:</p> <pre>
+class ClassName:
+   'Optional class documentation string'#类文档字符串
+   class_suite  #类体
+</pre> <p>类的帮助信息可以通过ClassName.__doc__查看。</p> <p> class_suite 由类成员，方法，数据属性组成。</p> <h3>实例</h3> <p> 以下是一个简单的Python类实例:</p> <pre>
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+   
+   def displayCount(self):
+     print "Total Employee %d" % Employee.empCount
+
+   def displayEmployee(self):
+      print "Name : ", self.name,  ", Salary: ", self.salary
+</pre> <ul> <li>empCount变量是一个类变量，它的值将在这个类的所有实例之间共享。你可以在内部类或外部类使用Employee.empCount访问。</li> <li>第一种方法__init__()方法是一种特殊的方法，被称为类的构造函数或初始化方法，当创建了这个类的实例时就会调用该方法</li> </ul> <hr><h2>创建实例对象</h2> <p>要创建一个类的实例，你可以使用类的名称，并通过__init__方法接受参数。</p> <pre>
+"This would create first object of Employee class"
+emp1 = Employee("Zara", 2000)
+"This would create second object of Employee class"
+emp2 = Employee("Manni", 5000)
+</pre> <h2>访问属性</h2> <p>您可以使用点(.)来访问对象的属性。使用如下类的名称访问类变量:</p> <pre>
+emp1.displayEmployee()
+emp2.displayEmployee()
+print "Total Employee %d" % Employee.empCount
+</pre> <p>完整实例：</p> <pre>
+#!/usr/bin/python
+
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+   
+   def displayCount(self):
+     print "Total Employee %d" % Employee.empCount
+
+   def displayEmployee(self):
+      print "Name : ", self.name,  ", Salary: ", self.salary
+
+"This would create first object of Employee class"
+emp1 = Employee("Zara", 2000)
+"This would create second object of Employee class"
+emp2 = Employee("Manni", 5000)
+emp1.displayEmployee()
+emp2.displayEmployee()
+print "Total Employee %d" % Employee.empCount
+</pre> <p>执行以上代码输出结果如下：</p> <pre>
+Name :  Zara ,Salary:  2000
+Name :  Manni ,Salary:  5000
+Total Employee 2
+</pre> <p>你可以添加，删除，修改类的属性，如下所示：</p> <pre>
+emp1.age = 7  # 添加一个 'age' 属性
+emp1.age = 8  # 修改 'age' 属性
+del emp1.age  # 删除 'age' 属性
+</pre> <p>你也可以使用以下函数的方式来访问属性：</p> <ul> <li>getattr(obj, name[, default]) : 访问对象的属性。</li> <li>hasattr(obj,name) : 检查是否存在一个属性。</li> <li>setattr(obj,name,value) : 设置一个属性。如果属性不存在，会创建一个新属性。</li> <li>delattr(obj, name) : 删除属性。</li> </ul> <pre>
+hasattr(emp1, 'age')    # 如果存在 'age' 属性返回 True。
+getattr(emp1, 'age')    # 返回 'age' 属性的值
+setattr(emp1, 'age', 8) # 添加属性 'age' 值为 8
+delattr(empl, 'age')    # 删除属性 'age'
+</pre> <hr> <h2>Python内置类属性</h2> <ul> <li>__dict__ : 类的属性（包含一个字典，由类的数据属性组成） </li> <li>__doc__ :类的文档字符串 </li> <li>__name__: 类名 </li> <li>__module__: 类定义所在的模块（类的全名是'__main__.className'，如果类位于一个导入模块mymod中，那么className.__module__ 等于 mymod） </li> <li>__bases__ : 类的所有父类构成元素（包含了以个由所有父类组成的元组） </li> </ul> <p>Python内置类属性调用实例如下：</p> <pre>
+#!/usr/bin/python
+
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+   
+   def displayCount(self):
+     print "Total Employee %d" % Employee.empCount
+
+   def displayEmployee(self):
+      print "Name : ", self.name,  ", Salary: ", self.salary
+
+print "Employee.__doc__:", Employee.__doc__
+print "Employee.__name__:", Employee.__name__
+print "Employee.__module__:", Employee.__module__
+print "Employee.__bases__:", Employee.__bases__
+print "Employee.__dict__:", Employee.__dict__
+</pre> <p>执行以上代码输出结果如下：</p> <pre>
+Employee.__doc__: Common base class for all employees
+Employee.__name__: Employee
+Employee.__module__: __main__
+Employee.__bases__: ()
+Employee.__dict__: {'__module__': '__main__', 'displayCount':
+&lt;function displayCount at 0xb7c84994&gt;, 'empCount': 2, 
+'displayEmployee': &lt;function displayEmployee at 0xb7c8441c&gt;, 
+'__doc__': 'Common base class for all employees', 
+'__init__': &lt;function __init__ at 0xb7c846bc&gt;}
+</pre> <hr> <h2>python对象销毁(垃圾回收)</h2> <p> 同Java语言一样，Python使用了引用计数这一简单技术来追踪内存中的对象。</p> 在Python内部记录着所有使用中的对象各有多少引用。</p><p> 一个内部跟踪变量，称为一个引用计数器。</p><p> 当对象被创建时， 就创建了一个引用计数， 当这个对象不再需要时， 也就是说， 这个对象的引用计数变为0 时， 它被垃圾回收。但是回收不是"立即"的， 由解释器在适当的时机，将垃圾对象占用的内存空间回收。</p> <pre>
+a = 40      # 创建对象  &lt;40&gt;
+b = a       # 增加引用， &lt;40&gt; 的计数
+c = [b]     # 增加引用.  &lt;40&gt; 的计数
+
+del a       # 减少引用 &lt;40&gt; 的计数
+b = 100     # 减少引用 &lt;40&gt; 的计数
+c[0] = -1   # 减少引用 &lt;40&gt; 的计数
+</pre> <p>垃圾回收机制不仅针对引用计数为0的对象，同样也可以处理循环引用的情况。循环引用指的是，两个对象相互引用，但是没有其他变量引用他们。这种情况下，仅使用引用计数是不够的。Python 的垃圾收集器实际上是一个引用计数器和一个循环垃圾收集器。作为引用计数的补充， 垃圾收集器也会留心被分配的总量很大（及未通过引用计数销毁的那些）的对象。 在这种情况下， 解释器会暂停下来， 试图清理所有未引用的循环。 </p> <h3>实例</h3> <p>析构函数 __del__ ，__del__在对象消逝的时候被调用，当对象不再被使用时，__del__方法运行： </p> <pre>
+#!/usr/bin/python
+
+class Point:
+   def __init( self, x=0, y=0):
+      self.x = x
+      self.y = y
+   def __del__(self):
+      class_name = self.__class__.__name__
+      print class_name, "destroyed"
+
+pt1 = Point()
+pt2 = pt1
+pt3 = pt1
+print id(pt1), id(pt2), id(pt3) # 打印对象的id
+del pt1
+del pt2
+del pt3
+&lt;pre&gt;
+&lt;p&gt;以上实例运行结果如下：&lt;/p&gt;
+&lt;pre&gt;
+3083401324 3083401324 3083401324
+Point destroyed
+</pre> <p> <strong>注意：</strong>通常你需要在单独的文件中定义一个类， </p> <h2>类的继承</h2> <p>面向对象的编程带来的主要好处之一是代码的重用，实现这种重用的方法之一是通过继承机制。继承完全可以理解成类之间的类型和子类型关系。</p> <p>需要注意的地方：<strong>继承语法</strong> class 派生类名（<strong>基类名</strong>）：//... 基类名写作括号里，基本类是在类定义的时候，在元组之中指明的。</p> <p>在python中继承中的一些特点：</p> <ul> <li>1：在继承中基类的构造（__init__()方法）不会被自动调用，它需要在其派生类的构造中亲自专门调用。</li> <li>2：在调用基类的方法时，需要加上基类的类名前缀，且需要带上self参数变量。区别于在类中调用普通函数时并不需要带上self参数</li> <li>3：Python总是首先查找对应类型的方法，如果它不能在派生类中找到对应的方法，它才开始到基类中逐个查找。（先在本类中查找调用的方法，找不到才去基类中找）。</li> </ul> <p>如果在继承元组中列了一个以上的类，那么它就被称作"多重继承" 。</p> <p><strong>语法：</strong></p> <p>派生类的声明，与他们的父类类似，继承的基类列表跟在类名之后，如下所示：</p> <pre>
+class SubClassName (ParentClass1[, ParentClass2, ...]):
+   'Optional class documentation string'
+   class_suite
+</pre> <p>实例：</p> <pre>
+#!/usr/bin/python
+
+class Parent:        # define parent class
+   parentAttr = 100
+   def __init__(self):
+      print "Calling parent constructor"
+
+   def parentMethod(self):
+      print 'Calling parent method'
+
+   def setAttr(self, attr):
+      Parent.parentAttr = attr
+
+   def getAttr(self):
+      print "Parent attribute :", Parent.parentAttr
+
+class Child(Parent): # define child class
+   def __init__(self):
+      print "Calling child constructor"
+
+   def childMethod(self):
+      print 'Calling child method'
+
+c = Child()          # 实例化子类
+c.childMethod()      # 调用子类的方法
+c.parentMethod()     # 调用父类方法
+c.setAttr(200)       # 再次调用父类的方法
+c.getAttr()          # 再次调用父类的方法
+</pre> <p>以上代码执行结果如下：</p> <pre>
+Calling child constructor
+Calling child method
+Calling parent method
+Parent attribute : 200
+</pre> <p>你可以继承多个类</p> <pre>
+class A:        # define your class A
+.....
+
+class B:         # define your calss B
+.....
+
+class C(A, B):   # subclass of A and B
+.....
+</pre> <p>你可以使用issubclass()或者isinstance()方法来检测。</p> <ul> <li>issubclass() - 布尔函数判断一个类是另一个类的子类或者子孙类，语法：issubclass(sub,sup)</li> <li>isinstance(obj, Class) 布尔函数如果obj是Class类的实例对象或者是一个Class子类的实例对象则返回true。</li> </ul> <hr><h2>重载方法</h2> <p> 如果你的父类方法的功能不能满足你的需求，你可以在子类重载你父类的方法：</p> <p>实例：</p> <pre>
+#!/usr/bin/python
+
+class Parent:        # 定义父类
+   def myMethod(self):
+      print 'Calling parent method'
+
+class Child(Parent): # 定义子类
+   def myMethod(self):
+      print 'Calling child method'
+
+c = Child()          # 子类实例
+c.myMethod()         # 子类调用重载方法
+</pre> <p>执行以上代码输出结果如下：</p> <pre>
+Calling child method
+</pre> <hr> <h2>基础重载方法</h2> <p>下表列出了一些通用的功能，你可以在自己的类重写：</p> <table class="reference"> <tbody><tr> <th style="width:10%">序号</th><th>方法, 描述 &amp; 简单的调用</th> </tr> <tr><td>1</td><td><b>__init__ ( self [,args...] )</b><br>构造函数<br>简单的调用方法: <i>obj = className(args)</i></td></tr> <tr><td>2</td><td><b>__del__( self )</b><br>析构方法, 删除一个对象<br>简单的调用方法 : <i>dell obj</i></td></tr> <tr><td>3</td><td><b>__repr__( self )</b><br>转化为供解释器读取的形式<br>简单的调用方法 : <i>repr(obj)</i></td></tr> <tr><td>4</td><td><b>__str__( self )</b><br> 用于将值转化为适于人阅读的形式<br>简单的调用方法 : <i>str(obj)</i></td></tr> <tr><td>5</td><td><b>__cmp__ ( self, x )</b><br>对象比较<br>简单的调用方法 : <i>cmp(obj, x)</i></td></tr> </tbody></table> <hr> <h2>运算符重载</h2> <p>Python同样支持运算符重载，实例如下：</p> <pre>
+#!/usr/bin/python
+
+class Vector:
+   def __init__(self, a, b):
+      self.a = a
+      self.b = b
+
+   def __str__(self):
+      return 'Vector (%d, %d)' % (self.a, self.b)
+   
+   def __add__(self,other):
+      return Vector(self.a + other.a, self.b + other.b)
+
+v1 = Vector(2,10)
+v2 = Vector(5,-2)
+print v1 + v2
+</pre> <p>以上代码执行结果如下所示:</p> <pre>
+Vector(7,8)
+</pre><hr> <h2>隐藏数据</h2> <p>在python中实现数据隐藏很简单，不需要在前面加什么关键字，只要把类变量名或成员函数前面加两个下划线即可实现数据隐藏的功能，这样，对于类的实例来说，其变量名和成员函数是不能使用的，对于其类的继承类来说，也是隐藏的，这样，其继承类可以定义其一模一样的变量名或成员函数名，而不会引起命名冲突。 实例：</p> <pre>
+#!/usr/bin/python
+
+class JustCounter:
+   __secretCount = 0
+  
+   def count(self):
+      self.__secretCount += 1
+      print self.__secretCount
+
+counter = JustCounter()
+counter.count()
+counter.count()
+print counter.__secretCount
+</pre> <p>Python 通过改变名称来包含类名:</p> <pre>
+1
+2
+Traceback (most recent call last):
+  File "test.py", line 12, in &lt;module&gt;
+    print counter.__secretCount
+AttributeError: JustCounter instance has no attribute '__secretCount'
+</pre> <p>Python不允许实例化的类访问隐藏数据，但你可以使用object._className__attrName访问属性，将如下代码替换以上代码的最后一行代码：</p> <pre>
+.........................
+print counter._JustCounter__secretCount
+</pre> <p>执行以上代码，执行结果如下：</p> <pre>
+1
+2
+2
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="javascript:if(confirm('http://www.w3cschool.cc/python/try.php?filename=tryjsref_form_action  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/python/try.php?filename=tryjsref_form_action'" tppabs="http://www.w3cschool.cc/python/att-string-min.html" rel="prev"> Python min()方法</a></div> <div class="next"><a href="python-reg-expressions.html" tppabs="http://www.w3cschool.cc/python/python-reg-expressions.html" rel="next">Python正则表达式</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/python/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/python/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

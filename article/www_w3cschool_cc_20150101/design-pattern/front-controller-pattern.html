@@ -1,0 +1,198 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼ | w3cschoolèœé¸Ÿæ•™ç¨‹</title> <link rel='prev' title='æ•°æ®è®¿é—®å¯¹è±¡æ¨¡å¼' href="data-access-object-pattern.html"/> <link rel='next' title='æ‹¦æˆªè¿‡æ»¤å™¨æ¨¡å¼' href="intercepting-filter-pattern.html"/> <link rel='canonical' href='http://www.w3cschool.cc/design-pattern/front-controller-pattern.html'/> <meta name="keywords" content="å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼"> <meta name="description" content="å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼ å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼ï¼ˆFront Controller Patternï¼‰æ˜¯ç”¨æ¥æä¾›ä¸€ä¸ªé›†ä¸­çš„è¯·æ±‚å¤„ç†æœºåˆ¶ï¼Œæ‰€æœ‰çš„è¯·æ±‚éƒ½å°†ç”±ä¸€ä¸ªå•ä¸€çš„å¤„ç†ç¨‹åºå¤„ç†ã€‚è¯¥å¤„ç†ç¨‹åºå¯ä»¥åšè®¤è¯/æˆæƒ/è®°å½•æ—¥å¿—ï¼Œæˆ–è€…è·Ÿè¸ªè¯·æ±‚ï¼Œç„¶åæŠŠè¯·æ±‚ä¼ ç»™ç›¸åº”çš„å¤„ç†ç¨‹åºã€‚ä»¥ä¸‹æ˜¯è¿™ç§è®¾è®¡æ¨¡å¼çš„å®ä½“ã€‚ å‰ç«¯æ§åˆ¶å™¨ï¼ˆFront Controllerï¼‰ - å¤„ç†åº”ç”¨ç¨‹åºæ‰€æœ‰ç±»å‹è¯·æ±‚çš„å•ä¸ªå¤„ç†ç¨‹åºï¼Œåº”ç”¨ç¨‹åºå¯ä»¥æ˜¯åŸºäº web çš„åº”ç”¨ç¨‹åºï¼Œä¹Ÿå¯ä»¥æ˜¯åŸºäºæ¡Œé¢çš„åº”ç”¨ç¨‹åºã€‚ è°ƒåº¦å™¨ï¼ˆ.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschoolèœé¸Ÿæ•™ç¨‹"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="æœç´¢"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">é¦–é¡µ</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">å‰ç«¯å·¥å…·</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">æ›´å¤šâ€¦â€¦</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>è®¾è®¡æ¨¡å¼</strong></h2> <a target="_top" title="è®¾è®¡æ¨¡å¼" href="design-pattern-tutorial.html" tppabs="http://www.w3cschool.cc/design-pattern/design-pattern-tutorial.html"> è®¾è®¡æ¨¡å¼ </a> <a target="_top" title="è®¾è®¡æ¨¡å¼ç®€ä»‹" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/hosting-tutorial.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/hosting-tutorial.html'" tppabs="http://www.w3cschool.cc/design-pattern/design-pattern-intro.html"> è®¾è®¡æ¨¡å¼ç®€ä»‹ </a> <a target="_top" title="å·¥å‚æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/tcpip-tutorial.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/tcpip-tutorial.html'" tppabs="http://www.w3cschool.cc/design-pattern/factory-pattern.html"> å·¥å‚æ¨¡å¼ </a> <a target="_top" title="æŠ½è±¡å·¥å‚æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/w3c-tutorial.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/w3c-tutorial.html'" tppabs="http://www.w3cschool.cc/design-pattern/abstract-factory-pattern.html"> æŠ½è±¡å·¥å‚æ¨¡å¼ </a> <a target="_top" title="å•ä¾‹æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/quality-tutorial.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/quality-tutorial.html'" tppabs="http://www.w3cschool.cc/design-pattern/singleton-pattern.html"> å•ä¾‹æ¨¡å¼ </a> <a target="_top" title="å»ºé€ è€…æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/icon_book.gif  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ·şÎñÆ÷±¨¸æ¸ÃÎÄ¼şÎ´ÕÒµ½¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/icon_book.gif'" tppabs="http://www.w3cschool.cc/design-pattern/builder-pattern.html"> å»ºé€ è€…æ¨¡å¼ </a> <a target="_top" title="åŸå‹æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/icon_cut.gif  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ·şÎñÆ÷±¨¸æ¸ÃÎÄ¼şÎ´ÕÒµ½¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/icon_cut.gif'" tppabs="http://www.w3cschool.cc/design-pattern/prototype-pattern.html"> åŸå‹æ¨¡å¼ </a> <a target="_top" title="é€‚é…å™¨æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/sitemap  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/sitemap'" tppabs="http://www.w3cschool.cc/design-pattern/adapter-pattern.html"> é€‚é…å™¨æ¨¡å¼ </a> <a target="_top" title="æ¡¥æ¥æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/icon_doc.gif  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ·şÎñÆ÷±¨¸æ¸ÃÎÄ¼şÎ´ÕÒµ½¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/icon_doc.gif'" tppabs="http://www.w3cschool.cc/design-pattern/bridge-pattern.html"> æ¡¥æ¥æ¨¡å¼ </a> <a target="_top" title="è¿‡æ»¤å™¨æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/html-reference.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/html-reference.html'" tppabs="http://www.w3cschool.cc/design-pattern/filter-pattern.html"> è¿‡æ»¤å™¨æ¨¡å¼ </a> <a target="_top" title="ç»„åˆæ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/html-charsets.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/html-charsets.html'" tppabs="http://www.w3cschool.cc/design-pattern/composite-pattern.html"> ç»„åˆæ¨¡å¼ </a> <a target="_top" title="è£…é¥°å™¨æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/jsref-tutorial.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/jsref-tutorial.html'" tppabs="http://www.w3cschool.cc/design-pattern/decorator-pattern.html"> è£…é¥°å™¨æ¨¡å¼ </a> <a target="_top" title="å¤–è§‚æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/sql-quickref.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/sql-quickref.html'" tppabs="http://www.w3cschool.cc/design-pattern/facade-pattern.html"> å¤–è§‚æ¨¡å¼ </a> <a target="_top" title="äº«å…ƒæ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/php-ref-array.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/php-ref-array.html'" tppabs="http://www.w3cschool.cc/design-pattern/flyweight-pattern.html"> äº«å…ƒæ¨¡å¼ </a> <a target="_top" title="ä»£ç†æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/jquerymobile-ref-data.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/jquerymobile-ref-data.html'" tppabs="http://www.w3cschool.cc/design-pattern/proxy-pattern.html"> ä»£ç†æ¨¡å¼ </a> <a target="_top" title="è´£ä»»é“¾æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/mongodb-tutorial.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/mongodb-tutorial.html'" tppabs="http://www.w3cschool.cc/design-pattern/chain-of-responsibility-pattern.html"> è´£ä»»é“¾æ¨¡å¼ </a> <a target="_top" title="å‘½ä»¤æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/css-reference.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/css-reference.html'" tppabs="http://www.w3cschool.cc/design-pattern/command-pattern.html"> å‘½ä»¤æ¨¡å¼ </a> <a target="_top" title="è§£é‡Šå™¨æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/html-colorpicker.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/html-colorpicker.html'" tppabs="http://www.w3cschool.cc/design-pattern/interpreter-pattern.html"> è§£é‡Šå™¨æ¨¡å¼ </a> <a target="_top" title="è¿­ä»£å™¨æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/html-colorname.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/html-colorname.html'" tppabs="http://www.w3cschool.cc/design-pattern/iterator-pattern.html"> è¿­ä»£å™¨æ¨¡å¼ </a> <a target="_top" title="ä¸­ä»‹è€…æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/dom-nodetype.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/dom-nodetype.html'" tppabs="http://www.w3cschool.cc/design-pattern/mediator-pattern.html"> ä¸­ä»‹è€…æ¨¡å¼ </a> <a target="_top" title="å¤‡å¿˜å½•æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/xslfo-reference.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/xslfo-reference.html'" tppabs="http://www.w3cschool.cc/design-pattern/memento-pattern.html"> å¤‡å¿˜å½•æ¨¡å¼ </a> <a target="_top" title="è§‚å¯Ÿè€…æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/xpath-functions.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/xpath-functions.html'" tppabs="http://www.w3cschool.cc/design-pattern/observer-pattern.html"> è§‚å¯Ÿè€…æ¨¡å¼ </a> <a target="_top" title="çŠ¶æ€æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/xsl-w3celementref.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/xsl-w3celementref.html'" tppabs="http://www.w3cschool.cc/design-pattern/state-pattern.html"> çŠ¶æ€æ¨¡å¼ </a> <a target="_top" title="ç©ºå¯¹è±¡æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/ios-tutorial.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/ios-tutorial.html'" tppabs="http://www.w3cschool.cc/design-pattern/null-object-pattern.html"> ç©ºå¯¹è±¡æ¨¡å¼ </a> <a target="_top" title="ç­–ç•¥æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/w3c-intro.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/w3c-intro.html'" tppabs="http://www.w3cschool.cc/design-pattern/strategy-pattern.html"> ç­–ç•¥æ¨¡å¼ </a> <a target="_top" title="æ¨¡æ¿æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/w3c.jpg  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ·şÎñÆ÷±¨¸æ¸ÃÎÄ¼şÎ´ÕÒµ½¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/w3c.jpg'" tppabs="http://www.w3cschool.cc/design-pattern/template-pattern.html"> æ¨¡æ¿æ¨¡å¼ </a> <a target="_top" title="è®¿é—®è€…æ¨¡å¼" href="javascript:if(confirm('http://www.w3cschool.cc/design-pattern/regexp-tutorial.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/design-pattern/regexp-tutorial.html'" tppabs="http://www.w3cschool.cc/design-pattern/visitor-pattern.html"> è®¿é—®è€…æ¨¡å¼ </a> <a target="_top" title="MVC æ¨¡å¼" href="mvc-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/mvc-pattern.html"> MVC æ¨¡å¼ </a> <a target="_top" title="ä¸šåŠ¡ä»£è¡¨æ¨¡å¼" href="business-delegate-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/business-delegate-pattern.html"> ä¸šåŠ¡ä»£è¡¨æ¨¡å¼ </a> <a target="_top" title="ç»„åˆå®ä½“æ¨¡å¼" href="composite-entity-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/composite-entity-pattern.html"> ç»„åˆå®ä½“æ¨¡å¼ </a> <a target="_top" title="æ•°æ®è®¿é—®å¯¹è±¡æ¨¡å¼" href="data-access-object-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/data-access-object-pattern.html"> æ•°æ®è®¿é—®å¯¹è±¡æ¨¡å¼ </a> <a target="_top" title="å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼" href="front-controller-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/front-controller-pattern.html"> å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼ </a> <a target="_top" title="æ‹¦æˆªè¿‡æ»¤å™¨æ¨¡å¼" href="intercepting-filter-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/intercepting-filter-pattern.html"> æ‹¦æˆªè¿‡æ»¤å™¨æ¨¡å¼ </a> <a target="_top" title="æœåŠ¡å®šä½å™¨æ¨¡å¼" href="service-locator-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/service-locator-pattern.html"> æœåŠ¡å®šä½å™¨æ¨¡å¼ </a> <a target="_top" title="ä¼ è¾“å¯¹è±¡æ¨¡å¼" href="transfer-object-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/transfer-object-pattern.html"> ä¼ è¾“å¯¹è±¡æ¨¡å¼ </a> <br><h2 class="left">è®¾è®¡æ¨¡å¼<span class="left_h2">å…¶ä»–</span></h2> <a target="_top" title="è®¾è®¡æ¨¡å¼èµ„æº" href="design-pattern-resources.html" tppabs="http://www.w3cschool.cc/design-pattern/design-pattern-resources.html"> è®¾è®¡æ¨¡å¼èµ„æº </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="data-access-object-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/data-access-object-pattern.html" rel="prev"> æ•°æ®è®¿é—®å¯¹è±¡æ¨¡å¼</a></div> <div class="next"><a href="intercepting-filter-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/intercepting-filter-pattern.html" rel="next">æ‹¦æˆªè¿‡æ»¤å™¨æ¨¡å¼</a> &raquo;</div> </div> <div id="content"> <h1>å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼</h1> <p>å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼ï¼ˆFront Controller Patternï¼‰æ˜¯ç”¨æ¥æä¾›ä¸€ä¸ªé›†ä¸­çš„è¯·æ±‚å¤„ç†æœºåˆ¶ï¼Œæ‰€æœ‰çš„è¯·æ±‚éƒ½å°†ç”±ä¸€ä¸ªå•ä¸€çš„å¤„ç†ç¨‹åºå¤„ç†ã€‚è¯¥å¤„ç†ç¨‹åºå¯ä»¥åšè®¤è¯/æˆæƒ/è®°å½•æ—¥å¿—ï¼Œæˆ–è€…è·Ÿè¸ªè¯·æ±‚ï¼Œç„¶åæŠŠè¯·æ±‚ä¼ ç»™ç›¸åº”çš„å¤„ç†ç¨‹åºã€‚ä»¥ä¸‹æ˜¯è¿™ç§è®¾è®¡æ¨¡å¼çš„å®ä½“ã€‚</p> <ul class="list"> <li><b>å‰ç«¯æ§åˆ¶å™¨ï¼ˆFront Controllerï¼‰</b> - å¤„ç†åº”ç”¨ç¨‹åºæ‰€æœ‰ç±»å‹è¯·æ±‚çš„å•ä¸ªå¤„ç†ç¨‹åºï¼Œåº”ç”¨ç¨‹åºå¯ä»¥æ˜¯åŸºäº web çš„åº”ç”¨ç¨‹åºï¼Œä¹Ÿå¯ä»¥æ˜¯åŸºäºæ¡Œé¢çš„åº”ç”¨ç¨‹åºã€‚</li> <li><b>è°ƒåº¦å™¨ï¼ˆDispatcherï¼‰</b> - å‰ç«¯æ§åˆ¶å™¨å¯èƒ½ä½¿ç”¨ä¸€ä¸ªè°ƒåº¦å™¨å¯¹è±¡æ¥è°ƒåº¦è¯·æ±‚åˆ°ç›¸åº”çš„å…·ä½“å¤„ç†ç¨‹åºã€‚</li> <li><b>è§†å›¾ï¼ˆViewï¼‰</b> - è§†å›¾æ˜¯ä¸ºè¯·æ±‚è€Œåˆ›å»ºçš„å¯¹è±¡ã€‚</li> </ul> <h2>å®ç°</h2> <p>æˆ‘ä»¬å°†åˆ›å»º <i>FrontController</i>ã€<i>Dispatcher</i> åˆ†åˆ«å½“ä½œå‰ç«¯æ§åˆ¶å™¨å’Œè°ƒåº¦å™¨ã€‚<i>HomeView</i> å’Œ <i>StudentView</i> è¡¨ç¤ºå„ç§ä¸ºå‰ç«¯æ§åˆ¶å™¨æ¥æ”¶åˆ°çš„è¯·æ±‚è€Œåˆ›å»ºçš„è§†å›¾ã€‚</p> <p><i>FrontControllerPatternDemo</i>ï¼Œæˆ‘ä»¬çš„æ¼”ç¤ºç±»ä½¿ç”¨ <i>FrontController</i> æ¥æ¼”ç¤ºå‰ç«¯æ§åˆ¶å™¨è®¾è®¡æ¨¡å¼ã€‚</p> <img src="../wp-content/uploads/2014/08/xml-examples.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/08/frontcontroller_pattern_uml_diagram.jpg" alt="å‰ç«¯æ§åˆ¶å™¨æ¨¡å¼çš„ UML å›¾"/> <h2>æ­¥éª¤ 1</h2> <p>åˆ›å»ºè§†å›¾ã€‚</p> <p><i>HomeView.java</i></p> <pre class="prettyprint">
+public class HomeView {
+   public void show(){
+      System.out.println("Displaying Home Page");
+   }
+}
+</pre> <p><i>StudentView.java</i></p> <pre class="prettyprint">
+public class StudentView {
+   public void show(){
+      System.out.println("Displaying Student Page");
+   }
+}
+</pre> <h2>æ­¥éª¤ 2</h2> <p>åˆ›å»ºè°ƒåº¦å™¨ Dispatcherã€‚</p> <p><i>Dispatcher.java</i></p> <pre class="prettyprint">
+public class Dispatcher {
+   private StudentView studentView;
+   private HomeView homeView;
+   public Dispatcher(){
+      studentView = new StudentView();
+      homeView = new HomeView();
+   }
+
+   public void dispatch(String request){
+      if(request.equalsIgnoreCase("STUDENT")){
+         studentView.show();
+      }else{
+         homeView.show();
+      }	
+   }
+}
+</pre> <h2>æ­¥éª¤ 3</h2> <p>åˆ›å»ºå‰ç«¯æ§åˆ¶å™¨ FrontControllerã€‚</p> <p><i>Context.java</i></p> <pre class="prettyprint">
+public class FrontController {
+	
+   private Dispatcher dispatcher;
+
+   public FrontController(){
+      dispatcher = new Dispatcher();
+   }
+
+   private boolean isAuthenticUser(){
+      System.out.println("User is authenticated successfully.");
+      return true;
+   }
+
+   private void trackRequest(String request){
+      System.out.println("Page requested: " + request);
+   }
+
+   public void dispatchRequest(String request){
+      //è®°å½•æ¯ä¸€ä¸ªè¯·æ±‚
+      trackRequest(request);
+      //å¯¹ç”¨æˆ·è¿›è¡Œèº«ä»½éªŒè¯
+      if(isAuthenticUser()){
+         dispatcher.dispatch(request);
+      }	
+   }
+}
+</pre> <h2>æ­¥éª¤ 4</h2> <p>ä½¿ç”¨ <i>FrontController</i> æ¥æ¼”ç¤ºå‰ç«¯æ§åˆ¶å™¨è®¾è®¡æ¨¡å¼ã€‚</p> <p><i>FrontControllerPatternDemo.java</i></p> <pre class="prettyprint">
+public class FrontControllerPatternDemo {
+   public static void main(String[] args) {
+      FrontController frontController = new FrontController();
+      frontController.dispatchRequest("HOME");
+      frontController.dispatchRequest("STUDENT");
+   }
+}
+</pre> <h2>æ­¥éª¤ 5</h2> <p>éªŒè¯è¾“å‡ºã€‚</p> <pre class="result">
+Page requested: HOME
+User is authenticated successfully.
+Displaying Home Page
+Page requested: STUDENT
+User is authenticated successfully.
+Displaying Student Page
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="data-access-object-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/data-access-object-pattern.html" rel="prev"> æ•°æ®è®¿é—®å¯¹è±¡æ¨¡å¼</a></div> <div class="next"><a href="intercepting-filter-pattern.html" tppabs="http://www.w3cschool.cc/design-pattern/intercepting-filter-pattern.html" rel="next">æ‹¦æˆªè¿‡æ»¤å™¨æ¨¡å¼</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">å…³æ³¨å¾®ä¿¡ä¸‹è½½ç¦»çº¿æ‰‹å†Œ</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschoolç§»åŠ¨ç‰ˆ"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.ccèœé¸Ÿå®¶æ—" title="w3cschool.ccèœé¸Ÿå®¶æ—"></a> </div> <div class="rightad"> <h2>å‚è€ƒæ‰‹å†Œ</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML å‚è€ƒæ‰‹å†Œ</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS å‚è€ƒæ‰‹å†Œ">JS å‚è€ƒæ‰‹å†Œ</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS å‚è€ƒæ‰‹å†Œ">CSS å‚è€ƒæ‰‹å†Œ</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>HTML/CSS/JS åœ¨çº¿å·¥å…·</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>JSON æ ¼å¼å·¥å…·</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>ç¨‹åºçŒ¿å­¦ä¹ è·¯çº¿</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>æ‰“å¼€CHMæ–‡æ¡£é‡åˆ°é—®é¢˜â€¦â€¦</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="é—®é¢˜/æ„è§åé¦ˆ"/>é—®é¢˜/æ„è§åé¦ˆ</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3Cèœé¸Ÿç¬”è®°</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">å…è´£å£°æ˜</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">å…³äºæˆ‘ä»¬</a> </ul> </div> <div id="footerText"> æä¾›çš„å†…å®¹ä»…ç”¨äºåŸ¹è®­ã€‚æˆ‘ä»¬ä¸ä¿è¯å†…å®¹çš„æ­£ç¡®æ€§ã€‚é€šè¿‡ä½¿ç”¨æœ¬ç«™å†…å®¹éšä¹‹è€Œæ¥çš„é£é™©ä¸æœ¬ç«™æ— å…³ã€‚å½“ä½¿ç”¨æœ¬ç«™æ—¶ï¼Œä»£è¡¨æ‚¨å·²æ¥å—äº†æœ¬ç«™çš„ä½¿ç”¨æ¡æ¬¾å’Œéšç§æ¡æ¬¾ã€‚ ç‰ˆæƒæ‰€æœ‰ï¼Œä¿ç•™ä¸€åˆ‡æƒåˆ©ã€‚W3CSchool ç®€ä½“ä¸­æ–‡ç‰ˆçš„æ‰€æœ‰å†…å®¹ä»…ä¾›æµ‹è¯•ï¼Œå¯¹ä»»ä½•æ³•å¾‹é—®é¢˜åŠé£é™©ä¸æ‰¿æ‹…ä»»ä½•è´£ä»»ã€‚ </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">åˆ†äº«åˆ°</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="åˆ†äº«åˆ°QQç©ºé—´" href="#"></a> <a class="bds_tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš" href="#"></a> <a class="bds_tqq" title="åˆ†äº«åˆ°äººäººç½‘" href="#"></a> <a class="bds_baidu" title="ç™¾åº¦æ”¶è—" href="#"></a> <span class="bds_more">æ›´å¤š</span> <a class="shareCount" id="shareCount" href="#" title="ç´¯è®¡åˆ†äº«0æ¬¡">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //é…è‰²æ ‡è®°
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //ç»“æŸå¾ªç¯
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //ç¬¬äºŒé‡åˆ¤æ–­
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/design-pattern/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/design-pattern/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

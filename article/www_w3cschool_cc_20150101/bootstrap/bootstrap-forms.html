@@ -1,0 +1,549 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Bootstrap 表单 | w3cschool菜鸟教程</title> <link rel='prev' title='Bootstrap 表格' href="bootstrap-tables.html"/> <link rel='next' title='Bootstrap 按钮' href="bootstrap-buttons.html"/> <link rel='canonical' href='http://www.w3cschool.cc/bootstrap/bootstrap-forms.html'/> <meta name="keywords" content="Bootstrap 表单"> <meta name="description" content="Bootstrap 表单 在本章中，我们将学习如何使用 Bootstrap 创建表单。Bootstrap 通过一些简单的 HTML 标记和扩展的类即可创建出不同样式的表单。 表单布局 Bootstrap 提供了下列类型的表单布局： 垂直表单（默认） 内联表单 水平表单 垂直或基本表单 基本的表单结构是 Bootstrap 自带的，个别的表单控件自动接收一些全局样式。下面列出了创建基本表单的步骤： 向父 &amp;lt;fo.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Bootstrap 教程</strong></h2> <a target="_top" title="Bootstrap 教程" href="bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html"> Bootstrap 教程 </a> <a target="_top" href="bootstrap-intro.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-intro.html"> Bootstrap 简介 </a> <a target="_top" href="bootstrap-environment-setup.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-environment-setup.html"> Bootstrap 环境安装 </a> <br><h2 class="left">Bootstrap <span class="left_h2">CSS</span></h2> <a target="_top" href="bootstrap-css-overview.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-css-overview.html"> Bootstrap CSS 概览 </a> <a target="_top" href="bootstrap-grid-system.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-grid-system.html"> Bootstrap 网格系统 </a> <a target="_top" href="bootstrap-typography.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-typography.html"> Bootstrap 排版 </a> <a target="_top" href="bootstrap-code.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-code.html"> Bootstrap 代码 </a> <a target="_top" href="bootstrap-tables.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tables.html"> Bootstrap 表格 </a> <a target="_top" href="bootstrap-forms.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-forms.html"> Bootstrap 表单 </a> <a target="_top" href="bootstrap-buttons.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-buttons.html"> Bootstrap 按钮 </a> <a target="_top" href="bootstrap-images.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-images.html"> Bootstrap 图像 </a> <a target="_top" href="bootstrap-helper-classes.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-helper-classes.html"> Bootstrap 帮助器类 </a> <a target="_top" href="bootstrap-responsive-utilities.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-responsive-utilities.html"> Bootstrap 响应式实用工具 </a> <br><h2 class="left">Bootstrap <span class="left_h2">布局组件</span></h2> <a target="_top" href="bootstrap-glyphicons.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-glyphicons.html"> Bootstrap 字形图标 </a> <a target="_top" href="bootstrap-dropdowns.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-dropdowns.html"> Bootstrap 下拉菜单 </a> <a target="_top" href="bootstrap-button-groups.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-button-groups.html"> Bootstrap 按钮组 </a> <a target="_top" href="bootstrap-button-dropdowns.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-button-dropdowns.html"> Bootstrap 按钮下拉菜单 </a> <a target="_top" href="bootstrap-input-groups.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-input-groups.html"> Bootstrap 输入框组 </a> <a target="_top" href="bootstrap-navigation-elements.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-navigation-elements.html"> Bootstrap 导航元素 </a> <a target="_top" href="bootstrap-navbar.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-navbar.html"> Bootstrap 导航栏 </a> <a target="_top" href="bootstrap-breadcrumbs.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-breadcrumbs.html"> Bootstrap 面包屑导航 </a> <a target="_top" href="bootstrap-pagination.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-pagination.html"> Bootstrap 分页 </a> <a target="_top" href="bootstrap-labels.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-labels.html"> Bootstrap 标签 </a> <a target="_top" href="bootstrap-badges.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-badges.html"> Bootstrap 徽章 </a> <a target="_top" href="bootstrap-jumbotron.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-jumbotron.html"> Bootstrap 超大屏幕 </a> <a target="_top" href="bootstrap-page-header.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-page-header.html"> Bootstrap 页面标题 </a> <a target="_top" href="bootstrap-thumbnails.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-thumbnails.html"> Bootstrap 缩略图 </a> <a target="_top" href="bootstrap-alerts.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-alerts.html"> Bootstrap 警告 </a> <a target="_top" href="bootstrap-progress-bars.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-progress-bars.html"> Bootstrap 进度条 </a> <a target="_top" href="bootstrap-media-object.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-media-object.html"> Bootstrap 多媒体对象 </a> <a target="_top" href="bootstrap-list-group.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-list-group.html"> Bootstrap 列表组 </a> <a target="_top" href="bootstrap-panels.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-panels.html"> Bootstrap 面板 </a> <a target="_top" href="bootstrap-wells.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-wells.html"> Bootstrap Wells </a> <br><h2 class="left">Bootstrap <span class="left_h2">插件</span></h2> <a target="_top" title="Bootstrap 插件概览" href="bootstrap-plugins-overview.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-plugins-overview.html"> Bootstrap 插件概览 </a> <a target="_top" title="Bootstrap 过渡效果（Transition）插件" href="bootstrap-transition-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-transition-plugin.html"> Bootstrap 过渡效果 </a> <a target="_top" title="Bootstrap 模态框（Modal）插件" href="bootstrap-modal-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-modal-plugin.html"> Bootstrap 模态框 </a> <a target="_top" title="Bootstrap 下拉菜单（Dropdown）插件" href="bootstrap-dropdown-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-dropdown-plugin.html"> Bootstrap 下拉菜单 </a> <a target="_top" title="Bootstrap 滚动监听（Scrollspy）插件" href="bootstrap-scrollspy-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-scrollspy-plugin.html"> Bootstrap 滚动监听 </a> <a target="_top" title="Bootstrap 标签页（Tab）插件" href="bootstrap-tab-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tab-plugin.html"> Bootstrap 标签页 </a> <a target="_top" title="Bootstrap 工具提示（Tooltip）插件" href="bootstrap-tooltip-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tooltip-plugin.html"> Bootstrap 工具提示 </a> <a target="_top" title="Bootstrap 弹出框（Popover）插件" href="bootstrap-popover-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-popover-plugin.html"> Bootstrap 弹出框 </a> <a target="_top" title="Bootstrap 警告框" href="bootstrap-alert-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-alert-plugin.html"> Bootstrap 警告框 </a> <a target="_top" title="Bootstrap 按钮（Button）插件" href="bootstrap-button-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-button-plugin.html"> Bootstrap 按钮 </a> <a target="_top" title="Bootstrap 折叠（Collapse）插件" href="bootstrap-collapse-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-collapse-plugin.html"> Bootstrap 折叠 </a> <a target="_top" title="Bootstrap 轮播（Carousel）插件" href="bootstrap-carousel-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-carousel-plugin.html"> Bootstrap 轮播 </a> <a target="_top" title="Bootstrap 附加导航（Affix）插件" href="bootstrap-affix-plugin.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-affix-plugin.html"> Bootstrap 附加导航 </a> <br><h2 class="left">Bootstrap <span class="left_h2">其他</span></h2> <a target="_top" href="bootstrap-ui-editor.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-ui-editor.html"> Bootstrap UI 编辑器 </a> <a target="_top" href="bootstrap-v2-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-v2-tutorial.html"> Bootstrap v2 教程 </a></div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="bootstrap-tables.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tables.html" rel="prev"> Bootstrap 表格</a></div> <div class="next"><a href="bootstrap-buttons.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-buttons.html" rel="next">Bootstrap 按钮</a> &raquo;</div> </div> <div id="content"> <h1>Bootstrap <span class="color_h1">表单</span></h1> <div class="tutintro"> <p>在本章中，我们将学习如何使用 Bootstrap 创建表单。Bootstrap 通过一些简单的 HTML 标记和扩展的类即可创建出不同样式的表单。</p> </div> <h2 class="tutheader">表单布局</h2> <p>Bootstrap 提供了下列类型的表单布局：</p> <ul class="list"> <li>垂直表单（默认）</li> <li>内联表单</li> <li>水平表单</li> </ul> <h3>垂直或基本表单</h3> <p>基本的表单结构是 Bootstrap 自带的，个别的表单控件自动接收一些全局样式。下面列出了创建基本表单的步骤：</p> <ul class="list"> <li>向父 &lt;form&gt; 元素添加 <i>role="form"</i>。</li> <li>把标签和控件放在一个带有 class <i>.form-group</i> 的 &lt;div&gt; 中。这是获取最佳间距所必需的。</li> <li>向所有的文本元素 &lt;input&gt;、&lt;textarea&gt; 和 &lt;select&gt; 添加 class <i>.form-control</i>。</li> </ul> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 基本表单&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form role="form"&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="name"&gt;名称&lt;/label&gt;
+      &lt;input type="text" class="form-control" id="name" 
+         placeholder="请输入名称"&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="inputfile"&gt;文件输入&lt;/label&gt;
+      &lt;input type="file" id="inputfile"&gt;
+      &lt;p class="help-block"&gt;这里是块级帮助文本的实例。&lt;/p&gt;
+   &lt;/div&gt;
+   &lt;div class="checkbox"&gt;
+      &lt;label&gt;
+      &lt;input type="checkbox"&gt; 请打勾
+      &lt;/label&gt;
+   &lt;/div&gt;
+   &lt;button type="submit" class="btn btn-default"&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-sortable.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-sortable.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-basic" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-accordion.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/basicform_demo.jpg" alt="基本表单"/> </div> <h3>内联表单</h3> <p>如果需要创建一个表单，它的所有元素是内联的，向左对齐的，标签是并排的，请向 &lt;form&gt; 标签添加 class <i>.form-inline</i>。</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 内联表单&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form class="form-inline" role="form"&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label class="sr-only" for="name"&gt;名称&lt;/label&gt;
+      &lt;input type="text" class="form-control" id="name" 
+         placeholder="请输入名称"&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label class="sr-only" for="inputfile"&gt;文件输入&lt;/label&gt;
+      &lt;input type="file" id="inputfile"&gt;
+   &lt;/div&gt;
+   &lt;div class="checkbox"&gt;
+      &lt;label&gt;
+      &lt;input type="checkbox"&gt; 请打勾
+      &lt;/label&gt;
+   &lt;/div&gt;
+   &lt;button type="submit" class="btn btn-default"&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-autocomplete.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-autocomplete.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-inline" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-button.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/inlineform_demo.jpg" alt="内联表单"/> </div> <ul class="list"> <li>默认情况下，Bootstrap 中的 input、select 和 textarea 有 100% 宽度。在使用内联表单时，您需要在表单控件上设置一个宽度。</li> <li>使用 class <i>.sr-only</i>，您可以隐藏内联表单的标签。</li> </ul> <h3>水平表单</h3> <p>水平表单与其他表单不仅标记的数量上不同，而且表单的呈现形式也不同。如需创建一个水平布局的表单，请按下面的几个步骤进行：</p> <ul class="list"> <li>向父 &lt;form&gt; 元素添加 class <i>.form-horizontal</i>。</li> <li>把标签和控件放在一个带有 class <i>.form-group</i> 的 &lt;div&gt; 中。</li> <li>向标签添加 class <i>.control-label</i>。</li> </ul> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 水平表单&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form class="form-horizontal" role="form"&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="firstname" class="col-sm-2 control-label"&gt;名字&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="text" class="form-control" id="firstname" 
+            placeholder="请输入名字"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="lastname" class="col-sm-2 control-label"&gt;姓&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="text" class="form-control" id="lastname" 
+            placeholder="请输入姓"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;div class="col-sm-offset-2 col-sm-10"&gt;
+         &lt;div class="checkbox"&gt;
+            &lt;label&gt;
+               &lt;input type="checkbox"&gt; 请记住我
+            &lt;/label&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;div class="col-sm-offset-2 col-sm-10"&gt;
+         &lt;button type="submit" class="btn btn-default"&gt;登录&lt;/button&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-datepicker.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-datepicker.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-horizontal" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-dialog.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/horizontalform_demo.jpg" alt="水平表单"/> </div> <br/> <h2 class="tutheader">支持的表单控件</h2> <p>Bootstrap 支持最常见的表单控件，主要是 <i>input、textarea、checkbox、radio 和 select</i>。</p> <h3>输入框（Input）</h3> <p>最常见的表单文本字段是输入框 input。用户可以在其中输入大多数必要的表单数据。Bootstrap 提供了对所有原生的 HTML5 的 input 类型的支持，包括：<i>text、password、datetime、datetime-local、date、month、time、week、number、email、url、search、tel</i> 和 <i>color</i>。适当的 <i>type</i> 声明是必需的，这样才能让 <i>input</i> 获得完整的样式。</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 输入框&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form role="form"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="name"&gt;标签&lt;/label&gt;
+    &lt;input type="text" class="form-control" placeholder="文本输入"&gt;
+  &lt;/div&gt;
+ &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-menu.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-menu.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-inputs" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-progressbar.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/inputs_demo.jpg" alt="输入框"/> </div> <h3>文本框（Textarea）</h3> <p>当您需要进行多行输入的时，则可以使用文本框 textarea。必要时可以改变 <i>rows</i> 属性（较少的行 = 较小的盒子，较多的行 = 较大的盒子）。</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 文本框&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form role="form"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="name"&gt;文本框&lt;/label&gt;
+    &lt;textarea class="form-control" rows="3"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-slider.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-slider.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-textarea" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-spinner.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/textarea_demo.jpg" alt="文本框"/> </div> <h3>复选框（CheckBoxe）和单选框（Radio）</h3> <p>复选框和单选按钮用于让用户从一系列预设置的选项中进行选择。</p> <ul class="list"> <li>当创建表单时，如果您想让用户从列表中选择若干个选项时，请使用 <i>checkbox</i>。如果您限制用户只能选择一个选项，请使用 <i>radio</i>。</li> <li>对一系列复选框和单选框使用 <i>.checkbox-inline</i> 或 <i>.radio-inline</i> class，控制它们显示在同一行上。</li> </ul> <p>下面的实例演示了这两种类型（默认和内联）：</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 复选框和单选按钮&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;label for="name"&gt;默认的复选框和单选按钮的实例&lt;/label&gt;
+&lt;div class="checkbox"&gt;
+   &lt;label&gt;&lt;input type="checkbox" value=""&gt;选项 1&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="checkbox"&gt;
+   &lt;label&gt;&lt;input type="checkbox" value=""&gt;选项 2&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="radio"&gt;
+   &lt;label&gt;
+      &lt;input type="radio" name="optionsRadios" id="optionsRadios1" 
+         value="option1" checked&gt; 选项 1
+   &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="radio"&gt;
+   &lt;label&gt;
+      &lt;input type="radio" name="optionsRadios" id="optionsRadios2" 
+         value="option2"&gt;
+         选项 2 - 选择它将会取消选择选项 1
+   &lt;/label&gt;
+&lt;/div&gt;
+&lt;label for="name"&gt;内联的复选框和单选按钮的实例&lt;/label&gt;
+&lt;div&gt;
+   &lt;label class="checkbox-inline"&gt;
+      &lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 选项 1
+   &lt;/label&gt;
+   &lt;label class="checkbox-inline"&gt;
+      &lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 选项 2
+   &lt;/label&gt;
+   &lt;label class="checkbox-inline"&gt;
+      &lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 选项 3
+   &lt;/label&gt;
+   &lt;label class="checkbox-inline"&gt;
+      &lt;input type="radio" name="optionsRadiosinline" id="optionsRadios3" 
+         value="option1" checked&gt; 选项 1
+   &lt;/label&gt;
+   &lt;label class="checkbox-inline"&gt;
+      &lt;input type="radio" name="optionsRadiosinline" id="optionsRadios4" 
+         value="option2"&gt; 选项 2
+   &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-tabs.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-tabs.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-checkboxradio" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-tooltip.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/checkbox_demo.jpg" alt="复选框和单选按钮"/> </div> <h3>选择框（Select）</h3> <p>当您想让用户从多个选项中进行选择，但是默认情况下只能选择一个选项时，则使用选择框。</p> <ul class="list"> <li>使用 &lt;select&gt; 展示列表选项，通常是那些用户很熟悉的选择列表，比如州或者数字。</li> <li>使用 <i>multiple="multiple"</i> 允许用户选择多个选项。</li> </ul> <p>下面的实例演示了这两种类型（select 和 multiple）：</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 选择框&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form role="form"&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="name"&gt;选择列表&lt;/label&gt;
+      &lt;select class="form-control"&gt;
+         &lt;option&gt;1&lt;/option&gt;
+         &lt;option&gt;2&lt;/option&gt;
+         &lt;option&gt;3&lt;/option&gt;
+         &lt;option&gt;4&lt;/option&gt;
+         &lt;option&gt;5&lt;/option&gt;
+      &lt;/select&gt;
+
+      &lt;label for="name"&gt;可多选的选择列表&lt;/label&gt;
+      &lt;select multiple class="form-control"&gt;
+         &lt;option&gt;1&lt;/option&gt;
+         &lt;option&gt;2&lt;/option&gt;
+         &lt;option&gt;3&lt;/option&gt;
+         &lt;option&gt;4&lt;/option&gt;
+         &lt;option&gt;5&lt;/option&gt;
+      &lt;/select&gt;
+   &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-effect.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-effect.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-select" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-show.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/select_demo.jpg" alt="选择框"/> </div> <br/> <h2 class="tutheader">静态控件</h2> <p>当您需要在一个水平表单内的表单标签后放置纯文本时，请在 &lt;p&gt; 上使用 class <i>.form-control-static</i>。</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 静态控件&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form class="form-horizontal" role="form"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-sm-2 control-label"&gt;Email&lt;/label&gt;
+    &lt;div class="col-sm-10"&gt;
+      &lt;p class="form-control-static"&gt;email@example.com&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="inputPassword" class="col-sm-2 control-label"&gt;密码&lt;/label&gt;
+    &lt;div class="col-sm-10"&gt;
+      &lt;input type="password" class="form-control" id="inputPassword" 
+         placeholder="请输入密码"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-hide.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-hide.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-staticcontrol" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-toggle.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/staticcontrol_demo.jpg" alt="静态控件"/> </div> <br/> <h2 class="tutheader">表单控件状态</h2> <p>除了 <i>:focus</i> 状态（即，用户点击 input 或使用 tab 键聚焦到 input 上），Bootstrap 还为禁用的输入框定义了样式，并提供了表单验证的 class。</p> <h3>输入框焦点</h3> <p>当输入框 input 接收到 <i>:focus</i> 时，输入框的轮廓会被移除，同时应用 <i>box-shadow</i>。</p> <h3>禁用的输入框 input</h3> <p>如果您想要禁用一个输入框 input，只需要简单地添加 <i>disabled</i> 属性，这不仅会禁用输入框，还会改变输入框的样式以及当鼠标的指针悬停在元素上时鼠标指针的样式。</p> <h3>禁用的字段集 fieldset</h3> <p>对 &lt;fieldset&gt; 添加 disabled 属性来禁用 &lt;fieldset&gt; 内的所有控件。</p> <h3>验证状态</h3> <p>Bootstrap 包含了错误、警告和成功消息的验证样式。只需要对父元素简单地添加适当的 class（<i>.has-warning、 .has-error 或 .has-success</i>）即可使用验证状态。</p> <p>下面的实例演示了所有控件状态：</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 表单控件状态&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form class="form-horizontal" role="form"&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label class="col-sm-2 control-label"&gt;聚焦&lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input class="form-control" id="focusedInput" type="text" 
+            value="该输入框获得焦点..."&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;label for="inputPassword" class="col-sm-2 control-label"&gt;
+         禁用
+      &lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input class="form-control" id="disabledInput" type="text" 
+            placeholder="该输入框禁止输入..." disabled&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;fieldset disabled&gt;
+      &lt;div class="form-group"&gt;
+         &lt;label for="disabledTextInput"  class="col-sm-2 control-label"&gt;
+            禁用输入（Fieldset disabled）
+         &lt;/label&gt;
+         &lt;div class="col-sm-10"&gt;
+            &lt;input type="text" id="disabledTextInput" class="form-control" 
+               placeholder="禁止输入"&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="form-group"&gt;
+         &lt;label for="disabledSelect"  class="col-sm-2 control-label"&gt;
+            禁用选择菜单（Fieldset disabled）
+         &lt;/label&gt;
+         &lt;div class="col-sm-10"&gt;
+            &lt;select id="disabledSelect" class="form-control"&gt;
+               &lt;option&gt;禁止选择&lt;/option&gt;
+            &lt;/select&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+   &lt;/fieldset&gt;
+   &lt;div class="form-group has-success"&gt;
+      &lt;label class="col-sm-2 control-label" for="inputSuccess"&gt;
+         输入成功
+      &lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="text" class="form-control" id="inputSuccess"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group has-warning"&gt;
+      &lt;label class="col-sm-2 control-label" for="inputWarning"&gt;
+         输入警告
+      &lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="text" class="form-control" id="inputWarning"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group has-error"&gt;
+      &lt;label class="col-sm-2 control-label" for="inputError"&gt;
+         输入错误
+      &lt;/label&gt;
+      &lt;div class="col-sm-10"&gt;
+         &lt;input type="text" class="form-control" id="inputError"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-addclass.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-addclass.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-controlstate" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-removeclass.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/formcontrolstate_demo.jpg" alt="表单控件状态"/> </div> <br/> <h2 class="tutheader">表单控件大小</h2> <p>您可以分别使用 class <i>.input-lg</i> 和 <i>.col-lg-*</i> 来设置表单的高度和宽度。下面的实例演示了这点：</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 表单控件大小&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form role="form"&gt;
+   &lt;div class="form-group"&gt;
+      &lt;input class="form-control input-lg" type="text" 
+         placeholder=".input-lg"&gt;
+   &lt;/div&gt;
+
+   &lt;div class="form-group"&gt;
+      &lt;input class="form-control" type="text" placeholder="默认输入"&gt;
+   &lt;/div&gt;
+
+   &lt;div class="form-group"&gt;
+      &lt;input class="form-control input-sm" type="text" 
+         placeholder=".input-sm"&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;select class="form-control input-lg"&gt;
+         &lt;option value=""&gt;.input-lg&lt;/option&gt;
+      &lt;/select&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;select class="form-control"&gt;
+         &lt;option value=""&gt;默认选择&lt;/option&gt;
+      &lt;/select&gt;
+   &lt;/div&gt;
+   &lt;div class="form-group"&gt;
+      &lt;select class="form-control input-sm"&gt;
+         &lt;option value=""&gt;.input-sm&lt;/option&gt;
+      &lt;/select&gt;
+   &lt;/div&gt;
+
+   &lt;div class="row"&gt;
+      &lt;div class="col-lg-2"&gt;
+         &lt;input type="text" class="form-control" placeholder=".col-lg-2"&gt;
+      &lt;/div&gt;
+      &lt;div class="col-lg-3"&gt;
+         &lt;input type="text" class="form-control" placeholder=".col-lg-3"&gt;
+      &lt;/div&gt;
+      &lt;div class="col-lg-4"&gt;
+         &lt;input type="text" class="form-control" placeholder=".col-lg-4"&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-toggleclass.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-toggleclass.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-controlsize" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-switchclass.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/formcontrolsize_demo.jpg" alt="表单控件大小"/> </div> <br/> <h2 class="tutheader">表单帮助文本</h2> <p>Bootstrap 表单控件可以在输入框 input 上有一个块级帮助文本。为了添加一个占用整个宽度的内容块，请在 &lt;input&gt; 后使用 <i>.help-block</i>。下面的实例演示了这点：</p> <pre class="prettyprint tryit">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+   &lt;title&gt;Bootstrap 实例 - 表单帮助文本&lt;/title&gt;
+   &lt;link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;script src="/scripts/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form role="form"&gt;
+   &lt;span&gt;帮助文本实例&lt;/span&gt;
+   &lt;input class="form-control" type="text" placeholder=""&gt;
+   &lt;span class="help-block"&gt;一个较长的帮助文本块，超过一行，
+   需要扩展到下一行。本实例中的帮助文本总共有两行。&lt;/span&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/example-animate.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/example-animate.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=bootstrap3-form-helptext" target="_blank"><button class="btn example-btn">尝试一下 »</button></a></p> <p>结果如下所示：</p> <div class="cover" style="border: 1px solid #D6D6D6;padding: 5px;"> <img src="../wp-content/uploads/2014/06/example-position.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/06/formhelptext_demo.jpg" alt="表单帮助文本"/> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="bootstrap-tables.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tables.html" rel="prev"> Bootstrap 表格</a></div> <div class="next"><a href="bootstrap-buttons.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-buttons.html" rel="next">Bootstrap 按钮</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		$("pre").css('background-image', 'none');
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/bootstrap/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/bootstrap/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

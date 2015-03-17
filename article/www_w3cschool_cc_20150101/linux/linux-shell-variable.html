@@ -1,0 +1,205 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Shell 变量 | w3cschool菜鸟教程</title> <link rel='prev' title='Shell 教程' href="linux-shell.html"/> <link rel='next' title='Shell echo命令' href="linux-shell-echo.html"/> <link rel='canonical' href='http://www.w3cschool.cc/linux/linux-shell-variable.html'/> <meta name="keywords" content="Shell 变量"> <meta name="description" content="Shell 变量 定义变量时，变量名不加美元符号（$，PHP语言中变量需要），如： your_name=&#039;w3cschool.cc&#039; 注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则： 首个字符必须为字母（a-z，A-Z）。 中间不能有空格，可以使用下划线（_）。 不能使用标点符号。 不能使用bash里的关键字（可用he.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Linux 教程</strong></h2> <a target="_top" title="Linux 教程" href="linux-tutorial.html" tppabs="http://www.w3cschool.cc/linux/linux-tutorial.html"> Linux 教程 </a> <a target="_top" title="Linux 简介" href="linux-intro.html" tppabs="http://www.w3cschool.cc/linux/linux-intro.html"> Linux 简介 </a> <a target="_top" title="Linux 安装" href="linux-install.html" tppabs="http://www.w3cschool.cc/linux/linux-install.html"> Linux 安装 </a> <a target="_top" title="Linux 系统启动过程" href="linux-system-boot.html" tppabs="http://www.w3cschool.cc/linux/linux-system-boot.html"> Linux 系统启动过程 </a> <a target="_top" title="Linux 系统目录结构" href="linux-system-contents.html" tppabs="http://www.w3cschool.cc/linux/linux-system-contents.html"> Linux 系统目录结构 </a> <a target="_top" title="Linux 忘记密码解决方法" href="linux-forget-password.html" tppabs="http://www.w3cschool.cc/linux/linux-forget-password.html"> Linux 忘记密码解决方法 </a> <a target="_top" title="Linux 远程登录" href="linux-remote-login.html" tppabs="http://www.w3cschool.cc/linux/linux-remote-login.html"> Linux 远程登录 </a> <a target="_top" title="Linux 文件基本属性" href="linux-file-attr-permission.html" tppabs="http://www.w3cschool.cc/linux/linux-file-attr-permission.html"> Linux 文件基本属性 </a> <a target="_top" title="Linux 文件与目录管理" href="linux-file-content-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-file-content-manage.html"> Linux 文件与目录管理 </a> <a target="_top" title="Linux 用户和用户组管理" href="linux-user-manage.html" tppabs="http://www.w3cschool.cc/linux/linux-user-manage.html"> Linux 用户和用户组管理 </a> <a target="_top" title="Linux 磁盘管理" href="linux-filesystem.html" tppabs="http://www.w3cschool.cc/linux/linux-filesystem.html"> Linux 磁盘管理 </a> <a target="_top" title="Linux vi/vim" href="linux-vim.html" tppabs="http://www.w3cschool.cc/linux/linux-vim.html"> Linux vi/vim </a> <a target="_top" title="linux yum 命令" href="linux-yum.html" tppabs="http://www.w3cschool.cc/linux/linux-yum.html"> linux yum 命令 </a> <br><h2 class="left"><span class="left_h2">Shell</span> 编程</h2> <a target="_top" title="Shell 教程" href="linux-shell.html" tppabs="http://www.w3cschool.cc/linux/linux-shell.html"> Shell 教程 </a> <a target="_top" title="Shell 变量" href="linux-shell-variable.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-variable.html"> Shell 变量 </a> <a target="_top" title="Shell echo命令" href="linux-shell-echo.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-echo.html"> Shell echo命令 </a> <a target="_top" title="Shell test命令" href="linux-shell-test.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-test.html"> Shell test命令 </a> <a target="_top" title="Shell 流程控制" href="linux-shell-process-control.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-process-control.html"> Shell 流程控制 </a> <a target="_top" title="Shell 函数" href="linux-shell-func.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-func.html"> Shell 函数 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-shell.html" tppabs="http://www.w3cschool.cc/linux/linux-shell.html" rel="prev"> Shell 教程</a></div> <div class="next"><a href="linux-shell-echo.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-echo.html" rel="next">Shell echo命令</a> &raquo;</div> </div> <div id="content"> <h1>Shell 变量</h2> <p>定义变量时，变量名不加美元符号（$，PHP语言中变量需要），如：</p> <pre>
+your_name="w3cschool.cc"
+</pre> <p> 注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则： </p> <ul> <li> 首个字符必须为字母（a-z，A-Z）。</li> <li> 中间不能有空格，可以使用下划线（_）。</li> <li> 不能使用标点符号。</li> <li> 不能使用bash里的关键字（可用help命令查看保留关键字）。</li> </ul> <p>除了显式地直接赋值，还可以用语句给变量赋值，如：</p> <pre>
+for file in `ls /etc`
+</pre> <p>以上语句将 /etc 下目录的文件名循环出来。</p> <hr> <h3>使用变量</h3> <p>使用一个定义过的变量，只要在变量名前面加美元符号即可，如：</p> <pre>
+your_name="qinjx"
+echo $your_name
+echo ${your_name}
+</pre> <p> 变量名外面的花括号是可选的，加不加都行，加花括号是为了帮助解释器识别变量的边界，比如下面这种情况： </p> <pre>
+for skill in Ada Coffe Action Java do
+    echo "I am good at ${skill}Script"
+done
+</pre> <p> 如果不给skill变量加花括号，写成echo "I am good at $skillScript"，解释器就会把$skillScript当成一个变量（其值为空），代码执行结果就不是我们期望的样子了。 </p> <p> 推荐给所有变量加上花括号，这是个好的编程习惯。 </p> <p>已定义的变量，可以被重新定义，如：</p> <pre>
+your_name="tom"
+echo $your_name
+your_name="alibaba"
+echo $your_name
+</pre> <p> 这样写是合法的，但注意，第二次赋值的时候不能写$your_name="alibaba"，使用变量的时候才加美元符（$）。 </p> <hr> <h2>Shell 字符串</h2> <p>字符串是shell编程中最常用最有用的数据类型（除了数字和字符串，也没啥其它类型好用了），字符串可以用单引号，也可以用双引号，也可以不用引号。单双引号的区别跟PHP类似。 </p> <h3> 单引号 </h3> <pre>
+str='this is a string'
+</pre> <p> 单引号字符串的限制： </p> <ul> <li> 单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；</li> <li> 单引号字串中不能出现单引号（对单引号使用转义符后也不行）。</li> </ul> <h3>双引号 </h3> <pre>
+your_name='qinjx'
+str="Hello, I know your are \"$your_name\"! \n"
+</pre> <p> 双引号的优点：</p> <ul> <li> 双引号里可以有变量</li> <li> 双引号里可以出现转义字符</li> </ul> <h3> 拼接字符串 </h3> <pre>
+your_name="qinjx"
+greeting="hello, "$your_name" !"
+greeting_1="hello, ${your_name} !"
+echo $greeting $greeting_1
+</pre> <h3> 获取字符串长度 </h3> <pre>
+string="abcd"
+echo ${#string} #输出 4
+</pre> <h3> 提取子字符串 </h3> <pre>
+string="alibaba is a great company"
+echo ${string:1:4} #输出liba
+</pre> <h3> 查找子字符串 </h3> <pre>
+string="alibaba is a great company"
+echo `expr index "$string" is`
+</pre> <hr> <h2>Shell 数组</h2> <p> bash支持一维数组（不支持多维数组），并且没有限定数组的大小。</p> <p>类似与C语言，数组元素的下标由0开始编号。获取数组中的元素要利用下标，下标可以是整数或算术表达式，其值应大于或等于0。 </p> <h3> 定义数组 </h3> <p> 在Shell中，用括号来表示数组，数组元素用"空格"符号分割开。定义数组的一般形式为： </p> <pre>
+	数组名=(值1 值2 ... 值n)
+</pre> <p> 例如：</p> <pre>
+array_name=(value0 value1 value2 value3)
+</pre> <p> 或者 </p> <pre>
+array_name=(
+value0
+value1
+value2
+value3
+)
+</pre> <p> 还可以单独定义数组的各个分量： </p> <pre>
+array_name[0]=value0
+array_name[1]=value1
+array_name[n]=valuen
+</pre> <p> 可以不使用连续的下标，而且下标的范围没有限制。 </p> <h3> 读取数组 </h3> <p> 读取数组元素值的一般格式是：</p> <pre>
+    ${数组名[下标]}
+</pre> <p> 例如：</p> <pre>
+valuen=${array_name[n]}
+</pre> <p> 使用@符号可以获取数组中的所有元素，例如： </p> <pre>
+echo ${array_name[@]}
+</pre> <h3> 获取数组的长度 </h3> <p> 获取数组长度的方法与获取字符串长度的方法相同，例如： </p> <pre>
+# 取得数组元素的个数
+length=${#array_name[@]}
+# 或者
+length=${#array_name[*]}
+# 取得数组单个元素的长度
+lengthn=${#array_name[n]}
+</pre> <hr> <h2>Shell 注释</h2> <p>以"#"开头的行就是注释，会被解释器忽略。</p> <p> sh里没有多行注释，只能每一行加一个#号。只能像这样： </p> <pre>
+#--------------------------------------------
+# 这是一个自动打ipa的脚本，基于webfrogs的ipa-build书写：
+# https://github.com/webfrogs/xcode_shell/blob/master/ipa-build
+# 功能：自动为etao ios app打包，产出物为14个渠道的ipa包
+# 特色：全自动打包，不需要输入任何参数
+#--------------------------------------------
+##### 用户配置区 开始 #####
+#
+#
+# 项目根目录，推荐将此脚本放在项目的根目录，这里就不用改了
+# 应用名，确保和Xcode里Product下的target_name.app名字一致
+#
+##### 用户配置区 结束  #####
+</pre> <p> 如果在开发过程中，遇到大段的代码需要临时注释起来，过一会儿又取消注释，怎么办呢？</p> <p>每一行加个#符号太费力了，可以把这一段要注释的代码用一对花括号括起来，定义成一个函数，没有地方调用这个函数，这块代码就不会执行，达到了和注释一样的效果。 </p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="linux-shell.html" tppabs="http://www.w3cschool.cc/linux/linux-shell.html" rel="prev"> Shell 教程</a></div> <div class="next"><a href="linux-shell-echo.html" tppabs="http://www.w3cschool.cc/linux/linux-shell-echo.html" rel="next">Shell echo命令</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/linux/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/linux/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

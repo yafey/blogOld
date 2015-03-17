@@ -1,0 +1,177 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>JSP 生命周期 | w3cschool菜鸟教程</title> <link rel='prev' title='JSP 结构' href="jsp-architecture.html"/> <link rel='next' title='SQLite 教程' href="/sqlite/sqlite-tutorial.html"/> <link rel='canonical' href='http://www.w3cschool.cc/jsp/jsp-life-cycle.html'/> <meta name="keywords" content="JSP 生命周期"> <meta name="description" content="JSP 生命周期 理解JSP底层功能的关键就是去理解它们所遵守的生命周期。 JSP生命周期就是从创建到销毁的整个过程，类似于servlet生命周期，区别在于JSP生命周期还包括将JSP文件编译成servlet。 以下是JSP生命周期中所走过的几个阶段： 编译阶段：Servelet容器编译Servelet源文件，生成servelet类 初始化阶段：加载与JSP对应的Servelet类，创建其实例，并调用它的初始化方法 执行阶.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>JSP 教程</strong></h2> <a target="_top" title="JSP 教程" href="jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html"> JSP 教程 </a> <a target="_top" title="JSP 简介" href="jsp-intro.html" tppabs="http://www.w3cschool.cc/jsp/jsp-intro.html"> JSP 简介 </a> <a target="_top" title="JSP 开发环境搭建" href="jsp-setup.html" tppabs="http://www.w3cschool.cc/jsp/jsp-setup.html"> JSP 开发环境搭建 </a> <a target="_top" title="JSP 结构" href="jsp-architecture.html" tppabs="http://www.w3cschool.cc/jsp/jsp-architecture.html"> JSP 结构 </a> <a target="_top" title="JSP 生命周期" href="jsp-life-cycle.html" tppabs="http://www.w3cschool.cc/jsp/jsp-life-cycle.html"> JSP 生命周期 </a> <a target="_top" title="JSP 语法" href="jsp-syntax.html" tppabs="http://www.w3cschool.cc/jsp/jsp-syntax.html"> JSP 语法 </a> <a target="_top" title="JSP 指令" href="jsp-directives.html" tppabs="http://www.w3cschool.cc/jsp/jsp-directives.html"> JSP 指令 </a> <a target="_top" title="JSP 动作元素" href="jsp-actions.html" tppabs="http://www.w3cschool.cc/jsp/jsp-actions.html"> JSP 动作元素 </a> <a target="_top" title="JSP 隐含对象" href="jsp-implicit-objects.html" tppabs="http://www.w3cschool.cc/jsp/jsp-implicit-objects.html"> JSP 隐含对象 </a> <a target="_top" title="JSP 客户端请求" href="jsp-client-request.html" tppabs="http://www.w3cschool.cc/jsp/jsp-client-request.html"> JSP 客户端请求 </a> <a target="_top" title="JSP 服务器响应" href="jsp-server-response.html" tppabs="http://www.w3cschool.cc/jsp/jsp-server-response.html"> JSP 服务器响应 </a> <a target="_top" title="JSP HTTP 状态码" href="jsp-http-status-codes.html" tppabs="http://www.w3cschool.cc/jsp/jsp-http-status-codes.html"> JSP HTTP 状态码 </a> <a target="_top" title="JSP 表单处理" href="jsp-form-processing.html" tppabs="http://www.w3cschool.cc/jsp/jsp-form-processing.html"> JSP 表单处理 </a> <a target="_top" title="JSP 过滤器" href="jsp-writing-filters.html" tppabs="http://www.w3cschool.cc/jsp/jsp-writing-filters.html"> JSP 过滤器 </a> <a target="_top" title="JSP Cookies 处理" href="jsp-cookies.html" tppabs="http://www.w3cschool.cc/jsp/jsp-cookies.html"> JSP Cookies 处理 </a> <a target="_top" title="JSP Session" href="jsp-session.html" tppabs="http://www.w3cschool.cc/jsp/jsp-session.html"> JSP Session </a> <a target="_top" title="JSP 文件上传" href="jsp-file-uploading.html" tppabs="http://www.w3cschool.cc/jsp/jsp-file-uploading.html"> JSP 文件上传 </a> <a target="_top" title="JSP 日期处理" href="jsp-handling-date.html" tppabs="http://www.w3cschool.cc/jsp/jsp-handling-date.html"> JSP 日期处理 </a> <a target="_top" title="JSP 页面重定向" href="jsp-page-redirect.html" tppabs="http://www.w3cschool.cc/jsp/jsp-page-redirect.html"> JSP 页面重定向 </a> <a target="_top" title="JSP 点击量统计" href="jsp-hits-counter.html" tppabs="http://www.w3cschool.cc/jsp/jsp-hits-counter.html"> JSP 点击量统计 </a> <a target="_top" title="JSP 自动刷新" href="jsp-auto-refresh.html" tppabs="http://www.w3cschool.cc/jsp/jsp-auto-refresh.html"> JSP 自动刷新 </a> <a target="_top" title="JSP 发送邮件" href="jsp-sending-email.html" tppabs="http://www.w3cschool.cc/jsp/jsp-sending-email.html"> JSP 发送邮件 </a> <br><h2 class="left"><span class="left_h2">JSP 高级教程</span></h2> <a target="_top" title="JSP 标准标签库（JSTL）" href="jsp-jstl.html" tppabs="http://www.w3cschool.cc/jsp/jsp-jstl.html"> JSP 标准标签库（JSTL） </a> <a target="_top" title="JSP 连接数据库" href="jsp-database-access.html" tppabs="http://www.w3cschool.cc/jsp/jsp-database-access.html"> JSP 连接数据库 </a> <a target="_top" title="JSP XML 数据处理" href="jsp-xml-data.html" tppabs="http://www.w3cschool.cc/jsp/jsp-xml-data.html"> JSP XML 数据处理 </a> <a target="_top" title="JSP JavaBean" href="jsp-javabean.html" tppabs="http://www.w3cschool.cc/jsp/jsp-javabean.html"> JSP JavaBean </a> <a target="_top" title="JSP 自定义标签" href="jsp-custom-tags.html" tppabs="http://www.w3cschool.cc/jsp/jsp-custom-tags.html"> JSP 自定义标签 </a> <a target="_top" title="JSP 表达式语言" href="jsp-expression-language.html" tppabs="http://www.w3cschool.cc/jsp/jsp-expression-language.html"> JSP 表达式语言 </a> <a target="_top" title="JSP 异常处理" href="jsp-exception-handling.html" tppabs="http://www.w3cschool.cc/jsp/jsp-exception-handling.html"> JSP 异常处理 </a> <a target="_top" title="JSP 调试" href="jsp-debugging.html" tppabs="http://www.w3cschool.cc/jsp/jsp-debugging.html"> JSP 调试 </a> <a target="_top" title="JSP 国际化" href="jsp-internationalization.html" tppabs="http://www.w3cschool.cc/jsp/jsp-internationalization.html"> JSP 国际化 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jsp-architecture.html" tppabs="http://www.w3cschool.cc/jsp/jsp-architecture.html" rel="prev"> JSP 结构</a></div> <div class="next"><a href="jsp-syntax.html" tppabs="http://www.w3cschool.cc/jsp/jsp-syntax.html" rel="next">JSP 语法</a> &raquo;</div> </div> <div id="content"> <h1>JSP <span class="color_h1">生命周期</span> </h1> <p> 理解JSP底层功能的关键就是去理解它们所遵守的生命周期。 </p><p> JSP生命周期就是从创建到销毁的整个过程，类似于servlet生命周期，区别在于JSP生命周期还包括将JSP文件编译成servlet。 </p><p> 以下是JSP生命周期中所走过的几个阶段： </p> <ul> <li><p><strong> 编译阶段：</strong><p>Servelet容器编译Servelet源文件，生成servelet类</p></li><li><strong> 初始化阶段：</strong><p>加载与JSP对应的Servelet类，创建其实例，并调用它的初始化方法</p></li><li><strong> 执行阶段：</strong><p>调用与JSP对应的Servelet实例的服务方法</p></li><li><strong> 销毁阶段：</strong><p>调用与JSP对应的Servelet实例的销毁方法，然后销毁Servelet实例</p></li></ul> <p> 很明显，JSP生命周期的四个主要阶段和servlet生命周期非常相似，下面给出图示： </p> <p> <img src="../wp-content/uploads/2014/01/try.php-filename=trycss_link2" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/01/jsp_life_cycle.jpg"/> </p> <hr><h2> JSP编译 </h2> <p> 当浏览器请求JSP页面时，JSP引擎会首先去检查是否需要编译这个文件。如果这个文件没有被编译过，或者在上次编译后被更改过，则编译这个JSP文件。 </p> <p> 编译的过程包括三个步骤：</p> <ul> <li> 解析JSP文件。</li><li> 将JSP文件转为servlet。</li><li> 编译servlet。</li></ul> <hr><h2> JSP初始化</h2> <p>容器载入JSP文件后，它会在为请求提供任何服务前调用jspInit()方法。如果您需要执行自定义的JSP初始化任务，复写jspInit()方法就行了，就像下面这样： </p> <pre>
+public void jspInit(){
+  // 初始化代码
+}
+</pre> <p> 一般来讲程序只初始化一次，servlet也是如此。通常情况下您可以在jspInit()方法中初始化数据库连接、打开文件和创建查询表。 </p> <hr> <h2> JSP执行 </h2> <p> 这一阶段描述了JSP生命周期中一切与请求相关的交互行为，直到被销毁。 </p> <p> 当JSP网页完成初始化后，JSP引擎将会调用_jspService()方法。 </p><p> _jspService()方法需要一个HttpServletRequest对象和一个HttpServletResponse对象作为它的参数，就像下面这样： </p> <pre>
+void _jspService(HttpServletRequest request,
+                 HttpServletResponse response)
+{
+   // 服务端处理代码
+}
+</pre><p> _jspService()方法在每个request中被调用一次并且负责产生与之相对应的response，并且它还负责产生所有7个HTTP方法的回应，比如GET、POST、DELETE等等。 </p><hr> <h2> JSP清理 </h2><p> JSP生命周期的销毁阶段描述了当一个JSP网页从容器中被移除时所发生的一切。 </p><p> jspDestroy()方法在JSP中等价于servlet中的销毁方法。当您需要执行任何清理工作时复写jspDestroy()方法，比如释放数据库连接或者关闭文件夹等等。 </p><p> jspDestroy()方法的格式如下： </p> <pre>
+public void jspDestroy()
+{
+   // 清理代码
+}
+</pre> <h3>实例</h3> <p>JSP生命周期代码实例如下所示：</p> <pre>
+&lt;%@ page contentType="text/html; charset=GB2312" %&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;life.jsp&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+
+&lt;%! 
+  private int initVar=0;
+  private int serviceVar=0;
+  private int destroyVar=0;
+%&gt;
+  
+&lt;%!
+  public void jspInit(){
+    initVar++;
+    System.out.println("jspInit(): JSP被初始化了"+initVar+"次");
+  }
+  public void jspDestroy(){
+    destroyVar++;
+    System.out.println("jspDestroy(): JSP被销毁了"+destroyVar+"次");
+  }
+%&gt;
+
+&lt;%
+  serviceVar++;
+  System.out.println("_jspService(): JSP共响应了"+serviceVar+"次请求");
+
+  String content1="初始化次数 : "+initVar;
+  String content2="响应客户请求次数 : "+serviceVar;
+  String content3="销毁次数 : "+destroyVar;
+%&gt;
+
+&lt;h1&gt;&lt;%=content1 %&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;%=content2 %&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;%=content3 %&gt;&lt;/h1&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jsp-architecture.html" tppabs="http://www.w3cschool.cc/jsp/jsp-architecture.html" rel="prev"> JSP 结构</a></div> <div class="next"><a href="jsp-syntax.html" tppabs="http://www.w3cschool.cc/jsp/jsp-syntax.html" rel="next">JSP 语法</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/jsp/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/jsp/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

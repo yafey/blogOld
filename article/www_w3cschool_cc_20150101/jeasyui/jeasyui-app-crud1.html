@@ -1,0 +1,235 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>jQuery EasyUI 应用 &#8211; 创建 CRUD 应用 | w3cschool菜鸟教程</title> <link rel='prev' title='jQuery pagecreate 事件' href="/jquerymobile/event-pagecreate.html"/> <link rel='next' title='jQuery Mobile pagehide 事件' href="/jquerymobile/event-pagehide.html"/> <link rel='canonical' href='http://www.w3cschool.cc/jeasyui/jeasyui-app-crud1.html'/> <meta name="keywords" content="jQuery EasyUI 应用 &#8211; 创建 CRUD 应用"> <meta name="description" content="pre { white-space: pre-wrap; } jQuery EasyUI 应用 - 创建 CRUD 应用 数据收集并妥善管理数据是网络应用共同的必要。CRUD 允许我们生成页面列表，并编辑数据库记录。本教程将向你演示如何使用 jQuery EasyUI 框架实现一个 CRUD DataGrid。 我们将使用下面的插件： datagrid：向用户展示列表数据。 dialog：创建或编辑一条单一的用户信息。 .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>jQuery EasyUI 教程</strong></h2> <a target="_top" title="jQuery EasyUI 教程" href="jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html"> jQuery EasyUI 教程 </a> <a target="_top" title="jQuery EasyUI 简介" href="jqueryeasyui-intro.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-intro.html"> jQuery EasyUI 简介 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 应用</h2> <a target="_top" title="jQuery EasyUI 应用 &#8211; 创建 CRUD 应用" href="jeasyui-app-crud1.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-app-crud1.html"> jEasyUI 创建 CRUD 应用 </a> <a target="_top" title="jQuery EasyUI 应用 &#8211; 创建 CRUD 数据网格" href="jeasyui-app-crud2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-app-crud2.html"> jEasyUI 创建 CRUD 数据网格 </a> <a target="_top" title="jQuery EasyUI 应用 &#8211; 创建展开行明细编辑表单的 CRUD 应用" href="jeasyui-app-crud3.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-app-crud3.html"> jEasyUI 表单的 CRUD 应用 </a> <a target="_top" title="jQuery EasyUI 应用 &#8211; 创建 RSS Feed 阅读器" href="jeasyui-app-rssreader.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-app-rssreader.html"> jEasyUI 创建 RSS 阅读器 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 拖放</h2> <a target="_top" title="jQuery EasyUI 拖放 &#8211; 基本的拖动和放置" href="jeasyui-dd-basic.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-dd-basic.html"> jEasyUI 基本的拖动和放置 </a> <a target="_top" title="jQuery EasyUI 拖放 &#8211; 创建拖放的购物车" href="jeasyui-dd-shopping.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-dd-shopping.html"> jEasyUI 创建拖放的购物车 </a> <a target="_top" title="jQuery EasyUI 拖放 &#8211; 创建学校课程表" href="jeasyui-dd-timetable.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-dd-timetable.html"> jEasyUI 创建学校课程表 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 菜单与按钮</h2> <a target="_top" title="jQuery EasyUI 菜单与按钮 &#8211; 创建简单的菜单" href="jeasyui-mb-menu.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-mb-menu.html"> jEasyUI 创建简单的菜单 </a> <a target="_top" title="jQuery EasyUI 菜单与按钮 &#8211; 创建链接按钮" href="jeasyui-mb-linkbutton.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-mb-linkbutton.html"> jEasyUI 创建链接按钮 </a> <a target="_top" title="jQuery EasyUI 菜单与按钮 &#8211; 创建菜单按钮" href="jeasyui-mb-menubutton.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-mb-menubutton.html"> jEasyUI 创建菜单按钮 </a> <a target="_top" title="jQuery EasyUI 菜单与按钮 &#8211; 创建分割按钮" href="jeasyui-mb-splitbutton.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-mb-splitbutton.html"> jEasyUI 创建分割按钮 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 布局</h2> <a target="_top" title="jQuery EasyUI 布局 &#8211; 为网页创建边框布局" href="jeasyui-layout-layout.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-layout-layout.html"> jEasyUI 创建边框布局 </a> <a target="_top" title="jQuery EasyUI 布局 &#8211; 在面板中创建复杂布局" href="jeasyui-layout-panel.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-layout-panel.html"> jEasyUI 创建复杂布局 </a> <a target="_top" title="jQuery EasyUI 布局 &#8211; 创建折叠面板" href="jeasyui-layout-accordion.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-layout-accordion.html"> jEasyUI 创建折叠面板 </a> <a target="_top" title="jQuery EasyUI 布局 &#8211; 创建标签页（Tabs）" href="jeasyui-layout-tabs1.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-layout-tabs1.html"> jEasyUI 创建标签页 </a> <a target="_top" title="jQuery EasyUI 布局 &#8211; 动态添加标签页（Tabs）" href="jeasyui-layout-tabs2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-layout-tabs2.html"> jEasyUI 动态添加标签页 </a> <a target="_top" title="jQuery EasyUI 布局 &#8211; 添加自动播放标签页（Tabs）" href="jeasyui-layout-tabs3.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-layout-tabs3.html"> jEasyUI 添加自动播放标签页 </a> <a target="_top" title="jQuery EasyUI 布局 &#8211; 创建 XP 风格左侧面板" href="jeasyui-layout-xp.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-layout-xp.html"> jEasyUI 创建 XP 风格左侧面板 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 数据网格</h2> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 转换 HTML 表格为数据网格" href="jeasyui-datagrid-datagrid1.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid1.html"> jEasyUI 转换 HTML 表格为数据网格 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 取得选中行数据" href="jeasyui-datagrid-datagrid3.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid3.html"> jEasyUI 取得选中行数据 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 添加查询功能" href="jeasyui-datagrid-datagrid24.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid24.html"> jEasyUI 添加查询功能 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 添加工具栏" href="jeasyui-datagrid-datagrid4.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid4.html"> jEasyUI 添加工具栏 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 创建复杂工具栏" href="jeasyui-datagrid-datagrid19.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid19.html"> jEasyUI 创建复杂工具栏 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 设置冻结列" href="jeasyui-datagrid-datagrid5.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid5.html"> jEasyUI 设置冻结列 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 动态改变列" href="jeasyui-datagrid-datagrid6.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid6.html"> jEasyUI 动态改变列 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 格式化列" href="jeasyui-datagrid-datagrid7.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid7.html"> jEasyUI 格式化列 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 设置排序" href="jeasyui-datagrid-datagrid8.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid8.html"> jEasyUI 设置排序 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 自定义排序" href="jeasyui-datagrid-datagrid14.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid14.html"> jEasyUI 自定义排序 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 创建列组合" href="jeasyui-datagrid-datagrid9.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid9.html"> jEasyUI 创建列组合 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 添加复选框" href="jeasyui-datagrid-datagrid10.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid10.html"> jEasyUI 添加复选框 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 自定义分页" href="jeasyui-datagrid-datagrid11.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid11.html"> jEasyUI 自定义分页 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 启用行内编辑" href="jeasyui-datagrid-datagrid12.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid12.html"> jEasyUI 启用行内编辑 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 扩展编辑器" href="jeasyui-datagrid-datagrid23.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid23.html"> jEasyUI 扩展编辑器 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 列运算" href="jeasyui-datagrid-datagrid15.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid15.html"> jEasyUI 列运算 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 合并单元格" href="jeasyui-datagrid-datagrid13.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid13.html"> jEasyUI 合并单元格 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 创建自定义视图" href="jeasyui-datagrid-datagrid16.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid16.html"> jEasyUI 创建自定义视图 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 创建页脚摘要" href="jeasyui-datagrid-datagrid17.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid17.html"> jEasyUI 创建页脚摘要 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 条件设置行背景颜色" href="jeasyui-datagrid-datagrid18.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid18.html"> jEasyUI 条件设置行背景颜色 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 创建属性网格" href="jeasyui-datagrid-datagrid20.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid20.html"> jEasyUI 创建属性网格 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 扩展行显示细节" href="jeasyui-datagrid-datagrid21.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid21.html"> jEasyUI 扩展行显示细节 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 创建子网格" href="jeasyui-datagrid-datagrid22.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid22.html"> jEasyUI 创建子网格 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 使用虚拟滚动视图显示海量数据" href="jeasyui-datagrid-datagrid27.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid27.html"> jEasyUI 显示海量数据 </a> <a target="_top" title="jQuery EasyUI 数据网格 &#8211; 添加分页组件" href="jeasyui-datagrid-datagrid2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-datagrid-datagrid2.html"> jEasyUI 添加分页组件 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 窗口</h2> <a target="_top" href="jeasyui-win-win1.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-win-win1.html"> jEasyUI 创建简单窗口 </a> <a target="_top" title="jQuery EasyUI 窗口 &#8211; 自定义窗口工具栏" href="jeasyui-win-win2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-win-win2.html"> jEasyUI 自定义窗口工具栏 </a> <a target="_top" title="jQuery EasyUI 窗口 &#8211; 窗口与布局" href="jeasyui-win-win3.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-win-win3.html"> jEasyUI 窗口与布局 </a> <a target="_top" title="jQuery EasyUI 窗口 &#8211; 创建对话框" href="jeasyui-win-dlg1.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-win-dlg1.html"> jEasyUI 创建对话框 </a> <a target="_top" title="jQuery EasyUI 窗口 &#8211; 自定义带有工具条和按钮的对话框" href="jeasyui-win-dlg2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-win-dlg2.html"> jEasyUI 自定义对话框 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 树形菜单</h2> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 使用标记创建树形菜单" href="jeasyui-tree-tree1.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-tree1.html"> jEasyUI 使用标记创建树形菜单 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 创建异步树形菜单" href="jeasyui-tree-tree2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-tree2.html"> jEasyUI 创建异步树形菜单 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 树形菜单添加节点" href="jeasyui-tree-tree3.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-tree3.html"> jEasyUI 树形菜单添加节点 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 创建带复选框的树形菜单" href="jeasyui-tree-tree4.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-tree4.html"> jEasyUI 创建带复选框的树形菜单 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 树形菜单拖放控制" href="jeasyui-tree-tree5.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-tree5.html"> jEasyUI 树形菜单拖放控制 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 树形菜单加载父/子节点" href="jeasyui-tree-tree6.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-tree6.html"> jEasyUI 树形菜单加载父/子节点 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 创建基础树形网格" href="jeasyui-tree-treegrid1.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-treegrid1.html"> jEasyUI 创建基础树形网格 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 创建复杂树形网格" href="jeasyui-tree-treegrid2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-treegrid2.html"> jEasyUI 创建复杂树形网格 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 树形网格动态加载" href="jeasyui-tree-treegrid3.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-treegrid3.html"> jEasyUI 树形网格动态加载 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 树形网格添加分页" href="jeasyui-tree-treegrid4.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-treegrid4.html"> jEasyUI 树形网格添加分页 </a> <a target="_top" title="jQuery EasyUI 树形菜单 &#8211; 树形网格惰性加载节点" href="jeasyui-tree-treegrid5.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-tree-treegrid5.html"> jEasyUI 树形网格惰性加载节点 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 表单</h2> <a target="_top" title="jQuery EasyUI 表单 &#8211; 创建异步提交表单" href="jeasyui-form-form1.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-form-form1.html"> jEasyUI 创建异步提交表单 </a> <a target="_top" title="jQuery EasyUI 表单 &#8211; 表单验证" href="jeasyui-form-form3.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-form-form3.html"> jEasyUI 表单验证 </a> <a target="_top" title="jQuery EasyUI 表单 &#8211; 创建树形下拉框（ComboTree）" href="jeasyui-form-form2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-form-form2.html"> jEasyUI 创建树形下拉框 </a> <a target="_top" title="jQuery EasyUI 表单 &#8211; 格式化下拉框（ComboBox）" href="jeasyui-form-form4.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-form-form4.html"> jEasyUI 格式化下拉框 </a> <a target="_top" title="jQuery EasyUI 表单 &#8211; 过滤下拉数据网格（ComboGrid）" href="jeasyui-form-form5.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-form-form5.html"> jEasyUI 过滤下拉数据网格 </a> <br><h2 class="left"><span class="left_h2">jEasyUI</span> 参考手册</h2> <a target="_top" title="jQuery EasyUI 插件" href="jeasyui-ref-plugins.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-ref-plugins.html"> jQuery EasyUI 插件 </a> <a target="_top" title="jQuery EasyUI 扩展" href="jeasyui-ref-extension.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-ref-extension.html"> jQuery EasyUI 扩展 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jqueryeasyui-intro.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-intro.html" rel="prev"> jQuery EasyUI 简介</a></div> <div class="next"><a href="jeasyui-app-crud2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-app-crud2.html" rel="next">jQuery EasyUI 应用 &#8211; 创建 CRUD 数据网格</a> &raquo;</div> </div> <div id="content"> <style> pre { white-space: pre-wrap; } </style> <h1>jQuery EasyUI 应用 - <span class="color_h1">创建 CRUD 应用</span></h1> <p> 数据收集并妥善管理数据是网络应用共同的必要。CRUD 允许我们生成页面列表，并编辑数据库记录。本教程将向你演示如何使用 jQuery EasyUI 框架实现一个 CRUD DataGrid。 </p> <p>我们将使用下面的插件：</p> <ul> <li>datagrid：向用户展示列表数据。</li> <li>dialog：创建或编辑一条单一的用户信息。</li> <li>form：用于提交表单数据。</li> <li>messager：显示一些操作信息。</li> </ul> <h4>步骤 1：准备数据库</h4> <p>我们将使用 MySql 数据库来存储用户信息。创建数据库和 'users' 表。</p> <img src="../wp-content/uploads/2013/12/jsref-obj-regexp.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/12/db.png"/> <h4>步骤 2：创建 DataGrid 来显示用户信息</h4> <p>创建没有 javascript 代码的 DataGrid。</p> <pre style="color:#006600">
+&lt;table id="dg" title="My Users" class="easyui-datagrid" style="width:550px;height:250px"
+		url="get_users.php"
+		toolbar="#toolbar"
+		rownumbers="true" fitColumns="true" singleSelect="true"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th field="firstname" width="50"&gt;First Name&lt;/th&gt;
+			&lt;th field="lastname" width="50"&gt;Last Name&lt;/th&gt;
+			&lt;th field="phone" width="50"&gt;Phone&lt;/th&gt;
+			&lt;th field="email" width="50"&gt;Email&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+&lt;/table&gt;
+&lt;div id="toolbar"&gt;
+	&lt;a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()"&gt;New User&lt;/a&gt;
+	&lt;a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()"&gt;Edit User&lt;/a&gt;
+	&lt;a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()"&gt;Remove User&lt;/a&gt;
+&lt;/div&gt;
+</pre> <p>我们不需要写任何的 javascript 代码，就能向用户显示列表，如下图所示：</p> <img src="../wp-content/uploads/2013/12/jsref-obj-global.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/12/list.png"/> <p>DataGrid 使用 'url' 属性，并赋值为 'get_users.php'，用来从服务器检索数据。</p> <p>get_users.php 文件的代码</p> <pre style="color:#006600">
+$rs = mysql_query('select * from users');
+$result = array();
+while($row = mysql_fetch_object($rs)){
+	array_push($result, $row);
+}
+
+echo json_encode($result);
+</pre> <h4>步骤 3：创建表单对话框</h4> <p>我们使用相同的对话框来创建或编辑用户。</p> <pre style="color:#006600">
+&lt;div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+		closed="true" buttons="#dlg-buttons"&gt;
+	&lt;div class="ftitle"&gt;User Information&lt;/div&gt;
+	&lt;form id="fm" method="post"&gt;
+		&lt;div class="fitem"&gt;
+			&lt;label&gt;First Name:&lt;/label&gt;
+			&lt;input name="firstname" class="easyui-validatebox" required="true"&gt;
+		&lt;/div&gt;
+		&lt;div class="fitem"&gt;
+			&lt;label&gt;Last Name:&lt;/label&gt;
+			&lt;input name="lastname" class="easyui-validatebox" required="true"&gt;
+		&lt;/div&gt;
+		&lt;div class="fitem"&gt;
+			&lt;label&gt;Phone:&lt;/label&gt;
+			&lt;input name="phone"&gt;
+		&lt;/div&gt;
+		&lt;div class="fitem"&gt;
+			&lt;label&gt;Email:&lt;/label&gt;
+			&lt;input name="email" class="easyui-validatebox" validType="email"&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+&lt;div id="dlg-buttons"&gt;
+	&lt;a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()"&gt;Save&lt;/a&gt;
+	&lt;a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')"&gt;Cancel&lt;/a&gt;
+&lt;/div&gt;
+</pre> <p>这个对话框已经创建，也没有任何的 javascript 代码:。</p> <img src="../wp-content/uploads/2013/12/jsref-operators.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/12/dialog.png"/> <h4>步骤 4：实现创建和编辑用户</h4> <p>当创建用户时，打开一个对话框并清空表单数据。</p> <pre style="color:#006600">
+function newUser(){
+	$('#dlg').dialog('open').dialog('setTitle','New User');
+	$('#fm').form('clear');
+	url = 'save_user.php';
+}
+</pre> <p>当编辑用户时，打开一个对话框并从 datagrid 选择的行中加载表单数据。</p> <pre style="color:#006600">
+var row = $('#dg').datagrid('getSelected');
+if (row){
+	$('#dlg').dialog('open').dialog('setTitle','Edit User');
+	$('#fm').form('load',row);
+	url = 'update_user.php?id='+row.id;
+}
+</pre> <p>'url' 存储着当保存用户数据时表单回传的 URL 地址。</p> <h4>步骤 5：保存用户数据</h4> <p>我们使用下面的代码保存用户数据：</p> <pre style="color:#006600">
+function saveUser(){
+	$('#fm').form('submit',{
+		url: url,
+		onSubmit: function(){
+			return $(this).form('validate');
+		},
+		success: function(result){
+			var result = eval('('+result+')');
+			if (result.errorMsg){
+				$.messager.show({
+					title: 'Error',
+					msg: result.errorMsg
+				});
+			} else {
+				$('#dlg').dialog('close');		// close the dialog
+				$('#dg').datagrid('reload');	// reload the user data
+			}
+		}
+	});
+}
+</pre> <p> 提交表单之前，'onSubmit' 函数将被调用，该函数用来验证表单字段值。当表单字段值提交成功，关闭对话框并重新加载 datagrid 数据。 </p> <h4>步骤 6：删除一个用户</h4> <p>我们使用下面的代码来移除一个用户：</p> <pre style="color:#006600">
+function destroyUser(){
+	var row = $('#dg').datagrid('getSelected');
+	if (row){
+		$.messager.confirm('Confirm','Are you sure you want to destroy this user?',function(r){
+			if (r){
+				$.post('destroy_user.php',{id:row.id},function(result){
+					if (result.success){
+						$('#dg').datagrid('reload');	// reload the user data
+					} else {
+						$.messager.show({	// show error message
+							title: 'Error',
+							msg: result.errorMsg
+						});
+					}
+				},'json');
+			}
+		});
+	}
+}
+</pre> <br> <img src="../wp-content/uploads/2013/12/obj-window.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2013/12/confirm.png"/> <p> 移除一行之前,我们将显示一个确认对话框让用户决定是否真的移除该行数据。当移除数据成功之后，调用 'reload' 方法来刷新 datagrid 数据。 </p> <h4>步骤 7：运行代码</h4> <p>开启 MySQL，在浏览器运行代码。</p> <h2>下载 jQuery EasyUI 实例</h2> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/jeasyui/download/obj-navigator.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/jeasyui/download/obj-navigator.html'" tppabs="http://www.w3cschool.cc/try/jeasyui/download/jeasyui-app-crud1.zip">jeasyui-app-crud1.zip</a></p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jqueryeasyui-intro.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-intro.html" rel="prev"> jQuery EasyUI 简介</a></div> <div class="next"><a href="jeasyui-app-crud2.html" tppabs="http://www.w3cschool.cc/jeasyui/jeasyui-app-crud2.html" rel="next">jQuery EasyUI 应用 &#8211; 创建 CRUD 数据网格</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/jeasyui/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/jeasyui/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

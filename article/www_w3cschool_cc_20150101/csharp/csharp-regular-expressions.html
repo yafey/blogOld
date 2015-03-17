@@ -1,0 +1,218 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>C# 正则表达式 | w3cschool菜鸟教程</title> <link rel='prev' title='C# 预处理器指令' href="csharp-preprocessor-directives.html"/> <link rel='next' title='C# 异常处理' href="csharp-exception-handling.html"/> <link rel='canonical' href='http://www.w3cschool.cc/csharp/csharp-regular-expressions.html'/> <meta name="keywords" content="C# 正则表达式"> <meta name="description" content="C# 正则表达式 正则表达式 是一种匹配输入文本的模式。.Net 框架提供了允许这种匹配的正则表达式引擎。模式由一个或多个字符、运算符和结构组成。 定义正则表达式 下面列出了用于定义正则表达式的各种类别的字符、运算符和结构。 字符转义 字符类 定位点 分组构造 限定符 反向引用构造 备用构造 替换 杂项构造 字符转义 正则表达式中的反斜杠字符（\）指示其后跟的字符是特殊字符，或应按原义解释该字符。 下表列出了转义字符： .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>C# 教程</strong></h2> <a target="_top" title="C# 教程" href="csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html"> C# 教程 </a> <a target="_top" title="C# 简介" href="csharp-intro.html" tppabs="http://www.w3cschool.cc/csharp/csharp-intro.html"> C# 简介 </a> <a target="_top" title="C# 环境" href="csharp-environment-setup.html" tppabs="http://www.w3cschool.cc/csharp/csharp-environment-setup.html"> C# 环境 </a> <a target="_top" title="C# 程序结构" href="csharp-program-structure.html" tppabs="http://www.w3cschool.cc/csharp/csharp-program-structure.html"> C# 程序结构 </a> <a target="_top" title="C# 基本语法" href="csharp-basic-syntax.html" tppabs="http://www.w3cschool.cc/csharp/csharp-basic-syntax.html"> C# 基本语法 </a> <a target="_top" title="C# 数据类型" href="csharp-data-types.html" tppabs="http://www.w3cschool.cc/csharp/csharp-data-types.html"> C# 数据类型 </a> <a target="_top" title="C# 类型转换" href="csharp-type-conversion.html" tppabs="http://www.w3cschool.cc/csharp/csharp-type-conversion.html"> C# 类型转换 </a> <a target="_top" title="C# 变量" href="csharp-variables.html" tppabs="http://www.w3cschool.cc/csharp/csharp-variables.html"> C# 变量 </a> <a target="_top" title="C# 常量" href="csharp-constants.html" tppabs="http://www.w3cschool.cc/csharp/csharp-constants.html"> C# 常量 </a> <a target="_top" title="C# 运算符" href="csharp-operators.html" tppabs="http://www.w3cschool.cc/csharp/csharp-operators.html"> C# 运算符 </a> <a target="_top" title="C# 判断" href="csharp-decision.html" tppabs="http://www.w3cschool.cc/csharp/csharp-decision.html"> C# 判断 </a> <a target="_top" title="C# 循环" href="csharp-loops.html" tppabs="http://www.w3cschool.cc/csharp/csharp-loops.html"> C# 循环 </a> <a target="_top" title="C# 封装" href="csharp-encapsulation.html" tppabs="http://www.w3cschool.cc/csharp/csharp-encapsulation.html"> C# 封装 </a> <a target="_top" title="C# 方法" href="csharp-methods.html" tppabs="http://www.w3cschool.cc/csharp/csharp-methods.html"> C# 方法 </a> <a target="_top" title="C# 可空类型" href="csharp-nullable.html" tppabs="http://www.w3cschool.cc/csharp/csharp-nullable.html"> C# 可空类型 </a> <a target="_top" title="C# 数组（Array）" href="csharp-array.html" tppabs="http://www.w3cschool.cc/csharp/csharp-array.html"> C# 数组（Array） </a> <a target="_top" title="C# 字符串（String）" href="csharp-string.html" tppabs="http://www.w3cschool.cc/csharp/csharp-string.html"> C# 字符串（String） </a> <a target="_top" title="C# 结构（Struct）" href="csharp-struct.html" tppabs="http://www.w3cschool.cc/csharp/csharp-struct.html"> C# 结构（Struct） </a> <a target="_top" title="C# 枚举（Enum）" href="csharp-enum.html" tppabs="http://www.w3cschool.cc/csharp/csharp-enum.html"> C# 枚举（Enum） </a> <a target="_top" title="C# 类（Class）" href="csharp-class.html" tppabs="http://www.w3cschool.cc/csharp/csharp-class.html"> C# 类（Class） </a> <a target="_top" title="C# 继承" href="csharp-inheritance.html" tppabs="http://www.w3cschool.cc/csharp/csharp-inheritance.html"> C# 继承 </a> <a target="_top" title="C# 多态性" href="csharp-polymorphism.html" tppabs="http://www.w3cschool.cc/csharp/csharp-polymorphism.html"> C# 多态性 </a> <a target="_top" title="C# 运算符重载" href="csharp-operator-overloading.html" tppabs="http://www.w3cschool.cc/csharp/csharp-operator-overloading.html"> C# 运算符重载 </a> <a target="_top" title="C# 接口（Interface）" href="csharp-interface.html" tppabs="http://www.w3cschool.cc/csharp/csharp-interface.html"> C# 接口（Interface） </a> <a target="_top" title="C# 命名空间（Namespace）" href="csharp-namespace.html" tppabs="http://www.w3cschool.cc/csharp/csharp-namespace.html"> C# 命名空间（Namespace） </a> <a target="_top" title="C# 预处理器指令" href="csharp-preprocessor-directives.html" tppabs="http://www.w3cschool.cc/csharp/csharp-preprocessor-directives.html"> C# 预处理器指令 </a> <a target="_top" title="C# 正则表达式" href="csharp-regular-expressions.html" tppabs="http://www.w3cschool.cc/csharp/csharp-regular-expressions.html"> C# 正则表达式 </a> <a target="_top" title="C# 异常处理" href="csharp-exception-handling.html" tppabs="http://www.w3cschool.cc/csharp/csharp-exception-handling.html"> C# 异常处理 </a> <a target="_top" title="C# 文件的输入与输出" href="csharp-file-io.html" tppabs="http://www.w3cschool.cc/csharp/csharp-file-io.html"> C# 文件的输入与输出 </a> <br><h2 class="left"><span class="left_h2">C#</span> 高级教程</h2> <a target="_top" title="C# 特性（Attribute）" href="csharp-attribute.html" tppabs="http://www.w3cschool.cc/csharp/csharp-attribute.html"> C# 特性（Attribute） </a> <a target="_top" title="C# 反射（Reflection）" href="csharp-reflection.html" tppabs="http://www.w3cschool.cc/csharp/csharp-reflection.html"> C# 反射（Reflection） </a> <a target="_top" title="C# 属性（Property）" href="csharp-property.html" tppabs="http://www.w3cschool.cc/csharp/csharp-property.html"> C# 属性（Property） </a> <a target="_top" title="C# 索引器（Indexer）" href="csharp-indexer.html" tppabs="http://www.w3cschool.cc/csharp/csharp-indexer.html"> C# 索引器（Indexer） </a> <a target="_top" title="C# 委托（Delegate）" href="csharp-delegate.html" tppabs="http://www.w3cschool.cc/csharp/csharp-delegate.html"> C# 委托（Delegate） </a> <a target="_top" title="C# 事件（Event）" href="csharp-event.html" tppabs="http://www.w3cschool.cc/csharp/csharp-event.html"> C# 事件（Event） </a> <a target="_top" title="C# 集合（Collection）" href="csharp-collection.html" tppabs="http://www.w3cschool.cc/csharp/csharp-collection.html"> C# 集合（Collection） </a> <a target="_top" title="C# 泛型（Generic）" href="csharp-generic.html" tppabs="http://www.w3cschool.cc/csharp/csharp-generic.html"> C# 泛型（Generic） </a> <a target="_top" title="C# 匿名方法" href="csharp-anonymous-methods.html" tppabs="http://www.w3cschool.cc/csharp/csharp-anonymous-methods.html"> C# 匿名方法 </a> <a target="_top" title="C# 不安全代码" href="csharp-unsafe-codes.html" tppabs="http://www.w3cschool.cc/csharp/csharp-unsafe-codes.html"> C# 不安全代码 </a> <a target="_top" title="C# 多线程" href="csharp-multithreading.html" tppabs="http://www.w3cschool.cc/csharp/csharp-multithreading.html"> C# 多线程 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="csharp-preprocessor-directives.html" tppabs="http://www.w3cschool.cc/csharp/csharp-preprocessor-directives.html" rel="prev"> C# 预处理器指令</a></div> <div class="next"><a href="csharp-exception-handling.html" tppabs="http://www.w3cschool.cc/csharp/csharp-exception-handling.html" rel="next">C# 异常处理</a> &raquo;</div> </div> <div id="content"> <h1>C# <span class="color_h1">正则表达式</span></h1> <div class="tutintro"> <p><b>正则表达式</b> 是一种匹配输入文本的模式。.Net 框架提供了允许这种匹配的正则表达式引擎。模式由一个或多个字符、运算符和结构组成。</p> </div> <h2 class="tutheader">定义正则表达式</h2> <p>下面列出了用于定义正则表达式的各种类别的字符、运算符和结构。</p> <ul class="list"> <li>字符转义</li> <li>字符类</li> <li>定位点</li> <li>分组构造</li> <li>限定符</li> <li>反向引用构造</li> <li>备用构造</li> <li>替换</li> <li>杂项构造</li> </ul> <h3>字符转义</h3> <p>正则表达式中的反斜杠字符（\）指示其后跟的字符是特殊字符，或应按原义解释该字符。 </p> <p>下表列出了转义字符：</p> <table class="reference notranslate"> <tr><th style="width:10%;">转义字符</th><th style="width:40%;">描述</th><th style="width:20%;">模式</th><th style="width:30%;">匹配</th></tr> <tr><td><b>\a</b></td><td>与报警 (bell) 符 \u0007 匹配。</td><td>\a</td><td>"Warning!" + '\u0007' 中的 "\u0007" </td></tr> <tr><td><b>\b</b></td><td>在字符类中，与退格键 \u0008 匹配。</td><td>[\b]{3,}</td><td>"\b\b\b\b" 中的 "\b\b\b\b"</td></tr> <tr><td><b>\t</b></td><td>与制表符 \u0009 匹配。</td><td>(\w+)\t</td><td>"Name\tAddr\t" 中的 "Name\t" 和 "Addr\t"</td></tr> <tr><td><b>\r</b></td><td>与回车符 \u000D 匹配。（\r 与换行符 \n 不是等效的。）</td><td>\r\n(\w+)</td><td>"\r\Hello\nWorld." 中的 "\r\nHello"</td></tr> <tr><td><b>\v</b></td><td>与垂直制表符 \u000B 匹配。</td><td>[\v]{2,}</td><td>"\v\v\v" 中的 "\v\v\v"</td></tr> <tr><td><b>\f</b></td><td>与换页符 \u000C 匹配。</td><td>[\f]{2,}</td><td>"\f\f\f" 中的 "\f\f\f"</td></tr> <tr><td><b>\n</b></td><td>与换行符 \u000A 匹配。</td><td>\r\n(\w+)</td><td>"\r\Hello\nWorld." 中的 "\r\nHello"</td></tr> <tr><td><b>\e</b></td><td>与转义符 \u001B 匹配。</td><td>\e</td><td>"\x001B" 中的 "\x001B"</td></tr> <tr><td><b>\ nnn</b></td><td>使用八进制表示形式指定一个字符（nnn 由二到三位数字组成）。</td><td>\w\040\w</td><td>"a bc d" 中的 "a b" 和 "c d"</td></tr> <tr><td><b>\x nn</b></td><td>使用十六进制表示形式指定字符（nn 恰好由两位数字组成）。</td><td>\w\x20\w</td><td>"a bc d" 中的 "a b" 和 "c d"</td></tr> <tr><td><b>\c X \c x </b></td><td>匹配 X 或 x 指定的 ASCII 控件字符，其中 X 或 x 是控件字符的字母。</td><td>\cC</td><td>"\x0003" 中的 "\x0003" (Ctrl-C)</td></tr> <tr><td><b>\u nnnn</b></td><td>使用十六进制表示形式匹配一个 Unicode 字符（由 nnnn 表示的四位数）。</td><td>\w\u0020\w</td><td>"a bc d" 中的 "a b" 和 "c d" </td></tr> <tr><td><b>\</b></td><td>在后面带有不识别的转义字符时，与该字符匹配。</td><td>\d+[\+-x\*]\d+\d+[\+-x\*\d+</td><td>"(2+2) * 3*9" 中的 "2+2" 和 "3*9"</td></tr> </table> <h3>字符类</h3> <p>字符类与一组字符中的任何一个字符匹配。</p> <p>下表列出了字符类：</p> <table class="reference notranslate"> <tr><th style="width:10%;">字符类</th><th style="width:40%;">描述</th><th style="width:20%;">模式</th><th style="width:30%;">匹配</th></tr> <tr><td><b>[character_group]</b></td><td>匹配 character_group 中的任何单个字符。 默认情况下，匹配区分大小写。</td><td>[mn]</td><td>"mat" 中的 "m"，"moon" 中的 "m" 和 "n" </td></tr> <tr><td><b>[^character_group]</b></td><td>非：与不在 character_group 中的任何单个字符匹配。 默认情况下，character_group 中的字符区分大小写。</td><td>[^aei]</td><td>"avail" 中的 "v" 和 "l"</td></tr> <tr><td><b>[ first - last ]</b></td><td>字符范围：与从 first 到 last 的范围中的任何单个字符匹配。</td><td>(\w+)\t</td><td>"Name\tAddr\t" 中的 "Name\t" 和 "Addr\t"</td></tr> <tr><td><b>.</b></td><td>通配符：与除 \n 之外的任何单个字符匹配。 <br/>若要匹配原意句点字符（. 或 \u002E），您必须在该字符前面加上转义符 (\.)。</td><td>a.e</td><td>"have" 中的 "ave"， "mate" 中的 "ate"</td></tr> <tr><td><b>\p{ name }</b></td><td>与 <i>name</i> 指定的 Unicode 通用类别或命名块中的任何单个字符匹配。</td><td>\p{Lu} </td><td>"City Lights" 中的 "C" 和 "L"</td></tr> <tr><td><b>\P{ name }</b></td><td>与不在 <i>name</i> 指定的 Unicode 通用类别或命名块中的任何单个字符匹配。</td><td>\P{Lu}</td><td>"City" 中的 "i"、 "t" 和 "y"</td></tr> <tr><td><b>\w</b></td><td>与任何单词字符匹配。</td><td>\w</td><td>"Room#1" 中的 "R"、 "o"、 "m" 和 "1"</td></tr> <tr><td><b>\W</b></td><td>与任何非单词字符匹配。</td><td>\W</td><td>"Room#1" 中的 "#"</td></tr> <tr><td><b>\s</b></td><td>与任何空白字符匹配。</td><td>\w\s</td><td>"ID A1.3" 中的 "D "</td></tr> <tr><td><b>\S</b></td><td>与任何非空白字符匹配。</td><td>\s\S</td><td>"int __ctr" 中的 " _"</td></tr> <tr><td><b>\d</b></td><td>与任何十进制数字匹配。</td><td>\d</td><td>"4 = IV" 中的 "4"</td></tr> <tr><td><b>\D</b></td><td>匹配不是十进制数的任意字符。</td><td>\D</td><td>"4 = IV" 中的 " "、 "="、 " "、 "I" 和 "V"</td></tr> </table> <h3>定位点</h3> <p>定位点或原子零宽度断言会使匹配成功或失败，具体取决于字符串中的当前位置，但它们不会使引擎在字符串中前进或使用字符。</p> <p>下表列出了定位点：</p> <table class="reference notranslate"> <tr><th style="width:10%;">断言</th><th style="width:40%;">描述</th><th style="width:20%;">模式</th><th style="width:30%;">匹配</th></tr> <tr><td><b>^</b></td><td>匹配必须从字符串或一行的开头开始。</td><td>^\d{3}</td><td>"567-777-" 中的 "567"</td></tr> <tr><td><b>$</b></td><td>匹配必须出现在字符串的末尾或出现在行或字符串末尾的 <b>\n</b> 之前。</td><td>-\d{4}$</td><td>"8-12-2012" 中的 "-2012"</td></tr> <tr><td><b>\A</b></td><td>匹配必须出现在字符串的开头。</td><td>\A\w{3}</td><td>"Code-007-" 中的 "Code"</td></tr> <tr><td><b>\Z</b></td><td>匹配必须出现在字符串的末尾或出现在字符串末尾的 <b>\n</b> 之前。</td><td>-\d{3}\Z</td><td>"Bond-901-007" 中的 "-007"</td></tr> <tr><td><b>\z</b></td><td>匹配必须出现在字符串的末尾。</td><td>-\d{3}\z</td><td>"-901-333" 中的 "-333"</td></tr> <tr><td><b>\G</b></td><td>匹配必须出现在上一个匹配结束的地方。</td><td>\\G\(\d\)</td><td>"(1)(3)(5)[7](9)" 中的 "(1)"、 "(3)" 和 "(5)"</td></tr> <tr><td><b>\b</b></td><td>匹配必须出现在 <b>\w</b>（字母数字）和 <b>\W</b>（非字母数字）字符之间的边界上。</td><td>\w</td><td>"Room#1" 中的 "R"、 "o"、 "m" 和 "1"</td></tr> <tr><td><b>\B</b></td><td>匹配不得出现在 <b>\b</b> 边界上。</td><td>\Bend\w*\b</td><td>"end sends endure lender" 中的 "ends" 和 "ender"</td></tr> </table> <h3>分组构造</h3> <p>分组构造描述了正则表达式的子表达式，通常用于捕获输入字符串的子字符串。</p> <p>下表列出了分组构造：</p> <table class="reference notranslate"> <tr><th>分组构造</th><th>描述</th><th>模式</th><th>匹配</th></tr> <tr><td><b>( subexpression )</b></td><td>捕获匹配的子表达式并将其分配到一个从零开始的序号中。</td><td>(\w)\1</td><td>"deep" 中的 "ee"</td></tr> <tr><td><b>(?&lt; name >subexpression)</b></td><td>将匹配的子表达式捕获到一个命名组中。</td><td>(?< double>\w)\k< double></td><td>"deep" 中的 "ee"</td></tr> <tr><td><b>(?&lt; name1 -name2 >subexpression)</b></td><td>定义平衡组定义。</td><td>(((?'Open'\()[^\(\)]*)+((?'Close-Open'\))[^\(\)]*)+)*(?(Open)(?!))$</td><td>"3+2^((1-3)*(3-1))" 中的 "((1-3)*(3-1))"</td></tr> <tr><td><b>(?: subexpression)</b></td><td>定义非捕获组。</td><td>Write(?:Line)?</td><td>"Console.WriteLine()" 中的 "WriteLine"</td></tr> <tr><td><b>(?imnsx-imnsx:subexpression)</b></td><td>应用或禁用 <i>subexpression</i> 中指定的选项。 </td><td>A\d{2}(?i:\w+)\b</td><td>"A12xl A12XL a12xl" 中的 "A12xl" 和 "A12XL" </td></tr> <tr><td><b>(?= subexpression)</b></td><td>零宽度正预测先行断言。</td><td>\w+(?=\.)</td><td>"He is. The dog ran. The sun is out." 中的 "is"、 "ran" 和 "out"</td></tr> <tr><td><b>(?! subexpression)</b></td><td>零宽度负预测先行断言。</td><td>\b(?!un)\w+\b</td><td>"unsure sure unity used" 中的 "sure" 和 "used"</td></tr> <tr><td><b>(?&lt; =subexpression)</b></td><td>零宽度正回顾后发断言。</td><td>(?< =19)\d{2}\b</td><td>"1851 1999 1950 1905 2003" 中的 "51" 和 "03"</td></tr> <tr><td><b>(?&lt; ! subexpression)</b></td><td>零宽度负回顾后发断言。</td><td>(?< !19)\d{2}\b</td><td>"end sends endure lender" 中的 "ends" 和 "ender"</td></tr> <tr><td><b>(?&gt; subexpression)</b></td><td>非回溯（也称为"贪婪"）子表达式。</td><td>[13579](?>A+B+)</td><td>"1ABB 3ABBC 5AB 5AC" 中的 "1ABB"、 "3ABB" 和 "5AB"</td></tr> </table> <h3>限定符</h3> <p>限定符指定在输入字符串中必须存在上一个元素（可以是字符、组或字符类）的多少个实例才能出现匹配项。 限定符包括下表中列出的语言元素。</p> <p>下表列出了限定符：</p> <table class="reference notranslate"> <tr><th style="width:10%;">限定符</th><th style="width:40%;">描述</th><th style="width:20%;">模式</th><th style="width:30%;">匹配</th></tr> <tr><td><b>*</b></td><td>匹配上一个元素零次或多次。</td><td>\d*\.\d</td><td>".0"、 "19.9"、 "219.9"</td></tr> <tr><td><b>+</b></td><td>匹配上一个元素一次或多次。</td><td>"be+"</td><td>"been" 中的 "bee"， "bent" 中的 "be"</td></tr> <tr><td><b>?</b></td><td>匹配上一个元素零次或一次。</td><td>"rai?n"</td><td>"ran"、 "rain"</td></tr> <tr><td><b>{ n }</b></td><td>匹配上一个元素恰好 n 次。</td><td>",\d{3}"</td><td>"1,043.6" 中的 ",043"， "9,876,543,210" 中的 ",876"、 ",543" 和 ",210"</td></tr> <tr><td><b>{ n ,}</b></td><td>匹配上一个元素至少 n 次。</td><td>"\d{2,}"</td><td>"166"、 "29"、 "1930"</td></tr> <tr><td><b>{ n , m }</b></td><td>匹配上一个元素至少 n 次，但不多于 m 次。</td><td>"\d{3,5}"</td><td>"166"， "17668"， "193024" 中的 "19302" </td></tr> <tr><td><b>*?</b></td><td>匹配上一个元素零次或多次，但次数尽可能少。</td><td>\d*?\.\d</td><td>".0"、 "19.9"、 "219.9"</td></tr> <tr><td><b>+?</b></td><td>匹配上一个元素一次或多次，但次数尽可能少。</td><td>"be+?"</td><td>"been" 中的 "be"， "bent" 中的 "be"</td></tr> <tr><td><b>??</b></td><td>匹配上一个元素零次或一次，但次数尽可能少。</td><td>"rai??n"</td><td>"ran"、 "rain" </td></tr> <tr><td><b>{ n }?</b></td><td>匹配前导元素恰好 n 次。</td><td>",\d{3}?"</td><td>"1,043.6" 中的 ",043"， "9,876,543,210" 中的 ",876"、 ",543" 和 ",210"</td></tr> <tr><td><b>{ n ,}?</b></td><td>匹配上一个元素至少 n 次，但次数尽可能少。</td><td>"\d{2,}?"</td><td>"166"、 "29" 和 "1930"</td></tr> <tr><td><b>{ n , m }?</b></td><td>匹配上一个元素的次数介于 n 和 m 之间，但次数尽可能少。</td><td>"\d{3,5}?"</td><td>"166"， "17668"， "193024" 中的 "193" 和 "024" </td></tr> </table> <h3>反向引用构造</h3> <p>反向引用允许在同一正则表达式中随后标识以前匹配的子表达式。</p> <p>下表列出了反向引用构造：</p> <table class="reference notranslate"> <tr><th style="width:15%;">反向引用构造</th><th style="width:40%;">描述</th><th style="width:25%;">模式</th><th style="width:20%;">匹配</th></tr> <tr><td><b>\ number</b></td><td>反向引用。 匹配编号子表达式的值。</td><td>(\w)\1</td><td>"seek" 中的 "ee"</td></tr> <tr><td><b>\k< name ></b></td><td>命名反向引用。 匹配命名表达式的值。</td><td>(?< char>\w)\k< char></td><td>"seek" 中的 "ee"</td></tr> </table> <h3>备用构造</h3> <p>备用构造用于修改正则表达式以启用 either/or 匹配。</p> <p>下表列出了备用构造：</p> <table class="reference notranslate"> <tr><th style="width:25%;">备用构造</th><th style="width:30%;">描述</th><th style="width:25%;">模式</th><th style="width:20%;">匹配</th></tr> <tr><td><b>|</b></td><td>匹配以竖线 (|) 字符分隔的任何一个元素。</td><td>th(e|is|at)</td><td>"this is the day. " 中的 "the" 和 "this"</td></tr> <tr><td><b>(?( expression )yes | no )</b></td><td>如果正则表达式模式由 expression 匹配指定，则匹配 <i>yes</i>；否则匹配可选的 <i>no</i> 部分。 expression 被解释为零宽度断言。</td><td>(?(A)A\d{2}\b|\b\d{3}\b)</td><td>"A10 C103 910" 中的 "A10" 和 "910"</td></tr> <tr><td><b>(?( name )yes | no )</b></td><td>如果 name 或已命名或已编号的捕获组具有匹配，则匹配 <i>yes</i>；否则匹配可选的 <i>no</i>。</td><td>(?< quoted>")?(?(quoted).+?"|\S+\s)</td><td>"Dogs.jpg "Yiska playing.jpg"" 中的 Dogs.jpg 和 "Yiska playing.jpg"</td></tr> </table> <h3>替换</h3> <p>替换是替换模式中使用的正则表达式。</p> <p>下表列出了用于替换的字符：</p> <table class="reference notranslate"> <tr><th style="width:10%;">字符</th><th style="width:30%;">描述</th><th style="width:30%;">模式</th><th style="width:10%;">替换模式</th><th style="width:15%;">输入字符串</th><th style="width:15%;">结果字符串</tr> <tr><td><b>$</b>number</td><td>替换按组 <i>number</i> 匹配的子字符串。</td><td>\b(\w+)(\s)(\w+)\b</td><td>$3$2$1<td>"one two"<td>"two one"</td></tr> <tr><td><b>${</b>name<b>}</b></td><td>替换按命名组 <i>name</i> 匹配的子字符串。</td><td>\b(?< word1>\w+)(\s)(?< word2>\w+)\b</td><td>${word2} ${word1}</td><td>"one two"<td>"two one"</td></tr> <tr><td><b>$$</b></td><td>替换字符"$"。</td><td>\b(\d+)\s?USD</td><td>$$$1</td><td>"103 USD"<td>"$103"</td></tr> <tr><td><b>$&</b></td><td>替换整个匹配项的一个副本。</td><td>(\$*(\d*(\.+\d+)?){1})</td><td>**$&</td><td>"$1.30"<td>"**$1.30**"</td></tr> <tr><td><b>$`</b></td><td>替换匹配前的输入字符串的所有文本。</td><td>B+</td><td>$`</td><td>"AABBCC"<td>"AAAACC"</td></tr> <tr><td><b>$'</b></td><td>替换匹配后的输入字符串的所有文本。</td><td>B+</td><td>$'</td><td>"AABBCC"<td>"AACCCC"</td></tr> <tr><td><b>$+</b></td><td>替换最后捕获的组。</td><td>B+(C+)</td><td>$+</td><td>"AABBCCDD"<td>AACCDD</td></tr> <tr><td><b>$_</b></td><td>替换整个输入字符串。</td><td>B+</td><td>$_</td><td>"AABBCC"<td>"AAAABBCCCC"</td></tr> </table> <h3>杂项构造</h3> <p>下表列出了各种杂项构造：</p> <table class="reference notranslate"> <tr><th style="width:20%;">构造</th><th style="width:50%;">描述</th><th style="width:30%;">实例</th></tr> <tr><td><b>(?imnsx-imnsx)</b></td><td>在模式中间对诸如不区分大小写这样的选项进行设置或禁用。</td><td>\bA(?i)b\w+\b 匹配 "ABA Able Act" 中的 "ABA" 和 "Able"</td></tr> <tr><td><b>(?#comment)</b></td><td>内联注释。该注释在第一个右括号处终止。</td><td>\bA(?#Matches words starting with A)\w+\b</td></tr> <tr><td><b># </b>[to end of line]</td><td>X 模式注释。 该注释以非转义的 # 开头，并继续到行的结尾。</td><td>(?x)\bA\w+\b#Matches words starting with A</td></tr> </table> <br/> <h2 class="tutheader">Regex 类</h2> <p>Regex 类用于表示一个正则表达式。</p> <p>下表列出了 Regex 类中一些常用的方法：</p> <table class="reference notranslate"> <tr><th style="width:5%;">序号</th><th>方法 &amp; 描述</th></tr> <tr><td>1</td><td><b>public bool IsMatch( string input ) </b><br/>指示 Regex 构造函数中指定的正则表达式是否在指定的输入字符串中找到匹配项。</td></tr> <tr><td>2</td><td><b>public bool IsMatch( string input, int startat ) </b><br/>指示 Regex 构造函数中指定的正则表达式是否在指定的输入字符串中找到匹配项，从字符串中指定的开始位置开始。</td></tr> <tr><td>3</td><td><b>public static bool IsMatch( string input, string pattern ) </b><br/>指示指定的正则表达式是否在指定的输入字符串中找到匹配项。</td></tr> <tr><td>4</td><td><b>public MatchCollection Matches( string input ) </b><br/>在指定的输入字符串中搜索正则表达式的所有匹配项。</td></tr> <tr><td>5</td><td><b>public string Replace( string input, string replacement ) </b><br/>在指定的输入字符串中，把所有匹配正则表达式模式的所有匹配的字符串替换为指定的替换字符串。</td></tr> <tr><td>6</td><td><b>public string[] Split( string input ) </b><br/>把输入字符串分割为子字符串数组，根据在 Regex 构造函数中指定的正则表达式模式定义的位置进行分割。</td></tr> </table> <p>如需了解 Regex 类的完整的属性列表，请参阅微软的 C# 文档。</p> <h2 class="tutheader">实例 1</h2> <p>下面的实例匹配了以 'S' 开头的单词：</p> <pre class="prettyprint">
+using System;
+using System.Text.RegularExpressions;
+
+namespace RegExApplication
+{
+   class Program
+   {
+      private static void showMatch(string text, string expr)
+      {
+         Console.WriteLine("The Expression: " + expr);
+         MatchCollection mc = Regex.Matches(text, expr);
+         foreach (Match m in mc)
+         {
+            Console.WriteLine(m);
+         }
+      }
+      static void Main(string[] args)
+      {
+         string str = "A Thousand Splendid Suns";
+
+         Console.WriteLine("Matching words that start with 'S': ");
+         showMatch(str, @"\bS\S*");
+         Console.ReadKey();
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+Matching words that start with 'S':
+The Expression: \bS\S*
+Splendid
+Suns
+</pre> <h2 class="tutheader">实例 2</h2> <p>下面的实例匹配了以 'm' 开头以 'e' 结尾的单词：</p> <pre class="prettyprint">
+using System;
+using System.Text.RegularExpressions;
+
+namespace RegExApplication
+{
+   class Program
+   {
+      private static void showMatch(string text, string expr)
+      {
+         Console.WriteLine("The Expression: " + expr);
+         MatchCollection mc = Regex.Matches(text, expr);
+         foreach (Match m in mc)
+         {
+            Console.WriteLine(m);
+         }
+      }
+      static void Main(string[] args)
+      {
+         string str = "make maze and manage to measure it";
+
+         Console.WriteLine("Matching words start with 'm' and ends with 'e':");
+         showMatch(str, @"\bm\S*e\b");
+         Console.ReadKey();
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+Matching words start with 'm' and ends with 'e':
+The Expression: \bm\S*e\b
+make
+maze
+manage
+measure
+</pre> <h2 class="tutheader">实例 3</h2> <p>下面的实例替换掉多余的空格：</p> <pre class="prettyprint">
+using System;
+using System.Text.RegularExpressions;
+
+namespace RegExApplication
+{
+   class Program
+   {
+      static void Main(string[] args)
+      {
+         string input = "Hello   World   ";
+         string pattern = "\\s+";
+         string replacement = " ";
+         Regex rgx = new Regex(pattern);
+         string result = rgx.Replace(input, replacement);
+
+         Console.WriteLine("Original String: {0}", input);
+         Console.WriteLine("Replacement String: {0}", result);    
+         Console.ReadKey();
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+Original String: Hello   World   
+Replacement String: Hello World   
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="csharp-preprocessor-directives.html" tppabs="http://www.w3cschool.cc/csharp/csharp-preprocessor-directives.html" rel="prev"> C# 预处理器指令</a></div> <div class="next"><a href="csharp-exception-handling.html" tppabs="http://www.w3cschool.cc/csharp/csharp-exception-handling.html" rel="next">C# 异常处理</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/csharp/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/csharp/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

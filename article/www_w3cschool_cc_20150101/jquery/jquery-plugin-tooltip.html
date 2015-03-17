@@ -1,0 +1,394 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>jQuery Tooltip | w3cschool菜鸟教程</title> <link rel='prev' title='jQuery Prettydate' href="jquery-plugin-prettydate.html"/> <link rel='next' title='jQuery Treeview' href="jquery-plugin-treeview.html"/> <link rel='canonical' href='http://www.w3cschool.cc/jquery/jquery-plugin-tooltip.html'/> <meta name="keywords" content="jQuery Tooltip"> <meta name="description" content="jQuery Tooltip jQuery Tooltip 插件取代了原生的工具提示框，让它们可自定义，您只需要调整它们的内容、位置和外观即可。 该插件目前版本是 1.3，已经很长时间没有更新，推荐使用 jQuery UI 工具提示框（Tooltip）。 访问 jQuery Tooltip 官网，下载 jQuery Tooltip 插件。 如需了解更多有关 jQuery UI 工具提示框（Tooltip）的细节，请查看 API 文档 .."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>jQuery 教程</strong></h2> <a target="_top" title="jQuery 教程" href="jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html"> jQuery 教程 </a> <a target="_top" title="jQuery 简介" href="jquery-intro.html" tppabs="http://www.w3cschool.cc/jquery/jquery-intro.html"> jQuery 简介 </a> <a target="_top" title="jQuery 安装" href="jquery-install.html" tppabs="http://www.w3cschool.cc/jquery/jquery-install.html"> jQuery 安装 </a> <a target="_top" title="jQuery 语法" href="jquery-syntax.html" tppabs="http://www.w3cschool.cc/jquery/jquery-syntax.html"> jQuery 语法 </a> <a target="_top" title="jQuery 选择器" href="jquery-selectors.html" tppabs="http://www.w3cschool.cc/jquery/jquery-selectors.html"> jQuery 选择器 </a> <a target="_top" title="jQuery 事件" href="jquery-events.html" tppabs="http://www.w3cschool.cc/jquery/jquery-events.html"> jQuery 事件 </a> <br><h2 class="left"><span class="left_h2">jQuery 效果</span></h2> <a target="_top" title="jQuery 效果 &#8211; 隐藏和显示" href="jquery-hide-show.html" tppabs="http://www.w3cschool.cc/jquery/jquery-hide-show.html"> jQuery 隐藏/显示 </a> <a target="_top" title="jQuery 效果 &#8211; 淡入淡出" href="jquery-fade.html" tppabs="http://www.w3cschool.cc/jquery/jquery-fade.html"> jQuery 淡入淡出 </a> <a target="_top" title="jQuery 效果 &#8211; 滑动" href="jquery-slide.html" tppabs="http://www.w3cschool.cc/jquery/jquery-slide.html"> jQuery 滑动 </a> <a target="_top" title="jQuery 效果 &#8211; 动画" href="jquery-animate.html" tppabs="http://www.w3cschool.cc/jquery/jquery-animate.html"> jQuery 动画 </a> <a target="_top" title="jQuery 效果 &#8211; 停止动画" href="jquery-stop.html" tppabs="http://www.w3cschool.cc/jquery/jquery-stop.html"> jQuery 停止动画 </a> <a target="_top" title="jQuery Callback 方法" href="jquery-callback.html" tppabs="http://www.w3cschool.cc/jquery/jquery-callback.html"> jQuery Callback </a> <a target="_top" title="jQuery Chaining" href="jquery-chaining.html" tppabs="http://www.w3cschool.cc/jquery/jquery-chaining.html"> jQuery Chaining </a> <br><h2 class="left"><span class="left_h2">jQuery HTML</span></h2> <a target="_top" title="jQuery 获取内容和属性" href="jquery-dom-get.html" tppabs="http://www.w3cschool.cc/jquery/jquery-dom-get.html"> jQuery 捕获 </a> <a target="_top" title="jQuery 设置内容和属性" href="jquery-dom-set.html" tppabs="http://www.w3cschool.cc/jquery/jquery-dom-set.html"> jQuery 设置 </a> <a target="_top" title="jQuery 添加元素" href="jquery-dom-add.html" tppabs="http://www.w3cschool.cc/jquery/jquery-dom-add.html"> jQuery 添加元素 </a> <a target="_top" title="jQuery 删除元素" href="jquery-dom-remove.html" tppabs="http://www.w3cschool.cc/jquery/jquery-dom-remove.html"> jQuery 删除元素 </a> <a target="_top" title="jQuery 获取并设置 CSS 类" href="jquery-css-classes.html" tppabs="http://www.w3cschool.cc/jquery/jquery-css-classes.html"> jQuery CSS 类 </a> <a target="_top" title="jQuery css() 方法" href="jquery-css.html" tppabs="http://www.w3cschool.cc/jquery/jquery-css.html"> jQuery css() 方法 </a> <a target="_top" title="jQuery 尺寸" href="jquery-dimensions.html" tppabs="http://www.w3cschool.cc/jquery/jquery-dimensions.html"> jQuery 尺寸 </a> <br><h2 class="left"><span class="left_h2">jQuery 遍历</span></h2> <a target="_top" title="jQuery 遍历" href="jquery-traversing.html" tppabs="http://www.w3cschool.cc/jquery/jquery-traversing.html"> jQuery 遍历 </a> <a target="_top" title="jQuery 遍历 &#8211; 祖先" href="jquery-traversing-ancestors.html" tppabs="http://www.w3cschool.cc/jquery/jquery-traversing-ancestors.html"> jQuery 祖先 </a> <a target="_top" title="jQuery 遍历 &#8211; 后代" href="jquery-traversing-descendants.html" tppabs="http://www.w3cschool.cc/jquery/jquery-traversing-descendants.html"> jQuery 后代 </a> <a target="_top" title="jQuery 遍历 &#8211; 同胞(siblings)" href="jquery-traversing-siblings.html" tppabs="http://www.w3cschool.cc/jquery/jquery-traversing-siblings.html"> jQuery 同胞 </a> <a target="_top" title="jQuery 遍历 &#8211; 过滤" href="jquery-traversing-filtering.html" tppabs="http://www.w3cschool.cc/jquery/jquery-traversing-filtering.html"> jQuery 过滤 </a> <br><h2 class="left"><span class="left_h2">jQuery Ajax</span></h2> <a target="_top" title="jQuery AJAX 简介" href="jquery-ajax-intro.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ajax-intro.html"> jQuery AJAX 简介 </a> <a target="_top" title="jQuery &#8211; AJAX load() 方法" href="jquery-ajax-load.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ajax-load.html"> jQuery load() 方法 </a> <a target="_top" title="jQuery &#8211; AJAX get() 和 post() 方法" href="jquery-ajax-get-post.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ajax-get-post.html"> jQuery get()/post() 方法 </a> <br><h2 class="left"><span class="left_h2">jQuery 其他</span></h2> <a target="_top" title="jQuery noConflict() 方法" href="jquery-noconflict.html" tppabs="http://www.w3cschool.cc/jquery/jquery-noconflict.html"> jQuery noConflict() 方法 </a> <a target="_blank" title="jQuery JSONP" href="../json/json-jsonp.html" tppabs="http://www.w3cschool.cc/json/json-jsonp.html">jQuery JSONP </a> <br><h2 class="left"><span class="left_h2">jQuery 实例</span></h2> <a target="_top" title="jQuery 实例" href="jquery-examples.html" tppabs="http://www.w3cschool.cc/jquery/jquery-examples.html"> jQuery 实例 </a> <br><h2 class="left"><span class="left_h2">jQuery 参考手册</span></h2> <a target="_top" title="jQuery 选择器" href="jquery-ref-selectors.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ref-selectors.html"> jQuery 选择器 </a> <a target="_top" title="jQuery 事件方法" href="jquery-ref-events.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ref-events.html"> jQuery 事件方法 </a> <a target="_top" title="jQuery 效果方法" href="jquery-ref-effects.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ref-effects.html"> jQuery 效果方法 </a> <a target="_top" title="jQuery HTML / CSS 方法" href="jquery-ref-html.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ref-html.html"> jQuery HTML / CSS 方法 </a> <a target="_top" title="jQuery 遍历方法" href="jquery-ref-traversing.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ref-traversing.html"> jQuery 遍历方法 </a> <a target="_top" title="jQuery AJAX 方法" href="jquery-ref-ajax.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ref-ajax.html"> jQuery AJAX 方法 </a> <a target="_top" title="jQuery 杂项方法" href="jquery-ref-misc.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ref-misc.html"> jQuery 杂项方法 </a> <a target="_top" title="jQuery 属性" href="jquery-ref-prop.html" tppabs="http://www.w3cschool.cc/jquery/jquery-ref-prop.html"> jQuery 属性 </a> <br><h2 class="left">jQuery <span class="left_h2">插件</span></h2> <a target="_top" href="jquery-plugin-validate.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-validate.html"> jQuery Validate </a> <a target="_top" href="jquery-plugin-accordion.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-accordion.html"> jQuery Accordion</a> <a target="_top" href="jquery-plugin-autocomplete.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-autocomplete.html"> jQuery Autocomplete</a> <a target="_top" href="jquery-plugin-message.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-message.html"> jQuery Message</a> <a target="_top" href="jquery-plugin-password-validation.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-password-validation.html"> jQuery 密码验证</a> <a target="_top" href="jquery-plugin-prettydate.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-prettydate.html"> jQuery Prettydate</a> <a target="_top" href="jquery-plugin-tooltip.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-tooltip.html"> jQuery Tooltip</a> <a target="_top" href="jquery-plugin-treeview.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-treeview.html"> jQuery Treeview</a></div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jquery-plugin-prettydate.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-prettydate.html" rel="prev"> jQuery Prettydate</a></div> <div class="next"><a href="jquery-plugin-treeview.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-treeview.html" rel="next">jQuery Treeview</a> &raquo;</div> </div> <div id="content"> <h1>jQuery <span class="color_h1">Tooltip</span></h1> <div class="tutintro"> <p>jQuery Tooltip 插件取代了原生的工具提示框，让它们可自定义，您只需要调整它们的内容、位置和外观即可。</p> <p>该插件目前版本是 1.3，已经很长时间没有更新，推荐使用 <a href="../jqueryui/example-tooltip.html" tppabs="http://www.w3cschool.cc/jqueryui/example-tooltip.html">jQuery UI 工具提示框（Tooltip）</a>。</p> <p>访问 <a href="javascript:if(confirm('http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/'" tppabs="http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/" target="_blank">jQuery Tooltip 官网</a>，下载 jQuery Tooltip 插件。</p> <p>如需了解更多有关 jQuery UI 工具提示框（Tooltip）的细节，请查看 API 文档 <a href="javascript:if(confirm('http://www.w3cschool.cc/jqueryui/browsers-mozilla.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/jqueryui/browsers-mozilla.html'" tppabs="http://www.w3cschool.cc/jqueryui/api-tooltip.html">jQuery UI 工具提示框部件（Tooltip Widget）</a>。</p> </div> <h2>实例演示</h2> <p>jQuery Tooltip 插件演示。</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;jQuery Tooltip 插件&lt;/title&gt;
+
+&lt;link rel="stylesheet" href="http://jquery.bassistance.de/tooltip/jquery.tooltip.css" /&gt;
+&lt;link rel="stylesheet" href="http://jquery.bassistance.de/tooltip/demo/screen.css" /&gt;
+&lt;script src="http://jquery.bassistance.de/tooltip/lib/jquery.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://jquery.bassistance.de/tooltip/lib/jquery.bgiframe.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://jquery.bassistance.de/tooltip/lib/jquery.dimensions.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="http://jquery.bassistance.de/tooltip/jquery.tooltip.js" type="text/javascript"&gt;&lt;/script&gt;
+
+&lt;script src="http://jquery.bassistance.de/tooltip/demo/chili-1.7.pack.js" type="text/javascript"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript"&gt;
+$(function() {
+$('#set1 *').tooltip();
+
+$("#foottip a").tooltip({
+	bodyHandler: function() {
+		return $($(this).attr("href")).html();
+	},
+	showURL: false
+});
+
+$('#tonus').tooltip({
+	delay: 0,
+	showURL: false,
+	bodyHandler: function() {
+		return $("&lt;img/&gt;").attr("src", this.src);
+	}
+});
+
+$('#yahoo a').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	showBody: " - ",
+	fade: 250
+});
+
+$("select").tooltip({
+	left: 25
+});
+
+$("map &gt; area").tooltip({ positionLeft: true });
+
+$("#fancy, #fancy2").tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	fixPNG: true,
+	showBody: " - ",
+	extraClass: "pretty fancy",
+	top: -15,
+	left: 5
+});
+
+$('#pretty').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	showBody: " - ",
+	extraClass: "pretty",
+	fixPNG: true,
+	left: -120
+});
+
+$('#right a').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	extraClass: "right"
+});
+$('#right2 a').tooltip({ showURL: false, positionLeft: true });
+
+$("#block").click($.tooltip.block);
+
+});
+&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 id="banner"&gt;jQuery Tooltip 插件演示&lt;/h1&gt;
+&lt;div id="main"&gt;
+	&lt;fieldset id="set1"&gt;
+		&lt;legend&gt;三个带有默认设置的 Tooltip 的元素&lt;/legend&gt;
+		&lt;a title="一个带有默认设置的 tooltip，href 显示在标题下" href="http://google.de"&gt;链接到谷歌&lt;/a&gt;
+		&lt;br/&gt;
+		&lt;label title="一个带有 title 和默认设置的标签，没有 href" for="text1"&gt;请输入一些字符！&lt;/label&gt;
+		&lt;br/&gt;
+		&lt;input title="请注意，当点击 input 元素时，tooltip 消失" type="text" value="测试" name="action" id="text1"/&gt;
+		
+		&lt;h3&gt;代码&lt;/h3&gt;
+		&lt;code class="mix"&gt;$('#set1 *').tooltip();&lt;/code&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;fieldset id="foottip"&gt;
+		&lt;legend&gt;使用 bodyHandler 来显示 tooltip 中的脚注&lt;/legend&gt;
+		一些指向 &lt;a href="#footnote"&gt;脚注&lt;/a&gt; 的文本。
+		&lt;br/&gt;
+		&lt;br/&gt;
+		&lt;br/&gt;
+		&lt;br/&gt;
+		&lt;br/&gt;
+		&lt;div id="footnote"&gt;&lt;em&gt;这里&lt;/em&gt;是一个实际的脚注，通过嵌套的 &lt;strong&gt;HTML&lt;/strong&gt; 来完成。&lt;/div&gt;
+		
+		&lt;h3&gt;代码&lt;/h3&gt;
+		&lt;code class="mix"&gt;$("#foottip a").tooltip({
+	bodyHandler: function() {
+		return $($(this).attr("href")).html();
+	},
+	showURL: false
+});&lt;/code&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;fieldset&gt;
+		&lt;legend&gt;一个带有 tooltip 的图像&lt;/legend&gt;
+		&lt;img id="tonus" src="http://jquery.bassistance.de/tooltip/demo/image.png" height="80" title="没有延迟。src 值显示在标题下" /&gt;
+		&lt;h3&gt;代码&lt;/h3&gt;
+	&lt;code class="mix"&gt;$('#tonus').tooltip({
+	delay: 0,
+	showURL: false,
+	bodyHandler: function() {
+		return $("&amp;lt;img/&amp;gt;").attr("src", this.src);
+	}
+});&lt;/code&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;fieldset&gt;
+		&lt;legend&gt;锁定 tooltip&lt;/legend&gt;
+		&lt;button id="block"&gt;点击按钮锁定/解锁所有的 tooltip&lt;/button&gt;
+		&lt;h3&gt;代码&lt;/h3&gt;
+		&lt;code class="mix"&gt;$("#block").click($.tooltip.block);&lt;/code&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;fieldset&gt;
+		&lt;legend&gt;下面四个链接没有延迟跟踪和渐变，带有额外的内容&lt;/legend&gt;
+		&lt;div id="yahoo"&gt;
+			&lt;a title="Yahoo doo - more content" href="http://yahoo.com"&gt;链接到雅虎&lt;/a&gt;
+			&lt;a title="Yahoo doo2 - wohooo" href="http://yahoo.com"&gt;链接到雅虎 1&lt;/a&gt;
+			&lt;a title="Yahoo doo3" href="http://yahoo.com"&gt;链接到雅虎 2&lt;/a&gt;
+			&lt;a title="Yahoo doo4 - buga!" href="http://yahoo.com"&gt;链接到雅虎 3&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;select&gt;&lt;option&gt;bgiframe test&lt;/option&gt;&lt;/select&gt;
+		&lt;h3&gt;代码&lt;/h3&gt;
+		&lt;code class="mix"&gt;$('#yahoo a').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	showBody: " - ",
+	fade: 250
+});&lt;/code&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;fieldset&gt;
+		&lt;legend&gt;带有额外的 class 的 tooltip。用于在一个页面上显示不同的 tooltip 样式&lt;/legend&gt;
+		&lt;em&gt;请注意，当鼠标停留在右边视区边界时，右边的那个 tooltip 如何显示一个不同的背景图片。&lt;/em&gt;
+		&lt;br/&gt;
+		&lt;span id="fancy" title="注意 - 请注意，这里带有一些自定义的样式。"&gt;一个奇特的 tooltip，带有一些自定义的样式。&lt;/span&gt;
+		&lt;span id="fancy2" title="注意 - 请注意，这里带有一些自定义的样式。"&gt;一个奇特的 tooltip，带有一些自定义的样式。&lt;/span&gt;
+		&lt;p&gt;&lt;span id="pretty" title="注意 - 请注意，这里带有更多自定义的样式。"&gt;一个奇特的 tooltip，带有阴影和一些额外的内容。&lt;/span&gt;&lt;/p&gt;
+		&lt;br/&gt;
+		&lt;br/&gt;
+		&lt;br/&gt;
+		&lt;select&gt;&lt;option&gt;bgiframe test&lt;/option&gt;&lt;/select&gt;
+		&lt;h3&gt;代码&lt;/h3&gt;
+		&lt;code class="mix"&gt;$("#fancy, #fancy2").tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	opacity: 1,
+	fixPNG: true,
+	showBody: " - ",
+	extraClass: "pretty fancy",
+	top: -15,
+	left: 5
+});
+
+$('#pretty').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	showBody: " - ",
+	extraClass: "pretty",
+	fixPNG: true,
+	opacity: 0.95,
+	left: -120
+});&lt;/code&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;fieldset&gt;
+		&lt;legend&gt;下拉框&lt;/legend&gt;
+		&lt;select title="带有 tooltip 的 select"&gt;
+			&lt;option&gt;1. option&lt;/option&gt;
+			&lt;option&gt;2. option&lt;/option&gt;
+			&lt;option&gt;3. option&lt;/option&gt;
+		&lt;/select&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;fieldset&gt;
+		&lt;legend&gt;带有 tooltip 的图像地图&lt;/legend&gt;
+	
+		&lt;img id="map" src="karte.png" width="345" height="312" border="0" usemap="#Landkarte"&gt;
+		&lt;map name="Landkarte"&gt;
+		  &lt;area shape="rect" coords="11,10,59,29"
+		        href="http://www.koblenz.de/" alt="Koblenz" title="Koblenz"&gt;
+		  &lt;area shape="rect" coords="42,36,96,57"
+		        href="http://www.wiesbaden.de/" alt="Wiesbaden" title="Wiesbaden"&gt;
+		  &lt;area shape="rect" coords="42,59,78,80"
+		        href="http://www.mainz.de/" alt="Mainz" title="Mainz"&gt;
+		  &lt;area shape="rect" coords="100,26,152,58"
+		        href="http://www.frankfurt.de/" alt="Frankfurt" title="Frankfurt"&gt;
+		  &lt;area shape="rect" coords="27,113,93,134"
+		        href="http://www.mannheim.de/" alt="Mannheim" title="Mannheim"&gt;
+		  &lt;area shape="rect" coords="100,138,163,159"
+		        href="http://www.heidelberg.de/" alt="Heidelberg" title="Heidelberg"&gt;
+		  &lt;area shape="rect" coords="207,77,266,101"
+		        href="http://www.wuerzburg.de/" alt="W&amp;uuml;rzburg" title="W&amp;uuml;rzburg"&gt;
+		  &lt;area shape="rect" coords="282,62,344,85"
+		        href="http://www.bamberg.de/" alt="Bamberg" title="Bamberg"&gt;
+		  &lt;area shape="rect" coords="255,132,316,150"
+		        href="http://www.nuernberg.de/" alt="N&amp;uuml;rnberg" title="N&amp;uuml;rnberg"&gt;
+		  &lt;area shape="rect" coords="78,182,132,200"
+		        href="http://www.karlsruhe.de/" alt="Karlsruhe" title="Karlsruhe"&gt;
+		  &lt;area shape="rect" coords="142,169,200,193"
+		        href="http://www.heilbronn.de/" alt="Heilbronn" title="Heilbronn"&gt;
+		  &lt;area shape="rect" coords="140,209,198,230"
+		        href="http://www.stuttgart.de/" alt="Stuttgart" title="Stuttgart"&gt;
+		  &lt;area shape="rect" coords="187,263,222,281"
+		        href="http://www.ulm.de/" alt="Ulm" title="Ulm"&gt;
+		  &lt;area shape="rect" coords="249,278,304,297"
+		        href="http://www.augsburg.de/" alt="Augsburg" title="Augsburg"&gt;
+		  &lt;area shape="poly" coords="48,311,105,248,96,210,75,205,38,234,8,310"
+		        href="http://www.baden-aktuell.de/" alt="Baden" title="Baden"&gt;
+		&lt;/map&gt;
+		&lt;h3&gt;代码&lt;/h3&gt;
+		&lt;code class="mix"&gt;$("map *").tooltip({ positionLeft: true });&lt;/code&gt;
+	&lt;/fieldset&gt;
+	
+	&lt;fieldset&gt;
+		&lt;legend&gt;在视区的边界测试重新定位&lt;/legend&gt;
+		&lt;p id="right"&gt;
+			带有固定宽度的 tooltip&lt;br/&gt;
+			&lt;a title="短标题" href="http://google"&gt;链接到谷歌&lt;/a&gt;&lt;br/&gt;
+			&lt;a title="长标题，没有其他含义，只是一个长标题，一个很长很长很长很长很长的标题" href="http://google"&gt;链接到谷歌&lt;/a&gt;
+		&lt;/p&gt;
+		&lt;p id="right2"&gt;
+			带有自动宽度的 tooltip&lt;br/&gt;
+			&lt;a title="短标题" href="http://google"&gt;链接到谷歌&lt;/a&gt;&lt;br/&gt;
+			&lt;a title="长标题，没有其他含义，只是一个长标题，一个很长很长很长很长很长的标题" href="http://google"&gt;链接到谷歌&lt;/a&gt;
+		&lt;/p&gt;
+		&lt;h3&gt;代码&lt;/h3&gt;
+		&lt;code class="mix"&gt;$('#right a').tooltip({
+	track: true,
+	delay: 0,
+	showURL: false,
+	extraClass: "right"
+});
+$('#right2 a').tooltip({ showURL: false, positionLeft: true });&lt;/code&gt;
+	&lt;/fieldset&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/browsers-netscape.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ���Ѿ���վ���������ų���������ų���·����ַ��(��ϵͳ�� Teleport Ultra �����ǿ�ѡ��; �μ���Ŀ����, �������ǡ�)  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/try/browsers-netscape.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jquery-plugin-tooltip" target="_blank"><button class="btn btn-info btn-lg">查看演示</button></a></p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jquery-plugin-prettydate.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-prettydate.html" rel="prev"> jQuery Prettydate</a></div> <div class="next"><a href="jquery-plugin-treeview.html" tppabs="http://www.w3cschool.cc/jquery/jquery-plugin-treeview.html" rel="next">jQuery Treeview</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/jquery/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/jquery/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

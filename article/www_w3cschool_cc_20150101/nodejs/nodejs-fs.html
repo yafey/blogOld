@@ -1,0 +1,176 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Node.js 文件系统 | w3cschool菜鸟教程</title> <link rel='prev' title='Node.js 常用工具util' href="nodejs-util.html"/> <link rel='next' title='Ruby 教程' href="/ruby/ruby-tutorial.html"/> <link rel='canonical' href='http://www.w3cschool.cc/nodejs/nodejs-fs.html'/> <meta name="keywords" content="Node.js 文件系统"> <meta name="description" content="Node.js 文件系统 Node.js 文件系统封装在 fs 模块是中，它提供了文件的读取、写入、更名、删除、遍历目录、链接等POSIX 文件系统操作。 与其他模块不同的是，fs 模块中所有的操作都提供了异步的和 同步的两个版本，例如读取文件内容的函数有异步的 fs.readFile() 和同步的 fs.readFileSync()。我们以几个函数为代表，介绍 fs 常用的功能，并列出 fs 所有函数 的定义和功能。 fs.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Node.js 教程</strong></h2> <a target="_top" title="Node.js 教程" href="nodejs-tutorial.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-tutorial.html"> Node.js 教程 </a> <a target="_top" title="Node.js 安装配置" href="nodejs-install-setup.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-install-setup.html"> Node.js 安装配置 </a> <a target="_top" title="Node.js 创建HTTP服务器" href="nodejs-http-server.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-http-server.html"> Node.js 创建HTTP服务器 </a> <a target="_top" title="Node.js 模块系统" href="nodejs-module-system.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-module-system.html"> Node.js 模块系统 </a> <a target="_top" title="Node.js 事件" href="nodejs-event.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-event.html"> Node.js 事件 </a> <a target="_top" title="Node.js 函数" href="nodejs-function.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-function.html"> Node.js 函数 </a> <a target="_top" title="Node.js 路由" href="nodejs-router.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-router.html"> Node.js 路由 </a> <a target="_top" title="Node.js 全局对象" href="nodejs-global-object.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-global-object.html"> Node.js 全局对象 </a> <a target="_top" title="Node.js 常用工具util" href="nodejs-util.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-util.html"> Node.js 常用工具util </a> <a target="_top" title="Node.js 文件系统" href="nodejs-fs.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-fs.html"> Node.js 文件系统 </a> <a target="_top" title="Node.js GET/POST请求" href="node-js-get-post.html" tppabs="http://www.w3cschool.cc/nodejs/node-js-get-post.html"> Node.js GET/POST请求 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="nodejs-util.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-util.html" rel="prev"> Node.js 常用工具util</a></div> <div class="next"><a href="node-js-get-post.html" tppabs="http://www.w3cschool.cc/nodejs/node-js-get-post.html" rel="next">Node.js GET/POST请求</a> &raquo;</div> </div> <div id="content"> <h1>Node.js 文件系统</h1> <p> Node.js 文件系统封装在 fs 模块是中，它提供了文件的读取、写入、更名、删除、遍历目录、链接等POSIX 文件系统操作。</p> <p>与其他模块不同的是，fs 模块中所有的操作都提供了异步的和 同步的两个版本，例如读取文件内容的函数有异步的 fs.readFile() 和同步的 fs.readFileSync()。我们以几个函数为代表，介绍 fs 常用的功能，并列出 fs 所有函数 的定义和功能。 </p> <hr> <h2> fs.readFile</h2> <p> Node.js读取文件函数语法如下： </p> <pre>
+fs.readFile(filename,[encoding],[callback(err,data)])
+</pre> <ul> <li>filename（必选），表示要读取的文件名。 </li><li>encoding（可选），表示文件的字符编码。 </li><li>callback 是回调函数，用于接收文件的内容。</li></ul> <p>如果不指 定 encoding，则 callback 就是第二个参数。回调函数提供两个参数 err 和 data，err 表 示有没有错误发生，data 是文件内容。如果指定了 encoding，data 是一个解析后的字符 串，否则 data 将会是以 Buffer 形式表示的二进制数据。</p> <p> 例如以下程序，我们从content.txt 中读取数据，但不指定编码：</p> <pre>
+varfs = require('fs'); 
+fs.readFile('content.txt', function(err, data) { 
+	if(err) { 
+		console.error(err); 
+	} else{ 
+		console.log(data); 
+	} 
+}); 
+</pre> <p>假设content.txt 中的内容是UTF-8 编码的 Text 文本文件示例，运行结果如下：</p> <pre>
+&lt;Buffer 54 65 78 74 20 e6 96 87 e6 9c ac e6 96 87 e4 bb b6 e7 a4 ba e4 be 8b&gt; 
+</pre> <p> 这个程序以二进制的模式读取了文件的内容，data 的值是 Buffer 对象。如果我们给 </p> <p> fs.readFile 的 encoding 指定编码： </p> <pre>
+var fs = require('fs'); 
+	fs.readFile('content.txt', 'utf-8', function(err, data) { 
+	if (err) { 
+		console.error(err); 
+	} else { 
+		console.log(data); 
+	} 
+}); 
+</pre> <p> 那么运行结果则是： </p> <pre>
+Text 文本文件示例
+</pre> <p> 当读取文件出现错误时，err 将会是 Error 对象。如果content.txt 不存在，运行前面 的代码则会出现以下结果：</p> <pre>
+{ [Error: ENOENT, no such file or directory 'content.txt'] errno: 34, code: 'ENOENT', 
+path: 'content.txt' } 
+</pre> <hr> <h2>fs.readFileSync</h2> <p> <strong> fs.readFileSync(filename, [encoding])</strong>是 fs.readFile 同步的版本。它接受 的参数和 fs.readFile 相同，而读取到的文件内容会以函数返回值的形式返回。如果有错 误发生，fs 将会抛出异常，你需要使用 try 和 catch 捕捉并处理异常。 </p> <p><strong>注意：</strong>与同步I/O 函数不同，Node.js 中异步函数大多没有返回值。</p> <hr> <h2>fs.open</h2> <p>fs.open(path, flags, [mode], [callback(err, fd)])是POSIX open 函数的 封装，与C 语言标准库中的 fopen 函数类似。它接受两个必选参数，path 为文件的路径， flags 可以是以下值。</p> <ul> <li>r ：以读取模式打开文件。</li> <li>r+ ：以读写模式打开文件。</li> <li>w ：以写入模式打开文件，如果文件不存在则创建。</li> <li>w+ ：以读写模式打开文件，如果文件不存在则创建。</li> <li>a ：以追加模式打开文件，如果文件不存在则创建。</li> <li>a+ ：以读取追加模式打开文件，如果文件不存在则创建</li> </ul> <hr> <h2> fs.read</h2> <p>fs.read语法格式如下：</p> <pre>
+fs.read(fd, buffer, offset, length, position, [callback(err, bytesRead, buffer)])
+</pre> <p>参数说明：</p> <ul> <li>fd: 读取数据并写入 buffer 指向的缓冲区对象。</li> <li>offset: 是buffer 的写入偏移量。</li> <li>length: 是要从文件中读取的字节数。</li> <li>position: 是文件读取的起始位置，如果 position 的值为 null，则会从当前文件指针的位置读取。</li> <li>callback:回调函数传递bytesRead 和 buffer，分别表示读取的字节数和缓冲区对象。</li> </ul> <p> 以下是一个使用 fs.open 和 fs.read 的示例。 </p> <pre>
+varfs = require('fs'); 
+fs.open('content.txt', 'r', function(err, fd) { 
+	if(err) { 
+		console.error(err); 
+		return; 
+	} 
+	varbuf = newBuffer(8); 
+	fs.read(fd, buf, 0, 8, null, function(err, bytesRead, buffer) { 
+		if(err) { 
+			console.error(err); 
+			return; 
+		} 
+		console.log('bytesRead: ' + bytesRead); 
+		console.log(buffer); 
+	}) 
+}); 
+</pre><p> 运行结果是：</p> <pre>
+bytesRead: 8 
+&lt;Buffer 54 65 78 74 20 e6 96 87&gt; 
+</pre> <p>一般来说，除非必要，否则不要使用这种方式读取文件，因为它要求你手动管理缓冲区 和文件指针，尤其是在你不知道文件大小的时候，这将会是一件很麻烦的事情。 </p> <hr><h2> fs 模块函数表</h2> <p><img src="../wp-content/uploads/2014/04/css3-pr-align-content.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/04/nodejs-file1.png" alt="nodejs-file1" width="778" height="689" class="alignnone size-full wp-image-7160"/></p> <p> <img src="../wp-content/uploads/2014/04/css3-pr-align-items.html" tppabs="http://www.w3cschool.cc/wp-content/uploads/2014/04/nodejs-file2.png" alt="nodejs-file2" width="774" height="272" class="alignnone size-full wp-image-7161"/> </p> <p>更多详情可点击查看：<a href="javascript:if(confirm('http://nodejs.org/api/css3-pr-align-self.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://nodejs.org/api/css3-pr-align-self.html'" tppabs="http://nodejs.org/api/fs.html">http://nodejs.org/api/fs.html</a></p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="nodejs-util.html" tppabs="http://www.w3cschool.cc/nodejs/nodejs-util.html" rel="prev"> Node.js 常用工具util</a></div> <div class="next"><a href="node-js-get-post.html" tppabs="http://www.w3cschool.cc/nodejs/node-js-get-post.html" rel="next">Node.js GET/POST请求</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/nodejs/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/nodejs/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

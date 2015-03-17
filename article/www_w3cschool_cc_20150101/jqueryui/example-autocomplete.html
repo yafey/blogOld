@@ -1,0 +1,1037 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>jQuery UI å®ä¾‹ &#8211; è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ | w3cschoolèœé¸Ÿæ•™ç¨‹</title> <link rel='prev' title='jQuery UI å®ä¾‹ &#8211; æŠ˜å é¢æ¿ï¼ˆAccordionï¼‰' href="example-accordion.html"/> <link rel='next' title='jQuery UI å®ä¾‹ &#8211; æŒ‰é’®ï¼ˆButtonï¼‰' href="example-button.html"/> <link rel='canonical' href='http://www.w3cschool.cc/jqueryui/example-autocomplete.html'/> <meta name="keywords" content="jQuery UI å®ä¾‹ &#8211; è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰"> <meta name="description" content="jQuery UI å®ä¾‹ - è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ æ ¹æ®ç”¨æˆ·è¾“å…¥å€¼è¿›è¡Œæœç´¢å’Œè¿‡æ»¤ï¼Œè®©ç”¨æˆ·å¿«é€Ÿæ‰¾åˆ°å¹¶ä»é¢„è®¾å€¼åˆ—è¡¨ä¸­é€‰æ‹©ã€‚ å¦‚éœ€äº†è§£æ›´å¤šæœ‰å…³ autocomplete éƒ¨ä»¶çš„ç»†èŠ‚ï¼Œè¯·æŸ¥çœ‹ API æ–‡æ¡£ è‡ªåŠ¨å®Œæˆéƒ¨ä»¶ï¼ˆAutocomplete Widgetï¼‰ã€‚ é»˜è®¤åŠŸèƒ½ å½“æ‚¨åœ¨è¾“å…¥åŸŸä¸­è¾“å…¥æ—¶ï¼Œè‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰éƒ¨ä»¶æä¾›ç›¸åº”çš„å»ºè®®ã€‚åœ¨æœ¬å®ä¾‹ä¸­ï¼Œæä¾›äº†ç¼–ç¨‹è¯­è¨€çš„å»ºè®®é€‰é¡¹ï¼Œæ‚¨å¯ä»¥è¾“å…¥ &#039;ja&#0.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschoolèœé¸Ÿæ•™ç¨‹"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="æœç´¢"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">é¦–é¡µ</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">å‰ç«¯å·¥å…·</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">æ›´å¤šâ€¦â€¦</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>jQuery UI æ•™ç¨‹</strong></h2> <a target="_top" title="jQuery UI æ•™ç¨‹" href="jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html"> jQuery UI æ•™ç¨‹ </a> <a target="_top" title="jQuery UI ç®€ä»‹" href="jqueryui-intro.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-intro.html"> jQuery UI ç®€ä»‹ </a> <a target="_top" title="jQuery UI ä¸‹è½½" href="jqueryui-download.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-download.html"> jQuery UI ä¸‹è½½ </a> <a target="_top" title="jQuery UI ä½¿ç”¨" href="jqueryui-use.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-use.html"> jQuery UI ä½¿ç”¨ </a> <a target="_top" title="jQuery UI å®šåˆ¶" href="jqueryui-custom.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-custom.html"> jQuery UI å®šåˆ¶ </a> <a target="_top" title="jQuery UI å·¥ä½œåŸç†" href="jqueryui-work.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-work.html"> jQuery UI å·¥ä½œåŸç† </a> <br><h2 class="left">jQuery UI <span class="left_h2">ä¸»é¢˜</span></h2> <a target="_top" title="jQuery UI ä¸»é¢˜" href="jqueryui-theme.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-theme.html"> jQuery UI ä¸»é¢˜ </a> <a target="_top" title="jQuery UI ThemeRoller" href="jqueryui-theme-themeroller.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-theme-themeroller.html"> jQuery UI ThemeRoller </a> <a target="_top" title="jQuery UI CSS æ¡†æ¶ API" href="jqueryui-theme-api.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-theme-api.html"> jQuery UI CSS æ¡†æ¶ API </a> <a target="_top" title="jQuery UI è®¾è®¡ä¸»é¢˜" href="jqueryui-theme-design.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-theme-design.html"> jQuery UI è®¾è®¡ä¸»é¢˜ </a> <br><h2 class="left">jQuery UI <span class="left_h2">éƒ¨ä»¶åº“</span></h2> <a target="_top" title="jQuery UI éƒ¨ä»¶åº“" href="jqueryui-widget-factory.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-factory.html"> jQuery UI éƒ¨ä»¶åº“ </a> <a target="_top" title="jQuery UI é€šè¿‡éƒ¨ä»¶åº“æ‰©å±•å°éƒ¨ä»¶" href="jqueryui-widget-extend.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-extend.html"> jQuery UI æ‰©å±•å°éƒ¨ä»¶ </a> <a target="_top" title="jQuery UI å°éƒ¨ä»¶æ–¹æ³•è°ƒç”¨" href="jqueryui-widget-method.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-method.html"> jQuery UI å°éƒ¨ä»¶æ–¹æ³•è°ƒç”¨ </a> <a target="_top" title="jQuery UI ä¸ºä»€ä¹ˆä½¿ç”¨éƒ¨ä»¶åº“" href="jqueryui-widget-factory-why.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-factory-why.html"> jQuery UI ä¸ºä»€ä¹ˆä½¿ç”¨éƒ¨ä»¶åº“ </a> <a target="_top" title="jQuery UI å¦‚ä½•ä½¿ç”¨éƒ¨ä»¶åº“" href="jqueryui-widget-factory-how.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-widget-factory-how.html"> jQuery UI å¦‚ä½•ä½¿ç”¨éƒ¨ä»¶åº“ </a> <br><h2 class="left">jQuery UI <span class="left_h2">å‚è€ƒæ‰‹å†Œ</span></h2> <a target="_top" title="jQuery UI API æ–‡æ¡£" href="jqueryui-api.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-api.html"> jQuery UI API æ–‡æ¡£ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; ç‰¹æ•ˆ" href="ref-effects.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-effects.html"> API ç±»åˆ« - ç‰¹æ•ˆ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; ç‰¹æ•ˆæ ¸å¿ƒ" href="ref-effects-core.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-effects-core.html"> API ç±»åˆ« - ç‰¹æ•ˆæ ¸å¿ƒ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; äº¤äº’" href="ref-interactions.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-interactions.html"> API ç±»åˆ« - äº¤äº’ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; æ–¹æ³•é‡è½½" href="ref-overrides.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-overrides.html"> API ç±»åˆ« - æ–¹æ³•é‡è½½ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; æ–¹æ³•" href="ref-methods.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-methods.html"> API ç±»åˆ« - æ–¹æ³• </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; é€‰æ‹©å™¨" href="ref-selectors.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-selectors.html"> API ç±»åˆ« - é€‰æ‹©å™¨ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; ä¸»é¢˜" href="ref-theming.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-theming.html"> API ç±»åˆ« - ä¸»é¢˜ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; UI æ ¸å¿ƒ" href="ref-ui-core.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-ui-core.html"> API ç±»åˆ« - UI æ ¸å¿ƒ </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; å®ç”¨å·¥å…·" href="ref-utilities.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-utilities.html"> API ç±»åˆ« - å®ç”¨å·¥å…· </a> <a target="_top" title="jQuery UI API ç±»åˆ« &#8211; å°éƒ¨ä»¶" href="ref-widgets.html" tppabs="http://www.w3cschool.cc/jqueryui/ref-widgets.html"> API ç±»åˆ« - å°éƒ¨ä»¶ </a> <br><h2 class="left">jQuery UI <span class="left_h2">å®ä¾‹</span></h2> <a target="_top" title="jQuery UI å®ä¾‹" href="jqueryui-examples.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-examples.html"> jQuery UI å®ä¾‹ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ‹–åŠ¨ï¼ˆDraggableï¼‰" href="example-draggable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-draggable.html"> æ‹–åŠ¨ï¼ˆDraggableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ”¾ç½®ï¼ˆDroppableï¼‰" href="example-droppable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-droppable.html"> æ”¾ç½®ï¼ˆDroppableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; ç¼©æ”¾ï¼ˆResizableï¼‰" href="example-resizable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-resizable.html"> ç¼©æ”¾ï¼ˆResizableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; é€‰æ‹©ï¼ˆSelectableï¼‰" href="example-selectable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-selectable.html"> é€‰æ‹©ï¼ˆSelectableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ’åºï¼ˆSortableï¼‰" href="example-sortable.html" tppabs="http://www.w3cschool.cc/jqueryui/example-sortable.html"> æ’åºï¼ˆSortableï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æŠ˜å é¢æ¿ï¼ˆAccordionï¼‰" href="example-accordion.html" tppabs="http://www.w3cschool.cc/jqueryui/example-accordion.html"> æŠ˜å é¢æ¿ï¼ˆAccordionï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰" href="example-autocomplete.html" tppabs="http://www.w3cschool.cc/jqueryui/example-autocomplete.html"> è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æŒ‰é’®ï¼ˆButtonï¼‰" href="example-button.html" tppabs="http://www.w3cschool.cc/jqueryui/example-button.html"> æŒ‰é’®ï¼ˆButtonï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰" href="example-datepicker.html" tppabs="http://www.w3cschool.cc/jqueryui/example-datepicker.html"> æ—¥æœŸé€‰æ‹©å™¨ï¼ˆDatepickerï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; å¯¹è¯æ¡†ï¼ˆDialogï¼‰" href="example-dialog.html" tppabs="http://www.w3cschool.cc/jqueryui/example-dialog.html"> å¯¹è¯æ¡†ï¼ˆDialogï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; èœå•ï¼ˆMenuï¼‰" href="example-menu.html" tppabs="http://www.w3cschool.cc/jqueryui/example-menu.html"> èœå•ï¼ˆMenuï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; è¿›åº¦æ¡ï¼ˆProgressbarï¼‰" href="example-progressbar.html" tppabs="http://www.w3cschool.cc/jqueryui/example-progressbar.html"> è¿›åº¦æ¡ï¼ˆProgressbarï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ»‘å—ï¼ˆSliderï¼‰" href="example-slider.html" tppabs="http://www.w3cschool.cc/jqueryui/example-slider.html"> æ»‘å—ï¼ˆSliderï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ—‹è½¬å™¨ï¼ˆSpinnerï¼‰" href="example-spinner.html" tppabs="http://www.w3cschool.cc/jqueryui/example-spinner.html"> æ—‹è½¬å™¨ï¼ˆSpinnerï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ ‡ç­¾é¡µï¼ˆTabsï¼‰" href="example-tabs.html" tppabs="http://www.w3cschool.cc/jqueryui/example-tabs.html"> æ ‡ç­¾é¡µï¼ˆTabsï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; å·¥å…·æç¤ºæ¡†ï¼ˆTooltipï¼‰" href="example-tooltip.html" tppabs="http://www.w3cschool.cc/jqueryui/example-tooltip.html"> å·¥å…·æç¤ºæ¡†ï¼ˆTooltipï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; ç‰¹æ•ˆï¼ˆEffectï¼‰" href="example-effect.html" tppabs="http://www.w3cschool.cc/jqueryui/example-effect.html"> ç‰¹æ•ˆï¼ˆEffectï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ˜¾ç¤ºï¼ˆShowï¼‰" href="example-show.html" tppabs="http://www.w3cschool.cc/jqueryui/example-show.html"> æ˜¾ç¤ºï¼ˆShowï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; éšè—ï¼ˆHideï¼‰" href="example-hide.html" tppabs="http://www.w3cschool.cc/jqueryui/example-hide.html"> éšè—ï¼ˆHideï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; åˆ‡æ¢ï¼ˆToggleï¼‰" href="example-toggle.html" tppabs="http://www.w3cschool.cc/jqueryui/example-toggle.html"> åˆ‡æ¢ï¼ˆToggleï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; æ·»åŠ  Classï¼ˆAdd Classï¼‰" href="example-addclass.html" tppabs="http://www.w3cschool.cc/jqueryui/example-addclass.html"> .addClass() </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; ç§»é™¤ Classï¼ˆRemove Classï¼‰" href="example-removeclass.html" tppabs="http://www.w3cschool.cc/jqueryui/example-removeclass.html"> .removeClass() </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; åˆ‡æ¢ Classï¼ˆToggle Classï¼‰" href="example-toggleclass.html" tppabs="http://www.w3cschool.cc/jqueryui/example-toggleclass.html"> .toggleClass() </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; è½¬æ¢ Classï¼ˆSwitch Classï¼‰" href="example-switchclass.html" tppabs="http://www.w3cschool.cc/jqueryui/example-switchclass.html"> .switchClass() </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; é¢œè‰²åŠ¨ç”»ï¼ˆColor Animationï¼‰" href="example-animate.html" tppabs="http://www.w3cschool.cc/jqueryui/example-animate.html"> é¢œè‰²åŠ¨ç”» </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; å®šä½ï¼ˆPositionï¼‰" href="example-position.html" tppabs="http://www.w3cschool.cc/jqueryui/example-position.html"> å®šä½ï¼ˆPositionï¼‰ </a> <a target="_top" title="jQuery UI å®ä¾‹ &#8211; éƒ¨ä»¶åº“ï¼ˆWidget Factoryï¼‰" href="example-widget.html" tppabs="http://www.w3cschool.cc/jqueryui/example-widget.html"> éƒ¨ä»¶åº“ï¼ˆWidget Factoryï¼‰ </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="example-accordion.html" tppabs="http://www.w3cschool.cc/jqueryui/example-accordion.html" rel="prev"> jQuery UI å®ä¾‹ &#8211; æŠ˜å é¢æ¿ï¼ˆAccordionï¼‰</a></div> <div class="next"><a href="example-button.html" tppabs="http://www.w3cschool.cc/jqueryui/example-button.html" rel="next">jQuery UI å®ä¾‹ &#8211; æŒ‰é’®ï¼ˆButtonï¼‰</a> &raquo;</div> </div> <div id="content"> <h1>jQuery UI å®ä¾‹ - <span class="color_h1">è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰</span></h1> <div class="tutintro"> <p>æ ¹æ®ç”¨æˆ·è¾“å…¥å€¼è¿›è¡Œæœç´¢å’Œè¿‡æ»¤ï¼Œè®©ç”¨æˆ·å¿«é€Ÿæ‰¾åˆ°å¹¶ä»é¢„è®¾å€¼åˆ—è¡¨ä¸­é€‰æ‹©ã€‚</p> <p>å¦‚éœ€äº†è§£æ›´å¤šæœ‰å…³ autocomplete éƒ¨ä»¶çš„ç»†èŠ‚ï¼Œè¯·æŸ¥çœ‹ API æ–‡æ¡£ <a href="javascript:if(confirm('http://www.w3cschool.cc/jqueryui/rdf-reference.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ²»¿ÉÓÃ, »ò·ÅÆúÁËÏÂÔØ, »òÏîÄ¿¼´½«Í£Ö¹¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/jqueryui/rdf-reference.html'" tppabs="http://www.w3cschool.cc/jqueryui/api-autocomplete.html">è‡ªåŠ¨å®Œæˆéƒ¨ä»¶ï¼ˆAutocomplete Widgetï¼‰</a>ã€‚</p> </div> <h2>é»˜è®¤åŠŸèƒ½</h2> <p>å½“æ‚¨åœ¨è¾“å…¥åŸŸä¸­è¾“å…¥æ—¶ï¼Œè‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰éƒ¨ä»¶æä¾›ç›¸åº”çš„å»ºè®®ã€‚åœ¨æœ¬å®ä¾‹ä¸­ï¼Œæä¾›äº†ç¼–ç¨‹è¯­è¨€çš„å»ºè®®é€‰é¡¹ï¼Œæ‚¨å¯ä»¥è¾“å…¥ "ja" å°è¯•ä¸€ä¸‹ï¼Œå¯ä»¥å¾—åˆ° Java æˆ– JavaScriptã€‚</p> <p>æ•°æ®æºæ˜¯ä¸€ä¸ªç®€å•çš„ JavaScript æ•°ç»„ï¼Œä½¿ç”¨ source é€‰é¡¹æä¾›ç»™éƒ¨ä»¶ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - é»˜è®¤åŠŸèƒ½&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label for="tags"&gt;æ ‡ç­¾ï¼š&lt;/label&gt;
+  &lt;input id="tags"&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-q.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-q.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>åŒ…å«é‡éŸ³</h2> <p>autocomplete åŸŸä½¿ç”¨è‡ªå®šä¹‰çš„ source é€‰é¡¹æ¥åŒ¹é…å¸¦æœ‰é‡éŸ³å­—ç¬¦çš„ç»“æœé¡¹ï¼Œå³ä½¿æ–‡æœ¬åŸŸä¸åŒ…å«é‡éŸ³å­—ç¬¦ä¹Ÿä¼šåŒ¹é…ã€‚ä½†æ˜¯å¦‚æœæ‚¨åœ¨æ–‡æœ¬åŸŸä¸­é”®å…¥äº†é‡éŸ³å­—ç¬¦ï¼Œåˆ™ä¸ä¼šæ˜¾ç¤ºéé‡éŸ³çš„ç»“æœé¡¹ã€‚</p> <p>å°è¯•é”®å…¥ "Jo"ï¼Œä¼šçœ‹åˆ° "John" å’Œ "JÃ¶rn"ï¼Œç„¶å é”®å…¥ "JÃ¶"ï¼Œåªä¼šçœ‹åˆ° "JÃ¶rn"ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - åŒ…å«é‡éŸ³&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    var names = [ "J&ouml;rn Zaefferer", "Scott Gonz&aacute;lez", "John Resig" ];
+ 
+    var accentMap = {
+      "&aacute;": "a",
+      "&ouml;": "o"
+    };
+    var normalize = function( term ) {
+      var ret = "";
+      for ( var i = 0; i &lt; term.length; i++ ) {
+        ret += accentMap[ term.charAt(i) ] || term.charAt(i);
+      }
+      return ret;
+    };
+ 
+    $( "#developer" ).autocomplete({
+      source: function( request, response ) {
+        var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
+        response( $.grep( names, function( value ) {
+          value = value.label || value.value || value;
+          return matcher.test( value ) || matcher.test( normalize( value ) );
+        }) );
+      }
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;form&gt;
+  &lt;label for="developer"&gt;å¼€å‘äººå‘˜ï¼š&lt;/label&gt;
+  &lt;input id="developer"&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-rp.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-rp.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-folding" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>åˆ†ç±»</h2> <p>åˆ†ç±»çš„æœç´¢ç»“æœã€‚å°è¯•é”®å…¥ "a" æˆ– "n"ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - åˆ†ç±»&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  .ui-autocomplete-category {
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .8em 0 .2em;
+    line-height: 1.5;
+  }
+  &lt;/style&gt;
+  &lt;script&gt;
+  $.widget( "custom.catcomplete", $.ui.autocomplete, {
+    _renderMenu: function( ul, items ) {
+      var that = this,
+        currentCategory = "";
+      $.each( items, function( index, item ) {
+        if ( item.category != currentCategory ) {
+          ul.append( "&lt;li class='ui-autocomplete-category'&gt;" + item.category + "&lt;/li&gt;" );
+          currentCategory = item.category;
+        }
+        that._renderItemData( ul, item );
+      });
+    }
+  });
+  &lt;/script&gt;
+  &lt;script&gt;
+  $(function() {
+    var data = [
+      { label: "anders", category: "" },
+      { label: "andreas", category: "" },
+      { label: "antal", category: "" },
+      { label: "annhhx10", category: "Products" },
+      { label: "annk K12", category: "Products" },
+      { label: "annttop C13", category: "Products" },
+      { label: "anders andersson", category: "People" },
+      { label: "andreas andersson", category: "People" },
+      { label: "andreas johnson", category: "People" }
+    ];
+ 
+    $( "#search" ).catcomplete({
+      delay: 0,
+      source: data
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;label for="search"&gt;æœç´¢ï¼š&lt;/label&gt;
+&lt;input id="search"&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-rt.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-rt.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-categories" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>ç»„åˆæ¡†ï¼ˆComboboxï¼‰</h2> <p>ä¸€ä¸ªç”± Autocomplete å’Œ Button åˆ›å»ºçš„è‡ªå®šä¹‰éƒ¨ä»¶ã€‚æ‚¨å¯ä»¥é”®å…¥ä¸€äº›å­—ç¬¦ï¼Œæ¥è·å¾—åŸºäºæ‚¨çš„è¾“å…¥è¿‡æ»¤çš„ç»“æœï¼Œæˆ–è€…ä½¿ç”¨æŒ‰é’®ä»å®Œæ•´åˆ—è¡¨ä¸­é€‰æ‹©ã€‚</p> <p>è¯¥è¾“å…¥æ˜¯ä»ä¸€ä¸ªå·²æœ‰çš„ select å…ƒç´ ä¸­è¯»å–ï¼Œä¼ é€’ç»™å¸¦æœ‰è‡ªå®šä¹‰çš„ source é€‰é¡¹çš„ Autocompleteã€‚</p> <p>è¿™æ˜¯ä¸€ä¸ªä¸è¢«æ”¯æŒçš„ä¸å®Œç¾çš„éƒ¨ä»¶ã€‚è¿™é‡Œçº¯ç²¹æ˜¯ä¸ºäº†æ¼”ç¤º autocomplete å®šåˆ¶åŠŸèƒ½ã€‚<a href="javascript:if(confirm('http://www.learningjquery.com/2010/06/a-jquery-ui-combobox-under-the-hood/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.learningjquery.com/2010/06/a-jquery-ui-combobox-under-the-hood/'" tppabs="http://www.learningjquery.com/2010/06/a-jquery-ui-combobox-under-the-hood/" target="_blank">å¦‚éœ€äº†è§£æ›´å¤šæœ‰å…³è¯¥éƒ¨ä»¶å·¥ä½œåŸç†çš„ç»†èŠ‚ï¼Œè¯·ç‚¹å‡»è¿™é‡ŒæŸ¥çœ‹ç›¸å…³çš„ jQuery æ–‡ç« ã€‚</a></p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - ç»„åˆæ¡†ï¼ˆComboboxï¼‰&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  .custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /* æ”¯æŒï¼š IE7 */
+    *height: 1.7em;
+    *top: 0.1em;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+  }
+  &lt;/style&gt;
+  &lt;script&gt;
+  (function( $ ) {
+    $.widget( "custom.combobox", {
+      _create: function() {
+        this.wrapper = $( "&lt;span&gt;" )
+          .addClass( "custom-combobox" )
+          .insertAfter( this.element );
+ 
+        this.element.hide();
+        this._createAutocomplete();
+        this._createShowAllButton();
+      },
+ 
+      _createAutocomplete: function() {
+        var selected = this.element.children( ":selected" ),
+          value = selected.val() ? selected.text() : "";
+ 
+        this.input = $( "&lt;input&gt;" )
+          .appendTo( this.wrapper )
+          .val( value )
+          .attr( "title", "" )
+          .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
+          .autocomplete({
+            delay: 0,
+            minLength: 0,
+            source: $.proxy( this, "_source" )
+          })
+          .tooltip({
+            tooltipClass: "ui-state-highlight"
+          });
+ 
+        this._on( this.input, {
+          autocompleteselect: function( event, ui ) {
+            ui.item.option.selected = true;
+            this._trigger( "select", event, {
+              item: ui.item.option
+            });
+          },
+ 
+          autocompletechange: "_removeIfInvalid"
+        });
+      },
+ 
+      _createShowAllButton: function() {
+        var input = this.input,
+          wasOpen = false;
+ 
+        $( "&lt;a&gt;" )
+          .attr( "tabIndex", -1 )
+          .attr( "title", "Show All Items" )
+          .tooltip()
+          .appendTo( this.wrapper )
+          .button({
+            icons: {
+              primary: "ui-icon-triangle-1-s"
+            },
+            text: false
+          })
+          .removeClass( "ui-corner-all" )
+          .addClass( "custom-combobox-toggle ui-corner-right" )
+          .mousedown(function() {
+            wasOpen = input.autocomplete( "widget" ).is( ":visible" );
+          })
+          .click(function() {
+            input.focus();
+ 
+            // å¦‚æœå·²ç»å¯è§åˆ™å…³é—­
+            if ( wasOpen ) {
+              return;
+            }
+ 
+            // ä¼ é€’ç©ºå­—ç¬¦ä¸²ä½œä¸ºæœç´¢çš„å€¼ï¼Œæ˜¾ç¤ºæ‰€æœ‰çš„ç»“æœ
+            input.autocomplete( "search", "" );
+          });
+      },
+ 
+      _source: function( request, response ) {
+        var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
+        response( this.element.children( "option" ).map(function() {
+          var text = $( this ).text();
+          if ( this.value &amp;&amp; ( !request.term || matcher.test(text) ) )
+            return {
+              label: text,
+              value: text,
+              option: this
+            };
+        }) );
+      },
+ 
+      _removeIfInvalid: function( event, ui ) {
+ 
+        // é€‰æ‹©ä¸€é¡¹ï¼Œä¸æ‰§è¡Œå…¶ä»–åŠ¨ä½œ
+        if ( ui.item ) {
+          return;
+        }
+ 
+        // æœç´¢ä¸€ä¸ªåŒ¹é…ï¼ˆä¸åŒºåˆ†å¤§å°å†™ï¼‰
+        var value = this.input.val(),
+          valueLowerCase = value.toLowerCase(),
+          valid = false;
+        this.element.children( "option" ).each(function() {
+          if ( $( this ).text().toLowerCase() === valueLowerCase ) {
+            this.selected = valid = true;
+            return false;
+          }
+        });
+ 
+        // æ‰¾åˆ°ä¸€ä¸ªåŒ¹é…ï¼Œä¸æ‰§è¡Œå…¶ä»–åŠ¨ä½œ
+        if ( valid ) {
+          return;
+        }
+ 
+        // ç§»é™¤æ— æ•ˆçš„å€¼
+        this.input
+          .val( "" )
+          .attr( "title", value + " didn't match any item" )
+          .tooltip( "open" );
+        this.element.val( "" );
+        this._delay(function() {
+          this.input.tooltip( "close" ).attr( "title", "" );
+        }, 2500 );
+        this.input.data( "ui-autocomplete" ).term = "";
+      },
+ 
+      _destroy: function() {
+        this.wrapper.remove();
+        this.element.show();
+      }
+    });
+  })( jQuery );
+ 
+  $(function() {
+    $( "#combobox" ).combobox();
+    $( "#toggle" ).click(function() {
+      $( "#combobox" ).toggle();
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label&gt;æ‚¨å–œæ¬¢çš„ç¼–ç¨‹è¯­è¨€ï¼š&lt;/label&gt;
+  &lt;select id="combobox"&gt;
+    &lt;option value=""&gt;è¯·é€‰æ‹©...&lt;/option&gt;
+    &lt;option value="ActionScript"&gt;ActionScript&lt;/option&gt;
+    &lt;option value="AppleScript"&gt;AppleScript&lt;/option&gt;
+    &lt;option value="Asp"&gt;Asp&lt;/option&gt;
+    &lt;option value="BASIC"&gt;BASIC&lt;/option&gt;
+    &lt;option value="C"&gt;C&lt;/option&gt;
+    &lt;option value="C++"&gt;C++&lt;/option&gt;
+    &lt;option value="Clojure"&gt;Clojure&lt;/option&gt;
+    &lt;option value="COBOL"&gt;COBOL&lt;/option&gt;
+    &lt;option value="ColdFusion"&gt;ColdFusion&lt;/option&gt;
+    &lt;option value="Erlang"&gt;Erlang&lt;/option&gt;
+    &lt;option value="Fortran"&gt;Fortran&lt;/option&gt;
+    &lt;option value="Groovy"&gt;Groovy&lt;/option&gt;
+    &lt;option value="Haskell"&gt;Haskell&lt;/option&gt;
+    &lt;option value="Java"&gt;Java&lt;/option&gt;
+    &lt;option value="JavaScript"&gt;JavaScript&lt;/option&gt;
+    &lt;option value="Lisp"&gt;Lisp&lt;/option&gt;
+    &lt;option value="Perl"&gt;Perl&lt;/option&gt;
+    &lt;option value="PHP"&gt;PHP&lt;/option&gt;
+    &lt;option value="Python"&gt;Python&lt;/option&gt;
+    &lt;option value="Ruby"&gt;Ruby&lt;/option&gt;
+    &lt;option value="Scala"&gt;Scala&lt;/option&gt;
+    &lt;option value="Scheme"&gt;Scheme&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+&lt;button id="toggle"&gt;æ˜¾ç¤ºåŸºç¡€çš„é€‰æ‹©æ¡†&lt;/button&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-ruby.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-ruby.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-combobox" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>è‡ªå®šä¹‰æ•°æ®å¹¶æ˜¾ç¤º</h2> <p>æ‚¨å¯ä»¥ä½¿ç”¨è‡ªå®šä¹‰æ•°æ®æ ¼å¼ï¼Œå¹¶é€šè¿‡ç®€å•åœ°é‡è½½é»˜è®¤çš„èšç„¦å’Œé€‰æ‹©è¡Œä¸ºæ¥æ˜¾ç¤ºæ•°æ®ã€‚</p> <p>å°è¯•é”®å…¥ "j"ï¼Œæˆ–è€…æŒ‰å‘ä¸‹ç®­å¤´æŒ‰é”®ï¼Œå³å¯å¾—åˆ°ä¸€ä¸ªé¡¹ç›®åˆ—è¡¨ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - è‡ªå®šä¹‰æ•°æ®å¹¶æ˜¾ç¤º&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  #project-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  #project-icon {
+    float: left;
+    height: 32px;
+    width: 32px;
+  }
+  #project-description {
+    margin: 0;
+    padding: 0;
+  }
+  &lt;/style&gt;
+  &lt;script&gt;
+  $(function() {
+    var projects = [
+      {
+        value: "jquery",
+        label: "jQuery",
+        desc: "the write less, do more, JavaScript library",
+        icon: "jquery_32x32.png"
+      },
+      {
+        value: "jquery-ui",
+        label: "jQuery UI",
+        desc: "the official user interface library for jQuery",
+        icon: "jqueryui_32x32.png"
+      },
+      {
+        value: "sizzlejs",
+        label: "Sizzle JS",
+        desc: "a pure-JavaScript CSS selector engine",
+        icon: "sizzlejs_32x32.png"
+      }
+    ];
+ 
+    $( "#project" ).autocomplete({
+      minLength: 0,
+      source: projects,
+      focus: function( event, ui ) {
+        $( "#project" ).val( ui.item.label );
+        return false;
+      },
+      select: function( event, ui ) {
+        $( "#project" ).val( ui.item.label );
+        $( "#project-id" ).val( ui.item.value );
+        $( "#project-description" ).html( ui.item.desc );
+        $( "#project-icon" ).attr( "src", "images/" + ui.item.icon );
+ 
+        return false;
+      }
+    })
+    .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+      return $( "&lt;li&gt;" )
+        .append( "&lt;a&gt;" + item.label + "&lt;br&gt;" + item.desc + "&lt;/a&gt;" )
+        .appendTo( ul );
+    };
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div id="project-label"&gt;é€‰æ‹©ä¸€ä¸ªé¡¹ç›®ï¼ˆè¯·é”®å…¥ "j"ï¼‰ï¼š&lt;/div&gt;
+&lt;img id="project-icon" src="images/transparent_1x1.png" class="ui-state-default" alt=""&gt;
+&lt;input id="project"&gt;
+&lt;input type="hidden" id="project-id"&gt;
+&lt;p id="project-description"&gt;&lt;/p&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-s.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-s.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-custom-data" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>å¤šä¸ªå€¼</h2> <p>ç”¨æ³•ï¼šé”®å…¥ä¸€äº›å­—ç¬¦ï¼Œæ¯”å¦‚ "j"ï¼Œå¯ä»¥çœ‹åˆ°ç›¸å…³çš„ç¼–ç¨‹è¯­è¨€ç»“æœã€‚é€‰æ‹©ä¸€ä¸ªå€¼ï¼Œç„¶åç»§ç»­é”®å…¥å­—ç¬¦æ¥æ·»åŠ å…¶ä»–çš„å€¼ã€‚</p> <p>æœ¬å®ä¾‹æ¼”ç¤ºå¦‚ä½•ä½¿ç”¨ source é€‰é¡¹å’Œä¸€äº›äº‹ä»¶æ¥å®ç°åœ¨ä¸€ä¸ªå•ä¸€çš„æ–‡æœ¬åŸŸè¾“å…¥å¤šä¸ªè‡ªåŠ¨å®Œæˆçš„å€¼ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - å¤šä¸ªå€¼&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;script&gt;
+  $(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    function split( val ) {
+      return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+      return split( term ).pop();
+    }
+ 
+    $( "#tags" )
+      // å½“é€‰æ‹©ä¸€ä¸ªæ¡ç›®æ—¶ä¸ç¦»å¼€æ–‡æœ¬åŸŸ
+      .bind( "keydown", function( event ) {
+        if ( event.keyCode === $.ui.keyCode.TAB &amp;&amp;
+            $( this ).data( "ui-autocomplete" ).menu.active ) {
+          event.preventDefault();
+        }
+      })
+      .autocomplete({
+        minLength: 0,
+        source: function( request, response ) {
+          // å›åˆ° autocompleteï¼Œä½†æ˜¯æå–æœ€åçš„æ¡ç›®
+          response( $.ui.autocomplete.filter(
+            availableTags, extractLast( request.term ) ) );
+        },
+        focus: function() {
+          // é˜²æ­¢åœ¨è·å¾—ç„¦ç‚¹æ—¶æ’å…¥å€¼
+          return false;
+        },
+        select: function( event, ui ) {
+          var terms = split( this.value );
+          // ç§»é™¤å½“å‰è¾“å…¥
+          terms.pop();
+          // æ·»åŠ è¢«é€‰é¡¹
+          terms.push( ui.item.value );
+          // æ·»åŠ å ä½ç¬¦ï¼Œåœ¨ç»“å°¾æ·»åŠ é€—å·+ç©ºæ ¼
+          terms.push( "" );
+          this.value = terms.join( ", " );
+          return false;
+        }
+      });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label for="tags"&gt;ç¼–ç¨‹è¯­è¨€ï¼š&lt;/label&gt;
+  &lt;input id="tags" size="50"&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-samp.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-samp.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-multiple" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>å¤šä¸ªå€¼ï¼Œè¿œç¨‹</h2> <p>ç”¨æ³•ï¼šé”®å…¥è‡³å°‘ä¸¤ä¸ªå­—ç¬¦æ¥è·å–é¸Ÿçš„åç§°ã€‚é€‰æ‹©ä¸€ä¸ªå€¼ï¼Œç„¶åç»§ç»­é”®å…¥å­—ç¬¦æ¥æ·»åŠ å…¶ä»–çš„å€¼ã€‚</p> <p>æœ¬å®ä¾‹æ¼”ç¤ºå¦‚ä½•ä½¿ç”¨ source é€‰é¡¹å’Œä¸€äº›äº‹ä»¶æ¥å®ç°åœ¨ä¸€ä¸ªå•ä¸€çš„æ–‡æœ¬åŸŸè¾“å…¥å¤šä¸ªè‡ªåŠ¨å®Œæˆçš„å€¼ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - å¤šä¸ªå€¼ï¼Œè¿œç¨‹&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  .ui-autocomplete-loading {
+    background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
+  }
+  &lt;/style&gt;
+  &lt;script&gt;
+  $(function() {
+    function split( val ) {
+      return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+      return split( term ).pop();
+    }
+ 
+    $( "#birds" )
+      // å½“é€‰æ‹©ä¸€ä¸ªæ¡ç›®æ—¶ä¸ç¦»å¼€æ–‡æœ¬åŸŸ
+      .bind( "keydown", function( event ) {
+        if ( event.keyCode === $.ui.keyCode.TAB &amp;&amp;
+            $( this ).data( "ui-autocomplete" ).menu.active ) {
+          event.preventDefault();
+        }
+      })
+      .autocomplete({
+        source: function( request, response ) {
+          $.getJSON( "search.php", {
+            term: extractLast( request.term )
+          }, response );
+        },
+        search: function() {
+          // è‡ªå®šä¹‰æœ€å°é•¿åº¦
+          var term = extractLast( this.value );
+          if ( term.length &lt; 2 ) {
+            return false;
+          }
+        },
+        focus: function() {
+          // é˜²æ­¢åœ¨è·å¾—ç„¦ç‚¹æ—¶æ’å…¥å€¼
+          return false;
+        },
+        select: function( event, ui ) {
+          var terms = split( this.value );
+          // ç§»é™¤å½“å‰è¾“å…¥
+          terms.pop();
+          // æ·»åŠ è¢«é€‰é¡¹
+          terms.push( ui.item.value );
+          // æ·»åŠ å ä½ç¬¦ï¼Œåœ¨ç»“å°¾æ·»åŠ é€—å·+ç©ºæ ¼
+          terms.push( "" );
+          this.value = terms.join( ", " );
+          return false;
+        }
+      });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label for="birds"&gt;é¸Ÿï¼š&lt;/label&gt;
+  &lt;input id="birds" size="50"&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-script.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-script.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-multiple-remote" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>è¿œç¨‹ JSONP æ•°æ®æº</h2> <p>å½“æ‚¨åœ¨æ–‡æœ¬åŸŸä¸­é”®å…¥å­—ç¬¦æ—¶ï¼ŒAutocomplete éƒ¨ä»¶ç»™å‡ºå»ºè®®ç»“æœã€‚åœ¨æœ¬å®ä¾‹ä¸­ï¼Œå½“æ‚¨åœ¨æ–‡æœ¬åŸŸä¸­è‡³å°‘é”®å…¥ä¸¤ä¸ªå­—ç¬¦æ—¶ï¼Œå°†æ˜¾ç¤ºç›¸å…³åŸå¸‚çš„åç§°ã€‚</p> <p>åœ¨æœ¬å®ä¾‹ä¸­ï¼Œæ•°æ®æºæ˜¯ <a href="javascript:if(confirm('http://geonames.org/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://geonames.org/'" tppabs="http://geonames.org/" target="_blank">geonames.org webservice</a>ã€‚è™½ç„¶é€‰æ‹©ä¸€ä¸ªå…ƒç´ åæ–‡æœ¬åŸŸä¸­æ˜¯è¯¥åŸå¸‚åç§°ï¼Œä½†æ˜¯ä¼šæ˜¾ç¤ºæ›´å¤šçš„ä¿¡æ¯ä»¥ä¾¿æ‰¾åˆ°æ­£ç¡®çš„æ¡ç›®ã€‚æ•°æ®ä¹Ÿå¯ä»¥å›è°ƒï¼Œæ˜¾ç¤ºåœ¨ä¸‹é¢çš„ç»“æœæ¡†ä¸­ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - è¿œç¨‹ JSONP æ•°æ®æº&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  .ui-autocomplete-loading {
+    background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
+  }
+  #city { width: 25em; }
+  &lt;/style&gt;
+  &lt;script&gt;
+  $(function() {
+    function log( message ) {
+      $( "&lt;div&gt;" ).text( message ).prependTo( "#log" );
+      $( "#log" ).scrollTop( 0 );
+    }
+ 
+    $( "#city" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: "http://ws.geonames.org/searchJSON",
+          dataType: "jsonp",
+          data: {
+            featureClass: "P",
+            style: "full",
+            maxRows: 12,
+            name_startsWith: request.term
+          },
+          success: function( data ) {
+            response( $.map( data.geonames, function( item ) {
+              return {
+                label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+                value: item.name
+              }
+            }));
+          }
+        });
+      },
+      minLength: 2,
+      select: function( event, ui ) {
+        log( ui.item ?
+          "Selected: " + ui.item.label :
+          "Nothing selected, input was " + this.value);
+      },
+      open: function() {
+        $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+      },
+      close: function() {
+        $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+      }
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label for="city"&gt;æ‚¨çš„åŸå¸‚ï¼š&lt;/label&gt;
+  &lt;input id="city"&gt;
+  Powered by &lt;a href="http://geonames.org" target="_blank"&gt;geonames.org&lt;/a&gt;
+&lt;/div&gt;
+ 
+&lt;div class="ui-widget" style="margin-top:2em; font-family:Arial"&gt;
+  ç»“æœï¼š
+  &lt;div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"&gt;&lt;/div&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-section.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-section.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-remote-jsonp" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>è¿œç¨‹æ•°æ®æº</h2> <p>å½“æ‚¨åœ¨æ–‡æœ¬åŸŸä¸­é”®å…¥å­—ç¬¦æ—¶ï¼ŒAutocomplete éƒ¨ä»¶ç»™å‡ºå»ºè®®ç»“æœã€‚åœ¨æœ¬å®ä¾‹ä¸­ï¼Œå½“æ‚¨åœ¨æ–‡æœ¬åŸŸä¸­è‡³å°‘é”®å…¥ä¸¤ä¸ªå­—ç¬¦æ—¶ï¼Œå°†æ˜¾ç¤ºç›¸å…³é¸Ÿçš„åç§°ã€‚</p> <p>åœ¨æœ¬å®ä¾‹ä¸­ï¼Œæ•°æ®æºæ˜¯å¯è¿”å› JSON æ•°æ®çš„æœåŠ¡å™¨ç«¯è„šæœ¬ï¼Œé€šè¿‡ä¸€ä¸ªç®€å•çš„ source é€‰é¡¹æ¥æŒ‡å®šã€‚å¦å¤–ï¼ŒminLength é€‰é¡¹è®¾ç½®ä¸º 2ï¼Œé¿å…æŸ¥è¯¢è¿”å›å¤ªå¤šçš„ç»“æœï¼Œselect äº‹ä»¶ç”¨äºæ˜¾ç¤ºä¸€äº›åé¦ˆã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - è¿œç¨‹æ•°æ®æº&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  .ui-autocomplete-loading {
+    background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
+  }
+  &lt;/style&gt;
+  &lt;script&gt;
+  $(function() {
+    function log( message ) {
+      $( "&lt;div&gt;" ).text( message ).prependTo( "#log" );
+      $( "#log" ).scrollTop( 0 );
+    }
+ 
+    $( "#birds" ).autocomplete({
+      source: "search.php",
+      minLength: 2,
+      select: function( event, ui ) {
+        log( ui.item ?
+          "Selected: " + ui.item.value + " aka " + ui.item.id :
+          "Nothing selected, input was " + this.value );
+      }
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label for="birds"&gt;é¸Ÿï¼š&lt;/label&gt;
+  &lt;input id="birds"&gt;
+&lt;/div&gt;
+ 
+&lt;div class="ui-widget" style="margin-top:2em; font-family:Arial"&gt;
+  ç»“æœï¼š
+  &lt;div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"&gt;&lt;/div&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-small.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-small.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-remote" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>è¿œç¨‹ç¼“å­˜</h2> <p>å½“æ‚¨åœ¨æ–‡æœ¬åŸŸä¸­é”®å…¥å­—ç¬¦æ—¶ï¼ŒAutocomplete éƒ¨ä»¶ç»™å‡ºå»ºè®®ç»“æœã€‚åœ¨æœ¬å®ä¾‹ä¸­ï¼Œå½“æ‚¨åœ¨æ–‡æœ¬åŸŸä¸­è‡³å°‘é”®å…¥ä¸¤ä¸ªå­—ç¬¦æ—¶ï¼Œå°†æ˜¾ç¤ºç›¸å…³é¸Ÿçš„åç§°ã€‚</p> <p>ä¸ºäº†æé«˜æ€§èƒ½ï¼Œè¿™é‡Œæ·»åŠ äº†ä¸€äº›æœ¬åœ°ç¼“å­˜ï¼Œå…¶ä»–ä¸è¿œç¨‹æ•°æ®æºå®ä¾‹ç›¸ä¼¼ã€‚åœ¨è¿™é‡Œï¼Œç¼“å­˜åªä¿å­˜äº†ä¸€ä¸ªæŸ¥è¯¢ï¼Œå¹¶å¯ä»¥æ‰©å±•åˆ°ç¼“å­˜å¤šä¸ªå€¼ï¼Œæ¯ä¸ªæ¡ç›®ä¸€ä¸ªå€¼ã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - è¿œç¨‹ç¼“å­˜&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  .ui-autocomplete-loading {
+    background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
+  }
+  &lt;/style&gt;
+  &lt;script&gt;
+  $(function() {
+    var cache = {};
+    $( "#birds" ).autocomplete({
+      minLength: 2,
+      source: function( request, response ) {
+        var term = request.term;
+        if ( term in cache ) {
+          response( cache[ term ] );
+          return;
+        }
+ 
+        $.getJSON( "search.php", request, function( data, status, xhr ) {
+          cache[ term ] = data;
+          response( data );
+        });
+      }
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label for="birds"&gt;é¸Ÿï¼š&lt;/label&gt;
+  &lt;input id="birds"&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-span.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-span.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-remote-with-cache" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>å¯æ»šåŠ¨çš„ç»“æœ</h2> <p>å½“æ˜¾ç¤ºä¸€ä¸ªé•¿åˆ—è¡¨çš„é€‰é¡¹æ—¶ï¼Œæ‚¨å¯ä»¥ç®€å•åœ°ä¸º autocomplete èœå•è®¾ç½® max-height æ¥é˜²æ­¢èœå•æ˜¾ç¤ºå¤ªé•¿ã€‚å°è¯•é”®å…¥ "a" æˆ– "s" æ¥è·å¾—ä¸€ä¸ªå¯æ»šåŠ¨çš„é•¿åˆ—è¡¨çš„ç»“æœã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - å¯æ»šåŠ¨çš„ç»“æœ&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  .ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* é˜²æ­¢æ°´å¹³æ»šåŠ¨æ¡ */
+    overflow-x: hidden;
+  }
+  /* IE 6 ä¸æ”¯æŒ max-height
+   * æˆ‘ä»¬ä½¿ç”¨ height ä»£æ›¿ï¼Œä½†æ˜¯è¿™ä¼šå¼ºåˆ¶èœå•æ€»æ˜¯æ˜¾ç¤ºä¸ºé‚£ä¸ªé«˜åº¦
+   */
+  * html .ui-autocomplete {
+    height: 100px;
+  }
+  &lt;/style&gt;
+  &lt;script&gt;
+  $(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label for="tags"&gt;æ ‡ç­¾ï¼š&lt;/label&gt;
+  &lt;input id="tags"&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-strong.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-strong.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-maxheight" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> <h2>XML æ•°æ®</h2> <p>æœ¬å®ä¾‹æ¼”ç¤ºå¦‚ä½•è·å–ä¸€äº› XML æ•°æ®ï¼Œå¹¶ä½¿ç”¨ jQuery çš„æ–¹æ³•è§£æå®ƒï¼Œç„¶åæŠŠå®ƒæä¾›ç»™ autocomplete ä½œä¸ºæ•°æ®æºã€‚</p> <p>æœ¬å®ä¾‹ä¹Ÿå¯ä½œä¸ºè§£æè¿œç¨‹ XML æ•°æ®æºçš„å‚è€ƒ - è§£æåœ¨æ¯æ¬¡ source å›è°ƒè¯·æ±‚æ—¶å‘ç”Ÿã€‚</p> <pre style="white-space: pre-wrap;">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;jQuery UI è‡ªåŠ¨å®Œæˆï¼ˆAutocompleteï¼‰ - XML æ•°æ®&lt;/title&gt;
+  &lt;link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"&gt;
+  &lt;script src="//code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+  &lt;script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css"&gt;
+  &lt;style&gt;
+  .ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+  &lt;/style&gt;
+  &lt;script&gt;
+  $(function() {
+    function log( message ) {
+      $( "&lt;div/&gt;" ).text( message ).prependTo( "#log" );
+      $( "#log" ).attr( "scrollTop", 0 );
+    }
+ 
+    $.ajax({
+      url: "london.xml",
+      dataType: "xml",
+      success: function( xmlResponse ) {
+        var data = $( "geoname", xmlResponse ).map(function() {
+          return {
+            value: $( "name", this ).text() + ", " +
+              ( $.trim( $( "countryName", this ).text() ) || "(unknown country)" ),
+            id: $( "geonameId", this ).text()
+          };
+        }).get();
+        $( "#birds" ).autocomplete({
+          source: data,
+          minLength: 0,
+          select: function( event, ui ) {
+            log( ui.item ?
+              "Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
+              "Nothing selected, input was " + this.value );
+          }
+        });
+      }
+    });
+  });
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ 
+&lt;div class="ui-widget"&gt;
+  &lt;label for="birds"&gt;London åŒ¹é…ï¼š&lt;/label&gt;
+  &lt;input id="birds"&gt;
+&lt;/div&gt;
+ 
+&lt;div class="ui-widget" style="margin-top:2em; font-family:Arial"&gt;
+  ç»“æœï¼š
+  &lt;div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"&gt;&lt;/div&gt;
+&lt;/div&gt;
+ 
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p><a href="javascript:if(confirm('http://www.w3cschool.cc/try/tag-sub.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/tag-sub.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=jqueryui-example-autocomplete-xml" target="_blank"><button class="btn btn-info btn-lg">æŸ¥çœ‹æ¼”ç¤º</button></a></p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="example-accordion.html" tppabs="http://www.w3cschool.cc/jqueryui/example-accordion.html" rel="prev"> jQuery UI å®ä¾‹ &#8211; æŠ˜å é¢æ¿ï¼ˆAccordionï¼‰</a></div> <div class="next"><a href="example-button.html" tppabs="http://www.w3cschool.cc/jqueryui/example-button.html" rel="next">jQuery UI å®ä¾‹ &#8211; æŒ‰é’®ï¼ˆButtonï¼‰</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">å…³æ³¨å¾®ä¿¡ä¸‹è½½ç¦»çº¿æ‰‹å†Œ</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschoolç§»åŠ¨ç‰ˆ"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.ccèœé¸Ÿå®¶æ—" title="w3cschool.ccèœé¸Ÿå®¶æ—"></a> </div> <div class="rightad"> <h2>å‚è€ƒæ‰‹å†Œ</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML å‚è€ƒæ‰‹å†Œ</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS å‚è€ƒæ‰‹å†Œ">JS å‚è€ƒæ‰‹å†Œ</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS å‚è€ƒæ‰‹å†Œ">CSS å‚è€ƒæ‰‹å†Œ</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>HTML/CSS/JS åœ¨çº¿å·¥å…·</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>JSON æ ¼å¼å·¥å…·</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>ç¨‹åºçŒ¿å­¦ä¹ è·¯çº¿</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>æ‰“å¼€CHMæ–‡æ¡£é‡åˆ°é—®é¢˜â€¦â€¦</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="é—®é¢˜/æ„è§åé¦ˆ"/>é—®é¢˜/æ„è§åé¦ˆ</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3Cèœé¸Ÿç¬”è®°</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">å…è´£å£°æ˜</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">å…³äºæˆ‘ä»¬</a> </ul> </div> <div id="footerText"> æä¾›çš„å†…å®¹ä»…ç”¨äºåŸ¹è®­ã€‚æˆ‘ä»¬ä¸ä¿è¯å†…å®¹çš„æ­£ç¡®æ€§ã€‚é€šè¿‡ä½¿ç”¨æœ¬ç«™å†…å®¹éšä¹‹è€Œæ¥çš„é£é™©ä¸æœ¬ç«™æ— å…³ã€‚å½“ä½¿ç”¨æœ¬ç«™æ—¶ï¼Œä»£è¡¨æ‚¨å·²æ¥å—äº†æœ¬ç«™çš„ä½¿ç”¨æ¡æ¬¾å’Œéšç§æ¡æ¬¾ã€‚ ç‰ˆæƒæ‰€æœ‰ï¼Œä¿ç•™ä¸€åˆ‡æƒåˆ©ã€‚W3CSchool ç®€ä½“ä¸­æ–‡ç‰ˆçš„æ‰€æœ‰å†…å®¹ä»…ä¾›æµ‹è¯•ï¼Œå¯¹ä»»ä½•æ³•å¾‹é—®é¢˜åŠé£é™©ä¸æ‰¿æ‹…ä»»ä½•è´£ä»»ã€‚ </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">åˆ†äº«åˆ°</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="åˆ†äº«åˆ°QQç©ºé—´" href="#"></a> <a class="bds_tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš" href="#"></a> <a class="bds_tqq" title="åˆ†äº«åˆ°äººäººç½‘" href="#"></a> <a class="bds_baidu" title="ç™¾åº¦æ”¶è—" href="#"></a> <span class="bds_more">æ›´å¤š</span> <a class="shareCount" id="shareCount" href="#" title="ç´¯è®¡åˆ†äº«0æ¬¡">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //é…è‰²æ ‡è®°
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //ç»“æŸå¾ªç¯
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //ç¬¬äºŒé‡åˆ¤æ–­
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/jqueryui/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/jqueryui/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

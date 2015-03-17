@@ -1,0 +1,260 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>C# 字符串（String） | w3cschool菜鸟教程</title> <link rel='prev' title='C# Array 类' href="csharp-array-class.html"/> <link rel='next' title='C# 结构（Struct）' href="csharp-struct.html"/> <link rel='canonical' href='http://www.w3cschool.cc/csharp/csharp-string.html'/> <meta name="keywords" content="C# 字符串（String）"> <meta name="description" content="C# 字符串（String） 在 C# 中，您可以使用字符数组来表示字符串，但是，更常见的做法是使用 string 关键字来声明一个字符串变量。string 关键字是 System.String 类的别名。 创建 String 对象 您可以使用以下方法之一来穿件 string 对象： 通过给 String 变量指定一个字符串 通过使用 String 类构造函数 通过使用字符串串联运算符（ + ） 通过检索属性或调用一个返回字符.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>C# 教程</strong></h2> <a target="_top" title="C# 教程" href="csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html"> C# 教程 </a> <a target="_top" title="C# 简介" href="csharp-intro.html" tppabs="http://www.w3cschool.cc/csharp/csharp-intro.html"> C# 简介 </a> <a target="_top" title="C# 环境" href="csharp-environment-setup.html" tppabs="http://www.w3cschool.cc/csharp/csharp-environment-setup.html"> C# 环境 </a> <a target="_top" title="C# 程序结构" href="csharp-program-structure.html" tppabs="http://www.w3cschool.cc/csharp/csharp-program-structure.html"> C# 程序结构 </a> <a target="_top" title="C# 基本语法" href="csharp-basic-syntax.html" tppabs="http://www.w3cschool.cc/csharp/csharp-basic-syntax.html"> C# 基本语法 </a> <a target="_top" title="C# 数据类型" href="csharp-data-types.html" tppabs="http://www.w3cschool.cc/csharp/csharp-data-types.html"> C# 数据类型 </a> <a target="_top" title="C# 类型转换" href="csharp-type-conversion.html" tppabs="http://www.w3cschool.cc/csharp/csharp-type-conversion.html"> C# 类型转换 </a> <a target="_top" title="C# 变量" href="csharp-variables.html" tppabs="http://www.w3cschool.cc/csharp/csharp-variables.html"> C# 变量 </a> <a target="_top" title="C# 常量" href="csharp-constants.html" tppabs="http://www.w3cschool.cc/csharp/csharp-constants.html"> C# 常量 </a> <a target="_top" title="C# 运算符" href="csharp-operators.html" tppabs="http://www.w3cschool.cc/csharp/csharp-operators.html"> C# 运算符 </a> <a target="_top" title="C# 判断" href="csharp-decision.html" tppabs="http://www.w3cschool.cc/csharp/csharp-decision.html"> C# 判断 </a> <a target="_top" title="C# 循环" href="csharp-loops.html" tppabs="http://www.w3cschool.cc/csharp/csharp-loops.html"> C# 循环 </a> <a target="_top" title="C# 封装" href="csharp-encapsulation.html" tppabs="http://www.w3cschool.cc/csharp/csharp-encapsulation.html"> C# 封装 </a> <a target="_top" title="C# 方法" href="csharp-methods.html" tppabs="http://www.w3cschool.cc/csharp/csharp-methods.html"> C# 方法 </a> <a target="_top" title="C# 可空类型" href="csharp-nullable.html" tppabs="http://www.w3cschool.cc/csharp/csharp-nullable.html"> C# 可空类型 </a> <a target="_top" title="C# 数组（Array）" href="csharp-array.html" tppabs="http://www.w3cschool.cc/csharp/csharp-array.html"> C# 数组（Array） </a> <a target="_top" title="C# 字符串（String）" href="csharp-string.html" tppabs="http://www.w3cschool.cc/csharp/csharp-string.html"> C# 字符串（String） </a> <a target="_top" title="C# 结构（Struct）" href="csharp-struct.html" tppabs="http://www.w3cschool.cc/csharp/csharp-struct.html"> C# 结构（Struct） </a> <a target="_top" title="C# 枚举（Enum）" href="csharp-enum.html" tppabs="http://www.w3cschool.cc/csharp/csharp-enum.html"> C# 枚举（Enum） </a> <a target="_top" title="C# 类（Class）" href="csharp-class.html" tppabs="http://www.w3cschool.cc/csharp/csharp-class.html"> C# 类（Class） </a> <a target="_top" title="C# 继承" href="csharp-inheritance.html" tppabs="http://www.w3cschool.cc/csharp/csharp-inheritance.html"> C# 继承 </a> <a target="_top" title="C# 多态性" href="csharp-polymorphism.html" tppabs="http://www.w3cschool.cc/csharp/csharp-polymorphism.html"> C# 多态性 </a> <a target="_top" title="C# 运算符重载" href="csharp-operator-overloading.html" tppabs="http://www.w3cschool.cc/csharp/csharp-operator-overloading.html"> C# 运算符重载 </a> <a target="_top" title="C# 接口（Interface）" href="csharp-interface.html" tppabs="http://www.w3cschool.cc/csharp/csharp-interface.html"> C# 接口（Interface） </a> <a target="_top" title="C# 命名空间（Namespace）" href="csharp-namespace.html" tppabs="http://www.w3cschool.cc/csharp/csharp-namespace.html"> C# 命名空间（Namespace） </a> <a target="_top" title="C# 预处理器指令" href="csharp-preprocessor-directives.html" tppabs="http://www.w3cschool.cc/csharp/csharp-preprocessor-directives.html"> C# 预处理器指令 </a> <a target="_top" title="C# 正则表达式" href="csharp-regular-expressions.html" tppabs="http://www.w3cschool.cc/csharp/csharp-regular-expressions.html"> C# 正则表达式 </a> <a target="_top" title="C# 异常处理" href="csharp-exception-handling.html" tppabs="http://www.w3cschool.cc/csharp/csharp-exception-handling.html"> C# 异常处理 </a> <a target="_top" title="C# 文件的输入与输出" href="csharp-file-io.html" tppabs="http://www.w3cschool.cc/csharp/csharp-file-io.html"> C# 文件的输入与输出 </a> <br><h2 class="left"><span class="left_h2">C#</span> 高级教程</h2> <a target="_top" title="C# 特性（Attribute）" href="csharp-attribute.html" tppabs="http://www.w3cschool.cc/csharp/csharp-attribute.html"> C# 特性（Attribute） </a> <a target="_top" title="C# 反射（Reflection）" href="csharp-reflection.html" tppabs="http://www.w3cschool.cc/csharp/csharp-reflection.html"> C# 反射（Reflection） </a> <a target="_top" title="C# 属性（Property）" href="csharp-property.html" tppabs="http://www.w3cschool.cc/csharp/csharp-property.html"> C# 属性（Property） </a> <a target="_top" title="C# 索引器（Indexer）" href="csharp-indexer.html" tppabs="http://www.w3cschool.cc/csharp/csharp-indexer.html"> C# 索引器（Indexer） </a> <a target="_top" title="C# 委托（Delegate）" href="csharp-delegate.html" tppabs="http://www.w3cschool.cc/csharp/csharp-delegate.html"> C# 委托（Delegate） </a> <a target="_top" title="C# 事件（Event）" href="csharp-event.html" tppabs="http://www.w3cschool.cc/csharp/csharp-event.html"> C# 事件（Event） </a> <a target="_top" title="C# 集合（Collection）" href="csharp-collection.html" tppabs="http://www.w3cschool.cc/csharp/csharp-collection.html"> C# 集合（Collection） </a> <a target="_top" title="C# 泛型（Generic）" href="csharp-generic.html" tppabs="http://www.w3cschool.cc/csharp/csharp-generic.html"> C# 泛型（Generic） </a> <a target="_top" title="C# 匿名方法" href="csharp-anonymous-methods.html" tppabs="http://www.w3cschool.cc/csharp/csharp-anonymous-methods.html"> C# 匿名方法 </a> <a target="_top" title="C# 不安全代码" href="csharp-unsafe-codes.html" tppabs="http://www.w3cschool.cc/csharp/csharp-unsafe-codes.html"> C# 不安全代码 </a> <a target="_top" title="C# 多线程" href="csharp-multithreading.html" tppabs="http://www.w3cschool.cc/csharp/csharp-multithreading.html"> C# 多线程 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="javascript:if(confirm('http://www.w3cschool.cc/csharp/datatype.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/csharp/datatype.html'" tppabs="http://www.w3cschool.cc/csharp/csharp-array-class.html" rel="prev"> C# Array 类</a></div> <div class="next"><a href="csharp-struct.html" tppabs="http://www.w3cschool.cc/csharp/csharp-struct.html" rel="next">C# 结构（Struct）</a> &raquo;</div> </div> <div id="content"> <h1>C# <span class="color_h1">字符串（String）</span></h1> <div class="tutintro"> <p>在 C# 中，您可以使用字符数组来表示字符串，但是，更常见的做法是使用 <b>string</b> 关键字来声明一个字符串变量。string 关键字是 <b>System.String</b> 类的别名。</p> </div> <h2 class="tutheader">创建 String 对象</h2> <p>您可以使用以下方法之一来穿件 string 对象：</p> <ul class="list"> <li>通过给 String 变量指定一个字符串</li> <li>通过使用 String 类构造函数</li> <li>通过使用字符串串联运算符（ + ）</li> <li>通过检索属性或调用一个返回字符串的方法</li> <li>通过格式化方法来转换一个值或对象为它的字符串表示形式</li> </ul> <p>下面的实例演示了这点：</p> <pre class="prettyprint">
+using System;
+
+namespace StringApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           //字符串，字符串连接
+            string fname, lname;
+            fname = "Rowan";
+            lname = "Atkinson";
+
+            string fullname = fname + lname;
+            Console.WriteLine("Full Name: {0}", fullname);
+
+            //通过使用 string 构造函数
+            char[] letters = { 'H', 'e', 'l', 'l','o' };
+            string greetings = new string(letters);
+            Console.WriteLine("Greetings: {0}", greetings);
+
+            //方法返回字符串
+            string[] sarray = { "Hello", "From", "Tutorials", "Point" };
+            string message = String.Join(" ", sarray);
+            Console.WriteLine("Message: {0}", message);
+
+            //用于转化值的格式化方法
+            DateTime waiting = new DateTime(2012, 10, 10, 17, 58, 1);
+            string chat = String.Format("Message sent at {0:t} on {0:D}", 
+            waiting);
+            Console.WriteLine("Message: {0}", chat);
+            Console.ReadKey() ;
+        }
+    }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+Full Name: Rowan Atkinson
+Greetings: Hello
+Message: Hello From Tutorials Point
+Message: Message sent at 5:58 PM on Wednesday, October 10, 2012
+</pre> <h2 class="tutheader">String 类的属性</h2> <p>String 类有以下两个属性：</p> <table class="reference notranslate"> <tr><th style="width:5%;">序号</th><th>属性名称 &amp; 描述</th></tr> <tr><td>1</td><td><b>Chars</b><br/>在当前 <i>String</i> 对象中获取 <i>Char</i> 对象的指定位置。</td></tr> <tr><td>2</td><td><b>Length</b><br/>在当前的 <i>String</i> 对象中获取字符数。</td></tr> </table> <h2 class="tutheader">String 类的方法</h2> <p>String 类有许多方法用于 string 对象的操作。下面的表格提供了一些最常用的方法：</p> <table class="reference notranslate"> <tr><th style="width:5%;">序号</th><th>方法名称 &amp; 描述</th></tr> <tr><td>1</td><td><b>public static int Compare( string strA, string strB ) </b><br/>比较两个指定的 string 对象，并返回一个表示它们在排列顺序中相对位置的整数。该方法区分大小写。</td></tr> <tr><td>2</td><td><b>public static int Compare( string strA, string strB, bool ignoreCase ) </b><br/>比较两个指定的 string 对象，并返回一个表示它们在排列顺序中相对位置的整数。但是，如果布尔参数为真时，该方法不区分大小写。</td></tr> <tr><td>3</td><td><b>public static string Concat( string str0, string str1 ) </b><br/>连接两个 string 对象。</td></tr> <tr><td>4</td><td><b>public static string Concat( string str0, string str1, string str2 ) </b><br/>连接三个 string 对象。</td></tr> <tr><td>5</td><td><b>public static string Concat( string str0, string str1, string str2, string str3 ) </b><br/>连接四个 string 对象。</td></tr> <tr><td>6</td><td><b>public bool Contains( string value ) </b><br/>返回一个表示指定 string 对象是否出现在字符串中的值。</td></tr> <tr><td>7</td><td><b>public static string Copy( string str ) </b><br/>创建一个与指定字符串具有相同值的新的 String 对象。</td></tr> <tr><td>8</td><td><b>public void CopyTo( int sourceIndex, char[] destination, int destinationIndex, int count ) </b><br/>从 string 对象的指定位置开始复制指定数量的字符到 Unicode 字符数组中的指定位置。</td></tr> <tr><td>9</td><td><b>public bool EndsWith( string value ) </b><br/>判断 string 对象的结尾是否匹配指定的字符串。</td></tr> <tr><td>10</td><td><b>public bool Equals( string value ) </b><br/>判断当前的 string 对象是否与指定的 string 对象具有相同的值。</td></tr> <tr><td>11</td><td><b>public static bool Equals( string a, string b ) </b><br/>判断两个指定的 string 对象是否具有相同的值。</td></tr> <tr><td>12</td><td><b>public static string Format( string format, Object arg0 ) </b><br/>把指定字符串中一个或多个格式项替换为指定对象的字符串表示形式。</td></tr> <tr><td>13</td><td><b>public int IndexOf( char value ) </b><br/>返回指定 Unicode 字符在当前字符串中第一次出现的索引，索引从 0 开始。</td></tr> <tr><td>14</td><td><b>public int IndexOf( string value ) </b><br/>返回指定字符串在该实例中第一次出现的索引，索引从 0 开始。</td></tr> <tr><td>15</td><td><b>public int IndexOf( char value, int startIndex ) </b><br/>返回指定 Unicode 字符从该字符串中指定字符位置开始搜索第一次出现的索引，索引从 0 开始。</td></tr> <tr><td>16</td><td><b>public int IndexOf( string value, int startIndex ) </b><br/>返回指定字符串从该实例中指定字符位置开始搜索第一次出现的索引，索引从 0 开始。</td></tr> <tr><td>17</td><td><b>public int IndexOfAny( char[] anyOf ) </b><br/>返回某一个指定的 Unicode 字符数组中任意字符在该实例中第一次出现的索引，索引从 0 开始。</td></tr> <tr><td>18</td><td><b>public int IndexOfAny( char[] anyOf, int startIndex ) </b><br/>返回某一个指定的 Unicode 字符数组中任意字符从该实例中指定字符位置开始搜索第一次出现的索引，索引从 0 开始。</td></tr> <tr><td>19</td><td><b>public string Insert( int startIndex, string value ) </b><br/>返回一个新的字符串，其中，指定的字符串被插入在当前 string 对象的指定索引位置。</td></tr> <tr><td>20</td><td><b>public static bool IsNullOrEmpty( string value ) </b><br/>指示指定的字符串是否为 null 或者是否为一个空的字符串。</td></tr> <tr><td>21</td><td><b>public static string Join( string separator, params string[] value ) </b><br/>连接一个字符串数组中的所有元素，使用指定的分隔符分隔每个元素。</td></tr> <tr><td>22</td><td><b>public static string Join( string separator, string[] value, int startIndex, int count ) </b><br/>链接一个字符串数组中的指定元素，使用指定的分隔符分隔每个元素。</td></tr> <tr><td>23</td><td><b>public int LastIndexOf( char value ) </b><br/>返回指定 Unicode 字符在当前 string 对象中最后一次出现的索引位置，索引从 0 开始。</td></tr> <tr><td>24</td><td><b>public int LastIndexOf( string value ) </b><br/>返回指定字符串在当前 string 对象中最后一次出现的索引位置，索引从 0 开始。</td></tr> <tr><td>25</td><td><b>public string Remove( int startIndex ) </b><br/>移除当前实例中的所有字符，从指定位置开始，一直到最后一个位置为止，并返回字符串。</td></tr> <tr><td>26</td><td><b>public string Remove( int startIndex, int count ) </b><br/>从当前字符串的指定位置开始移除指定数量的字符，并返回字符串。</td></tr> <tr><td>27</td><td><b>public string Replace( char oldChar, char newChar ) </b><br/>把当前 string 对象中，所有指定的 Unicode 字符替换为另一个指定的 Unicode 字符，并返回新的字符串。</td></tr> <tr><td>28</td><td><b>public string Replace( string oldValue, string newValue ) </b><br/>把当前 string 对象中，所有指定的字符串替换为另一个指定的字符串，并返回新的字符串。</td></tr> <tr><td>29</td><td><b>public string[] Split( params char[] separator ) </b><br/>返回一个字符串数组，包含当前的 string 对象中的子字符串，子字符串是使用指定的 Unicode 字符数组中的元素进行分隔的。</td></tr> <tr><td>30</td><td><b>public string[] Split( char[] separator, int count ) </b><br/>返回一个字符串数组，包含当前的 string 对象中的子字符串，子字符串是使用指定的 Unicode 字符数组中的元素进行分隔的。int 参数指定要返回的子字符串的最大数目。 </td></tr> <tr><td>31</td><td><b>public bool StartsWith( string value ) </b><br/>判断字符串实例的开头是否匹配指定的字符串。</td></tr> <tr><td>32</td><td><b>public char[] ToCharArray()</b><br/>返回一个带有当前 string 对象中所有字符的 Unicode 字符数组。</td></tr> <tr><td>33</td><td><b>public char[] ToCharArray( int startIndex, int length ) </b><br/>返回一个带有当前 string 对象中所有字符的 Unicode 字符数组，从指定的索引开始，直到指定的长度为止。</td></tr> <tr><td>34</td><td><b>public string ToLower()</b><br/>把字符串转换为小写并返回。</td></tr> <tr><td>35</td><td><b>public string ToUpper()</b><br/>把字符串转换为大写并返回。</td></tr> <tr><td>36</td><td><b>public string Trim()</b><br/>移除当前 String 对象中的所有前导空白字符和后置空白字符。</td></tr> </table> <p>上面的方法列表并不详尽，请访问 MSDN 库，查看完整的方法列表和 String 类构造函数。</p> <h2 class="tutheader">实例</h2> <p>下面的实例演示了上面提到的一些方法：</p> <p><b>比较字符串</b></p> <pre class="prettyprint">
+using System;
+
+namespace StringApplication
+{
+   class StringProg
+   {
+      static void Main(string[] args)
+      {
+         string str1 = "This is test";
+         string str2 = "This is text";
+
+         if (String.Compare(str1, str2) == 0)
+         {
+            Console.WriteLine(str1 + " and " + str2 +  " are equal.");
+         }
+         else
+         {
+            Console.WriteLine(str1 + " and " + str2 + " are not equal.");
+         }
+         Console.ReadKey() ;
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+This is test and This is text are not equal.
+</pre> <p><b>字符串包含字符串：</b></p> <pre class="prettyprint">
+using System;
+
+namespace StringApplication
+{
+   class StringProg
+   {
+      static void Main(string[] args)
+      {
+         string str = "This is test";
+         if (str.Contains("test"))
+         {
+            Console.WriteLine("The sequence 'test' was found.");
+         }
+         Console.ReadKey() ;
+      }
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+The sequence 'test' was found.
+</pre> <p><b>获取子字符串：</b></p> <pre class="prettyprint">
+using System;
+
+namespace StringApplication
+{
+   class StringProg
+   {
+      static void Main(string[] args)
+      {
+         string str = "Last night I dreamt of San Pedro";
+         Console.WriteLine(str);
+         string substr = str.Substring(23);
+         Console.WriteLine(substr);
+      }
+      Console.ReadKey() ;
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+San Pedro
+</pre> <p><b>连接字符串：</b></p> <pre class="prettyprint">
+using System;
+
+namespace StringApplication
+{
+   class StringProg
+   {
+      static void Main(string[] args)
+      {
+         string[] starray = new string[]{"Down the way nights are dark",
+         "And the sun shines daily on the mountain top",
+         "I took a trip on a sailing ship",
+         "And when I reached Jamaica",
+         "I made a stop"};
+
+         string str = String.Join("\n", starray);
+         Console.WriteLine(str);
+      }
+      Console.ReadKey() ;
+   }
+}
+</pre> <p>当上面的代码被编译和执行时，它会产生下列结果：</p> <pre class="result">
+Down the way nights are dark
+And the sun shines daily on the mountain top
+I took a trip on a sailing ship
+And when I reached Jamaica
+I made a stop
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="javascript:if(confirm('http://www.w3cschool.cc/csharp/datatype.html  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='http://www.w3cschool.cc/csharp/datatype.html'" tppabs="http://www.w3cschool.cc/csharp/csharp-array-class.html" rel="prev"> C# Array 类</a></div> <div class="next"><a href="csharp-struct.html" tppabs="http://www.w3cschool.cc/csharp/csharp-struct.html" rel="next">C# 结构（Struct）</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/csharp/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/csharp/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

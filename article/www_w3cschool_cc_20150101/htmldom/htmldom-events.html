@@ -1,0 +1,153 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>HTML DOM äº‹ä»¶ | w3cschoolèœé¸Ÿæ•™ç¨‹</title> <link rel='prev' title='HTML DOM å…ƒç´ ' href="htmldom-elements.html"/> <link rel='next' title='HTML DOM å¯¼èˆª' href="htmldom-navigation.html"/> <link rel='canonical' href='http://www.w3cschool.cc/htmldom/htmldom-events.html'/> <meta name="keywords" content="HTML DOM äº‹ä»¶"> <meta name="description" content="HTML DOM - äº‹ä»¶ HTML DOM å…è®¸ JavaScript å¯¹ HTML äº‹ä»¶ä½œå‡ºååº”ã€‚ å®ä¾‹ Mouse Over Me Click Me å¯¹äº‹ä»¶ä½œå‡ºååº” å½“äº‹ä»¶å‘ç”Ÿæ—¶ï¼Œå¯ä»¥æ‰§è¡Œ JavaScriptï¼Œæ¯”å¦‚å½“ç”¨æˆ·ç‚¹å‡»ä¸€ä¸ª HTML å…ƒç´ æ—¶ã€‚ å¦‚éœ€åœ¨ç”¨æˆ·ç‚¹å‡»æŸä¸ªå…ƒç´ æ—¶æ‰§è¡Œä»£ç ï¼Œè¯·æŠŠ JavaScript ä»£ç æ·»åŠ åˆ° HTML äº‹ä»¶å±æ€§ä¸­ï¼š onclick=JavaScr.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschoolèœé¸Ÿæ•™ç¨‹"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="æœç´¢"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">é¦–é¡µ</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">å‰ç«¯å·¥å…·</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">æ›´å¤šâ€¦â€¦</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>HTML DOM æ•™ç¨‹</strong></h2> <a target="_top" title="HTML DOM æ•™ç¨‹" href="htmldom-tutorial.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-tutorial.html"> HTML DOM æ•™ç¨‹ </a> <a target="_top" title="HTML DOM ç®€ä»‹" href="htmldom-intro.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-intro.html"> HTML DOM ç®€ä»‹ </a> <a target="_top" title="HTML DOM èŠ‚ç‚¹" href="htmldom-nodes.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-nodes.html"> HTML DOM èŠ‚ç‚¹ </a> <a target="_top" title="HTML DOM æ–¹æ³•" href="htmldom-methods.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-methods.html"> HTML DOM æ–¹æ³• </a> <a target="_top" title="HTML DOM å±æ€§" href="htmldom-properties.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-properties.html"> HTML DOM å±æ€§ </a> <a target="_top" title="HTML DOM è®¿é—®" href="htmldom-access.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-access.html"> HTML DOM è®¿é—® </a> <a target="_top" title="HTML DOM ä¿®æ”¹" href="htmldom-modify.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-modify.html"> HTML DOM ä¿®æ”¹ </a> <a target="_top" title="HTML DOM ä¿®æ”¹ HTML å†…å®¹" href="htmldom-content.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-content.html"> HTML DOM ä¿®æ”¹ HTML å†…å®¹ </a> <a target="_top" title="HTML DOM å…ƒç´ " href="htmldom-elements.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-elements.html"> HTML DOM å…ƒç´  </a> <a target="_top" title="HTML DOM äº‹ä»¶" href="htmldom-events.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-events.html"> HTML DOM äº‹ä»¶ </a> <a target="_top" title="HTML DOM å¯¼èˆª" href="htmldom-navigation.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-navigation.html"> HTML DOM å¯¼èˆª </a> <a target="_top" title="HTML DOM æ€»ç»“" href="htmldom-summary.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-summary.html"> HTML DOM æ€»ç»“ </a> <a target="_top" title="DOM å®ä¾‹" href="htmldom-examples.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-examples.html"> DOM å®ä¾‹ </a> <br><h2 class="left"><span class="left_h2">DOM</span> å‚è€ƒæ‰‹å†Œ</h2> <a target="_top" href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html">HTML DOM å¯¹è±¡</a></div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="htmldom-elements.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-elements.html" rel="prev"> HTML DOM å…ƒç´ </a></div> <div class="next"><a href="htmldom-navigation.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-navigation.html" rel="next">HTML DOM å¯¼èˆª</a> &raquo;</div> </div> <div id="content"> <h1>HTML DOM - <span class="color_h1">äº‹ä»¶</span> </h1> <hr> <p class="intro">HTML DOM å…è®¸ JavaScript å¯¹ HTML äº‹ä»¶ä½œå‡ºååº”ã€‚</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> <div style="width:100%;height:140px"> <div style="background-color:#D94A38;width:170px;height:80px;margin:20px;padding-top:20px;color:#ffffff;font-weight:bold;font-size:18px;float:left;text-align:center;" onmouseover="this.innerHTML='Thank You'" onmouseout="this.innerHTML='Mouse Over Me'">Mouse Over Me</div> <div style="background-color:#D94A38;width:170px;height:80px;margin:20px;padding-top:20px;color:#ffffff;font-weight:bold;font-size:18px;float:left;text-align:center;" onclick="clickMeEvent(this)">Click Me</div> <script type="application/javascript">
+	<!--
+	function clickMeEvent(obj)
+	{
+	if (obj.innerHTML=="Goodbye")
+		{
+		obj.style.display="none";
+		}
+	else if (obj.innerHTML=="Thank You")
+		{
+		obj.innerHTML="Goodbye";		
+		}
+	else if (obj.innerHTML=="Click Me<br>Click Me Again<br>And Again")
+		{
+		obj.innerHTML="Thank You";		
+		}
+	else if (obj.innerHTML=="Click Me<br>Click Me Again")
+		{
+		obj.innerHTML=obj.innerHTML+"<br>And Again";		
+		}
+	else
+		{
+		obj.innerHTML=obj.innerHTML+"<br>Click Me Again";
+		}
+	}
+	//-->
+	</script> </div> </div> </div> <br><hr> <h2>å¯¹äº‹ä»¶ä½œå‡ºååº”</h2> <p>å½“äº‹ä»¶å‘ç”Ÿæ—¶ï¼Œå¯ä»¥æ‰§è¡Œ JavaScriptï¼Œæ¯”å¦‚å½“ç”¨æˆ·ç‚¹å‡»ä¸€ä¸ª HTML å…ƒç´ æ—¶ã€‚</p> <p>å¦‚éœ€åœ¨ç”¨æˆ·ç‚¹å‡»æŸä¸ªå…ƒç´ æ—¶æ‰§è¡Œä»£ç ï¼Œè¯·æŠŠ JavaScript ä»£ç æ·»åŠ åˆ° HTML äº‹ä»¶å±æ€§ä¸­ï¼š</p> <div class="code notranslate"><div> onclick=<i>JavaScript</i> </div></div> <p>HTML äº‹ä»¶çš„ä¾‹å­ï¼š</p> <ul> <li>å½“ç”¨æˆ·ç‚¹å‡»é¼ æ ‡æ—¶</li> <li>å½“ç½‘é¡µå·²åŠ è½½æ—¶</li> <li>å½“å›¾ç‰‡å·²åŠ è½½æ—¶</li> <li>å½“é¼ æ ‡ç§»åŠ¨åˆ°å…ƒç´ ä¸Šæ—¶</li> <li>å½“è¾“å…¥å­—æ®µè¢«æ”¹å˜æ—¶</li> <li>å½“ HTML è¡¨å•è¢«æäº¤æ—¶</li> <li>å½“ç”¨æˆ·è§¦å‘æŒ‰é”®æ—¶</li> </ul> <p>åœ¨æœ¬ä¾‹ä¸­ï¼Œå½“ç”¨æˆ·ç‚¹å‡»æ—¶ï¼Œä¼šæ”¹å˜ &lt;h1&gt; å…ƒç´ çš„å†…å®¹ï¼š</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> &lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br> &lt;body&gt;<br> &lt;h1 onclick="this.innerHTML='Ooops!'"&gt;Click on this text!&lt;/h1&gt;<br> &lt;/body&gt;<br> &lt;/html&gt; </div> <br><a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/mvc-controllers.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/mvc-controllers.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=trydhtml_event_onclick2" class="tryitbtn">å°è¯•ä¸€ä¸‹ Â»</a> </div> <p>åœ¨æœ¬ä¾‹ä¸­ï¼Œä¼šä»äº‹ä»¶å¤„ç†ç¨‹åºä¸­è°ƒç”¨å‡½æ•°ï¼š</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> &lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br> &lt;head&gt;<br> &lt;script&gt;<br> function changetext(id)<br> {<br> id.innerHTML="Ooops!";<br> }<br> &lt;/script&gt;<br> &lt;/head&gt;<br> &lt;body&gt;<br> &lt;h1 onclick="changetext(this)"&gt;Click on this text!&lt;/h1&gt;<br> &lt;/body&gt;<br> &lt;/html&gt; </div> <br><a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/mvc-views.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/mvc-views.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=trydhtml_event_onclick3" class="tryitbtn">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>HTML äº‹ä»¶å±æ€§</h2> <p>å¦‚éœ€å‘ HTML å…ƒç´ åˆ†é…äº‹ä»¶ï¼Œæ‚¨å¯ä»¥ä½¿ç”¨äº‹ä»¶å±æ€§ã€‚</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>å‘ button å…ƒç´ åˆ†é…ä¸€ä¸ª onclick äº‹ä»¶ï¼š</p> <div class="example_code notranslate"> &lt;button <span class="marked">onclick</span>="<span class="marked">displayDate()</span>"&gt;Try it&lt;/button&gt;</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/mvc-database.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/mvc-database.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtmldom_events1">å°è¯•ä¸€ä¸‹ Â»</a> </div> <p>åœ¨ä¸Šé¢çš„ä¾‹å­ä¸­ï¼Œå½“ç‚¹å‡»æŒ‰é’®æ—¶ï¼Œä¼šæ‰§è¡Œåä¸º displayDate çš„å‡½æ•°ã€‚</p> <hr> <h2>ä½¿ç”¨ HTML DOM æ¥åˆ†é…äº‹ä»¶</h2> <p>HTML DOM å…è®¸æ‚¨ä½¿ç”¨ JavaScript å‘ HTML å…ƒç´ åˆ†é…äº‹ä»¶ï¼š</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>ä¸º button å…ƒç´ åˆ†é… onclick äº‹ä»¶ï¼š</p> <div class="example_code notranslate"> &lt;script&gt;<br>document.getElementById("myBtn").<span class="marked">onclick</span>=function(){<span class="marked">displayDate()</span>};<br> &lt;/script&gt;</div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/mvc-models.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/mvc-models.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtmldom_events2">å°è¯•ä¸€ä¸‹ Â»</a> </div> <p>åœ¨ä¸Šé¢çš„ä¾‹å­ä¸­ï¼Œåä¸º displayDate çš„å‡½æ•°è¢«åˆ†é…ç»™äº† id=myButn&quot; çš„ HTML å…ƒç´ ã€‚</p> <p>å½“æŒ‰é’®è¢«ç‚¹å‡»æ—¶ï¼Œå°†æ‰§è¡Œå‡½æ•°ã€‚</p> <hr> <h2>onload å’Œ onunload äº‹ä»¶</h2> <p>å½“ç”¨æˆ·è¿›å…¥æˆ–ç¦»å¼€é¡µé¢æ—¶ï¼Œä¼šè§¦å‘ onload å’Œ onunload äº‹ä»¶ã€‚</p> <p>onload äº‹ä»¶å¯ç”¨äºæ£€æŸ¥è®¿å®¢çš„æµè§ˆå™¨ç±»å‹å’Œç‰ˆæœ¬ï¼Œä»¥ä¾¿åŸºäºè¿™äº›ä¿¡æ¯æ¥åŠ è½½ä¸åŒç‰ˆæœ¬çš„ç½‘é¡µã€‚</p> <p>onload å’Œ onunload äº‹ä»¶å¯ç”¨äºå¤„ç† cookiesã€‚</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> &lt;body <span class="marked">onload</span>="checkCookies()"&gt; </div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/mvc-security.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/mvc-security.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtmldom_events_onload">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>onchange äº‹ä»¶</h2> <p>onchange äº‹ä»¶å¸¸ç”¨äºè¾“å…¥å­—æ®µçš„éªŒè¯ã€‚</p> <p>ä¸‹é¢çš„ä¾‹å­å±•ç¤ºäº†å¦‚ä½•ä½¿ç”¨ onchangeã€‚å½“ç”¨æˆ·æ”¹å˜è¾“å…¥å­—æ®µçš„å†…å®¹æ—¶ï¼Œå°†è°ƒç”¨ upperCase() å‡½æ•°ã€‚</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <div class="example_code notranslate"> &lt;input type="text" id="fname" <span class="marked">onchange</span>="upperCase()"&gt;</div> <br><a target="_blank" href="javascript:if(confirm('http://www.w3cschool.cc/try/mvc-htmlhelpers.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/mvc-htmlhelpers.html'" tppabs="http://www.w3cschool.cc/try/tryit.php?filename=tryjsref_onchange" class="tryitbtn">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>onmouseover å’Œ onmouseout äº‹ä»¶</h2> <p>onmouseover å’Œ onmouseout äº‹ä»¶å¯ç”¨äºåœ¨é¼ æ ‡æŒ‡é’ˆç§»åŠ¨åˆ°æˆ–ç¦»å¼€å…ƒç´ æ—¶è§¦å‘å‡½æ•°ã€‚</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>ä¸€ä¸ªç®€å•çš„ onmouseover-onmouseout å®ä¾‹:</p> <div class="example_code notranslate"> <div style="width:100%;height:140px"> <div style="background-color:#D94A38;width:170px;height:80px;margin:20px;padding-top:20px;color:#ffffff;font-weight:bold;font-size:18px;float:left;text-align:center">Mouse Over Me</div> </div> </div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/mvc-publish.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/mvc-publish.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtmldom_events_mouseover">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>onmousedownã€onmouseup ä»¥åŠ onclick äº‹ä»¶</h2> <p>onmousedownã€onmouseup ä»¥åŠ onclick äº‹ä»¶æ˜¯é¼ æ ‡ç‚¹å‡»çš„å…¨éƒ¨è¿‡ç¨‹ã€‚é¦–å…ˆå½“æŸä¸ªé¼ æ ‡æŒ‰é’®è¢«ç‚¹å‡»æ—¶ï¼Œè§¦å‘ onmousedown äº‹ä»¶ï¼Œç„¶åï¼Œå½“é¼ æ ‡æŒ‰é’®è¢«æ¾å¼€æ—¶ï¼Œä¼šè§¦å‘ onmouseup äº‹ä»¶ï¼Œæœ€åï¼Œå½“é¼ æ ‡ç‚¹å‡»å®Œæˆæ—¶ï¼Œè§¦å‘ onclick äº‹ä»¶ã€‚</p> <div class="example"> <h2 class="example">å®ä¾‹</h2> <p>ä¸€ä¸ªç®€å•çš„ onmousedown-onmouseup å®ä¾‹ï¼š</p> <div class="example_code notranslate"> <div style="width:100%;height:140px"> <div style="background-color:#D94A38;width:170px;height:80px;margin:20px;padding-top:20px;color:#ffffff;font-weight:bold;font-size:18px;float:left;text-align:center">Click Me</div> </div> </div> <br><a target="_blank" class="tryitbtn" href="javascript:if(confirm('http://www.w3cschool.cc/try/mvc-reference.html  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÒÑ¾­±»Õ¾µãÂşÓÎÆ÷ÅÅ³ı¹æÔò²ÎÊıÅÅ³ıµÄÂ·¾¶µØÖ·¡£(¸ÃÏµÍ³µÄ Teleport Ultra ÊØÔòÊÇ¿ÉÑ¡µÄ; ²Î¼ûÏîÄ¿ÊôĞÔ, ÍøÂçÀñÒÇ¡£)  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://www.w3cschool.cc/try/mvc-reference.html'" tppabs="http://www.w3cschool.cc/try/try.php?filename=tryhtmldom_events_mousedown">å°è¯•ä¸€ä¸‹ Â»</a> </div> <br><hr> <h2>HTML DOM äº‹ä»¶å¯¹è±¡å‚è€ƒæ‰‹å†Œ</h2> <p>å¦‚éœ€æ¯ä¸ªäº‹ä»¶çš„å®Œæ•´æè¿°å’Œä¾‹å­ï¼Œè¯·è®¿é—®æˆ‘ä»¬çš„ <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html">HTML DOM å‚è€ƒæ‰‹å†Œ</a>ã€‚</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="htmldom-elements.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-elements.html" rel="prev"> HTML DOM å…ƒç´ </a></div> <div class="next"><a href="htmldom-navigation.html" tppabs="http://www.w3cschool.cc/htmldom/htmldom-navigation.html" rel="next">HTML DOM å¯¼èˆª</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">å…³æ³¨å¾®ä¿¡ä¸‹è½½ç¦»çº¿æ‰‹å†Œ</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschoolç§»åŠ¨ç‰ˆ"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.ccèœé¸Ÿå®¶æ—" title="w3cschool.ccèœé¸Ÿå®¶æ—"></a> </div> <div class="rightad"> <h2>å‚è€ƒæ‰‹å†Œ</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML å‚è€ƒæ‰‹å†Œ</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS å‚è€ƒæ‰‹å†Œ">JS å‚è€ƒæ‰‹å†Œ</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS å‚è€ƒæ‰‹å†Œ">CSS å‚è€ƒæ‰‹å†Œ</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>HTML/CSS/JS åœ¨çº¿å·¥å…·</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="jsonæ ¼å¼å·¥å…·"/>JSON æ ¼å¼å·¥å…·</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>ç¨‹åºçŒ¿å­¦ä¹ è·¯çº¿</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>æ‰“å¼€CHMæ–‡æ¡£é‡åˆ°é—®é¢˜â€¦â€¦</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n¸ÃÎÄ¼şÎŞ·¨ÓÃ Teleport Ultra ÏÂÔØ, ÒòÎª ËüÊÇÒ»¸öÓò»òÂ·¾¶Íâ²¿±»ÉèÖÃÎªËüµÄÆôÊ¼µØÖ·µÄµØÖ·¡£  \n\nÄãÏëÔÚ·şÎñÆ÷ÉÏ´ò¿ªËü?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="é—®é¢˜/æ„è§åé¦ˆ"/>é—®é¢˜/æ„è§åé¦ˆ</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3Cèœé¸Ÿç¬”è®°</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">å…è´£å£°æ˜</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">å…³äºæˆ‘ä»¬</a> </ul> </div> <div id="footerText"> æä¾›çš„å†…å®¹ä»…ç”¨äºåŸ¹è®­ã€‚æˆ‘ä»¬ä¸ä¿è¯å†…å®¹çš„æ­£ç¡®æ€§ã€‚é€šè¿‡ä½¿ç”¨æœ¬ç«™å†…å®¹éšä¹‹è€Œæ¥çš„é£é™©ä¸æœ¬ç«™æ— å…³ã€‚å½“ä½¿ç”¨æœ¬ç«™æ—¶ï¼Œä»£è¡¨æ‚¨å·²æ¥å—äº†æœ¬ç«™çš„ä½¿ç”¨æ¡æ¬¾å’Œéšç§æ¡æ¬¾ã€‚ ç‰ˆæƒæ‰€æœ‰ï¼Œä¿ç•™ä¸€åˆ‡æƒåˆ©ã€‚W3CSchool ç®€ä½“ä¸­æ–‡ç‰ˆçš„æ‰€æœ‰å†…å®¹ä»…ä¾›æµ‹è¯•ï¼Œå¯¹ä»»ä½•æ³•å¾‹é—®é¢˜åŠé£é™©ä¸æ‰¿æ‹…ä»»ä½•è´£ä»»ã€‚ </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">åˆ†äº«åˆ°</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="åˆ†äº«åˆ°QQç©ºé—´" href="#"></a> <a class="bds_tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš" href="#"></a> <a class="bds_tqq" title="åˆ†äº«åˆ°äººäººç½‘" href="#"></a> <a class="bds_baidu" title="ç™¾åº¦æ”¶è—" href="#"></a> <span class="bds_more">æ›´å¤š</span> <a class="shareCount" id="shareCount" href="#" title="ç´¯è®¡åˆ†äº«0æ¬¡">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //é…è‰²æ ‡è®°
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //ç»“æŸå¾ªç¯
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //ç¬¬äºŒé‡åˆ¤æ–­
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/htmldom/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/htmldom/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

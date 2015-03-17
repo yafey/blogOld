@@ -1,0 +1,302 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>Ruby 文件的输入与输出 | w3cschool菜鸟教程</title> <link rel='prev' title='Ruby 迭代器' href="ruby-iterators.html"/> <link rel='next' title='Ruby File 类和方法' href="ruby-file-methods.html"/> <link rel='canonical' href='http://www.w3cschool.cc/ruby/ruby-input-output.html'/> <meta name="keywords" content="Ruby 文件的输入与输出"> <meta name="description" content="Ruby 文件的输入与输出 Ruby 提供了一整套 I/O 相关的方法，在内核（Kernel）模块中实现。所有的 I/O 方法派生自 IO 类。 类 IO 提供了所有基础的方法，比如 read、 write、 gets、 puts、 readline、 getc 和 printf。 本章节将讲解所有 Ruby 中可用的基础的 I/O 函数。如需了解更多的函数，请查看 Ruby 的 IO 类。 puts 语句 在前面的章节中，您赋.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>Ruby 教程</strong></h2> <a target="_top" title="Ruby 教程" href="ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html"> Ruby 教程 </a> <a target="_top" title="Ruby 简介" href="ruby-intro.html" tppabs="http://www.w3cschool.cc/ruby/ruby-intro.html"> Ruby 简介 </a> <a target="_top" title="Ruby 环境" href="ruby-environment.html" tppabs="http://www.w3cschool.cc/ruby/ruby-environment.html"> Ruby 环境 </a> <a target="_top" title="Ruby 安装 &#8211; Unix" href="ruby-installation-unix.html" tppabs="http://www.w3cschool.cc/ruby/ruby-installation-unix.html"> Ruby 安装 - Unix </a> <a target="_top" title="Ruby 安装 &#8211; Windows" href="ruby-installation-windows.html" tppabs="http://www.w3cschool.cc/ruby/ruby-installation-windows.html"> Ruby 安装 - Windows </a> <a target="_top" title="Ruby 命令行选项" href="ruby-command-line-options.html" tppabs="http://www.w3cschool.cc/ruby/ruby-command-line-options.html"> Ruby 命令行选项 </a> <a target="_top" title="Ruby 环境变量" href="ruby-environment-variables.html" tppabs="http://www.w3cschool.cc/ruby/ruby-environment-variables.html"> Ruby 环境变量 </a> <a target="_top" title="Ruby 语法" href="ruby-syntax.html" tppabs="http://www.w3cschool.cc/ruby/ruby-syntax.html"> Ruby 语法 </a> <a target="_top" title="Ruby 类和对象" href="ruby-class.html" tppabs="http://www.w3cschool.cc/ruby/ruby-class.html"> Ruby 类和对象 </a> <a target="_top" title="Ruby 类案例" href="ruby-class-case-study.html" tppabs="http://www.w3cschool.cc/ruby/ruby-class-case-study.html"> Ruby 类案例 </a> <a target="_top" title="Ruby 变量" href="ruby-variable.html" tppabs="http://www.w3cschool.cc/ruby/ruby-variable.html"> Ruby 变量 </a> <a target="_top" title="Ruby 运算符" href="ruby-operator.html" tppabs="http://www.w3cschool.cc/ruby/ruby-operator.html"> Ruby 运算符 </a> <a target="_top" title="Ruby 注释" href="ruby-comment.html" tppabs="http://www.w3cschool.cc/ruby/ruby-comment.html"> Ruby 注释 </a> <a target="_top" title="Ruby 判断" href="ruby-decision.html" tppabs="http://www.w3cschool.cc/ruby/ruby-decision.html"> Ruby 判断 </a> <a target="_top" title="Ruby 循环" href="ruby-loop.html" tppabs="http://www.w3cschool.cc/ruby/ruby-loop.html"> Ruby 循环 </a> <a target="_top" title="Ruby 方法" href="ruby-method.html" tppabs="http://www.w3cschool.cc/ruby/ruby-method.html"> Ruby 方法 </a> <a target="_top" title="Ruby 块" href="ruby-block.html" tppabs="http://www.w3cschool.cc/ruby/ruby-block.html"> Ruby 块 </a> <a target="_top" title="Ruby 模块（Module）" href="ruby-module.html" tppabs="http://www.w3cschool.cc/ruby/ruby-module.html"> Ruby 模块（Module） </a> <a target="_top" title="Ruby 字符串（String）" href="ruby-string.html" tppabs="http://www.w3cschool.cc/ruby/ruby-string.html"> Ruby 字符串（String） </a> <a target="_top" title="Ruby 数组（Array）" href="ruby-array.html" tppabs="http://www.w3cschool.cc/ruby/ruby-array.html"> Ruby 数组（Array） </a> <a target="_top" title="Ruby 哈希（Hash）" href="ruby-hash.html" tppabs="http://www.w3cschool.cc/ruby/ruby-hash.html"> Ruby 哈希（Hash） </a> <a target="_top" title="Ruby 日期 &#038; 时间（Date &#038; Time）" href="ruby-date-time.html" tppabs="http://www.w3cschool.cc/ruby/ruby-date-time.html"> Ruby 日期 & 时间 </a> <a target="_top" title="Ruby 范围（Range）" href="ruby-range.html" tppabs="http://www.w3cschool.cc/ruby/ruby-range.html"> Ruby 范围（Range） </a> <a target="_top" title="Ruby 迭代器" href="ruby-iterators.html" tppabs="http://www.w3cschool.cc/ruby/ruby-iterators.html"> Ruby 迭代器 </a> <a target="_top" title="Ruby 文件的输入与输出" href="ruby-input-output.html" tppabs="http://www.w3cschool.cc/ruby/ruby-input-output.html"> Ruby 文件的输入与输出 </a> <a target="_top" title="Ruby File 类和方法" href="ruby-file-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-file-methods.html"> Ruby File 类和方法 </a> <a target="_top" title="Ruby Dir 类和方法" href="ruby-dir-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-dir-methods.html"> Ruby Dir 类和方法 </a> <a target="_top" title="Ruby 异常" href="ruby-exceptions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-exceptions.html"> Ruby 异常 </a> <br><h2 class="left"><span class="left_h2">Ruby</span> 高级教程</h2> <a target="_top" title="Ruby 面向对象" href="ruby-object-oriented.html" tppabs="http://www.w3cschool.cc/ruby/ruby-object-oriented.html"> Ruby 面向对象 </a> <a target="_top" title="Ruby 正则表达式" href="ruby-regular-expressions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-regular-expressions.html"> Ruby 正则表达式 </a> <a target="_top" title="Ruby 数据库访问 &#8211; DBI 教程" href="ruby-database-access.html" tppabs="http://www.w3cschool.cc/ruby/ruby-database-access.html"> Ruby 数据库访问 - DBI 教程 </a> <a target="_top" title="Ruby CGI 编程" href="ruby-cgi.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi.html"> Ruby CGI 编程 </a> <a target="_top" title="Ruby CGI方法" href="ruby-cgi-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-methods.html"> Ruby CGI方法 </a> <a target="_top" title="Ruby CGI Cookies" href="ruby-cgi-cookies.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-cookies.html"> Ruby CGI Cookies </a> <a target="_top" title="Ruby CGI Sessions" href="ruby-cgi-sessions.html" tppabs="http://www.w3cschool.cc/ruby/ruby-cgi-sessions.html"> Ruby CGI Sessions </a> <a target="_top" title="Ruby 发送邮件 &#8211; SMTP" href="ruby-sending-email.html" tppabs="http://www.w3cschool.cc/ruby/ruby-sending-email.html"> Ruby 发送邮件 - SMTP </a> <a target="_top" title="Ruby Socket 编程" href="ruby-socket-programming.html" tppabs="http://www.w3cschool.cc/ruby/ruby-socket-programming.html"> Ruby Socket 编程 </a> <a target="_top" title="Ruby XML, XSLT 和 XPath 教程" href="ruby-xml-xslt-xpath.html" tppabs="http://www.w3cschool.cc/ruby/ruby-xml-xslt-xpath.html"> Ruby XML, XSLT 和 XPath 教程 </a> <a target="_top" title="Ruby Web Services 应用 &#8211; SOAP4R" href="ruby-web-services.html" tppabs="http://www.w3cschool.cc/ruby/ruby-web-services.html"> Ruby Web Services </a> <a target="_top" title="Ruby 多线程" href="ruby-multithreading.html" tppabs="http://www.w3cschool.cc/ruby/ruby-multithreading.html"> Ruby 多线程 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ruby-iterators.html" tppabs="http://www.w3cschool.cc/ruby/ruby-iterators.html" rel="prev"> Ruby 迭代器</a></div> <div class="next"><a href="ruby-file-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-file-methods.html" rel="next">Ruby File 类和方法</a> &raquo;</div> </div> <div id="content"> <h1>Ruby <span class="color_h1">文件的输入与输出</span></h1> <div class="tutintro"> <p>Ruby 提供了一整套 I/O 相关的方法，在内核（Kernel）模块中实现。所有的 I/O 方法派生自 IO 类。</p> <p>类 <i>IO</i> 提供了所有基础的方法，比如 <i>read、 write、 gets、 puts、 readline、 getc</i> 和 <i>printf</i>。</p> <p>本章节将讲解所有 Ruby 中可用的基础的 I/O 函数。如需了解更多的函数，请查看 Ruby 的 <i>IO</i> 类。</p> </div> <h2 class="tutheader"><i>puts</i> 语句</h2> <p>在前面的章节中，您赋值给变量，然后使用 <i>puts</i> 语句打印输出。</p> <p><i>puts</i> 语句指示程序显示存储在变量中的值。这将在每行末尾添加一个新行。</p> <h2>实例</h2> <pre class="prettyprint tryit">
+#!/usr/bin/ruby
+
+val1 = "This is variable one"
+val2 = "This is variable two"
+puts val1
+puts val2
+</pre> <p>这将产生以下结果：</p> <pre class="prettyprint">
+This is variable one
+This is variable two
+</pre> <h2 class="tutheader"><i>gets</i> 语句</h2> <p><i>gets</i> 语句可用于获取来自名为 STDIN 的标准屏幕的用户输入。</p> <h2>实例</h2> <p>下面的代码演示了如何使用 gets 语句。该代码将提示用户输入一个值，该值将被存储在变量 val 中，最后会被打印在 STDOUT 上。</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+puts "Enter a value :"
+val = gets
+puts val
+</pre> <p>这将产生以下结果：</p> <pre class="prettyprint">
+Enter a value :
+This is entered value
+This is entered value
+</pre> <h2 class="tutheader"><i>putc</i> 语句</h2> <p>与 <i>puts</i> 语句不同，<i>puts</i> 语句输出整个字符串到屏幕上，而 <i>putc</i> 语句可用于依次输出一个字符。</p> <h2>实例</h2> <p>下面代码的输出只是字符 H：</p> <pre class="prettyprint tryit">
+#!/usr/bin/ruby
+
+str="Hello Ruby!"
+putc str
+</pre> <p>这将产生以下结果：</p> <pre class="prettyprint">
+H
+</pre> <h2 class="tutheader"><i>print</i> 语句</h2> <p><i>print</i> 语句与 <i>puts</i> 语句类似。唯一的不同在于 <i>puts</i> 语句在输出内容后会跳到下一行，而使用 <i>print</i> 语句时，光标定位在同一行。</p> <h2>实例</h2> <pre class="prettyprint tryit">
+#!/usr/bin/ruby
+
+print "Hello World"
+print "Good Morning"
+</pre> <p>这将产生以下结果：</p> <pre class="prettyprint">
+Hello WorldGood Morning
+</pre> <h2 class="tutheader">打开和关闭文件</h2> <p>截至现在，您已经读取并写入标准输入和输出。现在，我们将看看如何操作实际的数据文件。</p> <h2><i>File.new</i> 方法</h2> <p>您可以使用 <i>File.new</i> 方法创建一个 <i>File</i> 对象用于读取、写入或者读写，读写权限取决于 mode 字符串。最后，您可以使用 <i>File.close</i> 方法来关闭该文件。</p> <h3>语法</h3> <pre class="prettyprint">
+aFile = File.new("filename", "mode")
+   # ... 处理文件
+aFile.close
+</pre> <h2><i>File.open</i> 方法</h2> <p>您可以使用 <i>File.open</i> 方法创建一个新的 file 对象，并把该 file 对象赋值给文件。但是，<i>File.open</i> 和 <i>File.new</i> 方法之间有一点不同。不同点是 <i>File.open</i> 方法可与块关联，而 <i>File.new</i> 方法不能。</p> <pre class="prettyprint">
+File.open("filename", "mode") do |aFile|
+   # ... process the file
+end
+</pre> <p>下表列出了打开文件的不同模式：</p> <table class="reference notranslate"> <tr><th>模式</th><th>描述</th></tr> <tr><td>r</td><td>只读模式。文件指针被放置在文件的开头。这是默认模式。</td></tr> <tr><td>r+</td><td>读写模式。文件指针被放置在文件的开头。</td></tr> <tr><td>w</td><td>只写模式。如果文件存在，则重写文件。如果文件不存在，则创建一个新文件用于写入。</td></tr> <tr><td>w+</td><td>读写模式。如果文件存在，则重写已存在的文件。如果文件不存在，则创建一个新文件用于读写。</td></tr> <tr><td>a</td><td>只写模式。如果文件存在，则文件指针被放置在文件的末尾。也就是说，文件是追加模式。如果文件不存在，则创建一个新文件用于写入。</td></tr> <tr><td>a+</td><td>读写模式。如果文件存在，则文件指针被放置在文件的末尾。也就是说，文件是追加模式。如果文件不存在，则创建一个新文件用于读写。</td></tr> </table> <br/> <h2 class="tutheader">读取和写入文件</h2> <p>用于简单 I/O 的方法也可用于所有 file 对象。所以，gets 从标准输入读取一行，<i>aFile.gets</i> 从文件对象 aFile 读取一行。</p> <p>但是，I/O 对象提供了访问方法的附加设置，为我们提供了便利。</p> <h2><i>sysread</i> 方法</h2> <p>您可以使用方法 <i>sysread</i> 来读取文件的内容。当使用方法 sysread 时，您可以使用任意一种模式打开文件。例如：</p> <p>下面是输入文本文件：</p> <pre class="result" id="input_txt">
+This is a simple text file for testing purpose.
+</pre> <p>现在让我们尝试读取这个文件：</p> <pre class="prettyprint tryit" title=",,,input_txt">
+#!/usr/bin/ruby
+
+aFile = File.new("input.txt", "r")
+if aFile
+   content = aFile.sysread(20)
+   puts content
+else
+   puts "Unable to open file!"
+end
+</pre> <p>该语句将输入文件的头 20 个字符。文件指针将被放置在文件中第 21 个字符的位置。</p> <h2><i>syswrite</i> 方法</h2> <p>您可以使用方法 <i>syswrite</i> 来向文件写入内容。当使用方法 syswrite 时，您需要以写入模式打开文件。例如：</p> <pre class="prettyprint tryit" title=",,,input_txt">
+#!/usr/bin/ruby
+
+aFile = File.new("input.txt", "r+")
+if aFile
+   aFile.syswrite("ABCDEF")
+else
+   puts "Unable to open file!"
+end
+</pre> <p>该语句将写入 "ABCDEF" 到文件中。</p> <h2><i>each_byte</i> 方法</h2> <p>该方法属于类 <i>File</i>。方法 <i>each_byte</i> 总是与块相关联。请看下面的代码实例：</p> <pre class="prettyprint tryit" title=",,,input_txt">
+#!/usr/bin/ruby
+
+aFile = File.new("input.txt", "r+")
+if aFile
+   aFile.syswrite("ABCDEF")
+   aFile.each_byte {|ch| putc ch; putc ?. }
+else
+   puts "Unable to open file!"
+end
+</pre> <p>字符一个接着一个被传到变量 ch，然后显示在屏幕上，如下所示：</p> <pre class="prettyprint">
+s. .a. .s.i.m.p.l.e. .t.e.x.t. .f.i.l.e. .f.o.r. .t.e.s.t.i.n.g. .p.u.r.p.o.s.e...
+.
+.
+</pre> <h2><i>IO.readlines</i> 方法</h2> <p>类 <i>File</i> 是类 IO 的一个子类。类 IO 也有一些用于操作文件的方法。</p> <p><i>IO.readlines</i> 是 IO 类中的一个方法。该方法逐行返回文件的内容。下面的代码显示了方法 <i>IO.readlines</i> 的使用：</p> <pre class="prettyprint tryit" title=",,,input_txt">
+#!/usr/bin/ruby
+
+arr = IO.readlines("input.txt")
+puts arr[0]
+puts arr[1]
+</pre> <p>在这段代码中，变量 arr 是一个数组。文件 <i>input.txt</i> 的每一行将是数组 arr 中的一个元素。因此，arr[0] 将包含第一行，而 arr[1] 将包含文件的第二行。</p> <h2><i>IO.foreach</i> 方法</h2> <p>该方法也逐行返回输出。方法 <i>foreach</i> 与方法 <i>readlines</i> 之间不同的是，方法 <i>foreach</i> 与块相关联。但是，不像方法 <i>readlines</i>，方法 <i>foreach</i> 不是返回一个数组。例如：</p> <pre class="prettyprint tryit" title=",,,input_txt">
+#!/usr/bin/ruby
+
+IO.foreach("input.txt"){|block| puts block}
+</pre> <p>这段代码将把文件 <i>test</i> 的内容逐行传给变量 block，然后输出将显示在屏幕上。</p> <h2 class="tutheader">重命名和删除文件</h2> <p>您可以通过 <i>rename</i> 和 <i>delete</i> 方法重命名和删除文件。</p> <p>下面的实例重命名一个已存在文件 <i>test1.txt</i>：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+# 重命名文件 test1.txt 为 test2.txt
+File.rename( "test1.txt", "test2.txt" )
+
+</pre> <p>下面的实例删除一个已存在文件 <i>test2.txt</i>：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+# 删除文件 test2.txt
+File.delete("text2.txt")
+</pre> <h2 class="tutheader">文件模式与所有权</h2> <p>使用带有掩码的 <i>chmod</i> 方法来改变文件的模式或权限/访问列表：</p> <p>下面的实例改变一个已存在文件 <i>test.txt</i> 的模式为一个掩码值：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+file = File.new( "test.txt", "w" )
+file.chmod( 0755 )
+</pre> <p>下表列出了 <i>chmod</i> 方法中可使用的不同的掩码：</p> <table class="reference notranslate"> <tr><th style="width:25%">掩码</th><th>描述</th></tr> <tr><td>0700</td><td>rwx 掩码，针对所有者</td></tr> <tr><td>0400</td><td>r ，针对所有者</td></tr> <tr><td>0200</td><td>w ，针对所有者</td></tr> <tr><td>0100</td><td>x ，针对所有者</td></tr> <tr><td>0070</td><td>rwx 掩码，针对所属组</td></tr> <tr><td>0040</td><td>r ，针对所属组</td></tr> <tr><td>0020</td><td>w ，针对所属组</td></tr> <tr><td>0010</td><td>x ，针对所属组</td></tr> <tr><td>0007</td><td>rwx 掩码，针对其他人</td></tr> <tr><td>0004</td><td>r ，针对其他人</td></tr> <tr><td>0002</td><td>w ，针对其他人</td></tr> <tr><td>0001</td><td>x ，针对其他人</td></tr> <tr><td>4000</td><td>执行时设置用户 ID</td></tr> <tr><td>2000</td><td>执行时设置所属组 ID</td></tr> <tr><td>1000</td><td>保存交换文本，甚至在使用后也会保存</td></tr> </table> <br/> <h2 class="tutheader">文件查询</h2> <p>下面的命令在打开文件前检查文件是否已存在：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+File.open("file.rb") if File::exists?( "file.rb" )
+</pre> <p>下面的命令查询文件是否确实是一个文件：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+# 返回 &lt;i&gt;true&lt;/i&gt; 或 &lt;i&gt;false&lt;/i&gt;
+File.file?( "text.txt" ) 
+</pre> <p>下面的命令检查给定的文件名是否是一个目录：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+# 一个目录
+File::directory?( "/usr/local/bin" ) # =&gt; true
+
+# 一个文件
+File::directory?( "file.rb" ) # =&gt; false
+</pre> <p>下面的命令检查文件是否可读、可写、可执行：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+File.readable?( "test.txt" )   # =&gt; true
+File.writable?( "test.txt" )   # =&gt; true
+File.executable?( "test.txt" ) # =&gt; false
+</pre> <p>下面的命令检查文件是否大小为零：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+File.zero?( "test.txt" )      # =&gt; true
+</pre> <p>下面的命令返回文件的大小：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+File.size?( "text.txt" )     # =&gt; 1002
+</pre> <p>下面的命令用于检查文件的类型：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+File::ftype( "test.txt" )     # =&gt; file
+</pre> <p>ftype 方法通过返回下列中的某个值来标识了文件的类型：<i>file、 directory、 characterSpecial、 blockSpecial、 fifo、 link、 socket 或 unknown</i>。</p> <p>下面的命令用于检查文件被创建、修改或最后访问的时间：</p> <pre class="prettyprint">
+#!/usr/bin/ruby
+
+File::ctime( "test.txt" ) # =&gt; Fri May 09 10:06:37 -0700 2008
+File::mtime( "text.txt" ) # =&gt; Fri May 09 10:44:44 -0700 2008
+File::atime( "text.txt" ) # =&gt; Fri May 09 10:45:01 -0700 2008
+</pre> <h2 class="tutheader">Ruby 中的目录</h2> <p>所有的文件都是包含在目录中，Ruby 提供了处理文件和目录的方式。<i>File</i> 类用于处理文件，<i>Dir</i> 类用于处理目录。</p> <h2>浏览目录</h2> <p>为了在 Ruby 程序中改变目录，请使用 <i>Dir.chdir</i>。下面的实例改变当前目录为 <i>/usr/bin</i>。</p> <pre class="prettyprint">
+Dir.chdir("/usr/bin")
+</pre> <p>您可以通过<i> Dir.pwd</i> 查看当前目录：</p> <pre class="prettyprint">
+puts Dir.pwd # 返回当前目录，类似 /usr/bin
+</pre> <p>您可以使用 <i>Dir.entries</i> 获取指定目录内的文件和目录列表：</p> <pre class="prettyprint">
+puts Dir.entries("/usr/bin").join(' ')
+</pre> <p><i>Dir.entries</i> 返回一个数组，包含指定目录内的所有项。<i>Dir.foreach</i> 提供了相同的功能：</p> <pre class="prettyprint">
+Dir.foreach("/usr/bin") do |entry|
+   puts entry
+end
+</pre> <p>获取目录列表的一个更简洁的方式是通过使用 Dir 的类数组的方法：</p> <pre class="prettyprint">
+Dir["/usr/bin/*"]
+</pre> <h2>创建目录</h2> <p><i>Dir.mkdir</i> 可用于创建目录：</p> <pre class="prettyprint">
+Dir.mkdir("mynewdir")
+</pre> <p>您也可以通过 mkdir 在新目录（不是已存在的目录）上设置权限：</p> <p><b>注意：</b>掩码 755 设置所有者（owner）、所属组（group）、每个人（world [anyone]）的权限为 rwxr-xr-x，其中 r = read 读取，w = write 写入，x = execute 执行。</p> <pre class="prettyprint">
+Dir.mkdir( "mynewdir", 755 )
+</pre> <h2>删除目录</h2> <p><i>Dir.delete</i> 可用于删除目录。<i>Dir.unlink</i> 和 <i>Dir.rmdir</i> 执行同样的功能，为我们提供了便利。</p> <pre class="prettyprint">
+Dir.delete("testdir")
+</pre> <h2 class="tutheader">创建文件 & 临时目录</h2> <p>临时文件是那些在程序执行过程中被简单地创建，但不会永久性存储的信息。</p> <p><i>Dir.tmpdir</i> 提供了当前系统上临时目录的路径，但是该方法默认情况下是不可用的。为了让 <i>Dir.tmpdir</i> 可用，使用必需的 'tmpdir' 是必要的。</p> <p>您可以把 <i>Dir.tmpdir</i> 和 <i>File.join</i> 一起使用，来创建一个独立于平台的临时文件：</p> <pre class="prettyprint">
+require 'tmpdir'
+   tempfilename = File.join(Dir.tmpdir, "tingtong")
+   tempfile = File.new(tempfilename, "w")
+   tempfile.puts "This is a temporary file"
+   tempfile.close
+   File.delete(tempfilename)
+</pre> <p>这段代码创建了一个临时文件，并向其中写入数据，然后删除文件。Ruby 的标准库也包含了一个名为 <i>Tempfile</i> 的库，该库可用于创建临时文件：</p> <pre class="prettyprint">
+require 'tempfile'
+   f = Tempfile.new('tingtong')
+   f.puts "Hello"
+   puts f.path
+   f.close
+</pre> <h2 class="tutheader">内建函数</h2> <p>下面提供了 Ruby 中处理文件和目录的内建函数的完整列表：</p> <ul class="list"> <li><p><a href="ruby-file-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-file-methods.html" title="Ruby File 类和方法">File 类和方法</a>。</p></li> <li><p><a href="ruby-dir-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-dir-methods.html" title="Ruby Dir 类和方法">Dir 类和方法</a>。</p></li> </ul> </div> <div class="chapter"> <div class="prev">&laquo; <a href="ruby-iterators.html" tppabs="http://www.w3cschool.cc/ruby/ruby-iterators.html" rel="prev"> Ruby 迭代器</a></div> <div class="next"><a href="ruby-file-methods.html" tppabs="http://www.w3cschool.cc/ruby/ruby-file-methods.html" rel="next">Ruby File 类和方法</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/ruby/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/ruby/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

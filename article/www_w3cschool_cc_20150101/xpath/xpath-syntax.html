@@ -1,0 +1,127 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>XPath 语法 | w3cschool菜鸟教程</title> <link rel='prev' title='XPath 节点' href="xpath-nodes.html"/> <link rel='next' title='jQuery Mobile Data 属性' href="/jquerymobile/jquerymobile-ref-data.html"/> <link rel='canonical' href='http://www.w3cschool.cc/xpath/xpath-syntax.html'/> <meta name="keywords" content="XPath 语法"> <meta name="description" content="XPath 语法 XPath 使用路径表达式来选取 XML 文档中的节点或节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。 XML 实例文档 我们将在下面的例子中使用这个 XML 文档。 &amp;lt;?xml version=&#039;1.0&#039; encoding=&#039;ISO-8859-1&#039;?&amp;gt; &amp;lt;bookstore&amp;gt; &a.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>XPath 教程</strong></h2> <a target="_top" title="XPath 教程" href="xpath-tutorial.html" tppabs="http://www.w3cschool.cc/xpath/xpath-tutorial.html"> XPath 教程 </a> <a target="_top" title="XPath 简介" href="xpath-intro.html" tppabs="http://www.w3cschool.cc/xpath/xpath-intro.html"> XPath 简介 </a> <a target="_top" title="XPath 节点" href="xpath-nodes.html" tppabs="http://www.w3cschool.cc/xpath/xpath-nodes.html"> XPath 节点 </a> <a target="_top" title="XPath 语法" href="xpath-syntax.html" tppabs="http://www.w3cschool.cc/xpath/xpath-syntax.html"> XPath 语法 </a> <a target="_top" title="XPath 轴（Axes）" href="xpath-axes.html" tppabs="http://www.w3cschool.cc/xpath/xpath-axes.html"> XPath 轴（Axes） </a> <a target="_top" title="XPath 运算符" href="xpath-operators.html" tppabs="http://www.w3cschool.cc/xpath/xpath-operators.html"> XPath 运算符 </a> <a target="_top" title="XPath 实例" href="xpath-examples.html" tppabs="http://www.w3cschool.cc/xpath/xpath-examples.html"> XPath 实例 </a> <a target="_top" title="XPath 总结" href="xpath-summary.html" tppabs="http://www.w3cschool.cc/xpath/xpath-summary.html"> XPath 总结 </a> <a target="_top" title="XPath、XQuery 以及 XSLT 函数" href="xpath-functions.html" tppabs="http://www.w3cschool.cc/xpath/xpath-functions.html"> XPath、XQuery 以及 XSLT 函数 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="xpath-nodes.html" tppabs="http://www.w3cschool.cc/xpath/xpath-nodes.html" rel="prev"> XPath 节点</a></div> <div class="next"><a href="xpath-axes.html" tppabs="http://www.w3cschool.cc/xpath/xpath-axes.html" rel="next">XPath 轴（Axes）</a> &raquo;</div> </div> <div id="content"> <h1>XPath <span class="color_h1">语法</span> </h1> <hr> <p class="intro">XPath 使用路径表达式来选取 XML 文档中的节点或节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。</p> <hr> <h2>XML 实例文档</h2> <p>我们将在下面的例子中使用这个 XML 文档。</p> <div class="code notranslate"><div> &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br><br> &lt;bookstore&gt;<br><br> &lt;book&gt;<br>   &lt;title lang="eng"&gt;Harry Potter&lt;/title&gt;<br>   &lt;price&gt;29.99&lt;/price&gt;<br> &lt;/book&gt;<br><br> &lt;book&gt;<br>   &lt;title lang="eng"&gt;Learning XML&lt;/title&gt;<br>   &lt;price&gt;39.95&lt;/price&gt;<br> &lt;/book&gt;<br><br> &lt;/bookstore&gt; </div></div> <br><hr> <h2>选取节点</h2> <p>XPath 使用路径表达式在 XML 文档中选取节点。节点是通过沿着路径或者 step 来选取的。 下面列出了最有用的路径表达式：</p> <table class="reference"> <tbody><tr> <th style="width:25%;">表达式</th> <th>描述</th> </tr> <tr> <td>nodename</td> <td>选取此节点的所有子节点。</td> </tr> <tr> <td>/</td> <td>从根节点选取。</td> </tr> <tr> <td>//</td> <td>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td> </tr> <tr> <td>.</td> <td>选取当前节点。</td> </tr> <tr> <td>..</td> <td>选取当前节点的父节点。</td> </tr> <tr> <td>@</td> <td>选取属性。</td> </tr> </tbody></table> <p>在下面的表格中，我们已列出了一些路径表达式以及表达式的结果：</p> <table class="reference"> <tbody><tr> <th style="width:25%;">路径表达式</th> <th>结果</th> </tr> <tr> <td>bookstore</td> <td>选取 bookstore 元素的所有子节点。</td> </tr> <tr> <td>/bookstore</td> <td> <p>选取根元素 bookstore。</p> <p>注释：假如路径起始于正斜杠( / )，则此路径始终代表到某元素的绝对路径！</p> </td> </tr> <tr> <td>bookstore/book</td> <td>选取属于 bookstore 的子元素的所有 book 元素。</td> </tr> <tr> <td>//book</td> <td>选取所有 book 子元素，而不管它们在文档中的位置。</td> </tr> <tr> <td>bookstore//book</td> <td>选择属于 bookstore 元素的后代的所有 book 元素，而不管它们位于 bookstore 之下的什么位置。</td> </tr> <tr> <td>//@lang</td> <td>选取名为 lang 的所有属性。</td> </tr> </tbody></table> <br><hr> <h2>谓语（Predicates）</h2> <p>谓语用来查找某个特定的节点或者包含某个指定的值的节点。 </p> <p>谓语被嵌在方括号中。</p> <p> 在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：</p> <table class="reference"> <tbody><tr> <th style="width:35%;">路径表达式</th> <th>结果</th> </tr> <tr> <td>/bookstore/book[1]</td> <td>选取属于 bookstore 子元素的第一个 book 元素。</td> </tr> <tr> <td>/bookstore/book[last()]</td> <td>选取属于 bookstore 子元素的最后一个 book 元素。</td> </tr> <tr> <td>/bookstore/book[last()-1]</td> <td>选取属于 bookstore 子元素的倒数第二个 book 元素。</td> </tr> <tr> <td>/bookstore/book[position()&lt;3]</td> <td>选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td> </tr> <tr> <td>//title[@lang]</td> <td>选取所有拥有名为 lang 的属性的 title 元素。</td> </tr> <tr> <td>//title[@lang='eng']</td> <td>选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td> </tr> <tr> <td>/bookstore/book[price&gt;35.00]</td> <td>选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td> </tr> <tr> <td>/bookstore/book[price&gt;35.00]/title</td> <td>选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td> </tr> </tbody></table> <br><hr> <h2>选取未知节点 </h2> <p>XPath 通配符可用来选取未知的 XML 元素。</p> <table class="reference"> <tbody><tr> <th style="width:25%;">通配符</th> <th>描述</th> </tr> <tr> <td>*</td> <td>匹配任何元素节点。</td> </tr> <tr> <td>@*</td> <td>匹配任何属性节点。</td> </tr> <tr> <td>node()</td> <td>匹配任何类型的节点。</td> </tr> </tbody></table> <p>在下面的表格中，我们列出了一些路径表达式，以及这些表达式的结果：</p> <table class="reference"> <tbody><tr> <th style="width:25%;">路径表达式</th> <th>结果</th> </tr> <tr> <td>/bookstore/*</td> <td>选取 bookstore 元素的所有子元素。</td> </tr> <tr> <td>//*</td> <td>选取文档中的所有元素。</td> </tr> <tr> <td>//title[@*]</td> <td>选取所有带有属性的 title 元素。</td> </tr> </tbody></table> <br><hr> <h2>选取若干路径 </h2> <p>通过在路径表达式中使用"|"运算符，您可以选取若干个路径。</p> <p>在下面的表格中，我们列出了一些路径表达式，以及这些表达式的结果：</p> <table class="reference"> <tbody><tr> <th style="width:35%;">路径表达式</th> <th>结果</th> </tr> <tr> <td>//book/title | //book/price</td> <td>选取 book 元素的所有 title 和 price 元素。</td> </tr> <tr> <td>//title | //price</td> <td>选取文档中的所有 title 和 price 元素。</td> </tr> <tr> <td>/bookstore/book/title | //price</td> <td>选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。</td> </tr> </tbody></table> </div> <div class="chapter"> <div class="prev">&laquo; <a href="xpath-nodes.html" tppabs="http://www.w3cschool.cc/xpath/xpath-nodes.html" rel="prev"> XPath 节点</a></div> <div class="next"><a href="xpath-axes.html" tppabs="http://www.w3cschool.cc/xpath/xpath-axes.html" rel="next">XPath 轴（Axes）</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/xpath/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/xpath/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

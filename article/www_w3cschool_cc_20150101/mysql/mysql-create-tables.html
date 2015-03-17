@@ -1,0 +1,186 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>MySQL 创建数据表 | w3cschool菜鸟教程</title> <link rel='prev' title='MySQL 数据类型' href="mysql-data-types.html"/> <link rel='next' title='MySQL 删除数据表' href="mysql-drop-tables.html"/> <link rel='canonical' href='http://www.w3cschool.cc/mysql/mysql-create-tables.html'/> <meta name="keywords" content="MySQL 创建数据表"> <meta name="description" content="MySQL 创建数据表 创建MySQL数据表需要以下信息： 表名 表字段名 定义每个表字段 语法 以下为创建MySQL数据表的SQL通用语法： CREATE TABLE table_name (column_name column_type); 以下例子中我们将在 TUTORIALS 数据库中创建数据表tutorials_tbl： tutorials_tbl( tutorial_id INT NOT NULL A.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>MySQL 教程</strong></h2> <a target="_top" title="MySQL 教程" href="mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html"> MySQL 教程 </a> <a target="_top" title="MySQL 安装" href="mysql-install.html" tppabs="http://www.w3cschool.cc/mysql/mysql-install.html"> MySQL 安装 </a> <a target="_top" title="MySQL 管理" href="mysql-administration.html" tppabs="http://www.w3cschool.cc/mysql/mysql-administration.html"> MySQL 管理 </a> <a target="_top" title="MySQL PHP 语法" href="mysql-php-syntax.html" tppabs="http://www.w3cschool.cc/mysql/mysql-php-syntax.html"> MySQL PHP 语法 </a> <a target="_top" title="MySQL 连接" href="mysql-connection.html" tppabs="http://www.w3cschool.cc/mysql/mysql-connection.html"> MySQL 连接 </a> <a target="_top" title="MySQL 创建数据库" href="mysql-create-database.html" tppabs="http://www.w3cschool.cc/mysql/mysql-create-database.html"> MySQL 创建数据库 </a> <a target="_top" title="MySQL 删除数据库" href="mysql-drop-database.html" tppabs="http://www.w3cschool.cc/mysql/mysql-drop-database.html"> MySQL 删除数据库 </a> <a target="_top" title="MySQL 选择数据库" href="mysql-select-database.html" tppabs="http://www.w3cschool.cc/mysql/mysql-select-database.html"> MySQL 选择数据库 </a> <a target="_top" title="MySQL 数据类型" href="mysql-data-types.html" tppabs="http://www.w3cschool.cc/mysql/mysql-data-types.html"> MySQL 数据类型 </a> <a target="_top" title="MySQL 创建数据表" href="mysql-create-tables.html" tppabs="http://www.w3cschool.cc/mysql/mysql-create-tables.html"> MySQL 创建数据表 </a> <a target="_top" title="MySQL 删除数据表" href="mysql-drop-tables.html" tppabs="http://www.w3cschool.cc/mysql/mysql-drop-tables.html"> MySQL 删除数据表 </a> <a target="_top" title="MySQL 插入数据" href="mysql-insert-query.html" tppabs="http://www.w3cschool.cc/mysql/mysql-insert-query.html"> MySQL 插入数据 </a> <a target="_top" title="MySQL 查询数据" href="mysql-select-query.html" tppabs="http://www.w3cschool.cc/mysql/mysql-select-query.html"> MySQL 查询数据 </a> <a target="_top" title="MySQL where 子句" href="mysql-where-clause.html" tppabs="http://www.w3cschool.cc/mysql/mysql-where-clause.html"> MySQL where 子句 </a> <a target="_top" title="MySQL UPDATE 查询" href="mysql-update-query.html" tppabs="http://www.w3cschool.cc/mysql/mysql-update-query.html"> MySQL UPDATE 查询 </a> <a target="_top" title="MySQL DELETE 语句" href="mysql-delete-query.html" tppabs="http://www.w3cschool.cc/mysql/mysql-delete-query.html"> MySQL DELETE 语句 </a> <a target="_top" title="MySQL LIKE 子句" href="mysql-like-clause.html" tppabs="http://www.w3cschool.cc/mysql/mysql-like-clause.html"> MySQL LIKE 子句 </a> <a target="_top" title="MySQL 排序" href="mysql-order-by.html" tppabs="http://www.w3cschool.cc/mysql/mysql-order-by.html"> MySQL 排序 </a> <a target="_top" title="Mysql Join的使用" href="mysql-join.html" tppabs="http://www.w3cschool.cc/mysql/mysql-join.html"> Mysql Join的使用 </a> <a target="_top" title="MySQL NULL 值处理" href="mysql-null.html" tppabs="http://www.w3cschool.cc/mysql/mysql-null.html"> MySQL NULL 值处理 </a> <a target="_top" title="MySQL 正则表达式" href="mysql-regexp.html" tppabs="http://www.w3cschool.cc/mysql/mysql-regexp.html"> MySQL 正则表达式 </a> <a target="_top" title="MySQL 事务" href="mysql-transaction.html" tppabs="http://www.w3cschool.cc/mysql/mysql-transaction.html"> MySQL 事务 </a> <a target="_top" title="MySQL ALTER命令" href="mysql-alter.html" tppabs="http://www.w3cschool.cc/mysql/mysql-alter.html"> MySQL ALTER命令 </a> <a target="_top" title="MySQL 索引" href="mysql-index.html" tppabs="http://www.w3cschool.cc/mysql/mysql-index.html"> MySQL 索引 </a> <a target="_top" title="MySQL 临时表" href="mysql-temporary-tables.html" tppabs="http://www.w3cschool.cc/mysql/mysql-temporary-tables.html"> MySQL 临时表 </a> <a target="_top" title="MySQL 复制表" href="mysql-clone-tables.html" tppabs="http://www.w3cschool.cc/mysql/mysql-clone-tables.html"> MySQL 复制表 </a> <a target="_top" title="MySQL 元数据" href="mysql-database-info.html" tppabs="http://www.w3cschool.cc/mysql/mysql-database-info.html"> MySQL 元数据 </a> <a target="_top" title="MySQL 序列使用" href="mysql-using-sequences.html" tppabs="http://www.w3cschool.cc/mysql/mysql-using-sequences.html"> MySQL 序列使用 </a> <a target="_top" title="MySQL 处理重复数据" href="mysql-handling-duplicates.html" tppabs="http://www.w3cschool.cc/mysql/mysql-handling-duplicates.html"> MySQL 处理重复数据 </a> <a target="_top" title="MySQL 及 SQL 注入" href="mysql-sql-injection.html" tppabs="http://www.w3cschool.cc/mysql/mysql-sql-injection.html"> MySQL 及 SQL 注入 </a> <a target="_top" title="MySQL 导出数据" href="mysql-database-export.html" tppabs="http://www.w3cschool.cc/mysql/mysql-database-export.html"> MySQL 导出数据 </a> <a target="_top" title="MySQL 导入数据" href="mysql-database-import.html" tppabs="http://www.w3cschool.cc/mysql/mysql-database-import.html"> MySQL 导入数据 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="mysql-data-types.html" tppabs="http://www.w3cschool.cc/mysql/mysql-data-types.html" rel="prev"> MySQL 数据类型</a></div> <div class="next"><a href="mysql-drop-tables.html" tppabs="http://www.w3cschool.cc/mysql/mysql-drop-tables.html" rel="next">MySQL 删除数据表</a> &raquo;</div> </div> <div id="content"> <h1>MySQL 创建数据表</h1> <p> 创建MySQL数据表需要以下信息： </p> <ul> <li>表名</li> <li>表字段名</li> <li>定义每个表字段</li> </ul> <h3>语法</h3> <p>以下为创建MySQL数据表的SQL通用语法：</p> <pre>
+CREATE TABLE table_name (column_name column_type);
+</pre> <p> <p>以下例子中我们将在 TUTORIALS 数据库中创建数据表tutorials_tbl：</p> <pre>
+tutorials_tbl(
+   tutorial_id INT NOT NULL AUTO_INCREMENT,
+   tutorial_title VARCHAR(100) NOT NULL,
+   tutorial_author VARCHAR(40) NOT NULL,
+   submission_date DATE,
+   PRIMARY KEY ( tutorial_id )
+);
+</pre> <p>实例解析：</p> <ul> <li>如果你不想字段为 <strong>NULL</strong> 可以设置字段的属性为 <strong>NOT NULL</strong>， 在操作数据库时如果输入该字段的数据为<strong>NULL</strong> ，就会报错。</li> <li> AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。</li> <li> PRIMARY KEY关键字用于定义列为主键。 您可以使用多列来定义主键，列间以逗号分隔。 </li> </ul> <hr> <h2>通过命令提示符创建表</h2> <p>通过 mysql&gt; 命令窗口可以很简单的创建MySQL数据表。你可以使用 SQL 语句 <strong>CREATE TABLE</strong> 来创建数据表。</p> <h3>实例</h3> <p>以下为创建数据表 tutorials_tbl 实例: </p> <pre>
+root@host# mysql -u root -p
+Enter password:*******
+mysql&gt; use TUTORIALS;
+Database changed
+mysql&gt; CREATE TABLE tutorials_tbl(
+   -&gt; tutorial_id INT NOT NULL AUTO_INCREMENT,
+   -&gt; tutorial_title VARCHAR(100) NOT NULL,
+   -&gt; tutorial_author VARCHAR(40) NOT NULL,
+   -&gt; submission_date DATE,
+   -&gt; PRIMARY KEY ( tutorial_id )
+   -&gt; );
+Query OK, 0 rows affected (0.16 sec)
+mysql&gt;
+</pre> <p> <strong>注意：</strong>MySQL命令终止符为分号 (;) 。</p> <hr> <h2>使用PHP脚本创建数据表</h2> <p>你可以使用PHP的 mysql_query() 函数来创建已存在数据库的数据表。 </p> <p> 该函数有两个参数，在执行成功时返回 TRUE，否则返回 FALSE。 </p> <h3>语法</h3> <pre>
+bool mysql_query( sql, connection );
+</pre> <table class="reference"> <tbody><tr> <th>参数</th> <th>描述</th> </tr> <tr> <td>sql</td> <td>必需。规定要发送的 SQL 查询。注释：查询字符串不应以分号结束。</td> </tr> <tr> <td>connection</td> <td>可选。规定 SQL 连接标识符。如果未规定，则使用上一个打开的连接。</td> </tr> </tbody></table> <h3>实例</h3> <p>以下实例使用了PHP脚本来创建数据表：</p> <pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Creating MySQL Tables&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;?php
+$dbhost = 'localhost:3036';
+$dbuser = 'root';
+$dbpass = 'rootpassword';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+echo 'Connected successfully&lt;br /&gt;';
+$sql = "CREATE TABLE tutorials_tbl( ".
+       "tutorial_id INT NOT NULL AUTO_INCREMENT, ".
+       "tutorial_title VARCHAR(100) NOT NULL, ".
+       "tutorial_author VARCHAR(40) NOT NULL, ".
+       "submission_date DATE, ".
+       "PRIMARY KEY ( tutorial_id )); ";
+mysql_select_db( 'TUTORIALS' );
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not create table: ' . mysql_error());
+}
+echo "Table created successfully\n";
+mysql_close($conn);
+?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> </div> <div class="chapter"> <div class="prev">&laquo; <a href="mysql-data-types.html" tppabs="http://www.w3cschool.cc/mysql/mysql-data-types.html" rel="prev"> MySQL 数据类型</a></div> <div class="next"><a href="mysql-drop-tables.html" tppabs="http://www.w3cschool.cc/mysql/mysql-drop-tables.html" rel="next">MySQL 删除数据表</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/mysql/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/mysql/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

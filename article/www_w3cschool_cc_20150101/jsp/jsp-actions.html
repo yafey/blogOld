@@ -1,0 +1,281 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>JSP 动作元素 | w3cschool菜鸟教程</title> <link rel='prev' title='JSP 指令' href="jsp-directives.html"/> <link rel='next' title='JSP 隐含对象' href="jsp-implicit-objects.html"/> <link rel='canonical' href='http://www.w3cschool.cc/jsp/jsp-actions.html'/> <meta name="keywords" content="JSP 动作元素"> <meta name="description" content="JSP 动作元素 与JSP指令元素不同的是，JSP动作元素在请求处理阶段起作用。JSP动作元素是用XML语法写成的。 利用JSP动作可以动态地插入文件、重用JavaBean组件、把用户重定向到另外的页面、为Java插件生成HTML代码。 动作元素只有一种语法，它符合XML标准： 动作元素基本上都是预定义的函数，JSP规范定义了一系列的标准动作，它用JSP作为前缀，可用的标准动作元素如下： 语法 描述 jsp:include.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>JSP 教程</strong></h2> <a target="_top" title="JSP 教程" href="jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html"> JSP 教程 </a> <a target="_top" title="JSP 简介" href="jsp-intro.html" tppabs="http://www.w3cschool.cc/jsp/jsp-intro.html"> JSP 简介 </a> <a target="_top" title="JSP 开发环境搭建" href="jsp-setup.html" tppabs="http://www.w3cschool.cc/jsp/jsp-setup.html"> JSP 开发环境搭建 </a> <a target="_top" title="JSP 结构" href="jsp-architecture.html" tppabs="http://www.w3cschool.cc/jsp/jsp-architecture.html"> JSP 结构 </a> <a target="_top" title="JSP 生命周期" href="jsp-life-cycle.html" tppabs="http://www.w3cschool.cc/jsp/jsp-life-cycle.html"> JSP 生命周期 </a> <a target="_top" title="JSP 语法" href="jsp-syntax.html" tppabs="http://www.w3cschool.cc/jsp/jsp-syntax.html"> JSP 语法 </a> <a target="_top" title="JSP 指令" href="jsp-directives.html" tppabs="http://www.w3cschool.cc/jsp/jsp-directives.html"> JSP 指令 </a> <a target="_top" title="JSP 动作元素" href="jsp-actions.html" tppabs="http://www.w3cschool.cc/jsp/jsp-actions.html"> JSP 动作元素 </a> <a target="_top" title="JSP 隐含对象" href="jsp-implicit-objects.html" tppabs="http://www.w3cschool.cc/jsp/jsp-implicit-objects.html"> JSP 隐含对象 </a> <a target="_top" title="JSP 客户端请求" href="jsp-client-request.html" tppabs="http://www.w3cschool.cc/jsp/jsp-client-request.html"> JSP 客户端请求 </a> <a target="_top" title="JSP 服务器响应" href="jsp-server-response.html" tppabs="http://www.w3cschool.cc/jsp/jsp-server-response.html"> JSP 服务器响应 </a> <a target="_top" title="JSP HTTP 状态码" href="jsp-http-status-codes.html" tppabs="http://www.w3cschool.cc/jsp/jsp-http-status-codes.html"> JSP HTTP 状态码 </a> <a target="_top" title="JSP 表单处理" href="jsp-form-processing.html" tppabs="http://www.w3cschool.cc/jsp/jsp-form-processing.html"> JSP 表单处理 </a> <a target="_top" title="JSP 过滤器" href="jsp-writing-filters.html" tppabs="http://www.w3cschool.cc/jsp/jsp-writing-filters.html"> JSP 过滤器 </a> <a target="_top" title="JSP Cookies 处理" href="jsp-cookies.html" tppabs="http://www.w3cschool.cc/jsp/jsp-cookies.html"> JSP Cookies 处理 </a> <a target="_top" title="JSP Session" href="jsp-session.html" tppabs="http://www.w3cschool.cc/jsp/jsp-session.html"> JSP Session </a> <a target="_top" title="JSP 文件上传" href="jsp-file-uploading.html" tppabs="http://www.w3cschool.cc/jsp/jsp-file-uploading.html"> JSP 文件上传 </a> <a target="_top" title="JSP 日期处理" href="jsp-handling-date.html" tppabs="http://www.w3cschool.cc/jsp/jsp-handling-date.html"> JSP 日期处理 </a> <a target="_top" title="JSP 页面重定向" href="jsp-page-redirect.html" tppabs="http://www.w3cschool.cc/jsp/jsp-page-redirect.html"> JSP 页面重定向 </a> <a target="_top" title="JSP 点击量统计" href="jsp-hits-counter.html" tppabs="http://www.w3cschool.cc/jsp/jsp-hits-counter.html"> JSP 点击量统计 </a> <a target="_top" title="JSP 自动刷新" href="jsp-auto-refresh.html" tppabs="http://www.w3cschool.cc/jsp/jsp-auto-refresh.html"> JSP 自动刷新 </a> <a target="_top" title="JSP 发送邮件" href="jsp-sending-email.html" tppabs="http://www.w3cschool.cc/jsp/jsp-sending-email.html"> JSP 发送邮件 </a> <br><h2 class="left"><span class="left_h2">JSP 高级教程</span></h2> <a target="_top" title="JSP 标准标签库（JSTL）" href="jsp-jstl.html" tppabs="http://www.w3cschool.cc/jsp/jsp-jstl.html"> JSP 标准标签库（JSTL） </a> <a target="_top" title="JSP 连接数据库" href="jsp-database-access.html" tppabs="http://www.w3cschool.cc/jsp/jsp-database-access.html"> JSP 连接数据库 </a> <a target="_top" title="JSP XML 数据处理" href="jsp-xml-data.html" tppabs="http://www.w3cschool.cc/jsp/jsp-xml-data.html"> JSP XML 数据处理 </a> <a target="_top" title="JSP JavaBean" href="jsp-javabean.html" tppabs="http://www.w3cschool.cc/jsp/jsp-javabean.html"> JSP JavaBean </a> <a target="_top" title="JSP 自定义标签" href="jsp-custom-tags.html" tppabs="http://www.w3cschool.cc/jsp/jsp-custom-tags.html"> JSP 自定义标签 </a> <a target="_top" title="JSP 表达式语言" href="jsp-expression-language.html" tppabs="http://www.w3cschool.cc/jsp/jsp-expression-language.html"> JSP 表达式语言 </a> <a target="_top" title="JSP 异常处理" href="jsp-exception-handling.html" tppabs="http://www.w3cschool.cc/jsp/jsp-exception-handling.html"> JSP 异常处理 </a> <a target="_top" title="JSP 调试" href="jsp-debugging.html" tppabs="http://www.w3cschool.cc/jsp/jsp-debugging.html"> JSP 调试 </a> <a target="_top" title="JSP 国际化" href="jsp-internationalization.html" tppabs="http://www.w3cschool.cc/jsp/jsp-internationalization.html"> JSP 国际化 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jsp-directives.html" tppabs="http://www.w3cschool.cc/jsp/jsp-directives.html" rel="prev"> JSP 指令</a></div> <div class="next"><a href="jsp-implicit-objects.html" tppabs="http://www.w3cschool.cc/jsp/jsp-implicit-objects.html" rel="next">JSP 隐含对象</a> &raquo;</div> </div> <div id="content"> <h1>JSP <span class="color_h1">动作元素</span></h1> <p> 与JSP指令元素不同的是，JSP动作元素在请求处理阶段起作用。JSP动作元素是用XML语法写成的。</p> <p>利用JSP动作可以动态地插入文件、重用JavaBean组件、把用户重定向到另外的页面、为Java插件生成HTML代码。 </p> <p>动作元素只有一种语法，它符合XML标准：</p> <pre>
+&lt;jsp:action_name attribute="value" /&gt;
+</pre> <p>动作元素基本上都是预定义的函数，JSP规范定义了一系列的标准动作，它用JSP作为前缀，可用的标准动作元素如下：</p> <table class="reference"> <tbody><tr><th style="width:30%">语法 </th><th>描述 </th></tr> <tr><td>jsp:include</td><td>在页面被请求的时候引入一个文件。 </td></tr> <tr><td>jsp:useBean</td><td>寻找或者实例化一个JavaBean。 </td></tr> <tr><td>jsp:setProperty</td><td>设置JavaBean的属性。 </td></tr> <tr><td>jsp:getProperty</td><td>输出某个JavaBean的属性。 </td></tr> <tr><td>jsp:forward</td><td>把请求转到一个新的页面。 </td></tr> <tr><td>jsp:plugin</td><td>根据浏览器类型为Java插件生成OBJECT或EMBED标记。 </td></tr> <tr><td>jsp:element</td><td>定义动态XML元素</td></tr> <tr><td>jsp:attribute</td><td>设置动态定义的XML元素属性。</td></tr> <tr><td>jsp:body</td><td>设置动态定义的XML元素内容。</td></tr> <tr><td>jsp:text</td><td>在JSP页面和文档中使用写入文本的模板</td></tr> </tbody></table> <hr> <h2>常见的属性</h2> <p> 所有的动作要素都有两个属性：id属性和scope属性。 </p> <ul><li><strong> id属性：</strong><p>id属性是动作元素的唯一标识，可以在JSP页面中引用。动作元素创建的id值可以通过PageContext来调用。 <p></li><li><strong> scope属性：</strong><p></strong>该属性用于识别动作元素的生命周期。 id属性和scope属性有直接关系，scope属性定义了相关联id对象的寿命。 scope属性有四个可能的值： (a) page, (b)request, (c)session, 和 (d) application。 <p></li></ul> <hr> <h2> &lt;jsp:include&gt;动作元素 </h2> <p> &lt;jsp:include&gt;动作元素用来包含静态和动态的文件。该动作把指定文件插入正在生成的页面。语法格式如下：</p> <pre>
+&lt;jsp:include page="relative URL" flush="true" /&gt;
+</pre> <p>　前面已经介绍过include指令，它是在JSP文件被转换成Servlet的时候引入文件，而这里的jsp:include动作不同，插入文件的时间是在页面被请求的时候。 </p> <p>以下是include动作相关的属性列表。</p> <table class="reference"> <tbody><tr><th style="width:30%">属性 </th><th>描述 </th></tr> <tr><td>page</td><td>包含在页面中的相对URL地址。</td></tr> <tr><td>flush</td><td>布尔属性，定义在包含资源前是否刷新缓存区。</td></tr> </tbody></table> <h3>实例</h3> <p>以下我们定义了两个文件date.jsp和main.jsp，代码如下所示：</p> <p>date.jsp文件代码：</p> <pre>
+&lt;p&gt;
+   Today's date: &lt;%= (new java.util.Date()).toLocaleString()%&gt;
+&lt;/p&gt;
+</pre> <p>main.jsp文件代码：</p> <pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;The include Action Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h2&gt;The include action Example&lt;/h2&gt;
+&lt;jsp:include page="date.jsp" flush="true" /&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>现在将以上两个文件放在服务器的根目录下，访问main.jsp文件。显示结果如下：</p> <pre>
+The include action Example
+Today's date: 12-Sep-2013 14:54:22
+</pre> <hr> <h2>&lt;jsp:useBean&gt;动作元素</h2> <p> 　jsp:useBean动作用来装载一个将在JSP页面中使用的JavaBean。</p> <p>这个功能非常有用，因为它使得我们既可以发挥Java组件重用的优势，同时也避免了损失JSP区别于Servlet的方便性。</p> <p>jsp:useBean动作最简单的语法为： </p> <pre>
+&lt;jsp:useBean id="name" class="package.class" /&gt;
+</pre> <p> 在类载入后，我们既可以通过 jsp:setProperty 和 jsp:getProperty 动作来修改和检索bean的属性。 </p> <p>以下是useBean动作相关的属性列表。</p> <table class="reference"> <tbody><tr><th style="width:30%">属性 </th><th>描述 </th></tr> <tr><td>class</td><td>指定Bean的完整包名。</td></tr> <tr><td>type</td><td>指定将引用该对象变量的类型。</td></tr> <tr><td>beanName</td><td>通过 java.beans.Beans 的 instantiate() 方法指定Bean的名字。</td></tr> </tbody></table> <p>在给出具体实例前，让我们先来看下 jsp:setProperty 和 jsp:getProperty 动作元素：</p> <hr> <h2> &lt;jsp:setProperty&gt;动作元素</h2> <p>　jsp:setProperty用来设置已经实例化的Bean对象的属性，有两种用法。首先，你可以在jsp:useBean元素的外面（后面）使用jsp:setProperty，如下所示： </p> <pre>
+&lt;jsp:useBean id="myName" ... /&gt;
+...
+&lt;jsp:setProperty name="myName" property="someProperty" .../&gt;
+</pre> <p>　此时，不管jsp:useBean是找到了一个现有的Bean，还是新创建了一个Bean实例，jsp:setProperty都会执行。第二种用法是把jsp:setProperty放入jsp:useBean元素的内部，如下所示： </p> <pre>
+&lt;jsp:useBean id="myName" ... &gt;
+...
+   &lt;jsp:setProperty name="myName" property="someProperty" .../&gt;
+&lt;/jsp:useBean&gt;
+</pre> <p>此时，jsp:setProperty只有在新建Bean实例时才会执行，如果是使用现有实例则不执行jsp:setProperty。 </p> <p　　jsp:setProperty动作有下面四个属性,如下表：</p> <table class="reference"> <tbody><tr><th style="width:30%">属性 </th><th>描述 </th></tr> <tr><td>name</td><td>name属性是必需的。它表示要设置属性的是哪个Bean。 </td></tr> <tr><td>property</td><td>property属性是必需的。它表示要设置哪个属性。有一个特殊用法：如果property的值是"*"，表示所有名字和Bean属性名字匹配的请求参数都将被传递给相应的属性set方法。 </td></tr> <tr><td>value</td><td> value 属性是可选的。该属性用来指定Bean属性的值。字符串数据会在目标类中通过标准的valueOf方法自动转换成数字、boolean、Boolean、 byte、Byte、char、Character。例如，boolean和Boolean类型的属性值（比如"true"）通过 Boolean.valueOf转换，int和Integer类型的属性值（比如"42"）通过Integer.valueOf转换。 　　value和param不能同时使用，但可以使用其中任意一个。 </td></tr> <tr><td>param</td><td> param 是可选的。它指定用哪个请求参数作为Bean属性的值。如果当前请求没有参数，则什么事情也不做，系统不会把null传递给Bean属性的set方法。因此，你可以让Bean自己提供默认属性值，只有当请求参数明确指定了新值时才修改默认属性值。 </td></tr> </tbody></table> <hr> <h2> &lt;jsp:getProperty&gt;动作元素</h2> <p>　jsp:getProperty动作提取指定Bean属性的值，转换成字符串，然后输出。语法格式如下：</p> <pre>
+&lt;jsp:useBean id="myName" ... /&gt;
+...
+&lt;jsp:getProperty name="myName" property="someProperty" .../&gt;
+</pre> <p>下表是与getProperty相关联的属性：</p> <table class="reference"> <tbody><tr><th style="width:30%">属性 </th><th>描述 </th></tr> <tr><td>name</td><td>要检索的Bean属性名称。Bean必须已定义。</td></tr> <tr><td>property</td><td>表示要提取Bean属性的值</td></tr> </tbody></table> <h3>实例</h3> <p>以下实例我们使用了Bean:</p> <pre>
+/* 文件: TestBean.java */
+package action;
+ 
+public class TestBean {
+   private String message = "No message specified";
+ 
+   public String getMessage() {
+      return(message);
+   }
+   public void setMessage(String message) {
+      this.message = message;
+   }
+}
+</pre> <p>编译以上实例并生成 TestBean.class 文件，将该文件拷贝至服务器正式存放Java类的目录下，而不是保留给修改后能够自动装载的类的目录( 如：C:\apache-tomcat-7.0.2\webapps\WEB-INF\classes\action目录中，CLASSPATH 变量必须包含该路径。 )。例如，对于Java Web Server来说，Bean和所有Bean用到的类都应该放入classes目录，或者封装进jar文件后放入lib目录，但不应该放到servlets 下。 　　下面是一个很简单的例子，它的功能是装载一个Bean，然后设置/读取它的message属性。 </p> <p>现在让我们在main.jsp文件中调用该Bean:</p> <pre>
+ &lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Using JavaBeans in JSP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h2&gt;Using JavaBeans in JSP&lt;/h2&gt;
+ 
+&lt;jsp:useBean id="test" class="action.TestBean" /&gt;
+ 
+&lt;jsp:setProperty name="test" 
+                    property="message" 
+                    value="Hello JSP..." /&gt;
+ 
+&lt;p&gt;Got message....&lt;/p&gt;
+ 
+&lt;jsp:getProperty name="test" property="message" /&gt;
+ 
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>执行以上文件，输出如下所示：</p> <pre>
+Using JavaBeans in JSP
+Got message....
+Hello JSP...
+</pre> <hr> <h2>&lt;jsp:forward&gt; 动作元素</h2> <p>　jsp:forward动作把请求转到另外的页面。jsp:forward标记只有一个属性page。语法格式如下所示： </p> <pre>
+&lt;jsp:forward page="Relative URL" /&gt;
+</pre> <p>以下是forward相关联的属性：</p> <table class="reference"> <tbody><tr><th style="width:30%">属性 </th><th>描述 </th></tr> <tr><td>page</td><td>page属性包含的是一个相对URL。page的值既可以直接给出，也可以在请求的时候动态计算，可以是一个JSP页面或者一个 Java Servlet.</td></tr> </tbody></table> <h3>实例</h3> <p>以下实例我们使用了两个文件，分别是： date.jps 和 main.jsp。</p> <p> date.js文件代码如下：</p> <pre>
+&lt;p&gt;
+   Today's date: &lt;%= (new java.util.Date()).toLocaleString()%&gt;
+&lt;/p&gt;
+</pre> <p>main.jsp文件代码：</p> <pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;The include Action Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h2&gt;The include action Example&lt;/h2&gt;
+&lt;jsp:forward page="date.jsp" /&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+</pre> <p>现在将以上两个文件放在服务器的根目录下，访问main.jsp文件。显示结果如下：</p> <pre>
+Today's date: 12-Sep-2010 14:54:22
+</pre> <hr> <h2> &lt;jsp:plugin&gt;动作元素</h2> <p>jsp:plugin动作用来根据浏览器的类型，插入通过Java插件 运行Java Applet所必需的OBJECT或EMBED元素。</p> <p>如果需要的插件不存在，它会下载插件，然后执行Java组件。 Java组件可以是一个applet或一个JavaBean。 </p> <p>plugin动作有多个对应HTML元素的属性用于格式化Java 组件。param元素可用于向Applet 或 Bean 传递参数。</p> <p>以下是使用plugin 动作元素的典型实例:</p> <pre>
+&lt;jsp:plugin type="applet" codebase="dirname" code="MyApplet.class"
+                           width="60" height="80"&gt;
+   &lt;jsp:param name="fontcolor" value="red" /&gt;
+   &lt;jsp:param name="background" value="black" /&gt;
+ 
+   &lt;jsp:fallback&gt;
+      Unable to initialize Java Plugin
+   &lt;/jsp:fallback&gt;
+ 
+&lt;/jsp:plugin&gt;
+</pre> <p>如果你有兴趣可以尝试使用applet来测试jsp:plugin动作元素，&lt;fallback&gt;元素是一个新元素，在组件出现故障的错误是发送给用户错误信息。</p> <hr><h2> &lt;jsp:element&gt; 、 &lt;jsp:attribute&gt;、 &lt;jsp:body&gt;动作元素</h2> <p>&lt;jsp:element&gt; 、 &lt;jsp:attribute&gt;、 &lt;jsp:body&gt;动作元素动态定义XML元素。动态是非常重要的，这就意味着XML元素在编译时是动态生成的而非静态。</p> <p>以下实例动态定义了XML元素：</p> <pre>
+&lt;%@page language="java" contentType="text/html"%&gt;
+&lt;html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:jsp="http://java.sun.com/JSP/Page"&gt;
+
+&lt;head&gt;&lt;title&gt;Generate XML Element&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;jsp:element name="xmlElement"&gt;
+&lt;jsp:attribute name="xmlElementAttr"&gt;
+   Value for the attribute
+&lt;/jsp:attribute&gt;
+&lt;jsp:body&gt;
+   Body for XML element
+&lt;/jsp:body&gt;
+&lt;/jsp:element&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>执行时生成HTML代码如下：</p> <pre>
+&lt;html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:jsp="http://java.sun.com/JSP/Page"&gt;
+ 
+&lt;head&gt;&lt;title&gt;Generate XML Element&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;xmlElement xmlElementAttr="Value for the attribute"&gt;
+   Body for XML element
+&lt;/xmlElement&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <hr> <h2>&lt;jsp:text&gt;动作元素</h2> <p>&lt;jsp:text&gt;动作元素允许在JSP页面和文档中使用写入文本的模板，语法格式如下：</p> <pre>
+&lt;jsp:text&gt;Template data&lt;/jsp:text&gt;
+</pre> <p>以上文本模板不能包含其他元素，只能只能包含文本和EL表达式（注：EL表达式将在后续章节中介绍）。请注意，在XML文件中，您不能使用表达式如 ${whatever &gt; 0}，因为&gt;符号是非法的。 你可以使用 ${whatever gt 0}表达式或者嵌入在一个CDATA部分的值。 </p> <pre>
+&lt;jsp:text&gt;&lt;![CDATA[&lt;br&gt;]]&gt;&lt;/jsp:text&gt;
+</pre> <p>如果你需要在 XHTML 中声明 DOCTYPE,必须使用到&lt;jsp:text&gt;动作元素，实例如下：</p> <pre>
+&lt;jsp:text&gt;&lt;![CDATA[&lt;!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"DTD/xhtml1-strict.dtd"&gt;]]&gt;
+&lt;/jsp:text&gt;
+&lt;head&gt;&lt;title&gt;jsp:text action&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+&lt;books&gt;&lt;book&gt;&lt;jsp:text&gt;  
+    Welcome to JSP Programming
+&lt;/jsp:text&gt;&lt;/book&gt;&lt;/books&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> <p>你可以对以上实例尝试使用&lt;jsp:text&gt;及不使用该动作元素执行结果的区别。</p> </div> <div class="chapter"> <div class="prev">&laquo; <a href="jsp-directives.html" tppabs="http://www.w3cschool.cc/jsp/jsp-directives.html" rel="prev"> JSP 指令</a></div> <div class="next"><a href="jsp-implicit-objects.html" tppabs="http://www.w3cschool.cc/jsp/jsp-implicit-objects.html" rel="next">JSP 隐含对象</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/jsp/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/jsp/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>

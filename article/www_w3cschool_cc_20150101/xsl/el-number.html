@@ -1,0 +1,127 @@
+<!Doctype html> <html xmlns=http://www.w3.org/1999/xhtml> <head> <meta charset="UTF-8"> <title>XSLT &lt;xsl:number&gt; 元素 | w3cschool菜鸟教程</title> <link rel='prev' title='XSLT &lt;xsl:namespace-alias&gt; 元素' href="el-namespace-alias.html"/> <link rel='next' title='XSLT &lt;xsl:otherwise&gt; 元素' href="el-otherwise.html"/> <link rel='canonical' href='http://www.w3cschool.cc/xsl/el-number.html'/> <meta name="keywords" content="XSLT &lt;xsl:number&gt; 元素"> <meta name="description" content="XSLT &amp;lt;xsl:number&amp;gt; 元素 完整的 XSLT 元素参考手册 定义和用法 &amp;lt;xsl:number&amp;gt; 元素用于测定在源中当前节点的整数位置。它也用于对数字进行格式化。 语法 &amp;lt;xsl:number count=&#039;expression&#039; level=&#039;single|multiple|any&#039; from=&#0.."> <!--[if lt IE 7]> <style> #leftcolumn{margin-left:0} </style> <![endif]--> <link rel="shortcut icon" href="../favicon.ico" tppabs="http://www.w3cschool.cc/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"> <script src="../../libs.baidu.com/jquery/1.8.1/jquery.min.js" tppabs="http://libs.baidu.com/jquery/1.8.1/jquery.min.js"></script> <link rel="stylesheet" type="text/css" href="../wp-content/themes/w3cschool.cc/assets/css/stdtheme.css-1.04.css" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/css/stdtheme.css?1.04"> </head> <body> <div id="top"> <div style="height:78px;"> <div id="topLogo"> <a id="top"></a> <a href="../index.htm" tppabs="http://www.w3cschool.cc/" title="w3cschool菜鸟教程"><img width="336" height="69" src="../wp-content/themes/w3cschool.cc/assets/img/logo.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo.png" alt="W3CSchool.cc" style="border:0;margin-top:5px;"/></a> </div> <div id="searchTranslate"> <div id="searchText">Search w3cschool.cc:</div> <div id="googleSearch"> <form name="cse" id="searchbox_demo" action="http://wen.lu/search" target="_blank"> <input type="hidden" name="cref"/> <input type="hidden" name="ie" value="utf-8"/> <input type="hidden" name="hl"/> <input type="hidden" name="sitesearch" value="w3cschool.cc"> <input name="as_q" type="text" size="20"/> <input type="submit" name="sa" value="搜索"/> </form> </div> </div> </div> <div id="topnav"> <div id="topnavTut"> <a href="../index.htm" tppabs="http://www.w3cschool.cc/">首页</a> <a href="../html/html-tutorial.html" tppabs="http://www.w3cschool.cc/html/html-tutorial.html">HTML</a> <a href="../css/css-tutorial.html" tppabs="http://www.w3cschool.cc/css/css-tutorial.html">CSS</a> <a href="../js/js-tutorial.html" tppabs="http://www.w3cschool.cc/js/js-tutorial.html">JavaScript</a> <a href="../jquery/jquery-tutorial.html" tppabs="http://www.w3cschool.cc/jquery/jquery-tutorial.html">jQuery</a> <a href="../jqueryui/jqueryui-tutorial.html" tppabs="http://www.w3cschool.cc/jqueryui/jqueryui-tutorial.html">jQueryUI</a> <a href="../bootstrap/bootstrap-tutorial.html" tppabs="http://www.w3cschool.cc/bootstrap/bootstrap-tutorial.html">Bootstrap</a> <a href="../jquerymobile/jquerymobile-tutorial.html" tppabs="http://www.w3cschool.cc/jquerymobile/jquerymobile-tutorial.html">jMobile</a> <a href="../jeasyui/jqueryeasyui-tutorial.html" tppabs="http://www.w3cschool.cc/jeasyui/jqueryeasyui-tutorial.html">EasyUI</a> <a href="../xml/xml-tutorial.html" tppabs="http://www.w3cschool.cc/xml/xml-tutorial.html">XML</a> <a href="../sql/sql-tutorial.html" tppabs="http://www.w3cschool.cc/sql/sql-tutorial.html">SQL</a> <a href="../mysql/mysql-tutorial.html" tppabs="http://www.w3cschool.cc/mysql/mysql-tutorial.html">MySQL</a> <a href="../sqlite/sqlite-tutorial.html" tppabs="http://www.w3cschool.cc/sqlite/sqlite-tutorial.html">SQLite</a> <a href="../php/php-tutorial.html" tppabs="http://www.w3cschool.cc/php/php-tutorial.html">PHP</a> <a href="../csharp/csharp-tutorial.html" tppabs="http://www.w3cschool.cc/csharp/csharp-tutorial.html">C#</a> <a href="../python/python-tutorial.html" tppabs="http://www.w3cschool.cc/python/python-tutorial.html">Python</a> <a href="../java/java-tutorial.html" tppabs="http://www.w3cschool.cc/java/java-tutorial.html">Java</a> <a href="../jsp/jsp-tutorial.html" tppabs="http://www.w3cschool.cc/jsp/jsp-tutorial.html">JSP</a> <a href="../ruby/ruby-tutorial.html" tppabs="http://www.w3cschool.cc/ruby/ruby-tutorial.html">Ruby</a> <a href="../css-radius.htm" tppabs="http://www.w3cschool.cc/css-radius">前端工具</a> <a href="../sitemap.htm" tppabs="http://www.w3cschool.cc/sitemap">更多……</a> </div> <div id="topnavAbout"> </div> </div> <div id="page"> <div style="clear:both;"></div> <div id="leftcolumn"> <h2 class="left"><strong>XSLT 教程</strong></h2> <a target="_top" title="XSLT 教程" href="xsl-tutorial.html" tppabs="http://www.w3cschool.cc/xsl/xsl-tutorial.html"> XSLT 教程 </a> <a target="_top" title="XSL 语言" href="xsl-languages.html" tppabs="http://www.w3cschool.cc/xsl/xsl-languages.html"> XSL 语言 </a> <a target="_top" title="XSLT 简介" href="xsl-intro.html" tppabs="http://www.w3cschool.cc/xsl/xsl-intro.html"> XSLT 简介 </a> <a target="_top" title="XSLT 浏览器" href="xsl-browsers.html" tppabs="http://www.w3cschool.cc/xsl/xsl-browsers.html"> XSLT 浏览器 </a> <a target="_top" title="XSLT 转换" href="xsl-transformation.html" tppabs="http://www.w3cschool.cc/xsl/xsl-transformation.html"> XSLT 转换 </a> <a target="_top" title="XSLT &lt;xsl:template&gt; 元素" href="xsl-templates.html" tppabs="http://www.w3cschool.cc/xsl/xsl-templates.html"> XSLT &lt;template&gt; </a> <a target="_top" title="XSLT &lt;xsl:value-of&gt; 元素" href="xsl-value-of.html" tppabs="http://www.w3cschool.cc/xsl/xsl-value-of.html"> XSLT &lt;value-of&gt; </a> <a target="_top" title="XSLT &lt;xsl:for-each&gt; 元素" href="xsl-for-each.html" tppabs="http://www.w3cschool.cc/xsl/xsl-for-each.html"> XSLT &lt;for-each&gt; </a> <a target="_top" title="XSLT &lt;xsl:sort&gt; 元素" href="xsl-sort.html" tppabs="http://www.w3cschool.cc/xsl/xsl-sort.html"> XSLT &lt;sort&gt; </a> <a target="_top" title="XSLT &lt;xsl:if&gt; 元素" href="xsl-if.html" tppabs="http://www.w3cschool.cc/xsl/xsl-if.html"> XSLT &lt;if&gt; </a> <a target="_top" title="XSLT &lt;xsl:choose&gt; 元素" href="xsl-choose.html" tppabs="http://www.w3cschool.cc/xsl/xsl-choose.html"> XSLT &lt;choose&gt; </a> <a target="_top" title="XSLT &lt;xsl:apply-templates&gt; 元素" href="xsl-apple-templates.html" tppabs="http://www.w3cschool.cc/xsl/xsl-apple-templates.html"> XSLT Apply </a> <a target="_top" title="XSLT 在客户端" href="xsl-client.html" tppabs="http://www.w3cschool.cc/xsl/xsl-client.html"> XSLT 客户端 </a> <a target="_top" title="XSLT 在服务器端" href="xsl-server.html" tppabs="http://www.w3cschool.cc/xsl/xsl-server.html"> XSLT 服务器端 </a> <a target="_top" title="XSLT &#8211; 编辑 XML" href="xsl-editxml.html" tppabs="http://www.w3cschool.cc/xsl/xsl-editxml.html"> XSLT 编辑 XML </a> <a target="_top" title="XML 编辑器" href="xsl-editors.html" tppabs="http://www.w3cschool.cc/xsl/xsl-editors.html"> XML 编辑器 </a> <a target="_top" title="XSLT 总结" href="xsl-summary.html" tppabs="http://www.w3cschool.cc/xsl/xsl-summary.html"> XSLT 总结 </a> <a target="_top" title="XSLT 实例" href="xsl-examples.html" tppabs="http://www.w3cschool.cc/xsl/xsl-examples.html"> XSLT 实例 </a> <a target="_top" title="XSLT 元素参考手册" href="xsl-w3celementref.html" tppabs="http://www.w3cschool.cc/xsl/xsl-w3celementref.html"> XSLT 元素 </a> <a target="_top" title="XSLT 函数" href="xsl-functions.html" tppabs="http://www.w3cschool.cc/xsl/xsl-functions.html"> XSLT 函数 </a> </div><div id="main"> <div id="mainLeaderboard"> <div style="width:728px;height:90px;float:right;"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="2542143260"></ins> <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> </div> <div class="chapter"> <div class="prev">&laquo; <a href="el-namespace-alias.html" tppabs="http://www.w3cschool.cc/xsl/el-namespace-alias.html" rel="prev"> XSLT &lt;xsl:namespace-alias&gt; 元素</a></div> <div class="next"><a href="el-otherwise.html" tppabs="http://www.w3cschool.cc/xsl/el-otherwise.html" rel="next">XSLT &lt;xsl:otherwise&gt; 元素</a> &raquo;</div> </div> <div id="content"> <h1>XSLT <span class="color_h1">&lt;xsl:number&gt;</span> 元素</h1> <hr> <a href="xsl-w3celementref.html" tppabs="http://www.w3cschool.cc/xsl/xsl-w3celementref.html"><img class="navup" src="../images/optional.html" tppabs="http://www.w3cschool.cc/images/up.gif" alt="XSLT 元素参考手册"> 完整的 XSLT 元素参考手册</a> <hr> <h2>定义和用法</h2> <p>&lt;xsl:number&gt; 元素用于测定在源中当前节点的整数位置。它也用于对数字进行格式化。</p> <hr> <h2>语法</h2> <div class="code notranslate"><div> &lt;xsl:number<br> count="expression"<br> level="single|multiple|any"<br> from="expression"<br> value="expression"<br> format="formatstring"<br> lang="languagecode"<br> letter-value="alphabetic|traditional"<br> grouping-separator="character"<br> grouping-size="number"/&gt; </div></div> <h2>属性</h2> <table class="reference notranslate"> <tr> <th width="25%">属性</th> <th width="15%">值</th> <th width="60%">描述</th> </tr> <tr> <td>count</td> <td>expression</td> <td>可选。一个 XPath 表达式，规定要计数的节点。</td> </tr> <tr> <td>level</td> <td>single<br> multiple<br> any</td> <td>可选。控制如何分配序号。<p> 可以使用的值：</p> <ul> <li>single （默认）</li> <li>multiple</li> <li>any （Netscape 6 不支持）</li> </ul> </td> </tr> <tr> <td>from</td> <td>expression</td> <td>可选。一个 XPath 表达式，规定从何处开始计数。</td> </tr> <tr> <td>value</td> <td>expression</td> <td>可选。规定用户提供的数字，用于代替产生的序号。</td> </tr> <tr> <td>format</td> <td>formatstring</td> <td>可选。定义数字的输出格式。可以使用的值：<ul> <li>format="1" 结果 1 2 3 . . </li> <li>format="01" 结果 01 02 03 （Netscape 6 不支持）</li> <li>format="a" 结果 a b c . . （Netscape 6 不支持）</li> <li>format="A" 结果 A B C. . （Netscape 6 不支持）</li> <li>format="i" 结果 i ii iii iv . . （Netscape 6 不支持）</li> <li>format="I" 结果 I II III IV . . （Netscape 6 不支持）</li> </ul> </td> </tr> <tr> <td>lang</td> <td>languagecode</td> <td>可选。规定用于编号的语言字母表。（Netscape 6 不支持）</td> </tr> <tr> <td>letter-value</td> <td>alphabetic<br> traditional</td> <td>可选。规定选定语言的编号是字母序列（"alphabetic"）还是其他序列（"traditional"）。值 "alphabetic" 指定字母序列；值 "traditional" 指定其他序列。默认是 "alphabetic"。</td> </tr> <tr> <td>grouping-separator</td> <td>character</td> <td>可选。规定使用什么字符来分隔组或数字。默认是逗号。</td> </tr> <tr> <td>grouping-size</td> <td>number</td> <td>可选。规定由 grouping-separator 属性指定的分隔字符分隔的每个分组中的数字个数。默认是 3。</td> </tr> </table> <h3>实例 1</h3> <div class="code notranslate"><div> &lt;xsl:number value="250000" grouping-separator="."/&gt;<br><br> Output:<br><br> 250.000 </div></div> <h3>实例 2</h3> <div class="code notranslate"><div> &lt;xsl:number value="250000" grouping-size="2"/&gt;<br><br> Output:<br><br> 25,00,00 </div></div> <h3>实例 3</h3> <div class="code notranslate"><div> &lt;xsl:number value="12" grouping-size="1"<br> grouping-separator="#" format="I"/&gt;<br><br> Output:<br><br> X#I#I </div></div> <h3>实例 4</h3> <div class="code notranslate"><div> &lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br> &lt;xsl:stylesheet version="1.0"<br> xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;<br><br> &lt;xsl:template match="/"&gt;<br> &lt;html&gt;<br> &lt;body&gt;<br> &lt;p&gt;<br> &lt;xsl:for-each select="catalog/cd"&gt;<br> &lt;xsl:number value="position()" format="1" /&gt;<br> &lt;xsl:value-of select="title" /&gt;&lt;br /&gt;<br> &lt;/xsl:for-each&gt;<br> &lt;/p&gt;<br> &lt;/body&gt;<br> &lt;/html&gt;<br> &lt;/xsl:template&gt;<br><br> &lt;/xsl:stylesheet&gt; </div></div> <br><hr> <a href="xsl-w3celementref.html" tppabs="http://www.w3cschool.cc/xsl/xsl-w3celementref.html"><img class="navup" src="../images/optional.html" tppabs="http://www.w3cschool.cc/images/up.gif" alt="XSLT 元素参考手册"> 完整的 XSLT 元素参考手册</a> </div> <div class="chapter"> <div class="prev">&laquo; <a href="el-namespace-alias.html" tppabs="http://www.w3cschool.cc/xsl/el-namespace-alias.html" rel="prev"> XSLT &lt;xsl:namespace-alias&gt; 元素</a></div> <div class="next"><a href="el-otherwise.html" tppabs="http://www.w3cschool.cc/xsl/el-otherwise.html" rel="next">XSLT &lt;xsl:otherwise&gt; 元素</a> &raquo;</div> </div> </div> <div id="rightcolumn"> <div class="rightad"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote" target="_blank" style="border-top: 2px;"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/logo-2.png" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/logo-2.png"> </a> </div> <div class="rightad"> <h2 style="color:#67ad03">关注微信下载离线手册</h2> <a href="javascript:if(confirm('http://m.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://m.w3cschool.cc/'" tppabs="http://m.w3cschool.cc/" target="_blank"/> <img src="../wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/qrcode.jpg" width="150" height="150" alt="w3cschool移动版"/> </a> <a target="_blank" href="javascript:if(confirm('http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9'" tppabs="http://shang.qq.com/wpa/qunwpa?idkey=d7c53062c7a2016e4d70fc1baff04ec1c401eb673451b6cc8895751869e715f9"><img border="0" src="../../pub.idqqimg.com/wpa/images/group.png" tppabs="http://pub.idqqimg.com/wpa/images/group.png" alt="w3cschool.cc菜鸟家族" title="w3cschool.cc菜鸟家族"></a> </div> <div class="rightad"> <h2>参考手册</h2> <a href="../tags/html-reference.html" tppabs="http://www.w3cschool.cc/tags/html-reference.html" title="HTML 4">HTML 参考手册</a> <a href="../jsref/jsref-tutorial.html" tppabs="http://www.w3cschool.cc/jsref/jsref-tutorial.html" title="CSS 参考手册">JS 参考手册</a> <a href="../cssref/css-reference.html" tppabs="http://www.w3cschool.cc/cssref/css-reference.html" title="CSS 参考手册">CSS 参考手册</a> <a href="javascript:if(confirm('http://jsbin.w3cschool.cc/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://jsbin.w3cschool.cc/'" tppabs="http://jsbin.w3cschool.cc/" target="_blank" title="json格式工具"/>HTML/CSS/JS 在线工具</a> <a href="../jsontool.htm" tppabs="http://www.w3cschool.cc/jsontool" target="_blank" title="json格式工具"/>JSON 格式工具</a> <a href="../coder-learn-path.htm" tppabs="http://www.w3cschool.cc/coder-learn-path" target="_blank"/>程序猿学习路线</a> <a href="../chmproblem.htm" tppabs="http://www.w3cschool.cc/chmproblem" target="_blank"/>打开CHM文档遇到问题……</a> <a href="javascript:if(confirm('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w'" tppabs="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=ssbDyoOAgfLU3crf09venNHd3w" rel="nofollow" target="_blank" title="问题/意见反馈"/>问题/意见反馈</a> </div> <div class="wideSkyscraper"> <script async src="../../pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" tppabs="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5751451760833794" data-ad-slot="4106274865"></ins> <script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script> </div> </div> <div style="clear:both;"></div> <div id="footer"> <br> <hr style="height:2px;"> <div id="footerImg"><a href="../index.htm" tppabs="http://www.w3cschool.cc/"> <img style="border:0" src="../wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" tppabs="http://www.w3cschool.cc/wp-content/themes/w3cschool.cc/assets/img/w3cschoolcc_gray.gif" alt="W3Cschool.cc"/></a> </div> <div id="footerAbout"> <a href="../w3cnote.htm" tppabs="http://www.w3cschool.cc/w3cnote">W3C菜鸟笔记</a> <a href="../disclaimer.htm" tppabs="http://www.w3cschool.cc/disclaimer">免责声明</a> <a href="../aboutus.htm" tppabs="http://www.w3cschool.cc/aboutus">关于我们</a> </ul> </div> <div id="footerText"> 提供的内容仅用于培训。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。当使用本站时，代表您已接受了本站的使用条款和隐私条款。 版权所有，保留一切权利。W3CSchool 简体中文版的所有内容仅供测试，对任何法律问题及风险不承担任何责任。 </div> </div> </div> </div> <a class="backtop" href="javascript:void"></a> <div style="display:none;"> <script src="../../s11.cnzz.com/stat.php-id=5578006&web_id=5578006" tppabs="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script> </div> <div class="share-box"> <div class="share-box-top">分享到</div> <div class="share-box-inner"> <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare"> <a class="bds_qzone" title="分享到QQ空间" href="#"></a> <a class="bds_tsina" title="分享到新浪微博" href="#"></a> <a class="bds_tqq" title="分享到人人网" href="#"></a> <a class="bds_baidu" title="百度收藏" href="#"></a> <span class="bds_more">更多</span> <a class="shareCount" id="shareCount" href="#" title="累计分享0次">0</a> </div> </div> <div class="share-box-bottom"></div> </div> <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=470751" ></script> <script type="text/javascript" id="bdshell_js"></script> <script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> <script>
+function NewWindow(text)
+{
+  win=window.open(text,'','top=0,left=0,width=400,height=350');
+}
+$(function() { 
+	color_flag = false; //配色标记
+	prev_title_flag = false;
+	next_title_flag = false;
+ 	href = window.location.href;
+	console.log('href', href);
+	$("#leftcolumn").find("a").each(function(){
+		if(next_title_flag) {
+				return false; //结束循环
+		} 
+		cur_href = $(this).attr("href");
+		cur_obj = $(this);
+		
+		if(href.match(cur_href) != null) {
+			
+			if(cur_href.indexOf('/') == -1) { //第二重判断
+				tmp_url = href.substring(0, href.lastIndexOf('/')+1) + cur_href;
+				console.log('tmp_url', tmp_url);
+				if(href != tmp_url) return;
+			}
+			if(!color_flag) {
+				$(this).css("font-weight", "bold");
+				color_flag = true;
+			}
+			prev_href = $(this).prev("a").attr("href");
+			prev_title = $(this).prev("a").attr("title");
+			if(!prev_title) prev_title=$(this).prev("a").text();
+			next_href = $(this).next("a").attr("href");
+			next_title = $(this).next("a").attr("title");
+			if(!next_title) next_title=$(this).next("a").text();
+			if(!prev_title_flag) {
+				if( prev_title ) {
+					$(".prev a").attr("href", prev_href);
+					$(".prev a").attr("title", prev_title);
+					$(".prev a").text( prev_title);
+				} else {
+					if(typeof(prev_obj) != 'undefined') {
+						prev_href = prev_obj.attr("href");
+						prev_title = prev_obj.attr("title");
+						if(!prev_title) prev_title=prev_obj.text();
+						if(prev_title) {
+							$(".prev a").attr("href", prev_href);
+							$(".prev a").attr("title", prev_title);
+							$(".prev a").text( prev_title);
+						}
+					}
+					
+				}
+				prev_title_flag = true;
+			}
+			if(next_title) {
+				if($(".next a").attr("href")) {
+					$(".next a").attr("href", next_href);
+					$(".next a").attr("title", next_title);
+					$(".next a").text( next_title);
+				} else {
+					$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+				}
+				
+				next_title_flag = true;
+				
+			}
+			console.log(prev_href,prev_title);
+			console.log(next_href,next_title);
+			//return false; 
+		} else {
+			prev_obj = cur_obj;
+			if(next_title_flag) {
+				return false;
+			} else {
+				if(prev_title_flag) {
+					next_href = $(this).attr("href");
+					next_title = $(this).attr("title");
+					if(!next_title) next_title=$(this).text();
+					if(next_title) {
+						if($(".next a").attr("href")) {
+							$(".next a").attr("href", next_href);
+							$(".next a").attr("title", next_title);
+							$(".next a").text( next_title);
+						} else {
+							$(".next").html("<a href=\"" + next_href + "\" rel=\"next\" title=\"" + next_title + "\">" + next_title + "</a> &raquo;");
+						}
+						next_title_flag = true;
+					}
+				}
+			}
+		}
+		
+  });
+  
+  	$(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".backtop").fadeIn();
+        }else {
+        	
+        		$(".backtop").fadeOut();
+        }
+    });
+	
+
+	$(".backtop").click(function(event){	
+		$('html,body').animate({scrollTop:0}, 500);
+		return false;
+	});
+		
+});
+var host = window.location.host;
+if (/(iPhone|iPad|iPod|iOS|BlackBerry|IEMobile|Android)/i.test(navigator.userAgent)) {
+
+    if(host == 'http://www.w3cschool.cc/xsl/www.w3cschool.cc') {
+		href = window.location.href;
+		href=href.replace(/www.w3cschool.cc/, "http://www.w3cschool.cc/xsl/m.w3cschool.cc");
+		window.location.href=href;
+	}
+}
+</script> </body> </html>
