@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="zh"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Struts2类型转换 - YaFey 的博客</title>
+  <meta name="author" content="<a href='https://github.com/yafey'>YaFey</a>">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="OpooPressSiteRoot" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Generator" content="OpooPress-1.1.1"/>
+  <meta name="Generated" content="2015-08-31T00:33:19+08:00"/>
+  <link rel="canonical" href="/article/2015/03/struts2-type_transfer-from-shangguigu/">
+  
+  
+  <link href="/favicon.ico" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="YaFey 的博客" type="application/atom+xml">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic|PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="/plugins/syntax-highlighter/styles/shCoreDefault.css"/>
+  <!--[if lt IE 9]><script src="/javascripts/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+  <!--[if lt IE 9]><script src="/javascripts/unsupported-browser.js"></script><![endif]-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">YaFey 的博客</a></h1>
+    <h2>记录点点滴滴</h2>
+</hgroup>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:http://yoursite.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="搜索"/>
+  </fieldset>
+</form>
+<fieldset class="mobile-nav">
+  <select onchange="if (this.value) { window.location.href = this.value;}">
+    <option value="">导航&hellip;</option>
+    <option value="/">&raquo; 文章</option>
+    <option value="/archives/">&raquo; 归档</option>
+    <option value="/category/">&raquo; 分类</option>
+    <option value="/sample-page.html">&raquo; 示例页面</option>
+    <option value="/about/">&raquo; 关于</option>
+  </select>
+</fieldset>
+
+<ul class="main-navigation">
+<li><a href="/">文章</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/category/">分类</a></li>
+<li><a href="/sample-page.html">示例页面</a></li>
+<li><a href="/about/">关于</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+<div>
+<article class="hentry" role="article">
+  <header>
+      <h1 class="entry-title">Struts2类型转换</h1>
+
+      <p class="meta">
+		
+
+
+<time datetime="2015-03-29T23:07:00+08:00" pubdate>2015年03月29日 23:07:00</time>
+      </p>
+  </header>
+
+  <div class="entry-content"><blockquote><h1>目录: (1,2暂缺/内容不全,及示例)</h1>
+<ol>
+<li>类型转换概述</li>
+<li>类型转换出错时如何进行处理<ol>
+<li>转到哪个页面</li>
+<li>显示什么错误消息</li>
+</ol>
+</li>
+<li><a href="#3.self-define-typeConverter">自定义类型转换器</a> ,<a href="#3.self-define-typeConverter-demo-code">示例代码</a></li>
+<li>类型转换与复杂对象配合使用</li>
+</ol>
+</blockquote>
+<h2><span id="">1. 类型转换概述</span></h2>
+<ul>
+<li>从一个 HTML 表单到一个 Action 对象, <span style="color:red;">类型转换是从字符串到非字符串. </span><ul>
+<li>HTTP 没有 “类型” 的概念. 每一项表单输入只可能是一个字符串或一个字符串数组. 在服务器端, 必须把 String 转换为特定的数据类型</li>
+</ul>
+</li>
+<li>在 struts2 中, 把请求参数映射到 action  属性的工作由 <strong><code>Parameters 拦截器</code></strong>负责, 它是默认的 defaultStack 拦截器中的一员. Parameters 拦截器可以自动完成字符串和基本数据类型之间转换.</li>
+</ul>
+<h2><span id="">2. 类型转换错误</span></h2>
+<p><strong>如果类型转换失败</strong>:</p>
+<ul>
+<li><span style="color:blue"><strong>若 Action 类没有实现 ValidationAware 接口：</strong> </span> Struts 在遇到类型转换错误时仍会继续调用其 Action 方法, 就好像什么都没发生一样.</li>
+<li><span style="color:blue"><strong>若 Action 类实现 ValidationAware 接口：</strong> </span> Struts 在遇到类型转换错误时将不会继续调用其 Action 方法:  Struts 将检查相关 action 元素的声明是否包含着一个 name=input 的 result.  如果有, Struts 将把控制权转交给那个 result  元素; 若没有 input 结果, Struts 将抛出一个异常</li>
+</ul>
+<h2><span id="3.self-define-typeConverter">3. 自定义类型转换器</span></h2>
+<h3>3-1. 为什么需要自定义的类型转换器 ?</h3>
+<p>因为 Struts 不能自动完成 字符串 到 引用类型 的 转换.</p>
+<h3>3-2-0. 如何自定义类型转换器:</h3>
+<p>自定义类型转换器必须实现 ongl.TypeConverter 接口或对这个接口的某种具体实现做扩展 .</p>
+<blockquote><p>通常 <strong>扩展 StrutsTypeConverter 类.</strong></p>
+<ul>
+<li>在大多数类型转换器里, 需要提供从 String 类型到非 String 类型和与此相反的转换功能</li>
+<li>在 StrutsTypeConverter 中有两个抽象方法: fromString 和 toString</li>
+</ul>
+</blockquote>
+<p><img src="/blog_images/program/struts2/type-transfer-4-self-define-typeConverter.png" alt="自定义类型转换器" title="自定义类型转换器" /></p>
+<h3>3-2-1. 配置类型转换器: <a href="#3.self-define-typeConverter-demo-code">示例代码</a></h3>
+<p>在应用程序里使用一个自定义的类型转换器之前, 必须先对它进行配置. <br />
+有两种方式 : <strong>基于字段的配置</strong> 和 <strong>基于类型的配置</strong>(开发时常用)</p>
+<ol>
+<li><p>基于字段的配置 : <span style="color:red;">为某个 Model（该 Model 类也可能是 Action） 的各个属性分别配置一个自定义的转换器.</span><br  /></p>
+<ol>
+<li>在字段所在的 Model(可能是 Action, 可能是一个 JavaBean) 的包下, 新建一个 <code>*ModelClassName*-conversion.properties</code> 文件</li>
+<li>在该文件中输入键值对: <code>*fieldName*=类型转换器的全类名</code>.<blockquote><p>注意点:</p>
+<ul>
+<li>第一次使用该转换器时创建实例.</li>
+<li>该方式的类型转换器是单例的!<br  /></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>基于类型的配置 :</p>
+<ol>
+<li>在 src 下新建 <code>xwork-conversion.properties</code></li>
+<li>在 xwork-conversion.properties 文件里把每一个需要进行类型转换的类与一个类型转换器关联起来.<br />
+键入: <code>待转换的类型=类型转换器的全类名</code>.<blockquote><p>注意点:</p>
+<ul>
+<li>在当前 Struts2 应用被加载时创建实例. (Tomcat启动/应用初次部署时.)</li>
+<li>该方式的类型转换器不是单实例的!</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote><p><strong>因为 两种配置的加载实际不同 引发的注意点</strong>:
+基于类型配置的方式 是在 应用被加载的时候创建实例的 , 而如果同时,在类型转换器的构造方法中通过获取配置的 servletContext 初始化参数, 此时, servletContext 还未被初始化, 将导致 类型转换失败(其实就是在构造类型转换对象时失败) , 应该采用下面的示例代码中的方法(将获取 servletContext 的操作放在一个方法中, 然后设置一个判断条件, 该条件为空时 , 进行初始化&ndash;获取 配置的 servletContext 初始化参数).</p>
+</blockquote>
+<h2><span id="4.self-define-typeConverter-complicated-property">4. 类型转换与复杂对象配合使用</h2>
+<ul>
+<li><p><strong>类型转换与对象属性配合使用</strong><br />
+form 标签的 name 属性可以被映射到一个对象属性的属性.
+<img src="/blog_images/program/struts2/type-transfer-4-Complex-property.jpg" alt="类型转换与复杂对象配合使用" title="类型转换与复杂对象配合使用" /></p>
+</li>
+<li><p><strong>类型转换与 Collection 配合使用</strong><br />
+Struts2 还允许填充 Collection 里的对象, 这常见于需要快速录入批量数据的场合
+<img src="/blog_images/program/struts2/type-transfer-4-Complex-property-collections.jpg" alt="类型转换与 Collection 配合使用" title="类型转换与 Collection 配合使用" /></p>
+</li>
+</ul>
+<div style="height:700px;">&nbsp;</div>
+<hr />
+<p>以下为示例代码</p>
+<hr />
+<blockquote><p><span id="3.self-define-typeConverter-demo-code">自定义类型转换器示例代码: </span><br />
+com.yafey.struts2.app.ConversionAction.java</p>
+<pre class='brush:java'>Action , 有 Date 类型的属性:
+private Date birth;
+//...
+</pre><p>DateConverter.java</p>
+<pre class='brush:java'>package com.yafey.struts2.app.converters;
+public class DateConverter extends StrutsTypeConverter {
+    private DateFormat dateFormat;
+    public DateConverter() {
+        System.out.println("DateConverter's constructor...");
+    }
+    public DateFormat getDateFormat(){
+        if(dateFormat == null){
+            //获取当前 WEB 应用的初始化参数 pattern
+            /*
+            &lt;context-param&gt;
+                &lt;param-name&gt;pattern&lt;/param-name&gt;
+                &lt;param-value&gt;yyyy-MM-dd hh:mm:ss&lt;/param-value&gt;
+            &lt;/context-param&gt;
+            */
+            ServletContext servletContext = ServletActionContext.getServletContext();
+            System.out.println(servletContext); 
+            String pattern = servletContext.getInitParameter("pattern");
+            dateFormat = new SimpleDateFormat(pattern);
+        }
+        return dateFormat;
+    }
+    @Override
+    public Object convertFromString(Map context, String[] values, Class toClass) {
+        System.out.println("convertFromString...");
+        if(toClass == Date.class){
+            if(values != null &amp;&amp; values.length &gt; 0){
+                String value = values[0];
+                try {
+                    return getDateFormat().parseObject(value);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        //若没有转换成功, 则返回 values
+        return values;
+    }
+    @Override
+    public String convertToString(Map context, Object o) {
+        System.out.println("convertToString...");
+        if(o instanceof Date){
+            Date date = (Date) o;
+            return getDateFormat().format(date);
+        }
+        //若转换失败返回 null
+        return null;
+    }
+}
+</pre><blockquote><h3>基于字段配置<br /></h3>
+<p>ConversionAction-conversion.properties (和 ConversionAction.java 同一个包/同级 . 如果使用 ModelDriven 的方式 , 命名方式需要和 Model的对象名一致 (<em>ModelName</em>-conversion.properties), 且和 Model 在同一个目录)</p>
+<pre class='brush:java'>birth=com.yafey.struts2.app.converters.DateConverter
+</pre></blockquote>
+<p>&nbsp;</p>
+<blockquote><h3>基于类型配置<br /></h3>
+<p>xwork-conversion.properties (在 src 目录下.)</p>
+<pre class='brush:java'>java.util.Date=com.yafey.struts2.app.converters.DateConverter
+</pre></blockquote>
+</blockquote>
+</div>
+  <footer>
+    <p class="meta">
+<span class="byline author vcard">作者 <span class="fn"><a href='https://github.com/yafey'>YaFey</a></span></span>      
+
+
+<time datetime="2015-03-29T23:07:00+08:00" pubdate>2015年03月29日 23:07:00</time>
+
+<span class="categories">属于 <a class="category" href="/category/tech/java/framework/struts2/">Java框架-Struts2</a>
+ 分类</span>
+
+
+<span class="categories">被贴了 <a class="tag" href="/tag/struts2/">Struts2</a>, <a class="tag" href="/tag/shang-gui-gu/">尚硅谷</a>
+ 标签</span>
+    </p>
+<div class="sharing">
+  </div>
+<p>
+  <h2>相关文章</h2>
+  <ul id="related-posts-list">
+      <li class="post">
+        <a href="/article/2015/03/struts2-learn-question-from-shangguigu/">Struts2 学习问题列表</a>
+        <div class="source right"><time datetime="2015-03-23T17:25:00">2015-03-23</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/struts2-notes-shangguigu/">Struts2学习笔记@尚硅谷</a>
+        <div class="source right"><time datetime="2015-03-05T22:58:00">2015-03-05</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/javaweb-jsp-notes-shangguigu/">JavaWeb学习笔记@尚硅谷---JavaWeb-JSP(1/n)</a>
+        <div class="source right"><time datetime="2015-03-09T21:37:00">2015-03-09</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/tomcat-notes-shangguigu/">Tomcat学习笔记@尚硅谷</a>
+        <div class="source right"><time datetime="2015-03-07T14:22:00">2015-03-07</time></div>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/javaweb-servlet-notes-shangguigu/">JavaWeb学习笔记@尚硅谷---JavaWeb-Servlet(1/n)</a>
+        <div class="source right"><time datetime="2015-03-07T13:54:00">2015-03-07</time></div>
+      </li>
+  </ul>
+</p>    <p class="meta">
+        <a class="basic-alignment left" href="/article/2015/03/struts2-learn-question-from-shangguigu/" title="上一篇: Struts2 学习问题列表">&laquo; Struts2 学习问题列表</a>
+        <a class="basic-alignment right" href="/article/2015/08/sleep-resources/" title="下一篇: 睡眠资料">睡眠资料 &raquo;</a>
+    </p>
+  </footer>
+</article>
+</div>
+<aside class="sidebar">
+<section>
+  <h1>近期文章</h1>
+  <ul id="recent_posts">
+  
+  
+      <li class="post">
+        <a href="/article/2015/08/free-hosting/">免费二级域名/主机</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/08/sleep-resources/">睡眠资料</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/struts2-type_transfer-from-shangguigu/">Struts2类型转换</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/struts2-learn-question-from-shangguigu/">Struts2 学习问题列表</a>
+      </li>
+      <li class="post">
+        <a href="/article/2015/03/program_dev_books/">编程资源(规范)列表</a>
+      </li>
+  </ul>
+</section>
+
+<section>
+  <h1>分类</h1>
+  <ul id="categories">
+	<li class="category"><a href="/category/software/">软件应用</a><span class="count right">4</span>
+	    <ul class="children1">
+	<li class="category"><a href="/category/software/dev/">开发用的软件</a><span class="count right">3</span>
+	</li>
+	<li class="category"><a href="/category/software/software_with_sn/">破解版软件</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/software/windows/">Windows应用技巧</a><span class="count right">1</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/">编程开发</a><span class="count right">5</span>
+	    <ul class="children1">
+	<li class="category"><a href="/category/tech/java/">Java</a><span class="count right">5</span>
+	    <ul class="children2">
+	<li class="category"><a href="/category/tech/java/framework/">Java框架</a><span class="count right">4</span>
+	    <ul class="children3">
+	<li class="category"><a href="/category/tech/java/framework/spring/">Java框架-Spring</a><span class="count right">4</span>
+	</li>
+	<li class="category"><a href="/category/tech/java/framework/struts2/">Java框架-Struts2</a><span class="count right">3</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/java/javaweb/">JavaWeb</a><span class="count right">3</span>
+	</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/tech/webFront/">web前端</a><span class="count right">2</span>
+	    <ul class="children2">
+	<li class="category"><a href="/category/tech/webFront/javascript/">JavaScript</a><span class="count right">4</span>
+	</li>
+    </ul>
+</li>
+    </ul>
+</li>
+	<li class="category"><a href="/category/website/">网站建设</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/opoopress/">opoopress</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/blog/">blog</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/you-xiu-bo-ke/">优秀博客</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/bo-ke/">博客</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/lu-xian-tu/">路线图</a><span class="count right">1</span>
+	</li>
+	<li class="category"><a href="/category/this_is_life/">this_is_life</a><span class="count right">1</span>
+	</li>
+  </ul>
+</section>
+</aside>
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  版权所有 &copy; 2015 - <a href='https://github.com/yafey'>YaFey</a> -
+  <span class="credit">Powered by <a href="http://www.opoopress.com/">OpooPress</a></span>
+</p></footer>
+<script type="text/javascript" src="/javascripts/opoopress.min.js"></script>
+<script language="JavaScript">
+<!--
+    window.OpooPress = new OpooPressApp({siteUrl:'http://yoursite.com',rootUrl:'',pageUrl:'/article/2015/03/struts2-type_transfer-from-shangguigu/',title:'Struts2类型转换',refreshRelativeTimes:true,verbose:true},{});
+    OpooPress.init();
+
+//-->
+</script>
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'applescript			/plugins/syntax-highlighter/scripts/shBrushAppleScript.js',
+        'actionscript3 as3		/plugins/syntax-highlighter/scripts/shBrushAS3.js',
+        'bash shell				/plugins/syntax-highlighter/scripts/shBrushBash.js',
+        'coldfusion cf			/plugins/syntax-highlighter/scripts/shBrushColdFusion.js',
+        'cpp c					/plugins/syntax-highlighter/scripts/shBrushCpp.js',
+        'c# c-sharp csharp		/plugins/syntax-highlighter/scripts/shBrushCSharp.js',
+        'css					/plugins/syntax-highlighter/scripts/shBrushCss.js',
+        'delphi pascal pas		/plugins/syntax-highlighter/scripts/shBrushDelphi.js',
+        'diff patch			    /plugins/syntax-highlighter/scripts/shBrushDiff.js',
+        'erl erlang				/plugins/syntax-highlighter/scripts/shBrushErlang.js',
+        'groovy					/plugins/syntax-highlighter/scripts/shBrushGroovy.js',
+        'java					/plugins/syntax-highlighter/scripts/shBrushJava.js',
+        'jfx javafx				/plugins/syntax-highlighter/scripts/shBrushJavaFX.js',
+        'js jscript javascript	/plugins/syntax-highlighter/scripts/shBrushJScript.js',
+        'perl pl				/plugins/syntax-highlighter/scripts/shBrushPerl.js',
+        'php					/plugins/syntax-highlighter/scripts/shBrushPhp.js',
+        'text plain				/plugins/syntax-highlighter/scripts/shBrushPlain.js',
+        'powershell ps          /plugins/syntax-highlighter/scripts/shBrushPowerShell.js',
+        'py python				/plugins/syntax-highlighter/scripts/shBrushPython.js',
+        'ruby rails ror rb		/plugins/syntax-highlighter/scripts/shBrushRuby.js',
+        'sass scss              /plugins/syntax-highlighter/scripts/shBrushSass.js',
+        'scala					/plugins/syntax-highlighter/scripts/shBrushScala.js',
+        'sql					/plugins/syntax-highlighter/scripts/shBrushSql.js',
+        'vb vbnet				/plugins/syntax-highlighter/scripts/shBrushVb.js',
+        'xml xhtml xslt html	/plugins/syntax-highlighter/scripts/shBrushXml.js'
+    );
+    SyntaxHighlighter.defaults['auto-links'] = false;                 
+    SyntaxHighlighter.defaults['toolbar'] = false;     
+    SyntaxHighlighter.defaults['tab-size'] = 4;
+    SyntaxHighlighter.all();
+</script>
+<!-- END: Syntax Highlighter ComPress -->
+</body>
+</html>
+

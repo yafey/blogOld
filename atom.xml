@@ -3,7 +3,7 @@
   <title><![CDATA[YaFey 的博客]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-03-17T16:12:02+08:00</updated>
+  <updated>2015-08-31T00:33:19+08:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[<a href='https://github.com/yafey'>YaFey</a>]]></name>
@@ -11,6 +11,34 @@
   </author>
   <generator uri="http://press.opoo.org/">OpooPress</generator>
 
+  <entry>
+    <title type="html"><![CDATA[免费二级域名/主机]]></title>
+    <link href="http://yoursite.com/article/2015/08/free-hosting/"/>
+    <updated>2015-08-31T00:27:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/08/free-hosting/</id>
+    <content type="html"><![CDATA[免费二级域名/主机, post-brief]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[睡眠资料]]></title>
+    <link href="http://yoursite.com/article/2015/08/sleep-resources/"/>
+    <updated>2015-08-31T00:00:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/08/sleep-resources/</id>
+    <content type="html"><![CDATA[睡眠资料, post-brief]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Struts2类型转换]]></title>
+    <link href="http://yoursite.com/article/2015/03/struts2-type_transfer-from-shangguigu/"/>
+    <updated>2015-03-29T23:07:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/03/struts2-type_transfer-from-shangguigu/</id>
+    <content type="html"><![CDATA[Struts2类型转换, post-brief , 内容提要 <br/><ul><li>类型转换概述</li><li>类型转换出错时如何进行处理<ul><li>转到哪个页面</li><li>显示什么错误消息</li></ul></li><li>自定义类型转换器</li><li>类型转换与复杂对象配合使用</li>]]></content>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Struts2 学习问题列表]]></title>
+    <link href="http://yoursite.com/article/2015/03/struts2-learn-question-from-shangguigu/"/>
+    <updated>2015-03-23T17:25:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/03/struts2-learn-question-from-shangguigu/</id>
+    <content type="html"><![CDATA[Struts2 学习问题列表, post-brief , 通过问题学习 Struts2 的细节]]></content>
+  </entry>
   <entry>
     <title type="html"><![CDATA[编程资源(规范)列表]]></title>
     <link href="http://yoursite.com/article/2015/03/program_dev_books/"/>
@@ -122,33 +150,5 @@
     <updated>2015-01-15T16:55:00+08:00</updated>
     <id>http://yoursite.com/article/2015/01/windows-use-tips/</id>
     <content type="html"><![CDATA[Window系统操作技巧 , post-brief]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[《JavaScript高级程序设计(第2版)》读书笔记]]></title>
-    <link href="http://yoursite.com/article/2015/01/professional-js-web-dev-book-note/"/>
-    <updated>2015-01-15T09:52:00+08:00</updated>
-    <id>http://yoursite.com/article/2015/01/professional-js-web-dev-book-note/</id>
-    <content type="html"><![CDATA[《JavaScript高级程序设计(第2版)》读书笔记 , 文章摘要]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[JavaScript学习笔记]]></title>
-    <link href="http://yoursite.com/article/2014/12/javascript-tutorial/"/>
-    <updated>2014-12-22T10:29:00+08:00</updated>
-    <id>http://yoursite.com/article/2014/12/javascript-tutorial/</id>
-    <content type="html"><![CDATA[JavaScript学习指南]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[JavaScript使用技巧]]></title>
-    <link href="http://yoursite.com/article/2014/12/javascript-best-practices/"/>
-    <updated>2014-12-18T17:03:00+08:00</updated>
-    <id>http://yoursite.com/article/2014/12/javascript-best-practices/</id>
-    <content type="html"><![CDATA[收集了一些 js 的使用技巧 <p>持续更新中...</p>]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[《CoffeeScript应用开发》读书笔记]]></title>
-    <link href="http://yoursite.com/article/2014/12/coffeescript-dev-book-note/"/>
-    <updated>2014-12-12T09:56:00+08:00</updated>
-    <id>http://yoursite.com/article/2014/12/coffeescript-dev-book-note/</id>
-    <content type="html"><![CDATA[>1. 基础 >  - 语句换行 , 变量 , 注释 , 调用函数(小括号的合理使用) >  - 控制结构 ( if / else 语句 及 其相对的 unless 语句) >  - 比较运算符 及 自然语言的别名(*使表达比较判断的语句具有更好的可读性*) >  - 数组 的 声明 和 **遍历** ( `in`关键字 / 获得各元素对应结果的数组 / `when`关键字过滤结果 / 数组索引 *`index`* 及 `by`关键字步进增长 ) >  - 对象 的 声明 和 遍历 ( `of`关键字 ) >2. 运行 Coffee 应用程序 >  - 操作 DOM , 及如何在时间响应中回调 Coffee 函数. >  - 定义函数, 命名函数 , 如何隐式返回值. >  - 使用 switch 语句.]]></content>
   </entry>
 </feed>
