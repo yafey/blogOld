@@ -3,7 +3,7 @@
   <title><![CDATA[YaFey 的博客]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-31T00:33:19+08:00</updated>
+  <updated>2015-09-09T23:06:30+08:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[<a href='https://github.com/yafey'>YaFey</a>]]></name>
@@ -11,6 +11,13 @@
   </author>
   <generator uri="http://press.opoo.org/">OpooPress</generator>
 
+  <entry>
+    <title type="html"><![CDATA[一些资源]]></title>
+    <link href="http://yoursite.com/article/2015/09/some-resources/"/>
+    <updated>2015-09-09T23:03:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/09/some-resources/</id>
+    <content type="html"><![CDATA[一些资源, post-brief]]></content>
+  </entry>
   <entry>
     <title type="html"><![CDATA[免费二级域名/主机]]></title>
     <link href="http://yoursite.com/article/2015/08/free-hosting/"/>
@@ -143,12 +150,5 @@
     <updated>2015-01-15T18:56:00+08:00</updated>
     <id>http://yoursite.com/article/2015/01/linked-blogs/</id>
     <content type="html"><![CDATA[一些优秀的博客链接 , post-brief]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Window系统操作技巧]]></title>
-    <link href="http://yoursite.com/article/2015/01/windows-use-tips/"/>
-    <updated>2015-01-15T16:55:00+08:00</updated>
-    <id>http://yoursite.com/article/2015/01/windows-use-tips/</id>
-    <content type="html"><![CDATA[Window系统操作技巧 , post-brief]]></content>
   </entry>
 </feed>
