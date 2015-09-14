@@ -12,7 +12,7 @@
   <meta name="OpooPressSiteRoot" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Generator" content="OpooPress-1.1.1"/>
-  <meta name="Generated" content="2015-09-14T22:19:11+08:00"/>
+  <meta name="Generated" content="2015-09-15T02:22:33+08:00"/>
   <link rel="canonical" href="/article/2015/09/er-diagram/">
   
   
@@ -74,7 +74,98 @@
   </header>
 
   <div class="entry-content"><h1>E-R图</h1>
-<p>E-R图也称<strong>实体-联系图(Entity Relationship Diagram)</strong>，提供了表示实体类型、属性和联系的方法，用来描述现实世界的概念模型。</p>
+<p>E-R图也称<strong>实体-联系图(Entity Relationship Diagram)</strong>，用来建立数据模型,在数据库系统概论中属于概念设计阶段，ER图提供了表示 <code>实体</code>（即数据对象）、<code>属性</code> 和 <code>联系</code> 的方法，用来描述现实世界的概念模型.</p>
+<h2>E-R 图的核心要素</h2>
+<blockquote><ul>
+<li>实体 ：客观存在并可以相互区别的事物</li>
+<li>属性 ：实体所具有的一个属性</li>
+<li>关系 ：实体和实体之间以及实体内部的关系</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>实体</strong>：用 <strong>矩形</strong> 表示，矩形框内写明实体名； 　　</li>
+<li><strong>属性</strong>：用 <strong>椭圆形或圆角矩形</strong> 表示.<ul>
+<li>并用<strong>无向边</strong>将其与相应的<strong>实体连接</strong>起来；</li>
+<li><strong>多值属性由双线</strong>连接；</li>
+<li><strong>主属性</strong>名称下加<strong>下划线</strong>.</li>
+</ul>
+</li>
+<li><strong>联系</strong>：用 <strong>菱形</strong> 表示，菱形框内写明联系名，并用无向边分别与有关实体连接起来，同时<strong>在无向边旁标上联系的类型</strong>.<em>(在E-R图中要明确表明 1对多关系，1对1关系 和 多对多关系。)</em>
+<br />
+<strong>关联关系有哪几种</strong><ul>
+<li><strong>1 对 1（1:1）</strong> ：<em>(1 对 1 关系在两个实体连线方向写 1.)</em> 1 对 1 关系 是指对于实体集A与实体集B，A中的每一个实体至多与B中一个实体有关系；反之，在实体集B中的每个实体至多与实体集A中一个实体有关系。</li>
+<li><strong>1 对多（1:N）</strong> ：<em>(1 对多关系在 1 的一方写 1，多的一方写 N.)</em> 1 对多关系 是指实体集A与实体集B中至少有 N(N>0) 个实体有关系；并且实体集B中每一个实体至多与实体集A中一个实体有关系。</li>
+<li><strong>多对多（M:N）</strong> ：<em>(多对多关系则是在两个实体连线方向各写 N,M.)</em> 多对多关系是指实体集A中的每一个实体与实体集B中至少有M(M>0)个实体有关系，并且实体集B中的每一个实体与实体集A中的至少N（N>0）个实体有关系。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/blog_images/E-R-diagram_and_UML-diagram/ER_diagram_pel.jpg" alt="ER图的图元" title="ER图的图元" />
+<br />截图来源: <a href="http://www.docin.com/p-48107994.html">数据库系统原理与应用-数据库建模—ER图 (@docin豆丁,PPT教程)</a></p>
+<p><img src="/blog_images/E-R-diagram_and_UML-diagram/ER_diagram_example.jpg" alt="ER图示例" title="ER图示例" /></p>
+<blockquote><h2>ER图要表达的核心是什么</h2>
+<ul>
+<li><strong>概念模型</strong> 能够描述清楚软件系统模块应该有的概念，并对于概念有个简单的解释。</li>
+<li><strong>逻辑数据模型</strong> 能够描述核心的实体，以及核心实体的属性，以及关联关系，这样的话，不一定通过ER图看全所有的表结构，可以看清核心的东西即可。</li>
+<li><strong>实际数据模型</strong> 这个的画，不一定通过ER图来进行，可以通过excel或者表格来描述情况，例如字段名称，所属数据库，字段的数据类型，字段的限制长度，字段是否有默认值，字段是否非空，字段的备注描述，数据表是否需要分库分表以及分库分表的逻辑。</li>
+</ul>
+<p><br />这几个看ER图的百科，不过没怎么看懂，就就结合自己的理解，做了解释。总体是总分的思路，总体的介绍清楚概念和关系，然后细化每个表结构，落实好概念图种的关系即可。</p>
+</blockquote>
+<h2>数据模型标记法</h2>
+<p>前文中使用的ER构图方法是Peter Chen 1976年提出的。在现代数据库设计领域，还有其他多种ER模型标记法。</p>
+<p>我们来看一下另一种使用较多的标记法，“<code>crow’s-foot</code>”（鱼尾纹）标记法，并与前面介绍的标记法进行一个简单对比。</p>
+<p>学习每一种标记法没有意义。在你的组织中推广应用一种标记法，使其成为大家共通的“语言”。</p>
+<hr />
+<p>参考链接:</p>
+<ul>
+<li><a href="http://www.cnblogs.com/o-andy-o/archive/2012/01/14/2322232.html" title="ER图与UML图(cnblogs博客)">ER图与UML图(cnblogs博客)</a></li>
+<li><a href="http://baike.baidu.com/view/15236.htm" title="(百度百科)E-R图">(百度百科)E-R图</a></li>
+<li><a href="http://www.tuicool.com/articles/RfIR7fn" title="数据库ER图该怎么画 (@tuicool.com)">数据库ER图该怎么画 (@tuicool.com)</a></li>
+<li>~~<a href="http://www.lampblog.net/2014/09/%E6%95%B0%E6%8D%AE%E5%BA%93er%E5%9B%BE%E7%94%BB%E6%B3%95%E6%80%BB%E7%BB%93/" title="数据库ER图画法总结 (@lampblog.net , 图片不可用)">数据库ER图画法总结 (@lampblog.net , 图片不可用)</a>~~</li>
+<li><a href="http://m.oschina.net/blog/206680" title="数据库设计和E-R模型 (@oschina , 偏理论)">数据库设计和E-R模型 (@oschina , 偏理论)</a></li>
+</ul>
+<blockquote><ul>
+<li><p>引申 &ndash;> 数据库设计 (系列博客)  (<a href="http://www.cnblogs.com/DBFocus/archive/2011/04/24/2026142.html" title="Step by Step (3)——基本ER模型构件">Step by Step (3)——基本ER模型构件</a>)
+<img src="/blog_images/E-R-diagram_and_UML-diagram/ER-chen_compares_crow&apos;s-foot.png" alt="Chen式标记法与crow&apos;s-foot(鱼尾纹)标记法对照" title="Chen式标记法与crow&apos;s-foot  鱼尾纹  标记法对照" /></p>
+</li>
+<li><p>引申 &ndash;> <strong>软件建模语言</strong>
+<br /><a href="http://wenku.baidu.com/view/e583236d58fafab069dc02a5.html" title="02软件建模语言 @百度文库_浙江农林大学-软件工程 PPT课件">02软件建模语言(1) (@百度文库_浙江农林大学-软件工程 PPT课件)</a>
+<img src="/blog_images/E-R-diagram_and_UML-diagram/ER_notations.jpg" alt="ER 图标记法" title="ER 图标记法" /></p>
+</li>
+</ul>
+<blockquote><p><a href="http://www.myeclipsecn.com/learningcenter/database-development/designing-entity-relation-diagram/" title="设计一个实体关系 ER 图">(使用 myeclipse &ndash; 鱼尾纹标记法 )设计一个实体关系 ER 图 (@MyEclipse中文官网)</a></p>
+</blockquote>
+</blockquote>
+<h1>UML资料</h1>
+<ul>
+<li><p>(yafey注:简介版 ) ER图与UML图  http://www.cnblogs.com/o-andy-o/archive/2012/01/14/2322232.html</p>
+</li>
+<li><p>(yafey注:iteye上著名的收集达人 ) UML 的九种模型图  http://zz563143188.iteye.com/blog/1841234</p>
+</li>
+<li><p>UML实践&mdash;-用例图、顺序图、状态图、类图、包图、协作图   http://www.uml.org.cn/oobject/200901203.asp</p>
+<ul>
+<li><strong>iProcess(软件生命周期分工计划流程)</strong>(企业内训成功案例&ndash;火龙果软件工程技术中心) http://www.uml.org.cn/MyProcess/GuideView/MyP/MyProcess.asp</li>
+</ul>
+</li>
+<li><p>UML 基础: 类图   http://www.ibm.com/developerworks/cn/rational/rationaledge/content/feb05/bell/</p>
+</li>
+<li><p>看懂UML类图和时序图   http://www.cnblogs.com/me115/p/4092632.html</p>
+<ul>
+<li>上面的链接为在线电子书 <**图说设计模式**> 的第一章, 完整版链接   https://github.com/me115/design_patterns</li>
+<li>《淘宝技术这十年》读书笔记   http://www.cnblogs.com/me115/p/3545054.html#h20</li>
+<li>如何保障晚间的高效工作   http://www.cnblogs.com/me115/archive/2012/09/18/2689986.html</li>
+<li>【CC评网】2013.第39周 漂亮的作息表    http://www.cnblogs.com/me115/p/3371486.html</li>
+<li>不要在一门技术上吊死   http://www.cnblogs.com/me115/archive/2012/09/06/2672798.html</li>
+<li>WEB站点性能优化实践（加载速度提升2s）    http://www.cnblogs.com/me115/archive/2013/01/24/2874153.html</li>
+<li>沟通至上 《高效程序员的45个习惯》读书笔记   http://www.cnblogs.com/me115/archive/2013/03/25/2978353.html</li>
+<li><strong>&hellip; 该博客上还有很多精华&hellip;</strong></li>
+</ul>
+</li>
+</ul>
+<hr />
+<div style="width:60;height:200px"></div>
+<p>Eclipse 安装插件   http://www.cnblogs.com/o-andy-o/archive/2012/03/24/2415446.html</p>
+<div style="width:60;height:200px"></div>
+<hr />
 </div>
   <footer>
     <p class="meta">
