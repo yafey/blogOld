@@ -3,7 +3,7 @@
   <title><![CDATA[YaFey 的博客]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-15T02:22:33+08:00</updated>
+  <updated>2015-09-16T09:45:35+08:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[<a href='https://github.com/yafey'>YaFey</a>]]></name>
@@ -11,6 +11,13 @@
   </author>
   <generator uri="http://press.opoo.org/">OpooPress</generator>
 
+  <entry>
+    <title type="html"><![CDATA[GIT 使用的基本方法]]></title>
+    <link href="http://yoursite.com/article/2015/09/git-basic-operation/"/>
+    <updated>2015-09-16T09:21:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/09/git-basic-operation/</id>
+    <content type="html"><![CDATA[GIT 使用的基本方法, post-brief]]></content>
+  </entry>
   <entry>
     <title type="html"><![CDATA[ER图与UML图(暂且只是ER图)]]></title>
     <link href="http://yoursite.com/article/2015/09/er-diagram/"/>
@@ -143,12 +150,5 @@
     <updated>2015-01-21T00:08:00+08:00</updated>
     <id>http://yoursite.com/article/2015/01/reference-blogs-style/</id>
     <content type="html"><![CDATA[参考的博客风格 , post-brief]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[MarkdownPad2 pro 注册码]]></title>
-    <link href="http://yoursite.com/article/2015/01/markdownpad2-pro-serial_number/"/>
-    <updated>2015-01-20T22:19:00+08:00</updated>
-    <id>http://yoursite.com/article/2015/01/markdownpad2-pro-serial_number/</id>
-    <content type="html"><![CDATA[MarkdownPad2 pro 注册码 , post-brief]]></content>
   </entry>
 </feed>
