@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="zh"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Oracle逗号分隔字段 - YaFey 的博客</title>
+  <meta name="author" content="<a href='https://github.com/yafey'>YaFey</a>">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="OpooPressSiteRoot" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Generator" content="OpooPress-1.1.1"/>
+  <meta name="Generated" content="2015-09-23T01:40:09+08:00"/>
+  <link rel="canonical" href="/article/2015/09/oracle-comma-separate-field/">
+  
+  
+  <link href="/favicon.ico" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="YaFey 的博客" type="application/atom+xml">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic|PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="/plugins/syntax-highlighter/styles/shCoreDefault.css"/>
+  <!--[if lt IE 9]><script src="/javascripts/html5shiv.js"></script><![endif]-->
+</head>
+<body class="no-sidebar">
+  <!--[if lt IE 9]><script src="/javascripts/unsupported-browser.js"></script><![endif]-->
+  <header role="banner"><hgroup>
+  <h1><a href="/">YaFey 的博客</a></h1>
+    <h2>记录点点滴滴</h2>
+</hgroup>
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:http://yoursite.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="搜索"/>
+  </fieldset>
+</form>
+<fieldset class="mobile-nav">
+  <select onchange="if (this.value) { window.location.href = this.value;}">
+    <option value="">导航&hellip;</option>
+    <option value="/">&raquo; 文章</option>
+    <option value="/archives/">&raquo; 归档</option>
+    <option value="/category/">&raquo; 分类</option>
+    <option value="/sample-page.html">&raquo; 示例页面</option>
+    <option value="/about/">&raquo; 关于</option>
+  </select>
+</fieldset>
+
+<ul class="main-navigation">
+<li><a href="/">文章</a></li>
+<li><a href="/archives/">归档</a></li>
+<li><a href="/category/">分类</a></li>
+<li><a href="/sample-page.html">示例页面</a></li>
+<li><a href="/about/">关于</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+<div>
+<article class="hentry" role="article">
+  <header>
+      <h1 class="entry-title">Oracle逗号分隔字段</h1>
+
+      <p class="meta">
+		
+
+
+<time datetime="2015-09-22T22:36:00+08:00" pubdate>2015年09月22日 22:36:00</time>
+      </p>
+  </header>
+
+  <div class="entry-content"><blockquote><p>关于Oracle 的行列转换，网上有许多讨论。到Oracle 11g以后官方的listagg出现了。它带有灵活的group和over语法，使得行列转换变得容易。除了listagg以外，传统的wm_concat也可以胜任行列转换，而regexp_substr在加上connect以后可以成为这两个函数的反函数。</p>
+<p><a href="http://oracle-abc.wikidot.com/zh-blog:28" title="Oracle 的行列转换listagg,wm_concat和regexp_substr">Oracle 的行列转换listagg,wm_concat和regexp_substr</a></p>
+<ul>
+<li>介绍了 listagg 和 wm_concat , 没有介绍 regexp_substr</li>
+</ul>
+</blockquote>
+<p>&hellip;</p>
+<blockquote><p><a href="http://jackyrong.iteye.com/blog/1706759" title="oracle中通过正则表达式函数处理逗号分隔的字段">oracle中通过正则表达式函数处理逗号分隔的字段</a>
+提到了这种方式 (方式二)</p>
+<pre class='brush:sql'>SELECT distinct A1, REGEXP_SUBSTR(B1, '[^,]+', 1, LEVEL) AS A2
+   FROM TEST
+   CONNECT BY LEVEL &lt;= LENGTH(B1)-LENGTH(REPLACE(B1, ','))+1)
+</pre></blockquote>
+<h1>1. oracle中通过正则表达式函数处理逗号分隔的字段</h1>
+<h2>方式一(简便的写法)：</h2>
+<ul>
+<li>SYS_CONNECT_BY_PATH 相关</li>
+<li>Hierarchical Queries</li>
+</ul>
+<pre class='brush:sql'>SELECT DISTINCT REGEXP_SUBSTR('23,45,34,56','[^,]+',1,LEVEL) as "token"
+FROM DUAL
+CONNECT BY REGEXP_SUBSTR('23,45,34,56','[^,]+',1,LEVEL) IS NOT NULL
+order by 1
+</pre><p><a href="http://stackoverflow.com/questions/19195280/connect-by-clause-in-regex-substr" title="connect by clause in regex_substr @stackoverflow">connect by clause in regex_substr @stackoverflow</a></p>
+<blockquote><ul>
+<li>The &ldquo;abuse&rdquo; (as Colin 't Hart put it) of <code>connected by</code> has a good purpose here: by using <code>REGEXP_SUBSTR</code> you can extract only one of the 4 matches (23,34,45,56): the regex [^,]+ matches any character sequence in the string which does not contain a comma.</li>
+</ul>
+</blockquote>
+<p>&hellip;</p>
+<blockquote><ul>
+<li>The first is to perform a hierarchical query, see <strong>[Oracle® Database ]SQL Language Reference 12c Release 1 (12.1) E41329-19</strong> ( <a href="http://docs.oracle.com/database/121/SQLRF/E41329-19.pdf" title="[12c PDF link@doc.oracle]">12c PDF link@doc.oracle</a> , <a href="http://docs.oracle.com/database/121/SQLRF/queries003.htm#SQLRF52332" title="HTML on line">HTML on line</a> )</li>
+<li>The second is to get a substring using regular expressions.</li>
+<li>This query &ldquo;abuses&rdquo;(滥用) the <code>connect by</code> functionality to generate rows in a query on <code>dual</code>.(这里的<code>connect by</code>的功能是在 生成纪录行,作为一个对 dual 虚表的查询的结果行.) As long as the expression passed to <code>connect by</code> is true, it will generate a new row and increase the value of the pseudo column(伪列) <code>LEVEL</code>.(如果传给<code>connect by</code>的表达式是结果是 true , 他会生成一条新的纪录行,同时 <code>LEVEL + 1</code>)<br />
+Then <code>LEVEL</code> is passed to <code>regex_substr</code> to get the <code>nth value</code> when applying the regular expression.(然后 <code>LEVEL</code> 传给 <code>regex_substr</code> ,用来 获得 第 n 个 匹配 正则表达式的纪录. )</li>
+</ul>
+</blockquote>
+<h2>方式二：</h2>
+<p>PIPELINED 的应用</p>
+<pre class='brush:sql'>-- 定义一个 type
+create type TYPE_CCM_VARCHAR2A_TABLE is table of varchar2(32767);
+
+-- 定义 一个 function
+CREATE OR REPLACE FUNCTION string_to_table_num(p VARCHAR2)
+  RETURN TYPE_CCM_VARCHAR2A_TABLE
+  PIPELINED IS
+BEGIN
+  FOR cc IN (
+      SELECT rtrim(regexp_substr(str, '[^,]*,', 1, level), ',') res
+      FROM (SELECT p || ',' str FROM dual)
+      CONNECT BY  level &lt;= length(str) - length(replace(str, ',', '') )
+  ) 
+    LOOP
+      PIPE ROW(cc.res);
+  END LOOP;
+END;
+/
+
+
+-- 创建一个 view 来模拟 table
+create or replace view TEST as
+       select 'S9G6' as fund_id from dual
+    union select 'S2FG' as fund_id from dual
+    union select 'S2EM' as fund_id from dual
+    union select 'XXXX' as fund_id from dual;
+
+
+
+
+--select * from TEST;
+
+
+
+-- 从 view/table 中获得 符合的纪录 (逗号分隔字符串 转换为 in 后面的范围)
+SELECT distinct fund_id 
+  FROM TEST 
+WHERE fund_id IN (SELECT * FROM TABLE(string_to_table_num('S9G6,S2FG,S2EM')) );
+</pre></div>
+  <footer>
+    <p class="meta">
+<span class="byline author vcard">作者 <span class="fn"><a href='https://github.com/yafey'>YaFey</a></span></span>      
+
+
+<time datetime="2015-09-22T22:36:00+08:00" pubdate>2015年09月22日 22:36:00</time>
+
+<span class="categories">属于 <a class="category" href="/category/oracle/">Oracle</a>
+ 分类</span>
+
+
+<span class="categories">被贴了 <a class="tag" href="/tag/oracle/">Oracle</a>, <a class="tag" href="/tag/xing-lie-zhuan-huan/">行列转换</a>
+ 标签</span>
+    </p>
+<div class="sharing">
+  </div>
+    <p class="meta">
+        <a class="basic-alignment left" href="/article/2015/09/git-basic-operation/" title="上一篇: GIT 使用的基本方法">&laquo; GIT 使用的基本方法</a>
+    </p>
+  </footer>
+</article>
+</div>
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  版权所有 &copy; 2015 - <a href='https://github.com/yafey'>YaFey</a> -
+  <span class="credit">Powered by <a href="http://www.opoopress.com/">OpooPress</a></span>
+</p></footer>
+<script type="text/javascript" src="/javascripts/opoopress.min.js"></script>
+<script language="JavaScript">
+<!--
+    window.OpooPress = new OpooPressApp({siteUrl:'http://yoursite.com',rootUrl:'',pageUrl:'/article/2015/09/oracle-comma-separate-field/',title:'Oracle逗号分隔字段',refreshRelativeTimes:true,verbose:true},{});
+    OpooPress.init();
+
+//-->
+</script>
+<!-- START: Syntax Highlighter ComPress -->
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/plugins/syntax-highlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.autoloader(
+        'applescript			/plugins/syntax-highlighter/scripts/shBrushAppleScript.js',
+        'actionscript3 as3		/plugins/syntax-highlighter/scripts/shBrushAS3.js',
+        'bash shell				/plugins/syntax-highlighter/scripts/shBrushBash.js',
+        'coldfusion cf			/plugins/syntax-highlighter/scripts/shBrushColdFusion.js',
+        'cpp c					/plugins/syntax-highlighter/scripts/shBrushCpp.js',
+        'c# c-sharp csharp		/plugins/syntax-highlighter/scripts/shBrushCSharp.js',
+        'css					/plugins/syntax-highlighter/scripts/shBrushCss.js',
+        'delphi pascal pas		/plugins/syntax-highlighter/scripts/shBrushDelphi.js',
+        'diff patch			    /plugins/syntax-highlighter/scripts/shBrushDiff.js',
+        'erl erlang				/plugins/syntax-highlighter/scripts/shBrushErlang.js',
+        'groovy					/plugins/syntax-highlighter/scripts/shBrushGroovy.js',
+        'java					/plugins/syntax-highlighter/scripts/shBrushJava.js',
+        'jfx javafx				/plugins/syntax-highlighter/scripts/shBrushJavaFX.js',
+        'js jscript javascript	/plugins/syntax-highlighter/scripts/shBrushJScript.js',
+        'perl pl				/plugins/syntax-highlighter/scripts/shBrushPerl.js',
+        'php					/plugins/syntax-highlighter/scripts/shBrushPhp.js',
+        'text plain				/plugins/syntax-highlighter/scripts/shBrushPlain.js',
+        'powershell ps          /plugins/syntax-highlighter/scripts/shBrushPowerShell.js',
+        'py python				/plugins/syntax-highlighter/scripts/shBrushPython.js',
+        'ruby rails ror rb		/plugins/syntax-highlighter/scripts/shBrushRuby.js',
+        'sass scss              /plugins/syntax-highlighter/scripts/shBrushSass.js',
+        'scala					/plugins/syntax-highlighter/scripts/shBrushScala.js',
+        'sql					/plugins/syntax-highlighter/scripts/shBrushSql.js',
+        'vb vbnet				/plugins/syntax-highlighter/scripts/shBrushVb.js',
+        'xml xhtml xslt html	/plugins/syntax-highlighter/scripts/shBrushXml.js'
+    );
+    SyntaxHighlighter.defaults['auto-links'] = false;                 
+    SyntaxHighlighter.defaults['toolbar'] = false;     
+    SyntaxHighlighter.defaults['tab-size'] = 4;
+    SyntaxHighlighter.all();
+</script>
+<!-- END: Syntax Highlighter ComPress -->
+</body>
+</html>
+

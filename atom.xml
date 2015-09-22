@@ -3,7 +3,7 @@
   <title><![CDATA[YaFey 的博客]]></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-16T09:45:35+08:00</updated>
+  <updated>2015-09-23T01:40:09+08:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[<a href='https://github.com/yafey'>YaFey</a>]]></name>
@@ -11,6 +11,13 @@
   </author>
   <generator uri="http://press.opoo.org/">OpooPress</generator>
 
+  <entry>
+    <title type="html"><![CDATA[Oracle逗号分隔字段]]></title>
+    <link href="http://yoursite.com/article/2015/09/oracle-comma-separate-field/"/>
+    <updated>2015-09-22T22:36:00+08:00</updated>
+    <id>http://yoursite.com/article/2015/09/oracle-comma-separate-field/</id>
+    <content type="html"><![CDATA[Oracle逗号分隔字段, post-brief]]></content>
+  </entry>
   <entry>
     <title type="html"><![CDATA[GIT 使用的基本方法]]></title>
     <link href="http://yoursite.com/article/2015/09/git-basic-operation/"/>
@@ -143,12 +150,5 @@
     <updated>2015-01-21T00:21:00+08:00</updated>
     <id>http://yoursite.com/article/2015/01/the-way-to-cto-in-java/</id>
     <content type="html"><![CDATA[从程序员到CTO的Java技术路线图 , post-brief]]></content>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[参考的博客风格]]></title>
-    <link href="http://yoursite.com/article/2015/01/reference-blogs-style/"/>
-    <updated>2015-01-21T00:08:00+08:00</updated>
-    <id>http://yoursite.com/article/2015/01/reference-blogs-style/</id>
-    <content type="html"><![CDATA[参考的博客风格 , post-brief]]></content>
   </entry>
 </feed>
